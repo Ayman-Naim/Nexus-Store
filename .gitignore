@@ -8,31 +8,6 @@
 **/*.playground/**/timeline.xctimeline
 .idea/
 
-# Build
-Scripts/build/
-build/
-DerivedData/
-*.ipa
-
-# Carthage
-Carthage/
-
-# CocoaPods
-Pods/
-
-# fastlane
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/screenshots
-fastlane/test_output
-fastlane/sign&cert
-
-# CSV
-*.orig
-.svn
-
-# Hidden Folder
-hidden/
 
 # Other
 *~
