@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		01A0EB8A2AE071A1004310FC /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0EB882AE071A1004310FC /* CartViewController.swift */; };
 		01A0EB8B2AE071A1004310FC /* CartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01A0EB892AE071A1004310FC /* CartViewController.xib */; };
+		01A0EB932AE075CB004310FC /* CartProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0EB912AE075CB004310FC /* CartProductTableViewCell.swift */; };
+		01A0EB942AE075CB004310FC /* CartProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01A0EB922AE075CB004310FC /* CartProductTableViewCell.xib */; };
 		C1B2C0495288625C7FBFE0B5 /* Pods_Nexus_StoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 660EDF30701FD7C11597AC93 /* Pods_Nexus_StoreTests.framework */; };
 		D14182C7B08E56039861E606 /* Pods_Nexus_Store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EE52BF3C2B1CE37BD0BE425 /* Pods_Nexus_Store.framework */; };
 		E34D8AC62AE02374004B4C1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E34D8AC52AE02374004B4C1B /* GoogleService-Info.plist */; };
@@ -45,6 +47,8 @@
 /* Begin PBXFileReference section */
 		01A0EB882AE071A1004310FC /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		01A0EB892AE071A1004310FC /* CartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartViewController.xib; sourceTree = "<group>"; };
+		01A0EB912AE075CB004310FC /* CartProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartProductTableViewCell.swift; sourceTree = "<group>"; };
+		01A0EB922AE075CB004310FC /* CartProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartProductTableViewCell.xib; sourceTree = "<group>"; };
 		0EE52BF3C2B1CE37BD0BE425 /* Pods_Nexus_Store.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nexus_Store.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D0897498D8507D3F7C4DEF /* Pods-Nexus-Store.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nexus-Store.release.xcconfig"; path = "Target Support Files/Pods-Nexus-Store/Pods-Nexus-Store.release.xcconfig"; sourceTree = "<group>"; };
 		294B772207E75B1ADC58E6CF /* Pods-Nexus-Store-Nexus-StoreUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nexus-Store-Nexus-StoreUITests.debug.xcconfig"; path = "Target Support Files/Pods-Nexus-Store-Nexus-StoreUITests/Pods-Nexus-Store-Nexus-StoreUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 		01A0EB862AE07174004310FC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				01A0EB902AE075AE004310FC /* CartProductCell */,
 				01A0EB882AE071A1004310FC /* CartViewController.swift */,
 				01A0EB892AE071A1004310FC /* CartViewController.xib */,
 			);
@@ -122,6 +127,15 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		01A0EB902AE075AE004310FC /* CartProductCell */ = {
+			isa = PBXGroup;
+			children = (
+				01A0EB912AE075CB004310FC /* CartProductTableViewCell.swift */,
+				01A0EB922AE075CB004310FC /* CartProductTableViewCell.xib */,
+			);
+			path = CartProductCell;
 			sourceTree = "<group>";
 		};
 		423F5CB5BDD8E70020970C78 /* Frameworks */ = {
@@ -405,6 +419,7 @@
 				E37687B72ADDFFB800DB09A1 /* Assets.xcassets in Resources */,
 				01A0EB8B2AE071A1004310FC /* CartViewController.xib in Resources */,
 				E37687B22ADDFFB500DB09A1 /* Main.storyboard in Resources */,
+				01A0EB942AE075CB004310FC /* CartProductTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +550,7 @@
 				E37687AF2ADDFFB500DB09A1 /* ViewController.swift in Sources */,
 				E37687AB2ADDFFB500DB09A1 /* AppDelegate.swift in Sources */,
 				01A0EB8A2AE071A1004310FC /* CartViewController.swift in Sources */,
+				01A0EB932AE075CB004310FC /* CartProductTableViewCell.swift in Sources */,
 				E37687AD2ADDFFB500DB09A1 /* SceneDelegate.swift in Sources */,
 				E37687B52ADDFFB500DB09A1 /* Nexus_Store.xcdatamodeld in Sources */,
 			);
