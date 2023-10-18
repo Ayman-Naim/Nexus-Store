@@ -14,6 +14,21 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func ayman() {
+        
+        
+    }
+    @IBAction func mostafa() {
+        
+        
+    }
+    @IBAction func khater() {
+        
+        
+    }
+    @IBAction func ahmed() {
+        
+        
+    }
 }
 
