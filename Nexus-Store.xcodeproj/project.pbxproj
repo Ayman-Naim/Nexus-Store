@@ -115,7 +115,6 @@
 				3192D118B80B9F641DCCCBBA /* Pods-Nexus-StoreTests.debug.xcconfig */,
 				ABA91D9122CA115C0ACBDB5A /* Pods-Nexus-StoreTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -150,7 +149,7 @@
 				E37687E42ADE005D00DB09A1 /* Utils */,
 				E37687E02ADE002B00DB09A1 /* Models */,
 				E37687E12ADE003600DB09A1 /* Services */,
-				E37687DD2ADDFFFF00DB09A1 /* Scene */,
+				E37687DD2ADDFFFF00DB09A1 /* Scenes */,
 			);
 			path = "Nexus-Store";
 			sourceTree = "<group>";
@@ -172,12 +171,12 @@
 			path = "Nexus-StoreUITests";
 			sourceTree = "<group>";
 		};
-		E37687DD2ADDFFFF00DB09A1 /* Scene */ = {
+		E37687DD2ADDFFFF00DB09A1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				E37687AE2ADDFFB500DB09A1 /* ViewController.swift */,
 			);
-			path = Scene;
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		E37687DE2ADE000400DB09A1 /* Core */ = {
@@ -691,6 +690,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -723,6 +723,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
