@@ -15,7 +15,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func ayman() {
-        
+        let vc = HomeViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     @IBAction func mostafa() {
