@@ -22,14 +22,14 @@ class AddAddressView: UIView {
         return view
     }()
     
-    private let nameTextField: CustomTextField = {
+    let nameTextField: CustomTextField = {
         let textField = CustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Name"
         textField.returnKeyType = .next
         return textField
     }()
-    private let cityTextField: CustomTextField = {
+    let cityTextField: CustomTextField = {
         let textField = CustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "City"
@@ -38,7 +38,7 @@ class AddAddressView: UIView {
         return textField
     }()
     
-    private let addressTextField: CustomTextField = {
+    let addressTextField: CustomTextField = {
         let textField = CustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Address"
@@ -47,7 +47,7 @@ class AddAddressView: UIView {
         return textField
     }()
     
-    private let addButton: UIButton = {
+    let addButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(named: "Title")
