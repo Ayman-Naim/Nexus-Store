@@ -18,6 +18,9 @@ class ViewController: UIViewController {
         let vc = HomeViewController()
         self.navigationController?.pushViewController(vc, animated: true)
         
+//        let vc = ProfileViewController()
+//        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     @IBAction func mostafa() {
         

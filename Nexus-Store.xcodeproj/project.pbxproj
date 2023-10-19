@@ -27,6 +27,12 @@
 		5BC20ABF2AE16C490071925A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20ABD2AE16C490071925A /* SignInViewController.swift */; };
 		C1B2C0495288625C7FBFE0B5 /* Pods_Nexus_StoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 660EDF30701FD7C11597AC93 /* Pods_Nexus_StoreTests.framework */; };
 		D14182C7B08E56039861E606 /* Pods_Nexus_Store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EE52BF3C2B1CE37BD0BE425 /* Pods_Nexus_Store.framework */; };
+		E34556662AE1AD9400312C6C /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34556642AE1AD9400312C6C /* OrderTableViewCell.swift */; };
+		E34556672AE1AD9400312C6C /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34556652AE1AD9400312C6C /* OrderTableViewCell.xib */; };
+		E345566C2AE1B51C00312C6C /* FavouriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E345566A2AE1B51C00312C6C /* FavouriteTableViewCell.swift */; };
+		E345566D2AE1B51C00312C6C /* FavouriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E345566B2AE1B51C00312C6C /* FavouriteTableViewCell.xib */; };
+		E34556722AE1D18200312C6C /* SectionHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34556702AE1D18200312C6C /* SectionHeaderTableViewCell.swift */; };
+		E34556732AE1D18200312C6C /* SectionHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34556712AE1D18200312C6C /* SectionHeaderTableViewCell.xib */; };
 		E34D8AC62AE02374004B4C1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E34D8AC52AE02374004B4C1B /* GoogleService-Info.plist */; };
 		E35BC57B2AE0724F00742654 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35BC5792AE0724F00742654 /* HomeViewController.swift */; };
 		E35BC57C2AE0724F00742654 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E35BC57A2AE0724F00742654 /* HomeViewController.xib */; };
@@ -46,6 +52,8 @@
 		E37687C52ADDFFB800DB09A1 /* Nexus_StoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37687C42ADDFFB800DB09A1 /* Nexus_StoreTests.swift */; };
 		E37687CF2ADDFFB800DB09A1 /* Nexus_StoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37687CE2ADDFFB800DB09A1 /* Nexus_StoreUITests.swift */; };
 		E37687D12ADDFFB800DB09A1 /* Nexus_StoreUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37687D02ADDFFB800DB09A1 /* Nexus_StoreUITestsLaunchTests.swift */; };
+		E3E498FA2AE19F4E00ED2924 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E498F82AE19F4E00ED2924 /* ProfileViewController.swift */; };
+		E3E498FB2AE19F4E00ED2924 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3E498F92AE19F4E00ED2924 /* ProfileViewController.xib */; };
 		FC4116BCED0AFD1F33CE1650 /* Pods_Nexus_Store_Nexus_StoreUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 640C7D4D9600F97F07382C0A /* Pods_Nexus_Store_Nexus_StoreUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +102,12 @@
 		640C7D4D9600F97F07382C0A /* Pods_Nexus_Store_Nexus_StoreUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nexus_Store_Nexus_StoreUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		660EDF30701FD7C11597AC93 /* Pods_Nexus_StoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nexus_StoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABA91D9122CA115C0ACBDB5A /* Pods-Nexus-StoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nexus-StoreTests.release.xcconfig"; path = "Target Support Files/Pods-Nexus-StoreTests/Pods-Nexus-StoreTests.release.xcconfig"; sourceTree = "<group>"; };
+		E34556642AE1AD9400312C6C /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
+		E34556652AE1AD9400312C6C /* OrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
+		E345566A2AE1B51C00312C6C /* FavouriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewCell.swift; sourceTree = "<group>"; };
+		E345566B2AE1B51C00312C6C /* FavouriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteTableViewCell.xib; sourceTree = "<group>"; };
+		E34556702AE1D18200312C6C /* SectionHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		E34556712AE1D18200312C6C /* SectionHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		E34D8AC52AE02374004B4C1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E35BC5792AE0724F00742654 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E35BC57A2AE0724F00742654 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -117,6 +131,8 @@
 		E37687CA2ADDFFB800DB09A1 /* Nexus-StoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nexus-StoreUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E37687CE2ADDFFB800DB09A1 /* Nexus_StoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nexus_StoreUITests.swift; sourceTree = "<group>"; };
 		E37687D02ADDFFB800DB09A1 /* Nexus_StoreUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nexus_StoreUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E3E498F82AE19F4E00ED2924 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E3E498F92AE19F4E00ED2924 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,9 +320,47 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E34556622AE1AD5D00312C6C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E345566E2AE1CB5E00312C6C /* ProfileSectinHeader */,
+				E34556692AE1B4EA00312C6C /* FavouriteCell */,
+				E34556682AE1B47C00312C6C /* OrderCell */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E34556682AE1B47C00312C6C /* OrderCell */ = {
+			isa = PBXGroup;
+			children = (
+				E34556642AE1AD9400312C6C /* OrderTableViewCell.swift */,
+				E34556652AE1AD9400312C6C /* OrderTableViewCell.xib */,
+			);
+			path = OrderCell;
+			sourceTree = "<group>";
+		};
+		E34556692AE1B4EA00312C6C /* FavouriteCell */ = {
+			isa = PBXGroup;
+			children = (
+				E345566A2AE1B51C00312C6C /* FavouriteTableViewCell.swift */,
+				E345566B2AE1B51C00312C6C /* FavouriteTableViewCell.xib */,
+			);
+			path = FavouriteCell;
+			sourceTree = "<group>";
+		};
+		E345566E2AE1CB5E00312C6C /* ProfileSectinHeader */ = {
+			isa = PBXGroup;
+			children = (
+				E34556702AE1D18200312C6C /* SectionHeaderTableViewCell.swift */,
+				E34556712AE1D18200312C6C /* SectionHeaderTableViewCell.xib */,
+			);
+			path = ProfileSectinHeader;
+			sourceTree = "<group>";
+		};
 		E35BC5762AE071E000742654 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				E3E498F52AE19F0800ED2924 /* Profile */,
 				E35BC57D2AE08CE300742654 /* Components */,
 				E35BC5782AE0723600742654 /* View */,
 			);
@@ -507,6 +561,24 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		E3E498F52AE19F0800ED2924 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E34556622AE1AD5D00312C6C /* Components */,
+				E3E498F62AE19F1400ED2924 /* View */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		E3E498F62AE19F1400ED2924 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E3E498F82AE19F4E00ED2924 /* ProfileViewController.swift */,
+				E3E498F92AE19F4E00ED2924 /* ProfileViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -628,9 +700,13 @@
 				E35BC57C2AE0724F00742654 /* HomeViewController.xib in Resources */,
 				E37687B72ADDFFB800DB09A1 /* Assets.xcassets in Resources */,
 				45D0E88B2AE08D7700A07332 /* productDetailsCell.xib in Resources */,
+				E34556732AE1D18200312C6C /* SectionHeaderTableViewCell.xib in Resources */,
+				E34556672AE1AD9400312C6C /* OrderTableViewCell.xib in Resources */,
 				01A0EB8B2AE071A1004310FC /* CartViewController.xib in Resources */,
+				E345566D2AE1B51C00312C6C /* FavouriteTableViewCell.xib in Resources */,
 				E37687B22ADDFFB500DB09A1 /* Main.storyboard in Resources */,
 				E35BC58D2AE0ADA500742654 /* BrandsCollectionCell.xib in Resources */,
+				E3E498FB2AE19F4E00ED2924 /* ProfileViewController.xib in Resources */,
 				01A0EB942AE075CB004310FC /* CartProductTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -759,6 +835,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E34556722AE1D18200312C6C /* SectionHeaderTableViewCell.swift in Sources */,
 				E35BC5802AE08D3000742654 /* OffersCell.swift in Sources */,
 				E35BC57B2AE0724F00742654 /* HomeViewController.swift in Sources */,
 				011281AE2AE18D7B00844137 /* AddressTableViewCell.swift in Sources */,
@@ -773,10 +850,13 @@
 				45D0E8802AE084E200A07332 /* MainCategoryCell.swift in Sources */,
 				E37687AB2ADDFFB500DB09A1 /* AppDelegate.swift in Sources */,
 				011281AC2AE18D7B00844137 /* ShippingViewController.swift in Sources */,
+				E345566C2AE1B51C00312C6C /* FavouriteTableViewCell.swift in Sources */,
 				011281AB2AE18D7B00844137 /* ShippingTableViewHeader.swift in Sources */,
 				01A0EB8A2AE071A1004310FC /* CartViewController.swift in Sources */,
+				E34556662AE1AD9400312C6C /* OrderTableViewCell.swift in Sources */,
 				01A0EB932AE075CB004310FC /* CartProductTableViewCell.swift in Sources */,
 				E37687AD2ADDFFB500DB09A1 /* SceneDelegate.swift in Sources */,
+				E3E498FA2AE19F4E00ED2924 /* ProfileViewController.swift in Sources */,
 				45D0E8982AE0A79200A07332 /* CategoryViewController.swift in Sources */,
 				E37687B52ADDFFB500DB09A1 /* Nexus_Store.xcdatamodeld in Sources */,
 			);

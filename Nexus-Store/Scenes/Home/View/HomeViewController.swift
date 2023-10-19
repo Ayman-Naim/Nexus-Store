@@ -11,6 +11,9 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var HomeCollectionView: UICollectionView!
     @IBOutlet weak var ProfileImage: UIImageView!
+    
+    @IBOutlet weak var SerachBarText: UISearchBar!
+    @IBOutlet weak var UserName: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         circleImage()
@@ -32,6 +35,18 @@ class HomeViewController: UIViewController {
         }
         self.HomeCollectionView.setCollectionViewLayout(layout, animated: true)
     }
+    
+    
+    @IBAction func CartButtonClicked(_ sender: Any) {
+        //
+    }
+    
+    @IBAction func favouriteButtonClicked(_ sender: Any) {
+        //
+    }
+    
+    
+    
     func circleImage(){
         self.ProfileImage.layer.cornerRadius = self.ProfileImage.frame.size.width/2;
         self.ProfileImage.layer.masksToBounds = true
@@ -97,7 +112,7 @@ class HomeViewController: UIViewController {
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(145)
-                                               , heightDimension: .estimated(120))
+                                               , heightDimension: .estimated(100))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, repeatingSubitem: item, count: 2)
         group.interItemSpacing = .fixed(15)
   
@@ -105,7 +120,7 @@ class HomeViewController: UIViewController {
         group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 40)
        
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 60)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 0)
         section.orthogonalScrollingBehavior = .paging
         section.boundarySupplementaryItems = [self.supplementtryHeader()]
        
@@ -130,23 +145,7 @@ class HomeViewController: UIViewController {
         return section
     }
     
-    private func makeLayout2() -> NSCollectionLayoutSection {
-            // Item
-            let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(120)
-                                                  , heightDimension: .absolute(120))
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
-            // Group
-            let groupSize = NSCollectionLayoutSize(widthDimension: .estimated(5), heightDimension: .estimated(5))
-            let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, repeatingSubitem: item, count: 2)
-            group.interItemSpacing = .fixed(10)
-        
-            // Section
-            let section = NSCollectionLayoutSection(group: group)
-            section.orthogonalScrollingBehavior = .paging
-
-            return section
-        }
+   
 
     
 }
@@ -173,15 +172,6 @@ extension HomeViewController :UICollectionViewDelegate,UICollectionViewDataSourc
             cell.pageIndicator.numberOfPages = 15
             cell.pageIndicator.currentPage = indexPath.row
 
-                   cell.layer.borderWidth = 0.0
-                   cell.layer.shadowColor = UIColor.black.cgColor
-                   cell.layer.shadowOffset = CGSize(width: 0, height: 0)
-                   cell.layer.shadowRadius = 4.0
-                   cell.layer.shadowOpacity = 1
-                   cell.layer.masksToBounds = false //<-
-            
-            
-            
             return cell
         case 1 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BrandsCollectionCell", for: indexPath) as! BrandsCollectionCell

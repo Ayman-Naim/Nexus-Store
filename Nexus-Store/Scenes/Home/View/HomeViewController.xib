@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -12,12 +12,14 @@
             <connections>
                 <outlet property="HomeCollectionView" destination="EUr-7K-S3b" id="sFY-H3-aWa"/>
                 <outlet property="ProfileImage" destination="dzW-T6-6UX" id="4lk-mh-bx0"/>
+                <outlet property="SerachBarText" destination="8NP-mO-frV" id="gC7-Vd-C2R"/>
+                <outlet property="UserName" destination="fKt-si-Bpr" id="vWi-Yi-a8Z"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileImage" translatesAutoresizingMaskIntoConstraints="NO" id="dzW-T6-6UX">
@@ -44,23 +46,29 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="-15" translatesAutoresizingMaskIntoConstraints="NO" id="BCc-4k-IeJ">
-                    <rect key="frame" x="290" y="71" width="88.666666666666686" height="34.333333333333343"/>
+                    <rect key="frame" x="327" y="71" width="88.666666666666686" height="34.333333333333343"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEZ-km-uYv">
-                            <rect key="frame" x="0.0" y="0.0" width="53.333333333333336" height="34.333333333333336"/>
+                            <rect key="frame" x="0.0" y="0.0" width="53" height="34.333333333333336"/>
                             <color key="tintColor" name="Title"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="cart" catalog="system">
-                                <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" weight="light"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" weight="regular"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="CartButtonClicked:" destination="-1" eventType="touchUpInside" id="8Od-Dm-dKM"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9c-ot-4Jg">
-                            <rect key="frame" x="38.333333333333314" y="0.0" width="50.333333333333343" height="34.333333333333336"/>
+                            <rect key="frame" x="38" y="0.0" width="50.666666666666657" height="34.333333333333336"/>
                             <color key="tintColor" name="Title"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="suit.heart" catalog="system">
-                                <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" weight="light"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" weight="regular"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="favouriteButtonClicked:" destination="-1" eventType="touchUpInside" id="PK3-VX-Lfz"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
@@ -69,7 +77,7 @@
                     </constraints>
                 </stackView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="EUr-7K-S3b">
-                    <rect key="frame" x="0.0" y="201" width="393" height="651"/>
+                    <rect key="frame" x="0.0" y="201" width="430" height="731"/>
                     <color key="backgroundColor" name="Background"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="seC-Ke-GEj">
                         <size key="itemSize" width="128" height="128"/>
@@ -83,7 +91,7 @@
                     </connections>
                 </collectionView>
                 <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="8NP-mO-frV">
-                    <rect key="frame" x="25" y="144" width="335" height="44"/>
+                    <rect key="frame" x="25" y="144" width="372" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="yej-Ta-3y4"/>
                     </constraints>
