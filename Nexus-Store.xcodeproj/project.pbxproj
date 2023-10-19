@@ -14,7 +14,6 @@
 		011281AE2AE18D7B00844137 /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011281A92AE18D7B00844137 /* AddressTableViewCell.swift */; };
 		011281B02AE1A4F900844137 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011281AF2AE1A4F900844137 /* CustomTextField.swift */; };
 		011281B62AE1AA6600844137 /* AddAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011281B42AE1AA6600844137 /* AddAddressViewController.swift */; };
-		011281B72AE1AA6600844137 /* AddAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 011281B52AE1AA6600844137 /* AddAddressViewController.xib */; };
 		01A0EB8A2AE071A1004310FC /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0EB882AE071A1004310FC /* CartViewController.swift */; };
 		01A0EB8B2AE071A1004310FC /* CartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01A0EB892AE071A1004310FC /* CartViewController.xib */; };
 		01A0EB932AE075CB004310FC /* CartProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0EB912AE075CB004310FC /* CartProductTableViewCell.swift */; };
@@ -77,7 +76,6 @@
 		011281A92AE18D7B00844137 /* AddressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
 		011281AF2AE1A4F900844137 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		011281B42AE1AA6600844137 /* AddAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewController.swift; sourceTree = "<group>"; };
-		011281B52AE1AA6600844137 /* AddAddressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddAddressViewController.xib; sourceTree = "<group>"; };
 		01A0EB882AE071A1004310FC /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		01A0EB892AE071A1004310FC /* CartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartViewController.xib; sourceTree = "<group>"; };
 		01A0EB912AE075CB004310FC /* CartProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartProductTableViewCell.swift; sourceTree = "<group>"; };
@@ -202,7 +200,6 @@
 			isa = PBXGroup;
 			children = (
 				011281B42AE1AA6600844137 /* AddAddressViewController.swift */,
-				011281B52AE1AA6600844137 /* AddAddressViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -660,7 +657,6 @@
 				45D0E8812AE084E200A07332 /* MainCategoryCell.xib in Resources */,
 				E35BC57C2AE0724F00742654 /* HomeViewController.xib in Resources */,
 				E37687B72ADDFFB800DB09A1 /* Assets.xcassets in Resources */,
-				011281B72AE1AA6600844137 /* AddAddressViewController.xib in Resources */,
 				45D0E88B2AE08D7700A07332 /* productDetailsCell.xib in Resources */,
 				01A0EB8B2AE071A1004310FC /* CartViewController.xib in Resources */,
 				E37687B22ADDFFB500DB09A1 /* Main.storyboard in Resources */,
