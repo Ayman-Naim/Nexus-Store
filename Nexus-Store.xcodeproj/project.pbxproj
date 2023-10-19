@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45D0E8802AE084E200A07332 /* MainCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D0E87E2AE084E200A07332 /* MainCategoryCell.swift */; };
+		45D0E8812AE084E200A07332 /* MainCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45D0E87F2AE084E200A07332 /* MainCategoryCell.xib */; };
+		45D0E88A2AE08D7700A07332 /* productDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D0E8882AE08D7700A07332 /* productDetailsCell.swift */; };
+		45D0E88B2AE08D7700A07332 /* productDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45D0E8892AE08D7700A07332 /* productDetailsCell.xib */; };
+		45D0E8912AE0A04800A07332 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D0E8902AE0A04800A07332 /* K.swift */; };
+		45D0E8982AE0A79200A07332 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D0E8962AE0A79200A07332 /* CategoryViewController.swift */; };
+		45D0E8992AE0A79200A07332 /* CategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45D0E8972AE0A79200A07332 /* CategoryViewController.xib */; };
 		C1B2C0495288625C7FBFE0B5 /* Pods_Nexus_StoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 660EDF30701FD7C11597AC93 /* Pods_Nexus_StoreTests.framework */; };
 		D14182C7B08E56039861E606 /* Pods_Nexus_Store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EE52BF3C2B1CE37BD0BE425 /* Pods_Nexus_Store.framework */; };
 		E34D8AC62AE02374004B4C1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E34D8AC52AE02374004B4C1B /* GoogleService-Info.plist */; };
@@ -49,6 +56,13 @@
 		2DD157DC05CF4AB3924C85A6 /* Pods-Nexus-Store.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nexus-Store.debug.xcconfig"; path = "Target Support Files/Pods-Nexus-Store/Pods-Nexus-Store.debug.xcconfig"; sourceTree = "<group>"; };
 		3070E81288ED7179122FDA56 /* Pods-Nexus-Store-Nexus-StoreUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nexus-Store-Nexus-StoreUITests.release.xcconfig"; path = "Target Support Files/Pods-Nexus-Store-Nexus-StoreUITests/Pods-Nexus-Store-Nexus-StoreUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3192D118B80B9F641DCCCBBA /* Pods-Nexus-StoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nexus-StoreTests.debug.xcconfig"; path = "Target Support Files/Pods-Nexus-StoreTests/Pods-Nexus-StoreTests.debug.xcconfig"; sourceTree = "<group>"; };
+		45D0E87E2AE084E200A07332 /* MainCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryCell.swift; sourceTree = "<group>"; };
+		45D0E87F2AE084E200A07332 /* MainCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCategoryCell.xib; sourceTree = "<group>"; };
+		45D0E8882AE08D7700A07332 /* productDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = productDetailsCell.swift; sourceTree = "<group>"; };
+		45D0E8892AE08D7700A07332 /* productDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = productDetailsCell.xib; sourceTree = "<group>"; };
+		45D0E8902AE0A04800A07332 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		45D0E8962AE0A79200A07332 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		45D0E8972AE0A79200A07332 /* CategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryViewController.xib; sourceTree = "<group>"; };
 		640C7D4D9600F97F07382C0A /* Pods_Nexus_Store_Nexus_StoreUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nexus_Store_Nexus_StoreUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		660EDF30701FD7C11597AC93 /* Pods_Nexus_StoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nexus_StoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABA91D9122CA115C0ACBDB5A /* Pods-Nexus-StoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nexus-StoreTests.release.xcconfig"; path = "Target Support Files/Pods-Nexus-StoreTests/Pods-Nexus-StoreTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +121,43 @@
 				660EDF30701FD7C11597AC93 /* Pods_Nexus_StoreTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		45D0E8792AE0842700A07332 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				45D0E87A2AE0843900A07332 /* MainCategoryView */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		45D0E87A2AE0843900A07332 /* MainCategoryView */ = {
+			isa = PBXGroup;
+			children = (
+				45D0E8962AE0A79200A07332 /* CategoryViewController.swift */,
+				45D0E8972AE0A79200A07332 /* CategoryViewController.xib */,
+				45D0E8872AE08D1F00A07332 /* CustomProductCell */,
+				45D0E87B2AE0845400A07332 /* CustomCategoryCell */,
+			);
+			path = MainCategoryView;
+			sourceTree = "<group>";
+		};
+		45D0E87B2AE0845400A07332 /* CustomCategoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				45D0E87E2AE084E200A07332 /* MainCategoryCell.swift */,
+				45D0E87F2AE084E200A07332 /* MainCategoryCell.xib */,
+			);
+			path = CustomCategoryCell;
+			sourceTree = "<group>";
+		};
+		45D0E8872AE08D1F00A07332 /* CustomProductCell */ = {
+			isa = PBXGroup;
+			children = (
+				45D0E8882AE08D7700A07332 /* productDetailsCell.swift */,
+				45D0E8892AE08D7700A07332 /* productDetailsCell.xib */,
+			);
+			path = CustomProductCell;
 			sourceTree = "<group>";
 		};
 		835A8F3C12ED85B6C7C8C92A /* Pods */ = {
@@ -195,6 +246,7 @@
 		E37687DD2ADDFFFF00DB09A1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				45D0E8792AE0842700A07332 /* Category */,
 				E35BC5762AE071E000742654 /* Home */,
 				E37687AE2ADDFFB500DB09A1 /* ViewController.swift */,
 			);
@@ -245,6 +297,7 @@
 		E37687E62ADE035C00DB09A1 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				45D0E8902AE0A04800A07332 /* K.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -392,10 +445,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45D0E8992AE0A79200A07332 /* CategoryViewController.xib in Resources */,
 				E37687BA2ADDFFB800DB09A1 /* LaunchScreen.storyboard in Resources */,
 				E34D8AC62AE02374004B4C1B /* GoogleService-Info.plist in Resources */,
+				45D0E8812AE084E200A07332 /* MainCategoryCell.xib in Resources */,
 				E35BC57C2AE0724F00742654 /* HomeViewController.xib in Resources */,
 				E37687B72ADDFFB800DB09A1 /* Assets.xcassets in Resources */,
+				45D0E88B2AE08D7700A07332 /* productDetailsCell.xib in Resources */,
 				E37687B22ADDFFB500DB09A1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -524,10 +580,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45D0E8912AE0A04800A07332 /* K.swift in Sources */,
 				E35BC57B2AE0724F00742654 /* HomeViewController.swift in Sources */,
 				E37687AF2ADDFFB500DB09A1 /* ViewController.swift in Sources */,
+				45D0E88A2AE08D7700A07332 /* productDetailsCell.swift in Sources */,
+				45D0E8802AE084E200A07332 /* MainCategoryCell.swift in Sources */,
 				E37687AB2ADDFFB500DB09A1 /* AppDelegate.swift in Sources */,
 				E37687AD2ADDFFB500DB09A1 /* SceneDelegate.swift in Sources */,
+				45D0E8982AE0A79200A07332 /* CategoryViewController.swift in Sources */,
 				E37687B52ADDFFB500DB09A1 /* Nexus_Store.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
