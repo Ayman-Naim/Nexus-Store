@@ -8,8 +8,22 @@
 import UIKit
 
 class AddAddressViewController: UIViewController {
+    
+    
+    private let addAddressView = AddAddressView()
 
+    override func loadView() {
+        super.loadView()
+        self.view = addAddressView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Add Address"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
     }
+    
+    
+    
 }
