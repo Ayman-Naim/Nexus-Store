@@ -25,6 +25,7 @@ class ShippingViewController: UIViewController {
     
     private func setupNavigationBar() {
         title = "Shipping"
+        navigationItem.largeTitleDisplayMode = .automatic
         
         let addAddressBarButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(addAddress))
         addAddressBarButton.tintColor = UIColor(named: "Title")
@@ -64,11 +65,5 @@ extension ShippingViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: false)
         let cell = tableView.cellForRow(at: indexPath) as! AddressCell
         cell.didSelecteAddress(true)
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let addressHeader = ShippingTableViewHeader(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 70))
-        addressHeader.setTitle("Address")
-        return addressHeader
     }
 }
