@@ -12,9 +12,7 @@ class CustomTextField: UITextField {
     
     @IBInspectable var image: UIImage? {
         didSet {
-            if let image = image {
-                setupLeftView()
-            }
+            setupLeftView()
         }
     }
     
@@ -26,37 +24,31 @@ class CustomTextField: UITextField {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupLeftView()
-        self.layer.cornerRadius = cornerRadius
+        setupTextField()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupLeftView()
+        setupTextField()
+    }
+    
+    private func setupTextField() {
         self.layer.cornerRadius = cornerRadius
+        self.backgroundColor = UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1.00)
+        
+        setupLeftView()
     }
     
     private func setupLeftView() {
         self.leftViewMode = .always
-        let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 18, height: self.frame.height))
-        createImageView(in: leftView)
-        self.leftView = leftView
-    }
-    
-    private func createImageView(in superView: UIView) {
-        superView.subviews.forEach { $0.removeFromSuperview() }
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+        
         let imageView = UIImageView(image: self.image)
         imageView.contentMode = .scaleAspectFit
-
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.frame = view.bounds
+        view.addSubview(imageView)
         
-        superView.addSubview(imageView)
         
-        NSLayoutConstraint.activate([
-            imageView.centerXAnchor.constraint(equalTo: superView.centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: superView.centerYAnchor),
-            imageView.widthAnchor.constraint(equalTo: superView.widthAnchor, multiplier: 0.8),
-            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor)
-        ])
+        self.leftView = view
     }
 }
