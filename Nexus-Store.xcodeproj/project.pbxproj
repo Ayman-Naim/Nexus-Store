@@ -32,6 +32,10 @@
 		5BC20AC62AE190CA0071925A /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC20AC42AE190C90071925A /* SignUpViewController.xib */; };
 		5BC20AC92AE1911F0071925A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20AC72AE1911F0071925A /* SignInViewController.swift */; };
 		5BC20ACA2AE1911F0071925A /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC20AC82AE1911F0071925A /* SignInViewController.xib */; };
+		5BC20AD02AE1C71D0071925A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20ACE2AE1C71D0071925A /* WelcomeViewController.swift */; };
+		5BC20AD12AE1C71D0071925A /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC20ACF2AE1C71D0071925A /* WelcomeViewController.xib */; };
+		5BC20AD42AE1D0170071925A /* SocialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20AD22AE1D0170071925A /* SocialTableViewCell.swift */; };
+		5BC20AD52AE1D0170071925A /* SocialTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC20AD32AE1D0170071925A /* SocialTableViewCell.xib */; };
 		C1B2C0495288625C7FBFE0B5 /* Pods_Nexus_StoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 660EDF30701FD7C11597AC93 /* Pods_Nexus_StoreTests.framework */; };
 		D14182C7B08E56039861E606 /* Pods_Nexus_Store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EE52BF3C2B1CE37BD0BE425 /* Pods_Nexus_Store.framework */; };
 		E34D8AC62AE02374004B4C1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E34D8AC52AE02374004B4C1B /* GoogleService-Info.plist */; };
@@ -105,6 +109,10 @@
 		5BC20AC42AE190C90071925A /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		5BC20AC72AE1911F0071925A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		5BC20AC82AE1911F0071925A /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		5BC20ACE2AE1C71D0071925A /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		5BC20ACF2AE1C71D0071925A /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		5BC20AD22AE1D0170071925A /* SocialTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialTableViewCell.swift; sourceTree = "<group>"; };
+		5BC20AD32AE1D0170071925A /* SocialTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialTableViewCell.xib; sourceTree = "<group>"; };
 		640C7D4D9600F97F07382C0A /* Pods_Nexus_Store_Nexus_StoreUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nexus_Store_Nexus_StoreUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		660EDF30701FD7C11597AC93 /* Pods_Nexus_StoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nexus_StoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABA91D9122CA115C0ACBDB5A /* Pods-Nexus-StoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nexus-StoreTests.release.xcconfig"; path = "Target Support Files/Pods-Nexus-StoreTests/Pods-Nexus-StoreTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -310,6 +318,7 @@
 		5BC20AB92AE16C490071925A /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				5BC20ACB2AE1C67A0071925A /* Welcome */,
 				5BC20AC02AE190980071925A /* SignUp */,
 				5BC20ABA2AE16C490071925A /* ViewModel */,
 				5BC20ABB2AE16C490071925A /* View */,
@@ -357,6 +366,33 @@
 			children = (
 				5BC20AC32AE190C90071925A /* SignUpViewController.swift */,
 				5BC20AC42AE190C90071925A /* SignUpViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5BC20ACB2AE1C67A0071925A /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				5BC20ACD2AE1C6950071925A /* View */,
+				5BC20ACC2AE1C6890071925A /* ViewModel */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		5BC20ACC2AE1C6890071925A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5BC20ACD2AE1C6950071925A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5BC20ACE2AE1C71D0071925A /* WelcomeViewController.swift */,
+				5BC20ACF2AE1C71D0071925A /* WelcomeViewController.xib */,
+				5BC20AD22AE1D0170071925A /* SocialTableViewCell.swift */,
+				5BC20AD32AE1D0170071925A /* SocialTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -691,6 +727,7 @@
 				011281AD2AE18D7B00844137 /* AddressTableViewCell.xib in Resources */,
 				E34D8AC62AE02374004B4C1B /* GoogleService-Info.plist in Resources */,
 				011281AA2AE18D7B00844137 /* ShippingViewController.xib in Resources */,
+				5BC20AD52AE1D0170071925A /* SocialTableViewCell.xib in Resources */,
 				E35BC5872AE0A8B900742654 /* SectionHeaderReusableView.xib in Resources */,
 				5BC20ABE2AE16C490071925A /* SignInnViewController.xib in Resources */,
 				E35BC5812AE08D3000742654 /* OffersCell.xib in Resources */,
@@ -699,6 +736,7 @@
 				E37687B72ADDFFB800DB09A1 /* Assets.xcassets in Resources */,
 				45D0E88B2AE08D7700A07332 /* productDetailsCell.xib in Resources */,
 				5BC20AC62AE190CA0071925A /* SignUpViewController.xib in Resources */,
+				5BC20AD12AE1C71D0071925A /* WelcomeViewController.xib in Resources */,
 				01A0EB8B2AE071A1004310FC /* CartViewController.xib in Resources */,
 				E37687B22ADDFFB500DB09A1 /* Main.storyboard in Resources */,
 				E35BC58D2AE0ADA500742654 /* BrandsCollectionCell.xib in Resources */,
@@ -835,10 +873,12 @@
 				011281AE2AE18D7B00844137 /* AddressTableViewCell.swift in Sources */,
 				E37687AF2ADDFFB500DB09A1 /* ViewController.swift in Sources */,
 				E35BC58C2AE0ADA500742654 /* BrandsCollectionCell.swift in Sources */,
+				5BC20AD02AE1C71D0071925A /* WelcomeViewController.swift in Sources */,
 				E35BC5862AE0A8B900742654 /* SectionHeaderReusableView.swift in Sources */,
 				45D0E8912AE0A04800A07332 /* K.swift in Sources */,
 				5BC20AC52AE190CA0071925A /* SignUpViewController.swift in Sources */,
 				E35BC57B2AE0724F00742654 /* HomeViewController.swift in Sources */,
+				5BC20AD42AE1D0170071925A /* SocialTableViewCell.swift in Sources */,
 				5BC20ABF2AE16C490071925A /* SignInnViewController.swift in Sources */,
 				5BC20AC92AE1911F0071925A /* SignInViewController.swift in Sources */,
 				E37687AF2ADDFFB500DB09A1 /* ViewController.swift in Sources */,
