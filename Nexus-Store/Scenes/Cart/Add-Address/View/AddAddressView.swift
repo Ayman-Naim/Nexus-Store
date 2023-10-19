@@ -50,9 +50,9 @@ class AddAddressView: UIView {
     let addButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor(named: "Title")
+        button.backgroundColor = .label
         button.setTitle("Add", for: .normal)
-        button.tintColor = .systemBackground
+        button.setTitleColor(.systemBackground, for: .normal)
         button.layer.cornerRadius = 16
         return button
     }()
