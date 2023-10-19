@@ -32,7 +32,8 @@ class ViewController: UIViewController {
         
     }
     @IBAction func ahmed() {
-        
+        let vc = SignInViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
 }
