@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MainCategoryCell" customModule="Nexus_Store" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="182" height="57"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="182" height="57"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgE-76-GZC" userLabel="MainCategoryBackGround">
+                        <rect key="frame" x="31.666666666666664" y="12.999999999999998" width="118.66666666666669" height="31.333333333333329"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACCESSORIES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JG5-pZ-Go9">
+                                <rect key="frame" x="5.9999999999999929" y="6" width="106.66666666666666" height="19.333333333333332"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="Title"/>
+                        <constraints>
+                            <constraint firstItem="JG5-pZ-Go9" firstAttribute="top" secondItem="zgE-76-GZC" secondAttribute="top" constant="6" id="CFj-rx-TsL"/>
+                            <constraint firstAttribute="trailing" secondItem="JG5-pZ-Go9" secondAttribute="trailing" constant="6" id="VEs-wI-W0E"/>
+                            <constraint firstAttribute="bottom" secondItem="JG5-pZ-Go9" secondAttribute="bottom" constant="6" id="dKX-ps-fyo"/>
+                            <constraint firstItem="JG5-pZ-Go9" firstAttribute="leading" secondItem="zgE-76-GZC" secondAttribute="leading" constant="6" id="x61-CJ-VWh"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="12"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBound" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="zgE-76-GZC" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="EXK-So-qUX"/>
+                <constraint firstItem="zgE-76-GZC" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="eWR-OK-i0E"/>
+            </constraints>
+            <size key="customSize" width="182" height="57"/>
+            <connections>
+                <outlet property="backgoundMainCategoryView" destination="zgE-76-GZC" id="vqg-Rt-x0y"/>
+                <outlet property="mainCategoryLabel" destination="JG5-pZ-Go9" id="nv9-6m-2Is"/>
+            </connections>
+            <point key="canvasLocation" x="198.47328244274809" y="-1.0563380281690142"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Title">
+            <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
