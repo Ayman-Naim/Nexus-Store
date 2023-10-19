@@ -225,8 +225,8 @@
 		01A0EB852AE0716E004310FC /* Cart */ = {
 			isa = PBXGroup;
 			children = (
-				011281B12AE1AA0D00844137 /* Add-Address */,
 				011281AF2AE1A4F900844137 /* CustomTextField.swift */,
+				011281B12AE1AA0D00844137 /* Add-Address */,
 				011281A12AE18D7B00844137 /* Shipping */,
 				01A0EB862AE07174004310FC /* View */,
 				01A0EB872AE0717D004310FC /* ViewModel */,
