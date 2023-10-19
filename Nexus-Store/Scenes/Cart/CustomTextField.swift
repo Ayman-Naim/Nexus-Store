@@ -33,8 +33,7 @@ class CustomTextField: UITextField {
     
     private func setupTextField() {
         cornerRadius = 16
-        self.backgroundColor = UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1.00)
-        
+        self.backgroundColor = .systemBackground
         setupLeftView()
     }
     
