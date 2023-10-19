@@ -28,7 +28,9 @@ class ViewController: UIViewController {
         
     }
     @IBAction func khater() {
-        
+        let nav = UINavigationController(rootViewController: ShippingViewController())
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated: false)
         
     }
     @IBAction func ahmed() {
