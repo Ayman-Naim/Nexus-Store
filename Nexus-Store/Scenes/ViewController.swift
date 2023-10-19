@@ -21,6 +21,10 @@ class ViewController: UIViewController {
     }
     @IBAction func mostafa() {
         
+        let vc = CategoryViewController(nibName: K.categoryNibID, bundle: nil)
+         vc.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+         vc.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     @IBAction func khater() {
