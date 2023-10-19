@@ -28,9 +28,7 @@ class ViewController: UIViewController {
         
     }
     @IBAction func khater() {
-        let nav = UINavigationController(rootViewController: AddAddressViewController())
-        nav.modalPresentationStyle = .fullScreen
-        self.present(nav, animated: false)
+        self.navigationController?.pushViewController(CartViewController(), animated: true)
         
     }
     @IBAction func ahmed() {

@@ -148,6 +148,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
+                <color key="backgroundColor" name="Background"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="61t-Ky-Crv" secondAttribute="trailing" constant="8" id="IvR-sZ-ZCw"/>
                     <constraint firstAttribute="bottom" secondItem="61t-Ky-Crv" secondAttribute="bottom" constant="16" id="NkI-yr-DDE"/>

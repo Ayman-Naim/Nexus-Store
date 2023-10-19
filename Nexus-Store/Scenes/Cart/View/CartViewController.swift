@@ -11,13 +11,13 @@ class CartViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var totalPriceLabel: UILabel!
+    @IBOutlet weak var emptyView: UIView!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "My Cart"
-        
         setupTableView()
     }
     
