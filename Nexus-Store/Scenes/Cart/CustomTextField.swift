@@ -16,10 +16,9 @@ class CustomTextField: UITextField {
         }
     }
     
-    @IBInspectable var cornerRadius: CGFloat = 16 {
-        didSet {
-            self.layer.cornerRadius = cornerRadius
-        }
+    @IBInspectable var cornerRadius: CGFloat {
+        set { layer.cornerRadius = newValue }
+        get { return layer.cornerRadius }
     }
     
     override init(frame: CGRect) {
@@ -33,7 +32,7 @@ class CustomTextField: UITextField {
     }
     
     private func setupTextField() {
-        self.layer.cornerRadius = cornerRadius
+        cornerRadius = 16
         self.backgroundColor = UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1.00)
         
         setupLeftView()
