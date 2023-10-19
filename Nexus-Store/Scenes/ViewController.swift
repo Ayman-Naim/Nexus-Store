@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         
     }
     @IBAction func khater() {
-        let nav = UINavigationController(rootViewController: ShippingViewController())
+        let nav = UINavigationController(rootViewController: AddAddressViewController())
         nav.modalPresentationStyle = .fullScreen
         self.present(nav, animated: false)
         
