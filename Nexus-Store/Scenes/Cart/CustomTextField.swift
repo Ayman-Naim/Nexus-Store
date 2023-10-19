@@ -27,11 +27,13 @@ class CustomTextField: UITextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLeftView()
+        self.layer.cornerRadius = cornerRadius
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupLeftView()
+        self.layer.cornerRadius = cornerRadius
     }
     
     private func setupLeftView() {
