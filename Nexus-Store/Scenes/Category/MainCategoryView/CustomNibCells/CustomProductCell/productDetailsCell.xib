@@ -162,6 +162,11 @@
             <point key="canvasLocation" x="129.7709923664122" y="58.802816901408455"/>
         </collectionViewCell>
     </objects>
+    <designables>
+        <designable name="Dn6-No-oJ6">
+            <size key="intrinsicContentSize" width="100" height="16"/>
+        </designable>
+    </designables>
     <resources>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="mus\ProductImage" width="150" height="150"/>
