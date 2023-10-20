@@ -88,8 +88,14 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension CartViewController: ProductLandscapeCellDelegate {
     func didDeleteProduct(withID id: Int) {
-        products.removeAll(where: { $0.id == id})
-        tableView.reloadData()
+        if let index = products.firstIndex(where: { $0.id == id }) {
+            // Remove First
+            products.remove(at: index)
+            // Then Update TableView
+            tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .fade)
+            // Then Update the Price
+            updateTotalPrice()
+        }
     }
     
     func didUpdateProductQuantity(forProductID id: Int, with quantity: Int) {

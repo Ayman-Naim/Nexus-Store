@@ -34,6 +34,11 @@ class AddPromoCodeViewController: UIViewController {
     @IBAction func showOrdersButtonPressed(_ sender: UIButton) {
         self.present(ProductsOrderSheetTVC.sheet(), animated: true)
     }
+    
+    @IBAction func continueToPaymentButtonPressed(_ sender: UIButton) {
+        self.navigationController?.pushViewController(PayMethodViewController(), animated: true)
+    }
+    
 }
 
 

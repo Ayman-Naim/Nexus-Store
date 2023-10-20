@@ -47,7 +47,7 @@ class ShippingViewController: UIViewController {
     }
     
     @IBAction func continueToPaymentButtonPressed(_ sender: UIButton) {
-        
+        self.navigationController?.pushViewController(PayMethodViewController(), animated: true)
     }
     
     
