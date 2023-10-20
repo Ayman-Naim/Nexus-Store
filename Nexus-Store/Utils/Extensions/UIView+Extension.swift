@@ -26,4 +26,10 @@ extension UIView{
         shadows.layer.addSublayer(layer0)
 
     }
+    
+    
+    @IBInspectable var cornerRadius: CGFloat {
+        set { layer.cornerRadius = newValue }
+        get { layer.cornerRadius }
+    }
 }
