@@ -185,10 +185,10 @@
 		011281A22AE18D7B00844137 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				011281A32AE18D7B00844137 /* ShippingViewController.xib */,
 				011281A42AE18D7B00844137 /* ShippingTableViewHeader */,
-				011281A62AE18D7B00844137 /* ShippingViewController.swift */,
 				011281A72AE18D7B00844137 /* AddressCell */,
+				011281A32AE18D7B00844137 /* ShippingViewController.xib */,
+				011281A62AE18D7B00844137 /* ShippingViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
