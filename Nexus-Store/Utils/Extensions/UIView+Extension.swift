@@ -32,4 +32,17 @@ extension UIView{
         set { layer.cornerRadius = newValue }
         get { layer.cornerRadius }
     }
+    
+    @IBInspectable var setShadow: Bool {
+        set {
+            if newValue {
+                self.layer.shadowColor = UIColor.black.cgColor
+                self.layer.shadowOpacity = 0.1
+                self.layer.shadowOffset = .zero
+                self.layer.shadowRadius = self.layer.cornerRadius
+            }
+        }
+        
+        get { false }
+    }
 }
