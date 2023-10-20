@@ -22,5 +22,13 @@ class SizeColorCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    
+    //Animation
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        self.addingShadowWithEffect()
+//
+//    }
 
 }

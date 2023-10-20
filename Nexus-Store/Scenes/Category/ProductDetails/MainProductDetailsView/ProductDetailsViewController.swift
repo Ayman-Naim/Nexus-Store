@@ -14,7 +14,7 @@ class ProductDetailsViewController: UIViewController {
         static let storyBoardName = "ProductDetails"
         static let identifier = "ProductDetails"
     @IBOutlet weak var contentView: UIView!
-    
+    @IBOutlet weak var stepperView: UIView!
     @IBOutlet weak var reviewCollectionView: UICollectionView!
     @IBOutlet weak var productImageCollection: UICollectionView!
     @IBOutlet weak var productType: UILabel!
@@ -30,18 +30,30 @@ class ProductDetailsViewController: UIViewController {
     var productReviewDelegation = ProductReviewDelegation()
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.isHidden = true
-        navigationController?.navigationBar.isTranslucent = false
+        //navigationController?.navigationBar.isHidden = true
+       // navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
 
+        // Adjust the view's content insets to ignore the navigation bar
+        if #available(iOS 11.0, *) {
+            productImageCollection.contentInsetAdjustmentBehavior = .never
+        } else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
+        productImageCollection.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+      
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         configureDataSourceofImageCollection()
-      //  productImageCollection.contentInsetAdjustmentBehavior = .never
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-       
         layoutSetup()
-        // Do any additional setup after loading the view.
+        cosmaticsForUiView()
+        productImageCollection.contentInsetAdjustmentBehavior = .never
+
+        
+
     }
 
 
@@ -84,7 +96,7 @@ extension ProductDetailsViewController:UICollectionViewDataSource,UICollectionVi
 
         cell.EntireSelectedImage.numberOfPages = 3
         cell.EntireSelectedImage.currentPage = indexPath.row
-        cell.frame = productImageCollection.bounds
+        // cell.bounds = productImageCollection.frame
         return cell
     }
 
@@ -146,3 +158,15 @@ extension ProductDetailsViewController:UICollectionViewDataSource,UICollectionVi
 }
 
 
+
+
+
+//MARK: - Adding Cosmatics to UIView
+extension ProductDetailsViewController{
+    
+    
+    //MARK: - Cosmatics Layer Adding to UIView Function
+    func cosmaticsForUiView(){
+        stepperView.addingShadowWithEffectToView()
+    }
+}

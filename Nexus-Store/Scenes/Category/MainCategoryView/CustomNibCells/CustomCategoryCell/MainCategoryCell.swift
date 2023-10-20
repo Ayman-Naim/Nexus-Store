@@ -30,20 +30,6 @@ class MainCategoryCell: UICollectionViewCell {
 
 
 //MARK: - Customize the View And Adding Cosmatics with shadow to Cell
-extension UICollectionViewCell{
-    
-    func addingShadowWithEffect(){
-        layer.cornerRadius = 16
-        layer.shadowRadius = 5.0
-        layer.shadowColor = UIColor.gray.cgColor
-        layer.shadowOffset = CGSize(width: 3.3, height: 5.7)
-        layer.shadowOpacity = 0.7
-        layer.masksToBounds = false
-        contentView.layer.cornerRadius = 16
-        contentView.layer.masksToBounds = true
-        backgroundColor = .clear
-    }
-}
 
 
 extension UIView {
@@ -65,6 +51,7 @@ extension UIView {
     //MARK: - Setup Design of Category Cell Not Selected
     func configureDesignOfcellSelected(label:UILabel ){
         label.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        self.layer.borderColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
         self.layer.backgroundColor = UIColor(red: 0.062, green: 0.062, blue: 0.062, alpha: 1).cgColor
 
     }

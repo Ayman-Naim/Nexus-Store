@@ -28,7 +28,7 @@ class productDetailsCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.addingShadowWithEffect()
+        self.addingShadowWithEffectToCell()
         
     }
     

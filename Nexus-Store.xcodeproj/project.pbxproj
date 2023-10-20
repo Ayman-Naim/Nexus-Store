@@ -39,6 +39,8 @@
 		45123AC02AE24AE5001B12B7 /* productColorDelegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45123ABF2AE24AE5001B12B7 /* productColorDelegation.swift */; };
 		45123AC22AE24B30001B12B7 /* ProductSizeDelegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45123AC12AE24B30001B12B7 /* ProductSizeDelegation.swift */; };
 		45123AC52AE26473001B12B7 /* ProductReviewDelegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45123AC42AE26473001B12B7 /* ProductReviewDelegation.swift */; };
+		459D7B0C2AE2B84400AD8CC8 /* UICollectionVIew+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459D7B0B2AE2B84400AD8CC8 /* UICollectionVIew+Extension.swift */; };
+		459D7B0E2AE2B8A100AD8CC8 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459D7B0D2AE2B8A100AD8CC8 /* UIView+Extension.swift */; };
 		45D0E8912AE0A04800A07332 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D0E8902AE0A04800A07332 /* K.swift */; };
 		5BC20ABE2AE16C490071925A /* SignInnViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC20ABC2AE16C490071925A /* SignInnViewController.xib */; };
 		5BC20ABF2AE16C490071925A /* SignInnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20ABD2AE16C490071925A /* SignInnViewController.swift */; };
@@ -116,6 +118,8 @@
 		45123ABF2AE24AE5001B12B7 /* productColorDelegation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = productColorDelegation.swift; path = ../../../../../../../../../../Documents/productColorDelegation.swift; sourceTree = "<group>"; };
 		45123AC12AE24B30001B12B7 /* ProductSizeDelegation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductSizeDelegation.swift; path = ../../../../../../../../../../Documents/ProductSizeDelegation.swift; sourceTree = "<group>"; };
 		45123AC42AE26473001B12B7 /* ProductReviewDelegation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductReviewDelegation.swift; path = ../../../../../../../../../../Documents/ProductReviewDelegation.swift; sourceTree = "<group>"; };
+		459D7B0B2AE2B84400AD8CC8 /* UICollectionVIew+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionVIew+Extension.swift"; sourceTree = "<group>"; };
+		459D7B0D2AE2B8A100AD8CC8 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		45D0E8902AE0A04800A07332 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		5BC20ABC2AE16C490071925A /* SignInnViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInnViewController.xib; sourceTree = "<group>"; };
 		5BC20ABD2AE16C490071925A /* SignInnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInnViewController.swift; sourceTree = "<group>"; };
@@ -653,6 +657,8 @@
 			isa = PBXGroup;
 			children = (
 				011281BA2AE1E0AE00844137 /* UIImageView+Extension.swift */,
+				459D7B0B2AE2B84400AD8CC8 /* UICollectionVIew+Extension.swift */,
+				459D7B0D2AE2B8A100AD8CC8 /* UIView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -886,6 +892,7 @@
 				E34556722AE1D18200312C6C /* SectionHeaderTableViewCell.swift in Sources */,
 				45123AB12AE2149E001B12B7 /* ReviewProductCell.swift in Sources */,
 				45123AC02AE24AE5001B12B7 /* productColorDelegation.swift in Sources */,
+				459D7B0C2AE2B84400AD8CC8 /* UICollectionVIew+Extension.swift in Sources */,
 				E35BC5802AE08D3000742654 /* OffersCell.swift in Sources */,
 				E35BC57B2AE0724F00742654 /* HomeViewController.swift in Sources */,
 				45123AB72AE2149E001B12B7 /* CustomFooterSepertator.swift in Sources */,
@@ -900,6 +907,7 @@
 				E35BC5862AE0A8B900742654 /* SectionHeaderReusableView.swift in Sources */,
 				45D0E8912AE0A04800A07332 /* K.swift in Sources */,
 				5BC20AC52AE190CA0071925A /* SignUpViewController.swift in Sources */,
+				459D7B0E2AE2B8A100AD8CC8 /* UIView+Extension.swift in Sources */,
 				5BC20AD42AE1D0170071925A /* SocialTableViewCell.swift in Sources */,
 				45123AC22AE24B30001B12B7 /* ProductSizeDelegation.swift in Sources */,
 				45123AB52AE2149E001B12B7 /* productDetailsCell.swift in Sources */,
