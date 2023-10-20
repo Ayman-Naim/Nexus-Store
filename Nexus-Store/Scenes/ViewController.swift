@@ -15,11 +15,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func ayman() {
-        let vc = HomeViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        //let vc = HomeViewController()
+      //  self.navigationController?.pushViewController(vc, animated: true)
         
-//        let vc = ProfileViewController()
-//        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = PayMethodViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     @IBAction func mostafa() {

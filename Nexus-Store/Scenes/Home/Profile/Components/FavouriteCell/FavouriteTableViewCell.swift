@@ -15,6 +15,7 @@ class FavouriteTableViewCell: UITableViewCell {
     @IBOutlet weak var productRate: CosmosView!
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
     }
 

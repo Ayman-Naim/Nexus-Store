@@ -79,6 +79,10 @@
 		E37687B52ADDFFB500DB09A1 /* Nexus_Store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E37687B32ADDFFB500DB09A1 /* Nexus_Store.xcdatamodeld */; };
 		E37687B72ADDFFB800DB09A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E37687B62ADDFFB800DB09A1 /* Assets.xcassets */; };
 		E37687BA2ADDFFB800DB09A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E37687B82ADDFFB800DB09A1 /* LaunchScreen.storyboard */; };
+		E37B4DE52AE301B80051EB89 /* PayMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37B4DE32AE301B80051EB89 /* PayMethodViewController.swift */; };
+		E37B4DE62AE301B80051EB89 /* PayMethodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E37B4DE42AE301B80051EB89 /* PayMethodViewController.xib */; };
+		E37B4DEB2AE307BE0051EB89 /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37B4DE92AE307BE0051EB89 /* PaymentTableViewCell.swift */; };
+		E37B4DEC2AE307BE0051EB89 /* PaymentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E37B4DEA2AE307BE0051EB89 /* PaymentTableViewCell.xib */; };
 		E3E498FA2AE19F4E00ED2924 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E498F82AE19F4E00ED2924 /* ProfileViewController.swift */; };
 		E3E498FB2AE19F4E00ED2924 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3E498F92AE19F4E00ED2924 /* ProfileViewController.xib */; };
 /* End PBXBuildFile section */
@@ -166,6 +170,10 @@
 		E37687B62ADDFFB800DB09A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E37687B92ADDFFB800DB09A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E37687BB2ADDFFB800DB09A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E37B4DE32AE301B80051EB89 /* PayMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayMethodViewController.swift; sourceTree = "<group>"; };
+		E37B4DE42AE301B80051EB89 /* PayMethodViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayMethodViewController.xib; sourceTree = "<group>"; };
+		E37B4DE92AE307BE0051EB89 /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
+		E37B4DEA2AE307BE0051EB89 /* PaymentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentTableViewCell.xib; sourceTree = "<group>"; };
 		E3E498F82AE19F4E00ED2924 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E3E498F92AE19F4E00ED2924 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -590,6 +598,7 @@
 			isa = PBXGroup;
 			children = (
 				E3E498F52AE19F0800ED2924 /* Profile */,
+				E37B4DE22AE3011A0051EB89 /* PaymentMethod */,
 				E35BC57D2AE08CE300742654 /* Components */,
 				E35BC5782AE0723600742654 /* View */,
 			);
@@ -774,6 +783,33 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		E37B4DE22AE3011A0051EB89 /* PaymentMethod */ = {
+			isa = PBXGroup;
+			children = (
+				E37B4DE82AE307990051EB89 /* Component */,
+				E37B4DE72AE3078F0051EB89 /* View */,
+			);
+			path = PaymentMethod;
+			sourceTree = "<group>";
+		};
+		E37B4DE72AE3078F0051EB89 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E37B4DE32AE301B80051EB89 /* PayMethodViewController.swift */,
+				E37B4DE42AE301B80051EB89 /* PayMethodViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E37B4DE82AE307990051EB89 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				E37B4DE92AE307BE0051EB89 /* PaymentTableViewCell.swift */,
+				E37B4DEA2AE307BE0051EB89 /* PaymentTableViewCell.xib */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		E3E498F52AE19F0800ED2924 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -862,6 +898,7 @@
 				5BC20AD52AE1D0170071925A /* SocialTableViewCell.xib in Resources */,
 				45123AB42AE2149E001B12B7 /* productDetailsCell.xib in Resources */,
 				E35BC5872AE0A8B900742654 /* SectionHeaderReusableView.xib in Resources */,
+				E37B4DE62AE301B80051EB89 /* PayMethodViewController.xib in Resources */,
 				5BC20ABE2AE16C490071925A /* SignInnViewController.xib in Resources */,
 				45123AB92AE2149E001B12B7 /* MainCategoryCell.xib in Resources */,
 				E35BC5812AE08D3000742654 /* OffersCell.xib in Resources */,
@@ -882,6 +919,7 @@
 				45123AAC2AE2149E001B12B7 /* ProductImageCell.xib in Resources */,
 				E3E498FB2AE19F4E00ED2924 /* ProfileViewController.xib in Resources */,
 				01A0EB942AE075CB004310FC /* CartProductTableViewCell.xib in Resources */,
+				E37B4DEC2AE307BE0051EB89 /* PaymentTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -952,6 +990,7 @@
 				E35BC5862AE0A8B900742654 /* SectionHeaderReusableView.swift in Sources */,
 				45D0E8912AE0A04800A07332 /* K.swift in Sources */,
 				5BC20AC52AE190CA0071925A /* SignUpViewController.swift in Sources */,
+				E37B4DE52AE301B80051EB89 /* PayMethodViewController.swift in Sources */,
 				459D7B0E2AE2B8A100AD8CC8 /* UIView+Extension.swift in Sources */,
 				5BC20AD42AE1D0170071925A /* SocialTableViewCell.swift in Sources */,
 				45123AB52AE2149E001B12B7 /* productDetailsCell.swift in Sources */,
@@ -959,6 +998,7 @@
 				5BC20AC92AE1911F0071925A /* SignInViewController.swift in Sources */,
 				4531FE4F2AE2EE3800F47528 /* ProductSizeDelegation.swift in Sources */,
 				45123AAD2AE2149E001B12B7 /* ProductImageCell.swift in Sources */,
+				E37B4DEB2AE307BE0051EB89 /* PaymentTableViewCell.swift in Sources */,
 				01D776BE2AE2FFC50079F2B5 /* Alert.swift in Sources */,
 				011281B62AE1AA6600844137 /* AddAddressViewController.swift in Sources */,
 				01D776C82AE316770079F2B5 /* ProductsOrderSheetTVC.swift in Sources */,
