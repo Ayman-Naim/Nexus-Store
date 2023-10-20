@@ -40,7 +40,7 @@ extension ReviewProductCell {
     
     //Adding Shadow in Layer to the view of reviews cell
     func cosmaticsForReViewCell(){
-        var shadows = UIView()
+        let shadows = UIView()
         shadows.frame = backGroundView.frame
         shadows.clipsToBounds = false
         backGroundView.addSubview(shadows)
