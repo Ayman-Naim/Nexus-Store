@@ -9,7 +9,7 @@ import UIKit
 
 
 protocol AddAddressDelegate: AnyObject {
-    func didAddNewAddress()
+    func didAddNewAddress(_ address: (name: String, city: String, address: String))
 }
 
 
@@ -44,16 +44,15 @@ class AddAddressViewController: UIViewController {
     
     @objc private func addButtonPressed() {
         guard
-            let name = addAddressView.nameTextField.text,
-            let city = addAddressView.cityTextField.text,
-            let address = addAddressView.addressTextField.text
+            let name = addAddressView.nameTextField.text, !name.isEmpty,
+            let city = addAddressView.cityTextField.text, !city.isEmpty,
+            let address = addAddressView.addressTextField.text, !address.isEmpty
         else {
+            Alert.show(on: self, title: "Address", message: "All fileds must be not empty")
             return
         }
-        
-        print("\(name) | \(city) | \(address)")
-        
-        delegate?.didAddNewAddress()
+        navigationController?.popViewController(animated: true)
+        delegate?.didAddNewAddress((name, city, address))
     }
     
     deinit {

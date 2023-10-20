@@ -45,7 +45,9 @@ class ShippingViewController: UIViewController {
     }
     
     @objc private func addAddress() {
-        self.navigationController?.pushViewController(AddAddressViewController(), animated: true)
+        let addAddressVC = AddAddressViewController()
+        addAddressVC.delegate = self
+        self.navigationController?.pushViewController(addAddressVC, animated: true)
     }
 }
 
@@ -67,6 +69,20 @@ extension ShippingViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         addresses.indices.forEach({ addresses[$0].isSelected = false })
         addresses[indexPath.row].isSelected = true
+        tableView.reloadData()
+    }
+}
+
+
+
+// MARK: - AddAddressDelegate
+extension ShippingViewController: AddAddressDelegate {
+    func didAddNewAddress(_ address: (name: String, city: String, address: String)) {
+        addresses.indices.forEach({ addresses[$0].isSelected = false })
+        addresses.insert((name: address.name,
+                          city: address.city,
+                          address: address.address,
+                          isSelected: true), at: 0)
         tableView.reloadData()
     }
 }
