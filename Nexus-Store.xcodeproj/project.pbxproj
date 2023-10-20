@@ -342,7 +342,6 @@
 				5BC20ABD2AE16C490071925A /* SignInnViewController.swift */,
 				5BC20AC72AE1911F0071925A /* SignInViewController.swift */,
 				5BC20AC82AE1911F0071925A /* SignInViewController.xib */,
-				E35BC5762AE071E000742654 /* Home */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -523,6 +522,7 @@
 		E37687DD2ADDFFFF00DB09A1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E35BC5762AE071E000742654 /* Home */,
 				5BC20AB92AE16C490071925A /* SignIn */,
 				45D0E8792AE0842700A07332 /* Category */,
 				01A0EB852AE0716E004310FC /* Cart */,
