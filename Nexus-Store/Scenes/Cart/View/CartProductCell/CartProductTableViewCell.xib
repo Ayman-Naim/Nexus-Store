@@ -154,6 +154,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="deleteButton" destination="3gr-nq-LYl" id="Shl-yG-QlE"/>
+                <outlet property="minusButton" destination="PaU-AP-ynw" id="CPL-kg-t3K"/>
+                <outlet property="plusButton" destination="H4Y-US-mwL" id="chq-zX-zwm"/>
                 <outlet property="priceLabel" destination="GQK-ix-0wX" id="pHn-Ix-PnJ"/>
                 <outlet property="productImageView" destination="pao-t6-dsH" id="94x-xy-VlV"/>
                 <outlet property="productTitleLabel" destination="ah7-SG-cVI" id="W43-kY-10M"/>

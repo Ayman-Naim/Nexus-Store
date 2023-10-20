@@ -9,6 +9,7 @@ import UIKit
 
 protocol CartProductCell: AnyObject {
     func addProduct(_ product: CartProduct)
+    func showAsOrder()
 }
 
 protocol CartProductCellDelegate: AnyObject {
@@ -29,6 +30,10 @@ class CartProductTableViewCell: UITableViewCell {
     @IBOutlet weak var productTitleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var minusButton: UIButton!
+    
     
     private var productID: Int?
     
@@ -70,5 +75,12 @@ extension CartProductTableViewCell: CartProductCell {
         productImageView.setImage(withURLString: product.image)
         productTitleLabel.text = product.title
         priceLabel.text = "$\(product.price)"
+        quantityLabel.text = "\(product.quantity)"
+    }
+    
+    func showAsOrder() {
+        deleteButton.isHidden = true
+        plusButton.isHidden = true
+        minusButton.isHidden = true
     }
 }
