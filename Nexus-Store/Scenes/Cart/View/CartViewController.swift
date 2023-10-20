@@ -67,7 +67,7 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProductLandscapeTVCell.identifier, for: indexPath) as! ProductLandscapeTVCell
-        cell.addProduct(products[indexPath.row])
+        cell.setProduct(products[indexPath.row])
         cell.delegate = self
         return cell
     }
@@ -87,12 +87,12 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
 
 
 extension CartViewController: ProductLandscapeCellDelegate {
-    func deleteProduct(withID id: Int) {
+    func didDeleteProduct(withID id: Int) {
         products.removeAll(where: { $0.id == id})
         tableView.reloadData()
     }
     
-    func didUpdateQuantity(forProductID id: Int, with quantity: Int) {
+    func didUpdateProductQuantity(forProductID id: Int, with quantity: Int) {
         if let index = products.firstIndex(where: { $0.id == id}) {
             products[index].quantity = quantity
         }
