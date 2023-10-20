@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PayMethodViewController" customModule="Nexus_Store" customModuleProvider="target">
+            <connections>
+                <outlet property="PaymentTable" destination="yNm-N0-9sg" id="oBp-l1-clf"/>
+                <outlet property="TotalAmountLabel" destination="b5s-4K-jyn" id="EzW-Hw-Cfl"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yNm-N0-9sg">
+                    <rect key="frame" x="16" y="142" width="398" height="568"/>
+                    <color key="backgroundColor" name="Background"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mgr-Kj-w6J">
+                    <rect key="frame" x="0.0" y="718" width="430" height="214"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="xos-CD-q5L">
+                            <rect key="frame" x="111.66666666666669" y="52" width="207" height="110"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Totoal Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mb9-CV-d7i">
+                                    <rect key="frame" x="58.666666666666679" y="0.0" width="89.333333333333314" height="20.333333333333332"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" name="SubTitle"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1950.80" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5s-4K-jyn">
+                                    <rect key="frame" x="29.666666666666671" y="23.333333333333368" width="147.66666666666663" height="39.666666666666657"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="33"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1X-hc-TMZ">
+                                    <rect key="frame" x="0.0" y="66" width="207" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="207" id="Kck-Nt-7gL"/>
+                                        <constraint firstAttribute="height" constant="44" id="YVW-gp-FwD"/>
+                                    </constraints>
+                                    <color key="tintColor" name="Title"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="filled" title="Pay" cornerStyle="large">
+                                        <color key="baseBackgroundColor" name="Title"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="PayButtonClicked:" destination="-1" eventType="touchUpInside" id="C0c-LN-bHp"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="207" id="9bW-cs-b2a"/>
+                                <constraint firstAttribute="height" constant="110" id="OBR-yY-lgg"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="xos-CD-q5L" firstAttribute="top" secondItem="mgr-Kj-w6J" secondAttribute="top" constant="52" id="7BN-2Y-qK8"/>
+                        <constraint firstItem="xos-CD-q5L" firstAttribute="centerY" secondItem="mgr-Kj-w6J" secondAttribute="centerY" id="G4G-R9-cRj"/>
+                        <constraint firstItem="xos-CD-q5L" firstAttribute="centerX" secondItem="mgr-Kj-w6J" secondAttribute="centerX" id="fsF-jC-YpR"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7oN-D2-far">
+                    <rect key="frame" x="16" y="82" width="343" height="52"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="343" id="UXk-qt-K48"/>
+                        <constraint firstAttribute="height" constant="52" id="xgQ-0H-m0l"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="36"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="Background"/>
+            <constraints>
+                <constraint firstItem="yNm-N0-9sg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="5kT-6A-5i7"/>
+                <constraint firstItem="mgr-Kj-w6J" firstAttribute="top" secondItem="yNm-N0-9sg" secondAttribute="bottom" constant="8" id="7rt-V3-1AK"/>
+                <constraint firstAttribute="bottom" secondItem="mgr-Kj-w6J" secondAttribute="bottom" id="EMt-e1-zi6"/>
+                <constraint firstItem="mgr-Kj-w6J" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="GWv-nH-Sxk"/>
+                <constraint firstItem="7oN-D2-far" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="23" id="KSR-jc-a9h"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7oN-D2-far" secondAttribute="trailing" constant="71" id="LBQ-JX-jng"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yNm-N0-9sg" secondAttribute="trailing" constant="16" id="PBc-hT-nkX"/>
+                <constraint firstItem="mgr-Kj-w6J" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="X8c-SX-94o"/>
+                <constraint firstItem="mgr-Kj-w6J" firstAttribute="top" secondItem="yNm-N0-9sg" secondAttribute="bottom" constant="8" id="mne-K8-jCF"/>
+                <constraint firstItem="7oN-D2-far" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="qhd-ce-DdN"/>
+                <constraint firstItem="yNm-N0-9sg" firstAttribute="top" secondItem="7oN-D2-far" secondAttribute="bottom" constant="8" symbolic="YES" id="rZm-VZ-ai2"/>
+            </constraints>
+            <point key="canvasLocation" x="139.69465648854961" y="20.422535211267608"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Background">
+            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SubTitle">
+            <color red="0.57999998331069946" green="0.57999998331069946" blue="0.57999998331069946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Title">
+            <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
