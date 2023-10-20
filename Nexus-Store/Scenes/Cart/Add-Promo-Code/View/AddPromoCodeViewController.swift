@@ -32,6 +32,7 @@ class AddPromoCodeViewController: UIViewController {
     }
     
     @IBAction func showOrdersButtonPressed(_ sender: UIButton) {
+        self.present(ProductsOrderSheetTVC.sheet(), animated: true)
     }
 }
 
