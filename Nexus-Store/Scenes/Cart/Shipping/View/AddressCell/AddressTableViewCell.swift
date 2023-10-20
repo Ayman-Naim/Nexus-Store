@@ -8,8 +8,8 @@
 import UIKit
 
 protocol AddressCell: AnyObject {
-    func address(name: String, location: String)
-    func didSelecteAddress(_ isSelected: Bool)
+    func setAddress(_ address: (name: String, city: String, address: String, isSelected: Bool))
+    func selecteAddress(_ isSelected: Bool)
 }
 
 
@@ -31,18 +31,18 @@ class AddressTableViewCell: UITableViewCell {
 
 // MARK: - AddressCell
 extension AddressTableViewCell: AddressCell {
-    func address(name: String, location: String) {
-        nameLabel.text = name
-        addressLabel.text = location
+    func setAddress(_ address: (name: String, city: String, address: String, isSelected: Bool)) {
+        nameLabel.text = address.name
+        addressLabel.text = "\(address.city), \(address.address)"
     }
     
-    func didSelecteAddress(_ isSelected: Bool) {
+    func selecteAddress(_ isSelected: Bool) {
         if isSelected {
             containerView.backgroundColor = UIColor(named: "Title")
             nameLabel.textColor = UIColor(named: "Background")
             addressLabel.textColor = UIColor(named: "Background")
         } else {
-            containerView.backgroundColor = UIColor(named: "Background")
+            containerView.backgroundColor = .systemBackground
             nameLabel.textColor = UIColor(named: "Title")
             addressLabel.textColor = UIColor(named: "Title")
         }
