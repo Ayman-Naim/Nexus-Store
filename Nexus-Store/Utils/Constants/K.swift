@@ -19,5 +19,8 @@ struct K{
     static let heartIcon = "mus\\Fav"
     static let cartIcon = "mus\\Cart"
     static let searchIcon = "mus\\Search"
+    static let customFooterNib = "CustomFooterSepertator"
+    
+    
     
 }
