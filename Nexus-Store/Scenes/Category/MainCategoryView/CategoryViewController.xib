@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="O3t-Mo-kFI">
-                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <rect key="frame" x="0.0" y="113" width="393" height="705"/>
                     <color key="backgroundColor" name="Background"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GGC-ha-FST">
                         <size key="itemSize" width="128" height="128"/>
@@ -30,21 +30,95 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGE-Bj-4rA" userLabel="HeaderView">
+                    <rect key="frame" x="0.0" y="59" width="393" height="54"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTo-YN-b2D">
+                            <rect key="frame" x="125.33333333333333" y="5.6666666666666714" width="142.66666666666669" height="43"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8R-Y6-I0P" userLabel="Fav">
+                            <rect key="frame" x="353" y="11" width="32" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="32" id="FZA-cb-BrY"/>
+                                <constraint firstAttribute="height" constant="32" id="SN2-4T-ucF"/>
+                            </constraints>
+                            <color key="tintColor" name="SubTitle"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="mus\Fav">
+                                <color key="baseForegroundColor" name="SubTitle"/>
+                            </buttonConfiguration>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nU4-S3-Sc8" userLabel="Cart">
+                            <rect key="frame" x="309" y="11" width="32" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="32" id="RW3-SF-crT"/>
+                                <constraint firstAttribute="height" constant="32" id="YnB-O5-wgs"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="bwH-9N-cyU"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="weC-Yp-qDv"/>
+                            </constraints>
+                            <color key="tintColor" name="SubTitle"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="mus\Cart">
+                                <color key="baseForegroundColor" name="SubTitle"/>
+                            </buttonConfiguration>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5G-IQ-dJ6" userLabel="search">
+                            <rect key="frame" x="8" y="11" width="32" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="4HV-bm-NtK"/>
+                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="32" id="5re-6y-xQq"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="Cr3-4g-3sx"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="Hkl-Uy-50C"/>
+                                <constraint firstAttribute="width" constant="32" id="Wt7-VN-fSR"/>
+                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="32" id="ywJ-eO-KCJ"/>
+                            </constraints>
+                            <color key="tintColor" name="SubTitle"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="mus\Search">
+                                <color key="baseForegroundColor" name="SubTitle"/>
+                            </buttonConfiguration>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" name="Background"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="54" id="49e-zk-kh5"/>
+                        <constraint firstItem="u8R-Y6-I0P" firstAttribute="leading" secondItem="nU4-S3-Sc8" secondAttribute="trailing" constant="12" id="EcW-o7-R88"/>
+                        <constraint firstItem="nU4-S3-Sc8" firstAttribute="centerY" secondItem="dGE-Bj-4rA" secondAttribute="centerY" id="LfP-KJ-3Bt"/>
+                        <constraint firstItem="u8R-Y6-I0P" firstAttribute="centerY" secondItem="dGE-Bj-4rA" secondAttribute="centerY" id="Lzp-2W-7SF"/>
+                        <constraint firstItem="hTo-YN-b2D" firstAttribute="centerY" secondItem="dGE-Bj-4rA" secondAttribute="centerY" id="MGH-VV-G3N"/>
+                        <constraint firstAttribute="trailing" secondItem="u8R-Y6-I0P" secondAttribute="trailing" constant="8" id="OYj-Oz-Tgh"/>
+                        <constraint firstItem="hTo-YN-b2D" firstAttribute="centerX" secondItem="dGE-Bj-4rA" secondAttribute="centerX" id="Ouf-BD-V00"/>
+                        <constraint firstItem="G5G-IQ-dJ6" firstAttribute="leading" secondItem="dGE-Bj-4rA" secondAttribute="leading" constant="8" id="aIf-PC-arb"/>
+                        <constraint firstItem="G5G-IQ-dJ6" firstAttribute="centerY" secondItem="dGE-Bj-4rA" secondAttribute="centerY" id="sXf-LH-dMd"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="Background"/>
             <constraints>
+                <constraint firstItem="dGE-Bj-4rA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="0Dj-8Q-kWX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="O3t-Mo-kFI" secondAttribute="bottom" id="EWy-mU-C9C"/>
+                <constraint firstItem="O3t-Mo-kFI" firstAttribute="top" secondItem="dGE-Bj-4rA" secondAttribute="bottom" id="UDS-S8-CAW"/>
+                <constraint firstItem="dGE-Bj-4rA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="WSS-V0-bBv"/>
                 <constraint firstItem="O3t-Mo-kFI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Yww-RY-Kxk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="O3t-Mo-kFI" secondAttribute="trailing" id="hea-NT-8rJ"/>
-                <constraint firstItem="O3t-Mo-kFI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="izK-j8-e7w"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dGE-Bj-4rA" secondAttribute="trailing" id="wmM-ay-LkG"/>
             </constraints>
-            <point key="canvasLocation" x="54" y="21"/>
+            <point key="canvasLocation" x="52.671755725190835" y="20.422535211267608"/>
         </view>
     </objects>
     <resources>
+        <image name="mus\Cart" width="28" height="24"/>
+        <image name="mus\Fav" width="32" height="32"/>
+        <image name="mus\Search" width="32" height="32"/>
         <namedColor name="Background">
             <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SubTitle">
+            <color red="0.57999998331069946" green="0.57999998331069946" blue="0.57999998331069946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

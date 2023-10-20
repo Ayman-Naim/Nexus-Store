@@ -23,29 +23,13 @@ class MainCategoryCell: UICollectionViewCell {
        // self.addingShadowWithEffect()
     }
     
-    //MARK: - Setup Design of Category Cell Not Selected
-    func configureDesignOfcellSelected(){
-        mainCategoryLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        
-        backgoundMainCategoryView.layer.backgroundColor = UIColor(red: 0.062, green: 0.062, blue: 0.062, alpha: 1).cgColor
-
-    }
-    //MARK: - Setup Design of Category Cell Not Selected
-    func configureDesignOfCellNotSelected(){
-        
-        
-        mainCategoryLabel.textColor = UIColor(red: 0.58, green: 0.58, blue: 0.58, alpha: 1)
-        backgoundMainCategoryView.layer.borderWidth = 2
-        backgoundMainCategoryView.layer.borderColor = UIColor(red: 0.58, green: 0.58, blue: 0.58, alpha: 1).cgColor
-        backgoundMainCategoryView.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
-
-        
-        
-
-    }
+   
+    
 
 }
 
+
+//MARK: - Customize the View And Adding Cosmatics with shadow to Cell
 extension UICollectionViewCell{
     
     func addingShadowWithEffect(){
@@ -59,4 +43,30 @@ extension UICollectionViewCell{
         contentView.layer.masksToBounds = true
         backgroundColor = .clear
     }
+}
+
+
+extension UIView {
+    
+    //MARK: - Setup Design of Category Cell Not Selected
+    func configureDesignOfCellNotSelected(label:UILabel){
+        
+        label.textColor = UIColor(red: 0.58, green: 0.58, blue: 0.58, alpha: 1)
+        self.layer.borderWidth = 2
+        self.layer.borderColor = UIColor(red: 0.58, green: 0.58, blue: 0.58, alpha: 1).cgColor
+        self.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+
+        
+        
+
+    }
+    
+    
+    //MARK: - Setup Design of Category Cell Not Selected
+    func configureDesignOfcellSelected(label:UILabel ){
+        label.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        self.layer.backgroundColor = UIColor(red: 0.062, green: 0.062, blue: 0.062, alpha: 1).cgColor
+
+    }
+    
 }
