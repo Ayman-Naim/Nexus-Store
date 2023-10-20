@@ -38,7 +38,7 @@ class CartViewController: UIViewController {
     }
     
     private func setupTableView() {
-        tableView.register(CartProductTableViewCell.nib(), forCellReuseIdentifier: CartProductTableViewCell.identifier)
+        tableView.register(ProductLandscapeTVCell.nib(), forCellReuseIdentifier: ProductLandscapeTVCell.identifier)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -66,14 +66,14 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CartProductTableViewCell.identifier, for: indexPath) as! CartProductTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProductLandscapeTVCell.identifier, for: indexPath) as! ProductLandscapeTVCell
         cell.addProduct(products[indexPath.row])
         cell.delegate = self
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CartProductTableViewCell.height
+        return ProductLandscapeTVCell.height
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -86,7 +86,7 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 
-extension CartViewController: CartProductCellDelegate {
+extension CartViewController: ProductLandscapeCellDelegate {
     func deleteProduct(withID id: Int) {
         products.removeAll(where: { $0.id == id})
         tableView.reloadData()

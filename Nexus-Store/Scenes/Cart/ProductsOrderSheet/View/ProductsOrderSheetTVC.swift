@@ -25,7 +25,7 @@ class ProductsOrderSheetTVC: UITableViewController {
         title = "Order List"
         
         tableView.separatorStyle = .none
-        tableView.register(CartProductTableViewCell.nib(), forCellReuseIdentifier: CartProductTableViewCell.identifier)
+        tableView.register(ProductLandscapeTVCell.nib(), forCellReuseIdentifier: ProductLandscapeTVCell.identifier)
     }
 }
 
@@ -37,7 +37,7 @@ extension ProductsOrderSheetTVC {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CartProductTableViewCell.identifier, for: indexPath) as! CartProductTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProductLandscapeTVCell.identifier, for: indexPath) as! ProductLandscapeTVCell
         cell.showAsOrder()
         return cell
     }
@@ -47,6 +47,6 @@ extension ProductsOrderSheetTVC {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CartProductTableViewCell.height
+        return ProductLandscapeTVCell.height
     }
 }

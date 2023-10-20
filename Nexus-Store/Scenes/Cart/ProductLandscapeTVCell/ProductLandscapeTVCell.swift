@@ -1,5 +1,5 @@
 //
-//  CartProductTableViewCell.swift
+//  ProductLandscapeTVCell.swift
 //  Nexus-Store
 //
 //  Created by Khater on 18/10/2023.
@@ -7,24 +7,24 @@
 
 import UIKit
 
-protocol CartProductCell: AnyObject {
+protocol ProductLandscapeCell: AnyObject {
     func addProduct(_ product: CartProduct)
     func showAsOrder()
 }
 
-protocol CartProductCellDelegate: AnyObject {
+protocol ProductLandscapeCellDelegate: AnyObject {
     func deleteProduct(withID id: Int)
     func didUpdateQuantity(forProductID id: Int, with quantity: Int)
 }
 
-class CartProductTableViewCell: UITableViewCell {
+class ProductLandscapeTVCell: UITableViewCell {
     
     static let height: CGFloat = 160
     
-    static let identifier = "CartProductTableViewCell"
+    static let identifier = "ProductLandscapeTVCell"
     
     static func nib() -> UINib {
-        return UINib(nibName: "CartProductTableViewCell", bundle: nil)
+        return UINib(nibName: "ProductLandscapeTVCell", bundle: nil)
     }
     
     
@@ -52,7 +52,7 @@ class CartProductTableViewCell: UITableViewCell {
     }
     
     
-    weak var delegate: CartProductCellDelegate?
+    weak var delegate: ProductLandscapeCellDelegate?
     
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
         if let productID = productID {
@@ -70,8 +70,8 @@ class CartProductTableViewCell: UITableViewCell {
 }
 
 
-// MARK: - CartProductCell
-extension CartProductTableViewCell: CartProductCell {
+// MARK: - ProductLandscapeCell
+extension ProductLandscapeTVCell: ProductLandscapeCell {
     func addProduct(_ product: CartProduct) {
         productID = product.id
         productImageView.setImage(withURLString: product.image)
