@@ -245,8 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				01D776BF2AE301D80079F2B5 /* Add-Promo-Code */,
-				01D776BD2AE2FFC50079F2B5 /* Alert.swift */,
-				011281AF2AE1A4F900844137 /* CustomTextField.swift */,
 				011281B12AE1AA0D00844137 /* Add-Address */,
 				011281A12AE18D7B00844137 /* Shipping */,
 				01A0EB862AE07174004310FC /* View */,
@@ -707,6 +705,8 @@
 		E37687E42ADE005D00DB09A1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				01D776BD2AE2FFC50079F2B5 /* Alert.swift */,
+				011281AF2AE1A4F900844137 /* CustomTextField.swift */,
 				E37687E62ADE035C00DB09A1 /* Constants */,
 				E37687DF2ADE001500DB09A1 /* Extensions */,
 			);
