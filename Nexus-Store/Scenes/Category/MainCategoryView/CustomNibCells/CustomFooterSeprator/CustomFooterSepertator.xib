@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Seperator" id="U6b-Vx-4bR" customClass="CustomFooterSepertator" customModule="Nexus_Store" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="547" height="2"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VrQ-KD-X3h">
+                    <rect key="frame" x="0.0" y="0.0" width="547" height="2"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="KOx-5j-72E"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <constraints>
+                <constraint firstItem="VrQ-KD-X3h" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="HaD-TN-tZa"/>
+                <constraint firstItem="VrQ-KD-X3h" firstAttribute="centerX" secondItem="U6b-Vx-4bR" secondAttribute="centerX" id="aXW-h6-Mn4"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="VrQ-KD-X3h" secondAttribute="trailing" id="h9r-kb-k0G"/>
+                <constraint firstItem="VrQ-KD-X3h" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="qxL-wV-Zym"/>
+            </constraints>
+            <connections>
+                <outlet property="FooterLineSeperator" destination="VrQ-KD-X3h" id="Ydr-C1-g2b"/>
+            </connections>
+            <point key="canvasLocation" x="158.01526717557252" y="11.267605633802818"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
