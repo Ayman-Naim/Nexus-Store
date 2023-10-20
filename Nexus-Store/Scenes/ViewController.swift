@@ -31,13 +31,11 @@ class ViewController: UIViewController {
         
     }
     @IBAction func khater() {
-        let nav = UINavigationController(rootViewController: ShippingViewController())
-        nav.modalPresentationStyle = .fullScreen
-        self.present(nav, animated: false)
+        self.navigationController?.pushViewController(CartViewController(), animated: true)
         
     }
     @IBAction func ahmed() {
-        let vc = SignInViewController()
+        let vc = WelcomeViewController()
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
