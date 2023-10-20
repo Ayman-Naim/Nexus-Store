@@ -18,14 +18,8 @@ class ShippingViewController: UIViewController {
         setupTableView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
     private func setupNavigationBar() {
-        title = "Shipping"
-        navigationItem.largeTitleDisplayMode = .automatic
+        title = "Shipping Address"
         
         let addAddressBarButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(addAddress))
         addAddressBarButton.tintColor = UIColor(named: "Title")
@@ -44,7 +38,7 @@ class ShippingViewController: UIViewController {
     }
     
     @objc private func addAddress() {
-        
+        self.navigationController?.pushViewController(AddAddressViewController(), animated: true)
     }
 }
 
