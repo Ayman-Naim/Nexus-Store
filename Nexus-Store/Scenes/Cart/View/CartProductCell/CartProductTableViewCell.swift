@@ -8,14 +8,12 @@
 import UIKit
 
 protocol CartProductCell: AnyObject {
-    func addProduct(_ product: Int)
-    func updateQuantity(_ quantity: String)
+    func addProduct(_ product: CartProduct)
 }
 
 protocol CartProductCellDelegate: AnyObject {
-    func deleteProduct()
-    func incrementQuantity()
-    func decrementQuantity()
+    func deleteProduct(withID id: Int)
+    func didUpdateQuantity(forProductID id: Int, with quantity: Int)
 }
 
 class CartProductTableViewCell: UITableViewCell {
@@ -32,32 +30,45 @@ class CartProductTableViewCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
     
+    private var productID: Int?
+    
+    private var quantity: Int = 1 {
+        didSet {
+            if quantity == 0 {
+                quantity = oldValue
+            }
+            quantityLabel.text = "\(quantity)"
+            if let productID = productID {
+                delegate?.didUpdateQuantity(forProductID: productID, with: quantity)
+            }
+        }
+    }
+    
     
     weak var delegate: CartProductCellDelegate?
     
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
-        delegate?.deleteProduct()
+        if let productID = productID {
+            delegate?.deleteProduct(withID: productID)
+        }
     }
     
     @IBAction func minusButtonPressed(_ sender: UIButton) {
-        delegate?.decrementQuantity()
+        quantity -= 1
     }
     
     @IBAction func plusButtonPressed(_ sender: UIButton) {
-        delegate?.incrementQuantity()
+        quantity += 1
     }
 }
 
 
 // MARK: - CartProductCell
 extension CartProductTableViewCell: CartProductCell {
-    func addProduct(_ product: Int) {
-//        productImageView.image
-        productTitleLabel.text = ""
-        priceLabel.text = ""
-    }
-    
-    func updateQuantity(_ quantity: String) {
-        quantityLabel.text = quantity
+    func addProduct(_ product: CartProduct) {
+        productID = product.id
+        productImageView.setImage(withURLString: product.image)
+        productTitleLabel.text = product.title
+        priceLabel.text = "$\(product.price)"
     }
 }

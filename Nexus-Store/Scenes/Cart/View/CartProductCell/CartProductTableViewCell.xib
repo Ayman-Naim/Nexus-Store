@@ -22,9 +22,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="61t-Ky-Crv">
                         <rect key="frame" x="8" y="16" width="570" height="231"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App-logo" translatesAutoresizingMaskIntoConstraints="NO" id="pao-t6-dsH">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pao-t6-dsH">
                                 <rect key="frame" x="2" y="8" width="142.66666666666666" height="215"/>
-                                <color key="backgroundColor" name="Title"/>
                                 <color key="tintColor" name="Background"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -47,10 +46,9 @@
                                             <constraint firstAttribute="height" constant="18" id="gJU-jP-54A"/>
                                             <constraint firstAttribute="width" constant="18" id="jME-p5-ueD"/>
                                         </constraints>
+                                        <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="minus" catalog="system">
-                                            <color key="baseForegroundColor" name="Title"/>
-                                        </buttonConfiguration>
+                                        <buttonConfiguration key="configuration" style="plain" image="minus" catalog="system"/>
                                         <connections>
                                             <action selector="minusButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="QmC-d1-aUk"/>
                                         </connections>
@@ -61,10 +59,9 @@
                                             <constraint firstAttribute="height" constant="18" id="UHz-Ir-fHd"/>
                                             <constraint firstAttribute="width" constant="18" id="n9g-TI-EWi"/>
                                         </constraints>
+                                        <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system">
-                                            <color key="baseForegroundColor" name="Title"/>
-                                        </buttonConfiguration>
+                                        <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
                                         <connections>
                                             <action selector="plusButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ZHs-UZ-R0j"/>
                                         </connections>
@@ -72,11 +69,10 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgS-O7-8QZ">
                                         <rect key="frame" x="45.333333333333314" y="4.9999999999999982" width="9.3333333333333357" height="25.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" name="LightGray"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="8vd-Uk-Aog"/>
                                     <constraint firstItem="PaU-AP-ynw" firstAttribute="centerY" secondItem="AIZ-7A-Xb4" secondAttribute="centerY" id="8zv-qY-eap"/>
@@ -148,17 +144,13 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
+                <color key="backgroundColor" name="Background"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="61t-Ky-Crv" secondAttribute="trailing" constant="8" id="IvR-sZ-ZCw"/>
                     <constraint firstAttribute="bottom" secondItem="61t-Ky-Crv" secondAttribute="bottom" constant="16" id="NkI-yr-DDE"/>
                     <constraint firstItem="61t-Ky-Crv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="TUR-kt-GVo"/>
                     <constraint firstItem="61t-Ky-Crv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="iN5-Hn-KyB"/>
                 </constraints>
-                <userDefinedRuntimeAttributes>
-                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                        <integer key="value" value="16"/>
-                    </userDefinedRuntimeAttribute>
-                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
@@ -171,15 +163,11 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="App-logo" width="700" height="700"/>
         <image name="minus" catalog="system" width="128" height="26"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="trash" catalog="system" width="117" height="128"/>
         <namedColor name="Background">
             <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="LightGray">
-            <color red="0.94499999284744263" green="0.94499999284744263" blue="0.94499999284744263" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SubTitle">
             <color red="0.57999998331069946" green="0.57999998331069946" blue="0.57999998331069946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -187,6 +175,12 @@
         <namedColor name="Title">
             <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
