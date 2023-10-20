@@ -15,19 +15,28 @@ class ViewController: UIViewController {
     }
 
     @IBAction func ayman() {
+        let vc = HomeViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
         
+//        let vc = ProfileViewController()
+//        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     @IBAction func mostafa() {
         
+        let vc = CategoryViewController(nibName: K.categoryNibID, bundle: nil)
+         vc.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+         vc.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     @IBAction func khater() {
-        
+        self.navigationController?.pushViewController(CartViewController(), animated: true)
         
     }
     @IBAction func ahmed() {
-        
+        let vc = WelcomeViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
 }

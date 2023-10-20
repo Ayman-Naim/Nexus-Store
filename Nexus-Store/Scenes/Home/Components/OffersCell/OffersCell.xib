@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="OffersCell" customModule="Nexus_Store" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="239" height="105"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="239" height="105"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uik-P6-DBO">
+                        <rect key="frame" x="0.0" y="0.0" width="239" height="105"/>
+                    </imageView>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="RuY-gc-ych">
+                        <rect key="frame" x="0.0" y="79" width="239" height="26"/>
+                        <color key="pageIndicatorTintColor" name="SubTitle"/>
+                        <color key="currentPageIndicatorTintColor" name="Title"/>
+                    </pageControl>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="uik-P6-DBO" secondAttribute="bottom" id="JOH-2E-glH"/>
+                <constraint firstAttribute="trailing" secondItem="RuY-gc-ych" secondAttribute="trailing" id="NuC-i3-ds5"/>
+                <constraint firstItem="RuY-gc-ych" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="OPV-oa-TQf"/>
+                <constraint firstAttribute="bottom" secondItem="RuY-gc-ych" secondAttribute="bottom" id="TVY-02-8Qa"/>
+                <constraint firstAttribute="trailing" secondItem="uik-P6-DBO" secondAttribute="trailing" id="fOr-NC-2Tf"/>
+                <constraint firstItem="uik-P6-DBO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="k0c-N3-h7A"/>
+                <constraint firstItem="uik-P6-DBO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="yr2-9p-414"/>
+            </constraints>
+            <size key="customSize" width="239" height="105"/>
+            <connections>
+                <outlet property="OfferImage" destination="uik-P6-DBO" id="LA3-Fq-n4c"/>
+                <outlet property="pageIndicator" destination="RuY-gc-ych" id="ggC-4s-W3D"/>
+            </connections>
+            <point key="canvasLocation" x="145.80152671755724" y="39.7887323943662"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="SubTitle">
+            <color red="0.57999998331069946" green="0.57999998331069946" blue="0.57999998331069946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Title">
+            <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
