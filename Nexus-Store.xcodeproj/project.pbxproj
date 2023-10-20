@@ -37,7 +37,6 @@
 		5BC20AD12AE1C71D0071925A /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC20ACF2AE1C71D0071925A /* WelcomeViewController.xib */; };
 		5BC20AD42AE1D0170071925A /* SocialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20AD22AE1D0170071925A /* SocialTableViewCell.swift */; };
 		5BC20AD52AE1D0170071925A /* SocialTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC20AD32AE1D0170071925A /* SocialTableViewCell.xib */; };
-		C1B2C0495288625C7FBFE0B5 /* Pods_Nexus_StoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 660EDF30701FD7C11597AC93 /* Pods_Nexus_StoreTests.framework */; };
 		D14182C7B08E56039861E606 /* Pods_Nexus_Store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EE52BF3C2B1CE37BD0BE425 /* Pods_Nexus_Store.framework */; };
 		E34556662AE1AD9400312C6C /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34556642AE1AD9400312C6C /* OrderTableViewCell.swift */; };
 		E34556672AE1AD9400312C6C /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34556652AE1AD9400312C6C /* OrderTableViewCell.xib */; };
@@ -61,30 +60,9 @@
 		E37687B52ADDFFB500DB09A1 /* Nexus_Store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E37687B32ADDFFB500DB09A1 /* Nexus_Store.xcdatamodeld */; };
 		E37687B72ADDFFB800DB09A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E37687B62ADDFFB800DB09A1 /* Assets.xcassets */; };
 		E37687BA2ADDFFB800DB09A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E37687B82ADDFFB800DB09A1 /* LaunchScreen.storyboard */; };
-		E37687C52ADDFFB800DB09A1 /* Nexus_StoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37687C42ADDFFB800DB09A1 /* Nexus_StoreTests.swift */; };
-		E37687CF2ADDFFB800DB09A1 /* Nexus_StoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37687CE2ADDFFB800DB09A1 /* Nexus_StoreUITests.swift */; };
-		E37687D12ADDFFB800DB09A1 /* Nexus_StoreUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37687D02ADDFFB800DB09A1 /* Nexus_StoreUITestsLaunchTests.swift */; };
 		E3E498FA2AE19F4E00ED2924 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E498F82AE19F4E00ED2924 /* ProfileViewController.swift */; };
 		E3E498FB2AE19F4E00ED2924 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3E498F92AE19F4E00ED2924 /* ProfileViewController.xib */; };
-		FC4116BCED0AFD1F33CE1650 /* Pods_Nexus_Store_Nexus_StoreUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 640C7D4D9600F97F07382C0A /* Pods_Nexus_Store_Nexus_StoreUITests.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		E37687C12ADDFFB800DB09A1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E376879F2ADDFFB400DB09A1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E37687A62ADDFFB400DB09A1;
-			remoteInfo = "Nexus-Store";
-		};
-		E37687CB2ADDFFB800DB09A1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E376879F2ADDFFB400DB09A1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E37687A62ADDFFB400DB09A1;
-			remoteInfo = "Nexus-Store";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		011281A32AE18D7B00844137 /* ShippingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShippingViewController.xib; sourceTree = "<group>"; };
@@ -150,11 +128,6 @@
 		E37687B62ADDFFB800DB09A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E37687B92ADDFFB800DB09A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E37687BB2ADDFFB800DB09A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E37687C02ADDFFB800DB09A1 /* Nexus-StoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nexus-StoreTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E37687C42ADDFFB800DB09A1 /* Nexus_StoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nexus_StoreTests.swift; sourceTree = "<group>"; };
-		E37687CA2ADDFFB800DB09A1 /* Nexus-StoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nexus-StoreUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E37687CE2ADDFFB800DB09A1 /* Nexus_StoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nexus_StoreUITests.swift; sourceTree = "<group>"; };
-		E37687D02ADDFFB800DB09A1 /* Nexus_StoreUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nexus_StoreUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E3E498F82AE19F4E00ED2924 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E3E498F92AE19F4E00ED2924 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,22 +138,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D14182C7B08E56039861E606 /* Pods_Nexus_Store.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E37687BD2ADDFFB800DB09A1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C1B2C0495288625C7FBFE0B5 /* Pods_Nexus_StoreTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E37687C72ADDFFB800DB09A1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FC4116BCED0AFD1F33CE1650 /* Pods_Nexus_Store_Nexus_StoreUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,8 +481,6 @@
 			isa = PBXGroup;
 			children = (
 				E37687A92ADDFFB500DB09A1 /* Nexus-Store */,
-				E37687C32ADDFFB800DB09A1 /* Nexus-StoreTests */,
-				E37687CD2ADDFFB800DB09A1 /* Nexus-StoreUITests */,
 				E37687A82ADDFFB500DB09A1 /* Products */,
 				835A8F3C12ED85B6C7C8C92A /* Pods */,
 				423F5CB5BDD8E70020970C78 /* Frameworks */,
@@ -536,8 +491,6 @@
 			isa = PBXGroup;
 			children = (
 				E37687A72ADDFFB500DB09A1 /* Nexus-Store.app */,
-				E37687C02ADDFFB800DB09A1 /* Nexus-StoreTests.xctest */,
-				E37687CA2ADDFFB800DB09A1 /* Nexus-StoreUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -554,23 +507,6 @@
 				E37687DD2ADDFFFF00DB09A1 /* Scenes */,
 			);
 			path = "Nexus-Store";
-			sourceTree = "<group>";
-		};
-		E37687C32ADDFFB800DB09A1 /* Nexus-StoreTests */ = {
-			isa = PBXGroup;
-			children = (
-				E37687C42ADDFFB800DB09A1 /* Nexus_StoreTests.swift */,
-			);
-			path = "Nexus-StoreTests";
-			sourceTree = "<group>";
-		};
-		E37687CD2ADDFFB800DB09A1 /* Nexus-StoreUITests */ = {
-			isa = PBXGroup;
-			children = (
-				E37687CE2ADDFFB800DB09A1 /* Nexus_StoreUITests.swift */,
-				E37687D02ADDFFB800DB09A1 /* Nexus_StoreUITestsLaunchTests.swift */,
-			);
-			path = "Nexus-StoreUITests";
 			sourceTree = "<group>";
 		};
 		E37687DD2ADDFFFF00DB09A1 /* Scenes */ = {
@@ -709,45 +645,6 @@
 			productReference = E37687A72ADDFFB500DB09A1 /* Nexus-Store.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E37687BF2ADDFFB800DB09A1 /* Nexus-StoreTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E37687D72ADDFFB800DB09A1 /* Build configuration list for PBXNativeTarget "Nexus-StoreTests" */;
-			buildPhases = (
-				3EDB6AB50025150B13D4DC23 /* [CP] Check Pods Manifest.lock */,
-				E37687BC2ADDFFB800DB09A1 /* Sources */,
-				E37687BD2ADDFFB800DB09A1 /* Frameworks */,
-				E37687BE2ADDFFB800DB09A1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E37687C22ADDFFB800DB09A1 /* PBXTargetDependency */,
-			);
-			name = "Nexus-StoreTests";
-			productName = "Nexus-StoreTests";
-			productReference = E37687C02ADDFFB800DB09A1 /* Nexus-StoreTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		E37687C92ADDFFB800DB09A1 /* Nexus-StoreUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E37687DA2ADDFFB800DB09A1 /* Build configuration list for PBXNativeTarget "Nexus-StoreUITests" */;
-			buildPhases = (
-				3183C43C76EC8B19653642F9 /* [CP] Check Pods Manifest.lock */,
-				E37687C62ADDFFB800DB09A1 /* Sources */,
-				E37687C72ADDFFB800DB09A1 /* Frameworks */,
-				E37687C82ADDFFB800DB09A1 /* Resources */,
-				2FF5A35B0FAC1C55F0B4B972 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E37687CC2ADDFFB800DB09A1 /* PBXTargetDependency */,
-			);
-			name = "Nexus-StoreUITests";
-			productName = "Nexus-StoreUITests";
-			productReference = E37687CA2ADDFFB800DB09A1 /* Nexus-StoreUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -760,14 +657,6 @@
 				TargetAttributes = {
 					E37687A62ADDFFB400DB09A1 = {
 						CreatedOnToolsVersion = 14.2;
-					};
-					E37687BF2ADDFFB800DB09A1 = {
-						CreatedOnToolsVersion = 14.2;
-						TestTargetID = E37687A62ADDFFB400DB09A1;
-					};
-					E37687C92ADDFFB800DB09A1 = {
-						CreatedOnToolsVersion = 14.2;
-						TestTargetID = E37687A62ADDFFB400DB09A1;
 					};
 				};
 			};
@@ -785,8 +674,6 @@
 			projectRoot = "";
 			targets = (
 				E37687A62ADDFFB400DB09A1 /* Nexus-Store */,
-				E37687BF2ADDFFB800DB09A1 /* Nexus-StoreTests */,
-				E37687C92ADDFFB800DB09A1 /* Nexus-StoreUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -810,33 +697,16 @@
 				E35BC57C2AE0724F00742654 /* HomeViewController.xib in Resources */,
 				E37687B72ADDFFB800DB09A1 /* Assets.xcassets in Resources */,
 				45D0E88B2AE08D7700A07332 /* productDetailsCell.xib in Resources */,
-
 				E34556732AE1D18200312C6C /* SectionHeaderTableViewCell.xib in Resources */,
 				E34556672AE1AD9400312C6C /* OrderTableViewCell.xib in Resources */,
-
 				5BC20AC62AE190CA0071925A /* SignUpViewController.xib in Resources */,
 				5BC20AD12AE1C71D0071925A /* WelcomeViewController.xib in Resources */,
-
 				01A0EB8B2AE071A1004310FC /* CartViewController.xib in Resources */,
 				E345566D2AE1B51C00312C6C /* FavouriteTableViewCell.xib in Resources */,
 				E37687B22ADDFFB500DB09A1 /* Main.storyboard in Resources */,
 				E35BC58D2AE0ADA500742654 /* BrandsCollectionCell.xib in Resources */,
 				E3E498FB2AE19F4E00ED2924 /* ProfileViewController.xib in Resources */,
 				01A0EB942AE075CB004310FC /* CartProductTableViewCell.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E37687BE2ADDFFB800DB09A1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E37687C82ADDFFB800DB09A1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -859,67 +729,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Nexus-Store-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2FF5A35B0FAC1C55F0B4B972 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Nexus-Store-Nexus-StoreUITests/Pods-Nexus-Store-Nexus-StoreUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Nexus-Store-Nexus-StoreUITests/Pods-Nexus-Store-Nexus-StoreUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Nexus-Store-Nexus-StoreUITests/Pods-Nexus-Store-Nexus-StoreUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3183C43C76EC8B19653642F9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Nexus-Store-Nexus-StoreUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3EDB6AB50025150B13D4DC23 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Nexus-StoreTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -971,11 +780,8 @@
 				45D0E8802AE084E200A07332 /* MainCategoryCell.swift in Sources */,
 				E37687AB2ADDFFB500DB09A1 /* AppDelegate.swift in Sources */,
 				011281AC2AE18D7B00844137 /* ShippingViewController.swift in Sources */,
-
 				E345566C2AE1B51C00312C6C /* FavouriteTableViewCell.swift in Sources */,
-
 				011281B02AE1A4F900844137 /* CustomTextField.swift in Sources */,
-
 				011281AB2AE18D7B00844137 /* ShippingTableViewHeader.swift in Sources */,
 				01A0EB8A2AE071A1004310FC /* CartViewController.swift in Sources */,
 				E34556662AE1AD9400312C6C /* OrderTableViewCell.swift in Sources */,
@@ -988,37 +794,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E37687BC2ADDFFB800DB09A1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E37687C52ADDFFB800DB09A1 /* Nexus_StoreTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E37687C62ADDFFB800DB09A1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E37687D12ADDFFB800DB09A1 /* Nexus_StoreUITestsLaunchTests.swift in Sources */,
-				E37687CF2ADDFFB800DB09A1 /* Nexus_StoreUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		E37687C22ADDFFB800DB09A1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E37687A62ADDFFB400DB09A1 /* Nexus-Store */;
-			targetProxy = E37687C12ADDFFB800DB09A1 /* PBXContainerItemProxy */;
-		};
-		E37687CC2ADDFFB800DB09A1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E37687A62ADDFFB400DB09A1 /* Nexus-Store */;
-			targetProxy = E37687CB2ADDFFB800DB09A1 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E37687B02ADDFFB500DB09A1 /* Main.storyboard */ = {
@@ -1220,86 +996,6 @@
 			};
 			name = Release;
 		};
-		E37687D82ADDFFB800DB09A1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3192D118B80B9F641DCCCBBA /* Pods-Nexus-StoreTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7W7N543YH7;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "EOA-industry.Nexus-StoreTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nexus-Store.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Nexus-Store";
-			};
-			name = Debug;
-		};
-		E37687D92ADDFFB800DB09A1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = ABA91D9122CA115C0ACBDB5A /* Pods-Nexus-StoreTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7W7N543YH7;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "EOA-industry.Nexus-StoreTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nexus-Store.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Nexus-Store";
-			};
-			name = Release;
-		};
-		E37687DB2ADDFFB800DB09A1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 294B772207E75B1ADC58E6CF /* Pods-Nexus-Store-Nexus-StoreUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7W7N543YH7;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "EOA-industry.Nexus-StoreUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Nexus-Store";
-			};
-			name = Debug;
-		};
-		E37687DC2ADDFFB800DB09A1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3070E81288ED7179122FDA56 /* Pods-Nexus-Store-Nexus-StoreUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7W7N543YH7;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "EOA-industry.Nexus-StoreUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Nexus-Store";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1317,24 +1013,6 @@
 			buildConfigurations = (
 				E37687D52ADDFFB800DB09A1 /* Debug */,
 				E37687D62ADDFFB800DB09A1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E37687D72ADDFFB800DB09A1 /* Build configuration list for PBXNativeTarget "Nexus-StoreTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E37687D82ADDFFB800DB09A1 /* Debug */,
-				E37687D92ADDFFB800DB09A1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E37687DA2ADDFFB800DB09A1 /* Build configuration list for PBXNativeTarget "Nexus-StoreUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E37687DB2ADDFFB800DB09A1 /* Debug */,
-				E37687DC2ADDFFB800DB09A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
