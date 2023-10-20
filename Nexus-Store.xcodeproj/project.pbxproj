@@ -555,8 +555,8 @@
 		E35BC5762AE071E000742654 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				E37B4DE22AE3011A0051EB89 /* PaymentMethod */,
 				E3E498F52AE19F0800ED2924 /* Profile */,
+				E37B4DE22AE3011A0051EB89 /* PaymentMethod */,
 				E35BC57D2AE08CE300742654 /* Components */,
 				E35BC5782AE0723600742654 /* View */,
 			);
