@@ -21,6 +21,8 @@ class CartViewController: UIViewController {
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var emptyView: UIView!
     
+    private var defaultNavPreferedDisplayTitle = false
+    
     var products: [CartProduct] = [
         .init(id: 1, title: "Test", price: 10.99, image: "", quantity: 1),
         .init(id: 2, title: "Test", price: 30.59, image: "", quantity: 1),
@@ -35,16 +37,6 @@ class CartViewController: UIViewController {
         updateTotalPrice()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = false
-    }
-    
     private func setupTableView() {
         tableView.register(CartProductTableViewCell.nib(), forCellReuseIdentifier: CartProductTableViewCell.identifier)
         
@@ -54,7 +46,7 @@ class CartViewController: UIViewController {
     
     
     @IBAction func checkoutButtonPressed(_ sender: UIButton) {
-        print("checkoutButtonPressed")
+        self.navigationController?.pushViewController(ShippingViewController(), animated: true)
     }
     
     private func updateTotalPrice() {

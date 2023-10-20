@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -47,7 +46,6 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="m50-dm-hMr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="IL1-bI-Hyc" secondAttribute="top" constant="18" id="2zA-zo-rRh"/>
                             <constraint firstItem="m50-dm-hMr" firstAttribute="leading" secondItem="IL1-bI-Hyc" secondAttribute="leading" constant="18" id="3G0-09-k1v"/>
@@ -73,6 +71,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" name="Background"/>
             <connections>
                 <outlet property="addressLabel" destination="DX2-9H-KPh" id="ZfE-yH-vpq"/>
                 <outlet property="containerView" destination="IL1-bI-Hyc" id="Ygo-qh-szm"/>
@@ -92,8 +91,5 @@
         <namedColor name="Title">
             <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
