@@ -11,6 +11,7 @@ class ProductsOrderSheetTVC: UITableViewController {
     
     static func sheet() -> UINavigationController {
         let nav = UINavigationController(rootViewController: ProductsOrderSheetTVC())
+        nav.navigationBar.prefersLargeTitles = true
         if let sheet = nav.presentationController as? UISheetPresentationController {
             sheet.detents = [.medium(), .large()]
             sheet.prefersGrabberVisible = true
@@ -21,14 +22,15 @@ class ProductsOrderSheetTVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Orders"
+        title = "Order List"
         
+        tableView.separatorStyle = .none
         tableView.register(CartProductTableViewCell.nib(), forCellReuseIdentifier: CartProductTableViewCell.identifier)
     }
 }
 
 
-// MARK: - UITableView DataSource
+// MARK: - UITableView DataSource & Delegate
 extension ProductsOrderSheetTVC {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
@@ -42,5 +44,9 @@ extension ProductsOrderSheetTVC {
     
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CartProductTableViewCell.height
     }
 }

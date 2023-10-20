@@ -19,6 +19,8 @@ protocol CartProductCellDelegate: AnyObject {
 
 class CartProductTableViewCell: UITableViewCell {
     
+    static let height: CGFloat = 160
+    
     static let identifier = "CartProductTableViewCell"
     
     static func nib() -> UINib {
