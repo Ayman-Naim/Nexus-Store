@@ -40,14 +40,19 @@ class ShippingViewController: UIViewController {
         tableView.dataSource = self
     }
     
-    @IBAction func continueToPaymentButtonPressed(_ sender: UIButton) {
-        
-    }
-    
     @objc private func addAddress() {
         let addAddressVC = AddAddressViewController()
         addAddressVC.delegate = self
         self.navigationController?.pushViewController(addAddressVC, animated: true)
+    }
+    
+    @IBAction func continueToPaymentButtonPressed(_ sender: UIButton) {
+        
+    }
+    
+    
+    @IBAction func addPromoCodeButtonPressed(_ sender: UIButton) {
+        self.navigationController?.pushViewController(AddPromoCodeViewController(), animated: true)
     }
 }
 
