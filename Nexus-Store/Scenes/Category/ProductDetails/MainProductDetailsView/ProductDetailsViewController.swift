@@ -9,17 +9,37 @@ import UIKit
 import Cosmos
 
 class ProductDetailsViewController: UIViewController {
-
-        static let identifier = "ProductDetailsViewController"
-
+         
+        
+        static let storyBoardName = "ProductDetails"
+        static let identifier = "ProductDetails"
+    @IBOutlet weak var contentView: UIView!
+    
+    @IBOutlet weak var reviewCollectionView: UICollectionView!
     @IBOutlet weak var productImageCollection: UICollectionView!
     @IBOutlet weak var productType: UILabel!
     @IBOutlet weak var rating: CosmosView!
     @IBOutlet weak var productBrand: UILabel!
+    @IBOutlet weak var descriptionOfProduct: UILabel!
+    @IBOutlet weak var colorCollectionView: UICollectionView!
+    @IBOutlet weak var sizeCollectionView: UICollectionView!
+    
+  
+    var productSizeDelegation = ProductSizeDelegation()
+    var productColorDelegation = ProductColorDelegation()
+    var productReviewDelegation = ProductReviewDelegation()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isTranslucent = false
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         configureDataSourceofImageCollection()
-        productImageCollection.contentInsetAdjustmentBehavior = .never
+      //  productImageCollection.contentInsetAdjustmentBehavior = .never
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+       
         layoutSetup()
         // Do any additional setup after loading the view.
     }
@@ -35,7 +55,20 @@ extension ProductDetailsViewController:UICollectionViewDataSource,UICollectionVi
     func configureDataSourceofImageCollection(){
         productImageCollection.dataSource = self
         productImageCollection.delegate = self
+        sizeCollectionView.dataSource = productSizeDelegation
+        sizeCollectionView.delegate = productSizeDelegation
+        colorCollectionView.dataSource = productColorDelegation
+        colorCollectionView.delegate =  productColorDelegation
+        reviewCollectionView.dataSource = productReviewDelegation
+        reviewCollectionView.delegate = productReviewDelegation
         self.productImageCollection.register(ProductImageCell.nib(), forCellWithReuseIdentifier: ProductImageCell.identifier)
+        self.sizeCollectionView.register(SizeColorCell.nib(), forCellWithReuseIdentifier: SizeColorCell.identifier)
+        self.colorCollectionView.register(SizeColorCell.nib(), forCellWithReuseIdentifier: SizeColorCell.identifier)
+        
+        self.reviewCollectionView.register(ReviewProductCell.nib(), forCellWithReuseIdentifier: ReviewProductCell.identifier)
+        
+        
+        
     }
 
 
@@ -50,7 +83,8 @@ extension ProductDetailsViewController:UICollectionViewDataSource,UICollectionVi
         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: ProductImageCell.identifier, for: indexPath) as! ProductImageCell
 
         cell.EntireSelectedImage.numberOfPages = 3
-        cell.EntireSelectedImage.currentPage = indexPath.row        
+        cell.EntireSelectedImage.currentPage = indexPath.row
+        cell.frame = productImageCollection.bounds
         return cell
     }
 

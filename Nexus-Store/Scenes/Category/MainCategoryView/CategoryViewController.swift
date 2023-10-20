@@ -74,7 +74,9 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
     
     //MARK: - Selection Product Details
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = ProductDetailsViewController(nibName: ProductDetailsViewController.identifier, bundle: nil)
+       // let vc = ProductDetailsViewController(nibName: ProductDetailsViewController.identifier, bundle: nil)
+        let storyboard = UIStoryboard(name:ProductDetailsViewController.storyBoardName , bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: ProductDetailsViewController.identifier) as! ProductDetailsViewController
          vc.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
          vc.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(vc, animated: true)
