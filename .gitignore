@@ -8,6 +8,16 @@
 **/*.playground/**/timeline.xctimeline
 .idea/
 
+# Build
+Scripts/build/
+build/
+DerivedData/
+*.ipa
+
+# CSV
+*.orig
+.svn
+
 
 # Other
 *~
