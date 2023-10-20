@@ -50,6 +50,9 @@
                     <buttonConfiguration key="configuration" style="plain" title="Add Promo Code">
                         <color key="baseForegroundColor" name="SubTitle"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="addPromoCodeButtonPressed:" destination="-1" eventType="touchUpInside" id="zVm-V1-kF1"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

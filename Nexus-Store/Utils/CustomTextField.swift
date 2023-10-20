@@ -16,11 +16,6 @@ class CustomTextField: UITextField {
         }
     }
     
-    @IBInspectable var cornerRadius: CGFloat {
-        set { layer.cornerRadius = newValue }
-        get { return layer.cornerRadius }
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupTextField()
