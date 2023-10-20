@@ -653,7 +653,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					E37687A62ADDFFB400DB09A1 = {
 						CreatedOnToolsVersion = 14.2;
@@ -770,11 +770,9 @@
 				E35BC5862AE0A8B900742654 /* SectionHeaderReusableView.swift in Sources */,
 				45D0E8912AE0A04800A07332 /* K.swift in Sources */,
 				5BC20AC52AE190CA0071925A /* SignUpViewController.swift in Sources */,
-				E35BC57B2AE0724F00742654 /* HomeViewController.swift in Sources */,
 				5BC20AD42AE1D0170071925A /* SocialTableViewCell.swift in Sources */,
 				5BC20ABF2AE16C490071925A /* SignInnViewController.swift in Sources */,
 				5BC20AC92AE1911F0071925A /* SignInViewController.swift in Sources */,
-				E37687AF2ADDFFB500DB09A1 /* ViewController.swift in Sources */,
 				45D0E88A2AE08D7700A07332 /* productDetailsCell.swift in Sources */,
 				011281B62AE1AA6600844137 /* AddAddressViewController.swift in Sources */,
 				45D0E8802AE084E200A07332 /* MainCategoryCell.swift in Sources */,
