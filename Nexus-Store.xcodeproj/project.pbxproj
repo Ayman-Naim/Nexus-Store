@@ -20,6 +20,9 @@
 		01A0EB8B2AE071A1004310FC /* CartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01A0EB892AE071A1004310FC /* CartViewController.xib */; };
 		01A0EB932AE075CB004310FC /* CartProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0EB912AE075CB004310FC /* CartProductTableViewCell.swift */; };
 		01A0EB942AE075CB004310FC /* CartProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01A0EB922AE075CB004310FC /* CartProductTableViewCell.xib */; };
+		01D776BE2AE2FFC50079F2B5 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D776BD2AE2FFC50079F2B5 /* Alert.swift */; };
+		01D776C32AE3021C0079F2B5 /* AddPromoCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D776C12AE3021C0079F2B5 /* AddPromoCodeViewController.swift */; };
+		01D776C42AE3021C0079F2B5 /* AddPromoCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01D776C22AE3021C0079F2B5 /* AddPromoCodeViewController.xib */; };
 		45123AAB2AE2149E001B12B7 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45123A922AE2149E001B12B7 /* ProductDetailsViewController.swift */; };
 		45123AAC2AE2149E001B12B7 /* ProductImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45123A952AE2149E001B12B7 /* ProductImageCell.xib */; };
 		45123AAD2AE2149E001B12B7 /* ProductImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45123A962AE2149E001B12B7 /* ProductImageCell.swift */; };
@@ -97,6 +100,9 @@
 		01A0EB892AE071A1004310FC /* CartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartViewController.xib; sourceTree = "<group>"; };
 		01A0EB912AE075CB004310FC /* CartProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartProductTableViewCell.swift; sourceTree = "<group>"; };
 		01A0EB922AE075CB004310FC /* CartProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartProductTableViewCell.xib; sourceTree = "<group>"; };
+		01D776BD2AE2FFC50079F2B5 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		01D776C12AE3021C0079F2B5 /* AddPromoCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPromoCodeViewController.swift; sourceTree = "<group>"; };
+		01D776C22AE3021C0079F2B5 /* AddPromoCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPromoCodeViewController.xib; sourceTree = "<group>"; };
 		0EE52BF3C2B1CE37BD0BE425 /* Pods_Nexus_Store.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nexus_Store.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D0897498D8507D3F7C4DEF /* Pods-Nexus-Store.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nexus-Store.release.xcconfig"; path = "Target Support Files/Pods-Nexus-Store/Pods-Nexus-Store.release.xcconfig"; sourceTree = "<group>"; };
 		294B772207E75B1ADC58E6CF /* Pods-Nexus-Store-Nexus-StoreUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nexus-Store-Nexus-StoreUITests.debug.xcconfig"; path = "Target Support Files/Pods-Nexus-Store-Nexus-StoreUITests/Pods-Nexus-Store-Nexus-StoreUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -193,10 +199,10 @@
 		011281A22AE18D7B00844137 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				011281A32AE18D7B00844137 /* ShippingViewController.xib */,
 				011281A42AE18D7B00844137 /* ShippingTableViewHeader */,
-				011281A62AE18D7B00844137 /* ShippingViewController.swift */,
 				011281A72AE18D7B00844137 /* AddressCell */,
+				011281A62AE18D7B00844137 /* ShippingViewController.swift */,
+				011281A32AE18D7B00844137 /* ShippingViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -246,7 +252,7 @@
 		01A0EB852AE0716E004310FC /* Cart */ = {
 			isa = PBXGroup;
 			children = (
-				011281AF2AE1A4F900844137 /* CustomTextField.swift */,
+				01D776BF2AE301D80079F2B5 /* Add-Promo-Code */,
 				011281B12AE1AA0D00844137 /* Add-Address */,
 				011281A12AE18D7B00844137 /* Shipping */,
 				01A0EB862AE07174004310FC /* View */,
@@ -279,6 +285,23 @@
 				01A0EB922AE075CB004310FC /* CartProductTableViewCell.xib */,
 			);
 			path = CartProductCell;
+			sourceTree = "<group>";
+		};
+		01D776BF2AE301D80079F2B5 /* Add-Promo-Code */ = {
+			isa = PBXGroup;
+			children = (
+				01D776C02AE301F80079F2B5 /* View */,
+			);
+			path = "Add-Promo-Code";
+			sourceTree = "<group>";
+		};
+		01D776C02AE301F80079F2B5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				01D776C12AE3021C0079F2B5 /* AddPromoCodeViewController.swift */,
+				01D776C22AE3021C0079F2B5 /* AddPromoCodeViewController.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		423F5CB5BDD8E70020970C78 /* Frameworks */ = {
@@ -691,6 +714,8 @@
 		E37687E42ADE005D00DB09A1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				01D776BD2AE2FFC50079F2B5 /* Alert.swift */,
+				011281AF2AE1A4F900844137 /* CustomTextField.swift */,
 				E37687E62ADE035C00DB09A1 /* Constants */,
 				E37687DF2ADE001500DB09A1 /* Extensions */,
 			);
@@ -868,6 +893,7 @@
 				5BC20AD12AE1C71D0071925A /* WelcomeViewController.xib in Resources */,
 				01A0EB8B2AE071A1004310FC /* CartViewController.xib in Resources */,
 				E345566D2AE1B51C00312C6C /* FavouriteTableViewCell.xib in Resources */,
+				01D776C42AE3021C0079F2B5 /* AddPromoCodeViewController.xib in Resources */,
 				E37687B22ADDFFB500DB09A1 /* Main.storyboard in Resources */,
 				E35BC58D2AE0ADA500742654 /* BrandsCollectionCell.xib in Resources */,
 				45123AB02AE2149E001B12B7 /* ReviewProductCell.xib in Resources */,
@@ -954,6 +980,7 @@
 				4531FE4F2AE2EE3800F47528 /* ProductSizeDelegation.swift in Sources */,
 				45123AAD2AE2149E001B12B7 /* ProductImageCell.swift in Sources */,
 				E37B4DEB2AE307BE0051EB89 /* PaymentTableViewCell.swift in Sources */,
+				01D776BE2AE2FFC50079F2B5 /* Alert.swift in Sources */,
 				011281B62AE1AA6600844137 /* AddAddressViewController.swift in Sources */,
 				E37687AB2ADDFFB500DB09A1 /* AppDelegate.swift in Sources */,
 				45123AB22AE2149E001B12B7 /* CategoryViewController.swift in Sources */,
@@ -962,6 +989,7 @@
 				011281B02AE1A4F900844137 /* CustomTextField.swift in Sources */,
 				4531FE512AE2EE4A00F47528 /* ProductReviewDelegation.swift in Sources */,
 				011281AB2AE18D7B00844137 /* ShippingTableViewHeader.swift in Sources */,
+				01D776C32AE3021C0079F2B5 /* AddPromoCodeViewController.swift in Sources */,
 				01A0EB8A2AE071A1004310FC /* CartViewController.swift in Sources */,
 				E34556662AE1AD9400312C6C /* OrderTableViewCell.swift in Sources */,
 				01A0EB932AE075CB004310FC /* CartProductTableViewCell.swift in Sources */,

@@ -11,6 +11,13 @@ class ShippingViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    private var addresses: [(name: String, city: String, address: String, isSelected: Bool)] = [
+        ("Home 1", "Test 1", "Test", false),
+        ("Home 2", "Test 2", "Test", false),
+        ("Home 3", "Test 3", "Test", false),
+        ("Home 4", "Test 4", "Test", false),
+    ]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,14 +25,8 @@ class ShippingViewController: UIViewController {
         setupTableView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
     private func setupNavigationBar() {
-        title = "Shipping"
-        navigationItem.largeTitleDisplayMode = .automatic
+        title = "Shipping Address"
         
         let addAddressBarButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(addAddress))
         addAddressBarButton.tintColor = UIColor(named: "Title")
@@ -39,12 +40,19 @@ class ShippingViewController: UIViewController {
         tableView.dataSource = self
     }
     
+    @objc private func addAddress() {
+        let addAddressVC = AddAddressViewController()
+        addAddressVC.delegate = self
+        self.navigationController?.pushViewController(addAddressVC, animated: true)
+    }
+    
     @IBAction func continueToPaymentButtonPressed(_ sender: UIButton) {
         
     }
     
-    @objc private func addAddress() {
-        
+    
+    @IBAction func addPromoCodeButtonPressed(_ sender: UIButton) {
+        self.navigationController?.pushViewController(AddPromoCodeViewController(), animated: true)
     }
 }
 
@@ -52,18 +60,34 @@ class ShippingViewController: UIViewController {
 // MARK: - UITableView DataSource & Delegate
 extension ShippingViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return addresses.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AddressTableViewCell.identifier, for: indexPath) as! AddressTableViewCell
-        
+        let address = addresses[indexPath.row]
+        cell.setAddress(address)
+        cell.selecteAddress(address.isSelected)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
-        let cell = tableView.cellForRow(at: indexPath) as! AddressCell
-        cell.didSelecteAddress(true)
+        addresses.indices.forEach({ addresses[$0].isSelected = false })
+        addresses[indexPath.row].isSelected = true
+        tableView.reloadData()
+    }
+}
+
+
+
+// MARK: - AddAddressDelegate
+extension ShippingViewController: AddAddressDelegate {
+    func didAddNewAddress(_ address: (name: String, city: String, address: String)) {
+        addresses.indices.forEach({ addresses[$0].isSelected = false })
+        addresses.insert((name: address.name,
+                          city: address.city,
+                          address: address.address,
+                          isSelected: true), at: 0)
+        tableView.reloadData()
     }
 }
