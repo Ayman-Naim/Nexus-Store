@@ -24,7 +24,7 @@ class CartViewController: UIViewController {
     private var defaultNavPreferedDisplayTitle = false
     
     var products: [CartProduct] = [
-        .init(id: 1, title: "Test", price: 10.99, image: "", quantity: 1),
+        .init(id: 1, title: "Longline Padded Jacket", price: 10.99, image: "", quantity: 1),
         .init(id: 2, title: "Test", price: 30.59, image: "", quantity: 1),
         .init(id: 3, title: "Test", price: 5.99, image: "", quantity: 1),
         .init(id: 4, title: "Test", price: 12.99, image: "", quantity: 1),
@@ -38,7 +38,7 @@ class CartViewController: UIViewController {
     }
     
     private func setupTableView() {
-        tableView.register(CartProductTableViewCell.nib(), forCellReuseIdentifier: CartProductTableViewCell.identifier)
+        tableView.register(ProductLandscapeTVCell.nib(), forCellReuseIdentifier: ProductLandscapeTVCell.identifier)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -66,14 +66,14 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CartProductTableViewCell.identifier, for: indexPath) as! CartProductTableViewCell
-        cell.addProduct(products[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProductLandscapeTVCell.identifier, for: indexPath) as! ProductLandscapeTVCell
+        cell.setProduct(products[indexPath.row])
         cell.delegate = self
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.size.height * 0.25
+        return ProductLandscapeTVCell.height
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -86,13 +86,19 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 
-extension CartViewController: CartProductCellDelegate {
-    func deleteProduct(withID id: Int) {
-        products.removeAll(where: { $0.id == id})
-        tableView.reloadData()
+extension CartViewController: ProductLandscapeCellDelegate {
+    func didDeleteProduct(withID id: Int) {
+        if let index = products.firstIndex(where: { $0.id == id }) {
+            // Remove First
+            products.remove(at: index)
+            // Then Update TableView
+            tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .fade)
+            // Then Update the Price
+            updateTotalPrice()
+        }
     }
     
-    func didUpdateQuantity(forProductID id: Int, with quantity: Int) {
+    func didUpdateProductQuantity(forProductID id: Int, with quantity: Int) {
         if let index = products.firstIndex(where: { $0.id == id}) {
             products[index].quantity = quantity
         }
