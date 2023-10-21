@@ -11,7 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CartViewController" customModule="Nexus_Store" customModuleProvider="target">
             <connections>
-                <outlet property="emptyView" destination="X4u-HD-pK2" id="RWQ-Ws-eeA"/>
                 <outlet property="tableView" destination="z7s-95-7hI" id="TF1-0g-BzQ"/>
                 <outlet property="totalPriceLabel" destination="1RD-Hq-DWw" id="aam-e8-s06"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -66,30 +65,6 @@
                     </subviews>
                     <color key="backgroundColor" name="Background"/>
                 </stackView>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X4u-HD-pK2" userLabel="Empty View">
-                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
-                    <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty_2" translatesAutoresizingMaskIntoConstraints="NO" id="AwW-ef-Cep">
-                            <rect key="frame" x="39.333333333333343" y="222.33333333333334" width="314.33333333333326" height="314.33333333333326"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="AwW-ef-Cep" secondAttribute="height" multiplier="1:1" id="qMp-pt-aYC"/>
-                            </constraints>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nothing in the cart!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4Y-04-5ZX">
-                            <rect key="frame" x="103.00000000000001" y="178" width="187.33333333333337" height="26.333333333333343"/>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" name="Background"/>
-                    <constraints>
-                        <constraint firstItem="AwW-ef-Cep" firstAttribute="width" secondItem="X4u-HD-pK2" secondAttribute="width" multiplier="0.8" id="D5A-6N-maL"/>
-                        <constraint firstItem="AwW-ef-Cep" firstAttribute="centerX" secondItem="X4u-HD-pK2" secondAttribute="centerX" id="TvE-fF-s11"/>
-                        <constraint firstItem="AwW-ef-Cep" firstAttribute="top" secondItem="p4Y-04-5ZX" secondAttribute="bottom" constant="18" id="U8a-vv-nAj"/>
-                        <constraint firstItem="AwW-ef-Cep" firstAttribute="centerY" secondItem="X4u-HD-pK2" secondAttribute="centerY" id="VJ4-nZ-3MZ"/>
-                        <constraint firstItem="p4Y-04-5ZX" firstAttribute="centerX" secondItem="X4u-HD-pK2" secondAttribute="centerX" id="W83-nU-5Kv"/>
-                    </constraints>
-                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="Background"/>
@@ -97,13 +72,9 @@
                 <constraint firstItem="1s7-py-mqw" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="0vY-2E-K9I"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="z7s-95-7hI" secondAttribute="trailing" id="9SU-Ra-SX1"/>
                 <constraint firstItem="eWu-Mw-532" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="Id5-P2-xMm"/>
-                <constraint firstItem="X4u-HD-pK2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="PcC-vH-5X0"/>
-                <constraint firstItem="X4u-HD-pK2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Rmh-Bo-8nh"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="X4u-HD-pK2" secondAttribute="bottom" id="ULt-Gi-KER"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eWu-Mw-532" secondAttribute="bottom" constant="16" id="WPO-kW-iiZ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eWu-Mw-532" secondAttribute="trailing" constant="24" id="eDz-VE-fUH"/>
                 <constraint firstItem="eWu-Mw-532" firstAttribute="top" secondItem="z7s-95-7hI" secondAttribute="bottom" constant="8" id="icu-u4-u7y"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="X4u-HD-pK2" secondAttribute="trailing" id="jx1-6D-eF1"/>
                 <constraint firstItem="z7s-95-7hI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rVX-jj-8kk"/>
                 <constraint firstItem="z7s-95-7hI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="wey-tr-7vS"/>
             </constraints>
@@ -111,7 +82,6 @@
         </view>
     </objects>
     <resources>
-        <image name="empty_2" width="122.66666412353516" height="92"/>
         <namedColor name="Background">
             <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
