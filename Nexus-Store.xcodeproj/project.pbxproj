@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010F60FE2AE491CB00DE7EB0 /* ContentEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010F60FD2AE491CB00DE7EB0 /* ContentEmptyView.swift */; };
+		010F61002AE4920500DE7EB0 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010F60FF2AE4920500DE7EB0 /* UIViewController+Extension.swift */; };
 		011281AA2AE18D7B00844137 /* ShippingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 011281A32AE18D7B00844137 /* ShippingViewController.xib */; };
 		011281AB2AE18D7B00844137 /* ShippingTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011281A52AE18D7B00844137 /* ShippingTableViewHeader.swift */; };
 		011281AC2AE18D7B00844137 /* ShippingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011281A62AE18D7B00844137 /* ShippingViewController.swift */; };
@@ -88,6 +90,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		010F60FD2AE491CB00DE7EB0 /* ContentEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentEmptyView.swift; sourceTree = "<group>"; };
+		010F60FF2AE4920500DE7EB0 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		011281A32AE18D7B00844137 /* ShippingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShippingViewController.xib; sourceTree = "<group>"; };
 		011281A52AE18D7B00844137 /* ShippingTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingTableViewHeader.swift; sourceTree = "<group>"; };
 		011281A62AE18D7B00844137 /* ShippingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingViewController.swift; sourceTree = "<group>"; };
@@ -710,6 +714,7 @@
 				011281BA2AE1E0AE00844137 /* UIImageView+Extension.swift */,
 				459D7B0B2AE2B84400AD8CC8 /* UICollectionVIew+Extension.swift */,
 				459D7B0D2AE2B8A100AD8CC8 /* UIView+Extension.swift */,
+				010F60FF2AE4920500DE7EB0 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -735,6 +740,7 @@
 			children = (
 				01D776BD2AE2FFC50079F2B5 /* Alert.swift */,
 				011281AF2AE1A4F900844137 /* CustomTextField.swift */,
+				010F60FD2AE491CB00DE7EB0 /* ContentEmptyView.swift */,
 				E37687E62ADE035C00DB09A1 /* Constants */,
 				E37687DF2ADE001500DB09A1 /* Extensions */,
 			);
@@ -996,11 +1002,13 @@
 				45123AB52AE2149E001B12B7 /* productDetailsCell.swift in Sources */,
 				5BC20ABF2AE16C490071925A /* SignInnViewController.swift in Sources */,
 				5BC20AC92AE1911F0071925A /* SignInViewController.swift in Sources */,
+				010F60FE2AE491CB00DE7EB0 /* ContentEmptyView.swift in Sources */,
 				4531FE4F2AE2EE3800F47528 /* ProductSizeDelegation.swift in Sources */,
 				45123AAD2AE2149E001B12B7 /* ProductImageCell.swift in Sources */,
 				E37B4DEB2AE307BE0051EB89 /* PaymentTableViewCell.swift in Sources */,
 				01D776BE2AE2FFC50079F2B5 /* Alert.swift in Sources */,
 				011281B62AE1AA6600844137 /* AddAddressViewController.swift in Sources */,
+				010F61002AE4920500DE7EB0 /* UIViewController+Extension.swift in Sources */,
 				01D776C82AE316770079F2B5 /* ProductsOrderSheetTVC.swift in Sources */,
 				E37687AB2ADDFFB500DB09A1 /* AppDelegate.swift in Sources */,
 				45123AB22AE2149E001B12B7 /* CategoryViewController.swift in Sources */,

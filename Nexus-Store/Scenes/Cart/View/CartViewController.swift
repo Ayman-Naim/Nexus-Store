@@ -19,7 +19,6 @@ class CartViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var totalPriceLabel: UILabel!
-    @IBOutlet weak var emptyView: UIView!
     
     private var defaultNavPreferedDisplayTitle = false
     
@@ -42,6 +41,13 @@ class CartViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        self.setContentEmptyTitle("No products in the Cart! 🧐")
+        self.setContentEmptyImage(UIImage(named: "empty_2"))
+//        Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { [weak self] _ in
+//            guard let self = self else { return }
+//            self.isContentEmptyViewHidden = !self.isContentEmptyViewHidden
+//        }
     }
     
     
@@ -61,7 +67,7 @@ class CartViewController: UIViewController {
 // MARK: - UITableView DataSource
 extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        emptyView.isHidden = !products.isEmpty
+        self.isContentEmptyViewHidden = !products.isEmpty
         return products.count
     }
     
