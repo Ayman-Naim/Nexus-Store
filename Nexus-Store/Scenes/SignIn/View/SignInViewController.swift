@@ -15,15 +15,20 @@ class SignInViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func singInButtonPressed(_ sender: Any) {
+        let nav = UINavigationController(rootViewController: NexusTabBarController())
+        nav.modalPresentationStyle = .fullScreen
+        let tabBar = NexusTabBarController()
+        tabBar.modalPresentationStyle = .fullScreen
+        //nav.isNavigationBarHidden = true
+        self.present(tabBar, animated: true)
     }
-    */
-
+    
+    
+    @IBAction func signupButtonClicked(_ sender: UIButton) {
+        let signupVC = SignUpViewController()
+        //signupVC.modalPresentationStyle = .fullScreen
+        self.present(signupVC, animated: true)
+    }
+    
 }

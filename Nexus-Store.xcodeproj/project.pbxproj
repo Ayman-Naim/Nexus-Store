@@ -23,6 +23,8 @@
 		011281B62AE1AA6600844137 /* AddAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011281B42AE1AA6600844137 /* AddAddressViewController.swift */; };
 		011281B92AE1BAFC00844137 /* AddAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011281B82AE1BAFC00844137 /* AddAddressView.swift */; };
 		011281BB2AE1E0AE00844137 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011281BA2AE1E0AE00844137 /* UIImageView+Extension.swift */; };
+		01694EDE2AE4FF36009FC373 /* NexusTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01694EDD2AE4FF36009FC373 /* NexusTabBarController.swift */; };
+		01694EE22AE53128009FC373 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01694EE12AE53128009FC373 /* SearchViewController.swift */; };
 		01A0EB8A2AE071A1004310FC /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0EB882AE071A1004310FC /* CartViewController.swift */; };
 		01A0EB8B2AE071A1004310FC /* CartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01A0EB892AE071A1004310FC /* CartViewController.xib */; };
 		01A0EB932AE075CB004310FC /* ProductLandscapeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0EB912AE075CB004310FC /* ProductLandscapeTVCell.swift */; };
@@ -81,7 +83,6 @@
 		E35BC58D2AE0ADA500742654 /* BrandsCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E35BC58B2AE0ADA500742654 /* BrandsCollectionCell.xib */; };
 		E37687AB2ADDFFB500DB09A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37687AA2ADDFFB500DB09A1 /* AppDelegate.swift */; };
 		E37687AD2ADDFFB500DB09A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37687AC2ADDFFB500DB09A1 /* SceneDelegate.swift */; };
-		E37687AF2ADDFFB500DB09A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37687AE2ADDFFB500DB09A1 /* ViewController.swift */; };
 		E37687B22ADDFFB500DB09A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E37687B02ADDFFB500DB09A1 /* Main.storyboard */; };
 		E37687B52ADDFFB500DB09A1 /* Nexus_Store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E37687B32ADDFFB500DB09A1 /* Nexus_Store.xcdatamodeld */; };
 		E37687B72ADDFFB800DB09A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E37687B62ADDFFB800DB09A1 /* Assets.xcassets */; };
@@ -111,6 +112,8 @@
 		011281B42AE1AA6600844137 /* AddAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewController.swift; sourceTree = "<group>"; };
 		011281B82AE1BAFC00844137 /* AddAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressView.swift; sourceTree = "<group>"; };
 		011281BA2AE1E0AE00844137 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		01694EDD2AE4FF36009FC373 /* NexusTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NexusTabBarController.swift; sourceTree = "<group>"; };
+		01694EE12AE53128009FC373 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		01A0EB882AE071A1004310FC /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		01A0EB892AE071A1004310FC /* CartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartViewController.xib; sourceTree = "<group>"; };
 		01A0EB912AE075CB004310FC /* ProductLandscapeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductLandscapeTVCell.swift; sourceTree = "<group>"; };
@@ -178,7 +181,6 @@
 		E37687A72ADDFFB500DB09A1 /* Nexus-Store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nexus-Store.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E37687AA2ADDFFB500DB09A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E37687AC2ADDFFB500DB09A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E37687AE2ADDFFB500DB09A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E37687B12ADDFFB500DB09A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E37687B42ADDFFB500DB09A1 /* Nexus_Store.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Nexus_Store.xcdatamodel; sourceTree = "<group>"; };
 		E37687B62ADDFFB800DB09A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -274,6 +276,31 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		01694EDC2AE4FEE7009FC373 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				01694EDD2AE4FF36009FC373 /* NexusTabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		01694EDF2AE52A92009FC373 /* CommanComponents */ = {
+			isa = PBXGroup;
+			children = (
+				E34556692AE1B4EA00312C6C /* FavouriteCell */,
+				01A0EB902AE075AE004310FC /* ProductLandscapeTVCell */,
+			);
+			path = CommanComponents;
+			sourceTree = "<group>";
+		};
+		01694EE02AE530BD009FC373 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				01694EE12AE53128009FC373 /* SearchViewController.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		01A0EB852AE0716E004310FC /* Cart */ = {
@@ -578,7 +605,6 @@
 			isa = PBXGroup;
 			children = (
 				E345566E2AE1CB5E00312C6C /* ProfileSectinHeader */,
-				E34556692AE1B4EA00312C6C /* FavouriteCell */,
 				E34556682AE1B47C00312C6C /* OrderCell */,
 			);
 			path = Components;
@@ -693,6 +719,7 @@
 				E37687E42ADE005D00DB09A1 /* Utils */,
 				E37687E02ADE002B00DB09A1 /* Models */,
 				E37687E12ADE003600DB09A1 /* Services */,
+				01694EDF2AE52A92009FC373 /* CommanComponents */,
 				E37687DD2ADDFFFF00DB09A1 /* Scenes */,
 			);
 			path = "Nexus-Store";
@@ -701,21 +728,21 @@
 		E37687DD2ADDFFFF00DB09A1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				01694EE02AE530BD009FC373 /* Search */,
+				01694EDC2AE4FEE7009FC373 /* TabBar */,
 				5BC20ACB2AE1C67A0071925A /* Welcome */,
 				5BC20AB92AE16C490071925A /* SignIn */,
 				5BC20AC02AE190980071925A /* SignUp */,
 				E35BC5762AE071E000742654 /* Home */,
-				45123A8E2AE2149E001B12B7 /* Category */,
 				E3E498F52AE19F0800ED2924 /* Profile */,
-				01A0EB902AE075AE004310FC /* ProductLandscapeTVCell */,
+				45123A8E2AE2149E001B12B7 /* Category */,
+				45123A8F2AE2149E001B12B7 /* ProductDetails */,
+				01A0EB852AE0716E004310FC /* Cart */,
 				011281A12AE18D7B00844137 /* Shipping */,
 				011281B12AE1AA0D00844137 /* Add-Address */,
 				01D776BF2AE301D80079F2B5 /* Add-Promo-Code */,
 				01D776C52AE3160F0079F2B5 /* ProductsOrderSheet */,
 				E37B4DE22AE3011A0051EB89 /* PaymentMethod */,
-				45123A8F2AE2149E001B12B7 /* ProductDetails */,
-				01A0EB852AE0716E004310FC /* Cart */,
-				E37687AE2ADDFFB500DB09A1 /* ViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -1014,8 +1041,8 @@
 				45123AB72AE2149E001B12B7 /* CustomFooterSepertator.swift in Sources */,
 				011281BB2AE1E0AE00844137 /* UIImageView+Extension.swift in Sources */,
 				45123AB82AE2149E001B12B7 /* MainCategoryCell.swift in Sources */,
+				01694EDE2AE4FF36009FC373 /* NexusTabBarController.swift in Sources */,
 				011281AE2AE18D7B00844137 /* AddressTableViewCell.swift in Sources */,
-				E37687AF2ADDFFB500DB09A1 /* ViewController.swift in Sources */,
 				45123AAF2AE2149E001B12B7 /* SizeColorCell.swift in Sources */,
 				E35BC58C2AE0ADA500742654 /* BrandsCollectionCell.swift in Sources */,
 				45123AAB2AE2149E001B12B7 /* ProductDetailsViewController.swift in Sources */,
@@ -1048,6 +1075,7 @@
 				01A0EB8A2AE071A1004310FC /* CartViewController.swift in Sources */,
 				E34556662AE1AD9400312C6C /* OrderTableViewCell.swift in Sources */,
 				01A0EB932AE075CB004310FC /* ProductLandscapeTVCell.swift in Sources */,
+				01694EE22AE53128009FC373 /* SearchViewController.swift in Sources */,
 				E37687AD2ADDFFB500DB09A1 /* SceneDelegate.swift in Sources */,
 				E3E498FA2AE19F4E00ED2924 /* ProfileViewController.swift in Sources */,
 				010F61022AE49CF800DE7EB0 /* CustomLoadingIndicator.swift in Sources */,
@@ -1200,7 +1228,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7W7N543YH7;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Nexus-Store/Config/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1233,7 +1261,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7W7N543YH7;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Nexus-Store/Config/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

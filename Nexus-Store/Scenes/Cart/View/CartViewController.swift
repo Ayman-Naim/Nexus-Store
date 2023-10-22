@@ -20,8 +20,6 @@ class CartViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var totalPriceLabel: UILabel!
     
-    private var defaultNavPreferedDisplayTitle = false
-    
     var products: [CartProduct] = [
         .init(id: 1, title: "Longline Padded Jacket", price: 10.99, image: "", quantity: 1),
         .init(id: 2, title: "Test", price: 30.59, image: "", quantity: 1),
@@ -34,6 +32,8 @@ class CartViewController: UIViewController {
         title = "My Cart"
         setupTableView()
         updateTotalPrice()
+        
+        navigationItem.backButtonTitle = ""
     }
     
     private func setupTableView() {
