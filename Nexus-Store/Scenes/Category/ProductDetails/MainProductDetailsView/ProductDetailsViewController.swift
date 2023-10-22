@@ -10,9 +10,10 @@ import Cosmos
 
 class ProductDetailsViewController: UIViewController {
          
-        
-        static let storyBoardName = "ProductDetails"
-        static let identifier = "ProductDetails"
+
+  
+    static let storyBoardName = "ProductDetails"
+    static let identifier = "ProductDetails"
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var stepperView: UIView!
     @IBOutlet weak var reviewCollectionView: UICollectionView!
@@ -23,8 +24,7 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet weak var descriptionOfProduct: UILabel!
     @IBOutlet weak var colorCollectionView: UICollectionView!
     @IBOutlet weak var sizeCollectionView: UICollectionView!
-    
-  
+        
     var productSizeDelegation = ProductSizeDelegation()
     var productColorDelegation = ProductColorDelegation()
     var productReviewDelegation = ProductReviewDelegation()
@@ -51,9 +51,8 @@ class ProductDetailsViewController: UIViewController {
         layoutSetup()
         cosmaticsForUiView()
         productImageCollection.contentInsetAdjustmentBehavior = .never
-
+      
         
-
     }
 
 
@@ -96,6 +95,7 @@ extension ProductDetailsViewController:UICollectionViewDataSource,UICollectionVi
 
         cell.EntireSelectedImage.numberOfPages = 3
         cell.EntireSelectedImage.currentPage = indexPath.row
+       // imageIndicator.reloadInputViews()
         // cell.bounds = productImageCollection.frame
         return cell
     }
@@ -155,6 +155,12 @@ extension ProductDetailsViewController:UICollectionViewDataSource,UICollectionVi
         return section
     }
 
+    
+    
+//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//
+//        imageIndicator.currentPage = indexPath.row
+//    }
 }
 
 
@@ -169,4 +175,8 @@ extension ProductDetailsViewController{
     func cosmaticsForUiView(){
         stepperView.addingShadowWithEffectToView()
     }
+    
+  
 }
+
+
