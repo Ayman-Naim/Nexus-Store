@@ -20,6 +20,7 @@ class HomeViewController: UIViewController {
         collectionSetup()
         layoutSetup()
        
+        SerachBarText.delegate = self
     }
     func layoutSetup(){
         let layout = UICollectionViewCompositionalLayout { sectionIndex, enviroment in
@@ -38,7 +39,7 @@ class HomeViewController: UIViewController {
     
     
     @IBAction func CartButtonClicked(_ sender: Any) {
-        //
+        self.navigationController?.pushViewController(CartViewController(), animated: true)
     }
     
     @IBAction func favouriteButtonClicked(_ sender: Any) {
@@ -223,5 +224,14 @@ extension HomeViewController :UICollectionViewDelegate,UICollectionViewDataSourc
     //MARK: Functions For Animation
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+}
+
+
+// MARK: - SearchTextField
+extension HomeViewController: UISearchBarDelegate {
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        SearchViewController.present(on: self)
+        return true
     }
 }

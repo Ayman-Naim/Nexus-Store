@@ -17,15 +17,13 @@ class CategoryViewController: UIViewController {
     
     //MARK: - Conigure ViewWill Appear
     override func viewDidAppear(_ animated: Bool) {
-        //self.navigationController?.navigationBar.topItem?.title = K.categoryTitle
-        //navigationApperance()
+        self.navigationController?.navigationBar.topItem?.title = K.categoryTitle
         
     }
-
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationApperance()
         configureCollectionView()
         registerCollectionViewByCell()
         CategoryCollectionView.collectionViewLayout = createCompositionalLayout()
@@ -241,30 +239,16 @@ extension CategoryViewController{
     }
     
     
-    //MARK: - Custmize Apperance of Navigation Controller
-    func navigationApperance(){
 
 
-        let navigationBarAppearance = navigationController?.navigationBar
-        navigationBarAppearance?.tintColor = UIColor.black
-        navigationBarAppearance?.setBackgroundImage(UIImage(), for: .default)
-        navigationBarAppearance?.shadowImage = UIImage()
-        navigationBarAppearance?.isTranslucent = true
-        // Set the font and text attributes for the navigation bar title
-        let titleTextAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor.black, // Set the text color to white
-            .font: UIFont.systemFont(ofSize: 32, weight: .regular) // Set the font and size
-        ]
-        navigationBarAppearance?.titleTextAttributes = titleTextAttributes
-
-    }
 
     // MARK: - Setting Adding Favorite Button to NAvigation bar
     func configureFavoritueButton(){
         if let favoriteImage = UIImage(named: K.heartIcon) , let cartImage =  UIImage(named: K.cartIcon) ,let searchImage =  UIImage(named: K.searchIcon) {
             let favorite = UIBarButtonItem(image: favoriteImage, style: .plain, target: self, action:nil)
-            let cart = UIBarButtonItem(image: cartImage, style: .plain, target: self, action:nil)
-            let search = UIBarButtonItem(image: searchImage, style: .plain, target: self, action:nil)
+
+            let cart = UIBarButtonItem(image: cartImage, style: .plain, target: self, action: #selector(cartBarButtonPressed))
+            let search = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(searchBarButtonClicked))
             navigationItem.backButtonTitle = ""
             navigationItem.rightBarButtonItems = [favorite,cart]
             navigationItem.leftBarButtonItem = search
@@ -275,5 +259,15 @@ extension CategoryViewController{
 
 
     }
+
+    
+    @objc private func cartBarButtonPressed() {
+        self.navigationController?.pushViewController(CartViewController(), animated: true)
+    }
+    
+    @objc private func searchBarButtonClicked() {
+        SearchViewController.present(on: self)
+    }
+
     
 }

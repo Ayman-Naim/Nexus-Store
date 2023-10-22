@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -106,6 +106,9 @@
                                             <integer key="value" value="20"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="singInButtonPressed:" destination="-1" eventType="touchUpInside" id="HXI-sv-5VL"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login To Your Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQr-nw-gAI">
                                     <rect key="frame" x="15" y="10" width="363" height="30"/>
@@ -116,7 +119,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="iTV-zg-Pad">
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="iTV-zg-Pad">
                                     <rect key="frame" x="74.666666666666686" y="478" width="244" height="60"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvB-4T-HKG">
@@ -143,8 +146,18 @@
                                                 <constraint firstAttribute="height" constant="60" id="IL6-cn-FBL"/>
                                                 <constraint firstAttribute="width" constant="60" id="Nxk-jB-vzz"/>
                                             </constraints>
+                                            <color key="tintColor" systemColor="labelColor"/>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="apple-icon"/>
+                                            <buttonConfiguration key="configuration" style="plain">
+                                                <attributedString key="attributedTitle">
+                                                    <fragment content="">
+                                                        <attributes>
+                                                            <font key="NSFont" metaFont="system" size="48"/>
+                                                            <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                            </buttonConfiguration>
                                         </button>
                                     </subviews>
                                 </stackView>
@@ -156,27 +169,24 @@
                                         <constraint firstAttribute="height" constant="20" id="pl5-kd-eGl"/>
                                     </constraints>
                                 </imageView>
-                                <stackView opaque="NO" contentMode="scaleToFill" spacing="-7" translatesAutoresizingMaskIntoConstraints="NO" id="ubO-g9-4Qy">
-                                    <rect key="frame" x="57" y="610.66666666666663" width="279" height="34.333333333333371"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ubO-g9-4Qy">
+                                    <rect key="frame" x="53.333333333333343" y="610.66666666666663" width="286.66666666666663" height="34.333333333333371"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCU-dW-3hM">
-                                            <rect key="frame" x="0.0" y="0.0" width="202" height="34.333333333333336"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="202" id="GHC-Sf-wWI"/>
-                                            </constraints>
+                                            <rect key="frame" x="0.0" y="0.0" width="200.66666666666666" height="34.333333333333336"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceN-XZ-Ofx">
-                                            <rect key="frame" x="195" y="0.0" width="84" height="34.333333333333336"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="84" id="rlm-TP-UNz"/>
-                                            </constraints>
+                                            <rect key="frame" x="202.66666666666666" y="0.0" width="83.999999999999972" height="34.333333333333336"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" title="Sign Up">
                                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </buttonConfiguration>
+                                            <connections>
+                                                <action selector="signupButtonClicked:" destination="-1" eventType="touchUpInside" id="qxx-EA-qOo"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
@@ -255,12 +265,14 @@
         </view>
     </objects>
     <resources>
-        <image name="apple-icon" width="200" height="200"/>
         <image name="checkbox-1" width="512" height="512"/>
-        <image name="envelope.fill" catalog="system" width="128" height="85"/>
+        <image name="envelope.fill" catalog="system" width="128" height="93"/>
         <image name="exclamationmark.lock.fill" catalog="system" width="125" height="128"/>
         <image name="facebook1" width="75" height="75"/>
         <image name="google1" width="100" height="100"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
