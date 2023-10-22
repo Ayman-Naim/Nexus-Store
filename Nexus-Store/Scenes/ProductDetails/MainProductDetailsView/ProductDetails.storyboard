@@ -379,6 +379,14 @@
                                                     <constraint firstAttribute="height" constant="220" id="yIS-cu-qO9"/>
                                                 </constraints>
                                             </view>
+                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="x6d-fB-0vM" userLabel="ImageIndicator">
+                                                <rect key="frame" x="129.66666666666666" y="310" width="115.66666666666666" height="26"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="26" id="5K5-g8-67F"/>
+                                                </constraints>
+                                                <color key="pageIndicatorTintColor" name="SubTitle"/>
+                                                <color key="currentPageIndicatorTintColor" name="Title"/>
+                                            </pageControl>
                                         </subviews>
                                         <color key="tintColor" systemColor="linkColor"/>
                                         <constraints>
@@ -398,6 +406,7 @@
                                             <constraint firstAttribute="bottom" secondItem="cch-5I-4wc" secondAttribute="bottom" constant="300" id="T1k-eu-zYb"/>
                                             <constraint firstItem="cch-5I-4wc" firstAttribute="top" secondItem="LMz-62-yrS" secondAttribute="bottom" constant="10" id="Ut7-R3-Iwq"/>
                                             <constraint firstAttribute="trailing" secondItem="DFh-b5-2W9" secondAttribute="trailing" id="WKQ-9H-qHd"/>
+                                            <constraint firstItem="x6d-fB-0vM" firstAttribute="centerX" secondItem="vz8-PG-xNv" secondAttribute="centerX" id="b70-RG-fgx"/>
                                             <constraint firstAttribute="trailing" secondItem="LK5-Xb-JPA" secondAttribute="trailing" id="bIs-Y4-3mx"/>
                                             <constraint firstItem="LMz-62-yrS" firstAttribute="top" secondItem="4K5-q6-4Xy" secondAttribute="bottom" constant="10" id="dnp-Ai-tyX"/>
                                             <constraint firstItem="LK5-Xb-JPA" firstAttribute="trailing" secondItem="kF6-Vy-UB8" secondAttribute="trailing" id="gij-sD-HRr"/>
@@ -406,6 +415,7 @@
                                             <constraint firstItem="baU-c6-jW9" firstAttribute="top" secondItem="LK5-Xb-JPA" secondAttribute="bottom" constant="4" id="qkA-PW-g7Q"/>
                                             <constraint firstItem="DFh-b5-2W9" firstAttribute="top" secondItem="baU-c6-jW9" secondAttribute="bottom" id="rSH-Xz-xFB"/>
                                             <constraint firstAttribute="trailing" secondItem="vz8-PG-xNv" secondAttribute="trailing" id="u66-SX-bUl"/>
+                                            <constraint firstItem="x6d-fB-0vM" firstAttribute="top" secondItem="vz8-PG-xNv" secondAttribute="bottom" constant="-30" id="ukE-Kc-jRP"/>
                                             <constraint firstItem="vz8-PG-xNv" firstAttribute="leading" secondItem="kF6-Vy-UB8" secondAttribute="leading" id="wu4-iR-Fwh"/>
                                         </constraints>
                                     </view>
@@ -505,6 +515,7 @@
                         <outlet property="colorCollectionView" destination="Xla-Dz-pmq" id="AZE-ut-dVz"/>
                         <outlet property="contentView" destination="kF6-Vy-UB8" id="Tq6-nW-UBq"/>
                         <outlet property="descriptionOfProduct" destination="oxn-iL-vuh" id="pTs-A2-kLv"/>
+                        <outlet property="imageIndicator" destination="x6d-fB-0vM" id="UGe-Cu-ZIn"/>
                         <outlet property="productBrand" destination="iTW-0S-hMg" id="gAk-NN-xKD"/>
                         <outlet property="productImageCollection" destination="vz8-PG-xNv" id="HgP-lB-5gV"/>
                         <outlet property="productType" destination="9hM-zw-rkJ" id="xXP-1f-4vy"/>
@@ -519,11 +530,6 @@
             <point key="canvasLocation" x="-100" y="93.842364532019715"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="9Co-Us-UEs">
-            <size key="intrinsicContentSize" width="100" height="16"/>
-        </designable>
-    </designables>
     <resources>
         <image name="minus" catalog="system" width="128" height="26"/>
         <image name="mus\Fav" width="32" height="32"/>
