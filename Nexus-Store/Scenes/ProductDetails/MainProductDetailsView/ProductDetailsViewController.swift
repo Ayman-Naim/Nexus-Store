@@ -29,22 +29,7 @@ class ProductDetailsViewController: UIViewController {
     var productColorDelegation = ProductColorDelegation()
     var productReviewDelegation = ProductReviewDelegation()
     
-    override func viewWillAppear(_ animated: Bool) {
-        //navigationController?.navigationBar.isHidden = true
-       // navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
 
-        // Adjust the view's content insets to ignore the navigation bar
-        if #available(iOS 11.0, *) {
-            productImageCollection.contentInsetAdjustmentBehavior = .never
-        } else {
-            automaticallyAdjustsScrollViewInsets = false
-        }
-        productImageCollection.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-      
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         configureDataSourceofImageCollection()

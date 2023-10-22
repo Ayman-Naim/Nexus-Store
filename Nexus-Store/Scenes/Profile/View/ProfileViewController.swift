@@ -40,7 +40,7 @@ class ProfileViewController: UIViewController {
     
     
     @IBAction func CartButtonClicked(_ sender: Any) {
-        //
+        self.navigationController?.pushViewController(CartViewController(), animated: true)
     }
     
     @IBAction func WishListClicked(_ sender: Any) {
