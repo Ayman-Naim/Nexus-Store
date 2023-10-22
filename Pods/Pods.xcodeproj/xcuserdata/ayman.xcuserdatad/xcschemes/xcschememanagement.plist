@@ -7,7 +7,11 @@
 		<key>Alamofire.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD:Pods/Pods.xcodeproj/xcuserdata/mustafa.xcuserdatad/xcschemes/xcschememanagement.plist
+			<integer>5</integer>
+=======
 			<integer>4</integer>
+>>>>>>> f22e2d6c4c974cedd0441c9b3b371476d9a1212f:Pods/Pods.xcodeproj/xcuserdata/ayman.xcuserdatad/xcschemes/xcschememanagement.plist
 		</dict>
 		<key>BoringSSL-GRPC.xcscheme_^#shared#^_</key>
 		<dict>
@@ -52,22 +56,38 @@
 		<key>Kingfisher.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD:Pods/Pods.xcodeproj/xcuserdata/mustafa.xcuserdatad/xcschemes/xcschememanagement.plist
+			<integer>1</integer>
+=======
 			<integer>3</integer>
+>>>>>>> f22e2d6c4c974cedd0441c9b3b371476d9a1212f:Pods/Pods.xcodeproj/xcuserdata/ayman.xcuserdatad/xcschemes/xcschememanagement.plist
 		</dict>
 		<key>Pods-Nexus-Store-Nexus-StoreUITests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD:Pods/Pods.xcodeproj/xcuserdata/mustafa.xcuserdatad/xcschemes/xcschememanagement.plist
+			<integer>6</integer>
+=======
 			<integer>2</integer>
+>>>>>>> f22e2d6c4c974cedd0441c9b3b371476d9a1212f:Pods/Pods.xcodeproj/xcuserdata/ayman.xcuserdatad/xcschemes/xcschememanagement.plist
 		</dict>
 		<key>Pods-Nexus-Store.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD:Pods/Pods.xcodeproj/xcuserdata/mustafa.xcuserdatad/xcschemes/xcschememanagement.plist
+			<integer>7</integer>
+=======
 			<integer>1</integer>
+>>>>>>> f22e2d6c4c974cedd0441c9b3b371476d9a1212f:Pods/Pods.xcodeproj/xcuserdata/ayman.xcuserdatad/xcschemes/xcschememanagement.plist
 		</dict>
 		<key>Pods-Nexus-StoreTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD:Pods/Pods.xcodeproj/xcuserdata/mustafa.xcuserdatad/xcschemes/xcschememanagement.plist
+			<integer>2</integer>
+=======
 			<integer>6</integer>
+>>>>>>> f22e2d6c4c974cedd0441c9b3b371476d9a1212f:Pods/Pods.xcodeproj/xcuserdata/ayman.xcuserdatad/xcschemes/xcschememanagement.plist
 		</dict>
 		<key>PromisesObjC.xcscheme_^#shared#^_</key>
 		<dict>
@@ -102,7 +122,11 @@
 		<key>lottie-ios.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD:Pods/Pods.xcodeproj/xcuserdata/mustafa.xcuserdatad/xcschemes/xcschememanagement.plist
+			<integer>3</integer>
+=======
 			<integer>5</integer>
+>>>>>>> f22e2d6c4c974cedd0441c9b3b371476d9a1212f:Pods/Pods.xcodeproj/xcuserdata/ayman.xcuserdatad/xcschemes/xcschememanagement.plist
 		</dict>
 		<key>nanopb.xcscheme_^#shared#^_</key>
 		<dict>
