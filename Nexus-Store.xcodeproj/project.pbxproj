@@ -279,15 +279,8 @@
 		01A0EB852AE0716E004310FC /* Cart */ = {
 			isa = PBXGroup;
 			children = (
-				010F61032AE49F0B00DE7EB0 /* LottieAnimations-JSON */,
-				010F61012AE49CF800DE7EB0 /* CustomLoadingIndicator.swift */,
 				01A0EB862AE07174004310FC /* View */,
 				01A0EB872AE0717D004310FC /* ViewModel */,
-				01A0EB902AE075AE004310FC /* ProductLandscapeTVCell */,
-				011281A12AE18D7B00844137 /* Shipping */,
-				011281B12AE1AA0D00844137 /* Add-Address */,
-				01D776BF2AE301D80079F2B5 /* Add-Promo-Code */,
-				01D776C52AE3160F0079F2B5 /* ProductsOrderSheet */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -363,7 +356,6 @@
 		45123A8E2AE2149E001B12B7 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				45123A8F2AE2149E001B12B7 /* ProductDetails */,
 				45123A9D2AE2149E001B12B7 /* MainCategoryView */,
 			);
 			path = Category;
@@ -493,8 +485,6 @@
 		5BC20AB92AE16C490071925A /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
-				5BC20ACB2AE1C67A0071925A /* Welcome */,
-				5BC20AC02AE190980071925A /* SignUp */,
 				5BC20ABA2AE16C490071925A /* ViewModel */,
 				5BC20ABB2AE16C490071925A /* View */,
 			);
@@ -624,8 +614,6 @@
 		E35BC5762AE071E000742654 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				E3E498F52AE19F0800ED2924 /* Profile */,
-				E37B4DE22AE3011A0051EB89 /* PaymentMethod */,
 				E35BC57D2AE08CE300742654 /* Components */,
 				E35BC5782AE0723600742654 /* View */,
 			);
@@ -713,9 +701,19 @@
 		E37687DD2ADDFFFF00DB09A1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				45123A8E2AE2149E001B12B7 /* Category */,
-				E35BC5762AE071E000742654 /* Home */,
+				5BC20ACB2AE1C67A0071925A /* Welcome */,
 				5BC20AB92AE16C490071925A /* SignIn */,
+				5BC20AC02AE190980071925A /* SignUp */,
+				E35BC5762AE071E000742654 /* Home */,
+				45123A8E2AE2149E001B12B7 /* Category */,
+				E3E498F52AE19F0800ED2924 /* Profile */,
+				01A0EB902AE075AE004310FC /* ProductLandscapeTVCell */,
+				011281A12AE18D7B00844137 /* Shipping */,
+				011281B12AE1AA0D00844137 /* Add-Address */,
+				01D776BF2AE301D80079F2B5 /* Add-Promo-Code */,
+				01D776C52AE3160F0079F2B5 /* ProductsOrderSheet */,
+				E37B4DE22AE3011A0051EB89 /* PaymentMethod */,
+				45123A8F2AE2149E001B12B7 /* ProductDetails */,
 				01A0EB852AE0716E004310FC /* Cart */,
 				E37687AE2ADDFFB500DB09A1 /* ViewController.swift */,
 			);
@@ -764,6 +762,8 @@
 				01D776BD2AE2FFC50079F2B5 /* Alert.swift */,
 				011281AF2AE1A4F900844137 /* CustomTextField.swift */,
 				010F60FD2AE491CB00DE7EB0 /* ContentEmptyView.swift */,
+				010F61012AE49CF800DE7EB0 /* CustomLoadingIndicator.swift */,
+				010F61032AE49F0B00DE7EB0 /* LottieAnimations-JSON */,
 				E37687E62ADE035C00DB09A1 /* Constants */,
 				E37687DF2ADE001500DB09A1 /* Extensions */,
 			);
