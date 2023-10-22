@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,22 +23,12 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mus\ProductImage" translatesAutoresizingMaskIntoConstraints="NO" id="kjC-np-DZH">
                                 <rect key="frame" x="0.0" y="0.0" width="547" height="340"/>
                             </imageView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="W5X-u4-tii">
-                                <rect key="frame" x="197.66666666666669" y="284" width="151.66666666666669" height="26"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="26" id="10i-ei-JeS"/>
-                                </constraints>
-                                <color key="pageIndicatorTintColor" name="SubTitle"/>
-                                <color key="currentPageIndicatorTintColor" name="Title"/>
-                            </pageControl>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="kjC-np-DZH" secondAttribute="bottom" id="AMx-eY-9Wn"/>
                             <constraint firstItem="kjC-np-DZH" firstAttribute="top" secondItem="slZ-1O-5xJ" secondAttribute="top" id="BcU-ec-8kB"/>
-                            <constraint firstItem="W5X-u4-tii" firstAttribute="centerX" secondItem="slZ-1O-5xJ" secondAttribute="centerX" id="HHW-RS-1Ua"/>
                             <constraint firstAttribute="trailing" secondItem="kjC-np-DZH" secondAttribute="trailing" id="csP-Me-z1f"/>
                             <constraint firstItem="kjC-np-DZH" firstAttribute="leading" secondItem="slZ-1O-5xJ" secondAttribute="leading" id="o56-ez-fIM"/>
-                            <constraint firstAttribute="bottom" secondItem="W5X-u4-tii" secondAttribute="bottom" constant="30" id="py2-eS-LZh"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -53,7 +42,6 @@
             </constraints>
             <size key="customSize" width="547" height="425"/>
             <connections>
-                <outlet property="EntireSelectedImage" destination="W5X-u4-tii" id="yJW-N0-USt"/>
                 <outlet property="productImage" destination="kjC-np-DZH" id="RGP-pU-z9V"/>
             </connections>
             <point key="canvasLocation" x="364.12213740458014" y="117.25352112676057"/>
@@ -61,11 +49,5 @@
     </objects>
     <resources>
         <image name="mus\ProductImage" width="150" height="150"/>
-        <namedColor name="SubTitle">
-            <color red="0.57999998331069946" green="0.57999998331069946" blue="0.57999998331069946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Title">
-            <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>

@@ -14,6 +14,7 @@ class ProductDetailsViewController: UIViewController {
   
     static let storyBoardName = "ProductDetails"
     static let identifier = "ProductDetails"
+    
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var stepperView: UIView!
     @IBOutlet weak var reviewCollectionView: UICollectionView!
@@ -24,10 +25,13 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet weak var descriptionOfProduct: UILabel!
     @IBOutlet weak var colorCollectionView: UICollectionView!
     @IBOutlet weak var sizeCollectionView: UICollectionView!
-        
-    var productSizeDelegation = ProductSizeDelegation()
-    var productColorDelegation = ProductColorDelegation()
-    var productReviewDelegation = ProductReviewDelegation()
+    @IBOutlet weak var imageIndicator: UIPageControl!
+    
+    let productSizeDelegation = ProductSizeDelegation()
+    let productColorDelegation = ProductColorDelegation()
+    let productReviewDelegation = ProductReviewDelegation()
+    lazy var productImageDelegation = ProdutImageDelegation(collectionView: self.productImageCollection, with: imageIndicator)
+    
     
     //MARK: - Conigure ViewWill Appear
     override func viewDidAppear(_ animated: Bool) {
@@ -39,14 +43,14 @@ class ProductDetailsViewController: UIViewController {
         tabBarController?.tabBar.isHidden = false
     }
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureDataSourceofImageCollection()
-        layoutSetup()
         cosmaticsForUiView()
         productImageCollection.contentInsetAdjustmentBehavior = .never
-      
-        
+        productImageDelegation.layoutSetup()
     }
 
 
@@ -54,12 +58,14 @@ class ProductDetailsViewController: UIViewController {
 }
 
 
-//MARK: - Configure Data Source of Collection Image
-extension ProductDetailsViewController:UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate {
 
+
+//MARK: - Adding Cosmatics to UIView
+extension ProductDetailsViewController{
+    
     func configureDataSourceofImageCollection(){
-        productImageCollection.dataSource = self
-        productImageCollection.delegate = self
+        productImageCollection.dataSource = productImageDelegation
+        productImageCollection.delegate = productImageDelegation
         sizeCollectionView.dataSource = productSizeDelegation
         sizeCollectionView.delegate = productSizeDelegation
         colorCollectionView.dataSource = productColorDelegation
@@ -69,106 +75,18 @@ extension ProductDetailsViewController:UICollectionViewDataSource,UICollectionVi
         self.productImageCollection.register(ProductImageCell.nib(), forCellWithReuseIdentifier: ProductImageCell.identifier)
         self.sizeCollectionView.register(SizeColorCell.nib(), forCellWithReuseIdentifier: SizeColorCell.identifier)
         self.colorCollectionView.register(SizeColorCell.nib(), forCellWithReuseIdentifier: SizeColorCell.identifier)
-        
         self.reviewCollectionView.register(ReviewProductCell.nib(), forCellWithReuseIdentifier: ReviewProductCell.identifier)
         
         
         
     }
-
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-       
-
-        let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: ProductImageCell.identifier, for: indexPath) as! ProductImageCell
-
-        cell.EntireSelectedImage.numberOfPages = 3
-        cell.EntireSelectedImage.currentPage = indexPath.row
-       // imageIndicator.reloadInputViews()
-        // cell.bounds = productImageCollection.frame
-        return cell
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
- 
-        return CGSize(width: productImageCollection.bounds.width, height: productImageCollection.bounds.height)
-    }
-    
-    
-    
-    
-
-    //MARK: - layout Animation for Image
-    func layoutSetup(){
-        let layout = UICollectionViewCompositionalLayout { sectionIndex, enviroment in
-            switch sectionIndex {
-            case 0 :
-                return self.Offers()
-            default:
-                return self.Offers()
-                
-            }
-        }
-        self.productImageCollection.setCollectionViewLayout(layout, animated: true)
-    }
-
-    
-    //MARK: - Setup CompitionalLayout Animation
-    func Offers()-> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1)
-                                              , heightDimension: .fractionalHeight(1))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1)
-                                               , heightDimension: .fractionalHeight(1))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize
-                                                       , subitems: [item])
-        let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .paging
-        
-        //animation
-        
-        section.visibleItemsInvalidationHandler = { items, offset, environment in
-            items.forEach { item in
-                if item.representedElementCategory == .cell {
-                    let distanceFromCenter = abs((item.frame.midX - offset.x) - environment.container.contentSize.width / 2.0)
-                    let minScale: CGFloat = 0.8
-                    let maxScale: CGFloat = 1.0
-                    let scale = max(maxScale - (distanceFromCenter / environment.container.contentSize.width), minScale)
-                    item.transform = CGAffineTransform(scaleX: scale, y: scale)
-                }
-            }
-        }
-        
-        return section
-    }
-
-    
-    
-//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//
-//        imageIndicator.currentPage = indexPath.row
-//    }
-}
-
-
-
-
-
-//MARK: - Adding Cosmatics to UIView
-extension ProductDetailsViewController{
-    
     
     //MARK: - Cosmatics Layer Adding to UIView Function
     func cosmaticsForUiView(){
         stepperView.addingShadowWithEffectToView()
     }
+    
+    
     
   
 }
