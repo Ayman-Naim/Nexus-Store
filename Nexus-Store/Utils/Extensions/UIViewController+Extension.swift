@@ -64,5 +64,19 @@ extension UIViewController {
             contentEmptyView.setImage(image)
         }
     }
+    
+    
+    // MARK: - CustomLoadingIndicator
+    var isLoadingIndicatorAnimating: Bool {
+        set {
+            if newValue {
+                let customLoadingIndicator = CustomLoadingIndicator(customAnimation: "loading_4")
+                customLoadingIndicator.addLoadingIndicator(to: self.view)
+            } else {
+                view.subviews.first(where: { $0 is CustomLoadingIndicator })?.removeFromSuperview()
+            }
+        }
+        get { view.subviews.contains(where: { $0 is CustomLoadingIndicator }) }
+    }
 }
 
