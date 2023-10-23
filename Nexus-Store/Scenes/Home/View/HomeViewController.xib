@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Nexus_Store" customModuleProvider="target">
             <connections>
                 <outlet property="HomeCollectionView" destination="EUr-7K-S3b" id="sFY-H3-aWa"/>
+                <outlet property="PageControl" destination="lE0-Cz-ZHz" id="TZx-vU-kXg"/>
                 <outlet property="ProfileImage" destination="dzW-T6-6UX" id="4lk-mh-bx0"/>
                 <outlet property="SerachBarText" destination="8NP-mO-frV" id="gC7-Vd-C2R"/>
                 <outlet property="UserName" destination="fKt-si-Bpr" id="vWi-Yi-a8Z"/>
@@ -100,12 +101,21 @@
                         <outlet property="delegate" destination="-1" id="b6A-v8-IdI"/>
                     </connections>
                 </searchBar>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="lE0-Cz-ZHz">
+                    <rect key="frame" x="157.33333333333334" y="406" width="115.66666666666666" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="26" id="F13-eT-n8l"/>
+                    </constraints>
+                    <color key="pageIndicatorTintColor" name="SubTitle"/>
+                    <color key="currentPageIndicatorTintColor" name="Title"/>
+                </pageControl>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="Background"/>
             <constraints>
                 <constraint firstItem="EUr-7K-S3b" firstAttribute="top" secondItem="8NP-mO-frV" secondAttribute="bottom" constant="13" id="0pQ-ki-Hk7"/>
                 <constraint firstAttribute="bottom" secondItem="EUr-7K-S3b" secondAttribute="bottom" id="2b6-Hf-ahL"/>
+                <constraint firstItem="lE0-Cz-ZHz" firstAttribute="top" secondItem="EUr-7K-S3b" secondAttribute="top" constant="205" id="Ezv-Du-XW7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8NP-mO-frV" secondAttribute="trailing" constant="33" id="Ldd-j4-Lme"/>
                 <constraint firstItem="8NP-mO-frV" firstAttribute="top" secondItem="fKt-si-Bpr" secondAttribute="bottom" constant="33" id="M1l-ga-oSf"/>
                 <constraint firstItem="C2P-g1-DTN" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="0.66666666666665719" id="MmQ-r9-FLl"/>
@@ -115,6 +125,7 @@
                 <constraint firstItem="8NP-mO-frV" firstAttribute="top" secondItem="BCc-4k-IeJ" secondAttribute="bottom" constant="38.670000000000002" id="ZPg-0i-aCE"/>
                 <constraint firstItem="dzW-T6-6UX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="26" id="aiB-0i-gcS"/>
                 <constraint firstItem="fKt-si-Bpr" firstAttribute="leading" secondItem="dzW-T6-6UX" secondAttribute="trailing" constant="8" id="bR7-zx-efy"/>
+                <constraint firstItem="lE0-Cz-ZHz" firstAttribute="centerX" secondItem="EUr-7K-S3b" secondAttribute="centerX" id="mHJ-2Y-DiY"/>
                 <constraint firstItem="8NP-mO-frV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="orY-40-85o"/>
                 <constraint firstItem="8NP-mO-frV" firstAttribute="top" secondItem="dzW-T6-6UX" secondAttribute="bottom" constant="17" id="s3M-Rd-owy"/>
                 <constraint firstItem="C2P-g1-DTN" firstAttribute="leading" secondItem="dzW-T6-6UX" secondAttribute="trailing" constant="8" symbolic="YES" id="sYF-b4-u9G"/>

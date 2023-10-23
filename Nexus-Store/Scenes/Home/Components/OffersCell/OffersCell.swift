@@ -9,7 +9,7 @@ import UIKit
 
 class OffersCell: UICollectionViewCell {
 
-    @IBOutlet weak var pageIndicator: UIPageControl!
+    
     @IBOutlet weak var OfferImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
