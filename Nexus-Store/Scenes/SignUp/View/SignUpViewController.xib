@@ -112,33 +112,27 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="qfV-Sx-zJM">
                                     <rect key="frame" x="74.666666666666686" y="476.66666666666669" width="244" height="60.000000000000057"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESq-nG-vHc">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook1" translatesAutoresizingMaskIntoConstraints="NO" id="dCi-Pb-3t9">
                                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="60" id="YbN-SS-vxN"/>
-                                                <constraint firstAttribute="width" constant="60" id="gGH-rh-YtW"/>
+                                                <constraint firstAttribute="height" constant="60" id="83L-OP-1od"/>
+                                                <constraint firstAttribute="width" constant="60" id="lfE-B3-wuV"/>
                                             </constraints>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="facebook1"/>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SK2-U6-SCs">
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google1" translatesAutoresizingMaskIntoConstraints="NO" id="5P0-Kc-e35">
                                             <rect key="frame" x="91.999999999999986" y="0.0" width="60.000000000000014" height="60"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="60" id="WVn-TB-1eu"/>
-                                                <constraint firstAttribute="width" constant="60" id="clp-CV-Him"/>
+                                                <constraint firstAttribute="width" constant="60" id="Ta7-dV-jLy"/>
+                                                <constraint firstAttribute="height" constant="60" id="cGM-BF-fkE"/>
                                             </constraints>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="google1"/>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppN-hl-rba">
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ApplePay" translatesAutoresizingMaskIntoConstraints="NO" id="9OG-0a-ZPg">
                                             <rect key="frame" x="184" y="0.0" width="60" height="60"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="60" id="3TM-rN-jXN"/>
-                                                <constraint firstAttribute="height" constant="60" id="7kr-Kg-deD"/>
+                                                <constraint firstAttribute="height" constant="60" id="MKV-bv-jbu"/>
+                                                <constraint firstAttribute="width" constant="60" id="mZ7-DA-9Jm"/>
                                             </constraints>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="apple-icon"/>
-                                        </button>
+                                        </imageView>
                                     </subviews>
                                 </stackView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="PFu-EU-0D5">
@@ -147,6 +141,14 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="3ge-NE-2L0"/>
                                         <constraint firstAttribute="width" constant="20" id="R7s-ad-qTc"/>
+                                    </constraints>
+                                </imageView>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" translatesAutoresizingMaskIntoConstraints="NO" id="hHn-Ne-hya">
+                                    <rect key="frame" x="353" y="138" width="20" height="20"/>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="HAl-lJ-VeM"/>
+                                        <constraint firstAttribute="width" constant="20" id="uWY-2e-gPK"/>
                                     </constraints>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="-7" translatesAutoresizingMaskIntoConstraints="NO" id="JAL-3p-w0B">
@@ -181,14 +183,6 @@
                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" translatesAutoresizingMaskIntoConstraints="NO" id="hHn-Ne-hya">
-                                    <rect key="frame" x="353" y="138" width="20" height="20"/>
-                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="20" id="HAl-lJ-VeM"/>
-                                        <constraint firstAttribute="width" constant="20" id="uWY-2e-gPK"/>
-                                    </constraints>
-                                </imageView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
@@ -250,7 +244,7 @@
         </view>
     </objects>
     <resources>
-        <image name="apple-icon" width="200" height="200"/>
+        <image name="ApplePay" width="20" height="24"/>
         <image name="checkbox-1" width="512" height="512"/>
         <image name="envelope.fill" catalog="system" width="128" height="85"/>
         <image name="exclamationmark.lock.fill" catalog="system" width="125" height="128"/>

@@ -122,43 +122,27 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="iTV-zg-Pad">
                                     <rect key="frame" x="74.666666666666686" y="478" width="244" height="60"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvB-4T-HKG">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook1" translatesAutoresizingMaskIntoConstraints="NO" id="vJe-KQ-9oW">
                                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="60" id="5DJ-W4-xND"/>
-                                                <constraint firstAttribute="height" constant="60" id="doG-r3-HJY"/>
+                                                <constraint firstAttribute="width" constant="60" id="FtP-UE-35p"/>
+                                                <constraint firstAttribute="height" constant="60" id="Zte-xw-W1k"/>
                                             </constraints>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="facebook1"/>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4N-d3-5ZO">
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google1" translatesAutoresizingMaskIntoConstraints="NO" id="o4V-ei-686">
                                             <rect key="frame" x="91.999999999999986" y="0.0" width="60.000000000000014" height="60"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="60" id="93k-08-C8D"/>
-                                                <constraint firstAttribute="width" constant="60" id="Fzb-JY-YfX"/>
+                                                <constraint firstAttribute="height" constant="60" id="0Db-9H-LvV"/>
+                                                <constraint firstAttribute="width" constant="60" id="Ifj-Av-4RC"/>
                                             </constraints>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="google1"/>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOu-Nn-oQM">
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ApplePay" translatesAutoresizingMaskIntoConstraints="NO" id="sRt-YD-mZd">
                                             <rect key="frame" x="184" y="0.0" width="60" height="60"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="60" id="IL6-cn-FBL"/>
-                                                <constraint firstAttribute="width" constant="60" id="Nxk-jB-vzz"/>
+                                                <constraint firstAttribute="width" constant="60" id="7cM-OL-cgz"/>
+                                                <constraint firstAttribute="height" constant="60" id="mZh-1O-ADJ"/>
                                             </constraints>
-                                            <color key="tintColor" systemColor="labelColor"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain">
-                                                <attributedString key="attributedTitle">
-                                                    <fragment content="">
-                                                        <attributes>
-                                                            <font key="NSFont" metaFont="system" size="48"/>
-                                                            <font key="NSOriginalFont" size="12" name="Helvetica"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                            </buttonConfiguration>
-                                        </button>
+                                        </imageView>
                                     </subviews>
                                 </stackView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZC6-cQ-cpP">
@@ -275,15 +259,13 @@
         </view>
     </objects>
     <resources>
+        <image name="ApplePay" width="20" height="24"/>
         <image name="checkbox-1" width="512" height="512"/>
         <image name="envelope.fill" catalog="system" width="128" height="85"/>
         <image name="exclamationmark.lock.fill" catalog="system" width="125" height="128"/>
         <image name="eye" width="800" height="800"/>
         <image name="facebook1" width="75" height="75"/>
         <image name="google1" width="100" height="100"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
