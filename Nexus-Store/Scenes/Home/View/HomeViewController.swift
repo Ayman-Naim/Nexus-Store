@@ -9,6 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var PageControl: UIPageControl!
     @IBOutlet weak var HomeCollectionView: UICollectionView!
     @IBOutlet weak var ProfileImage: UIImageView!
     
@@ -19,7 +20,7 @@ class HomeViewController: UIViewController {
         circleImage()
         collectionSetup()
         layoutSetup()
-       
+        PageControl.numberOfPages = 15
         SerachBarText.delegate = self
     }
     func layoutSetup(){
@@ -65,6 +66,11 @@ class HomeViewController: UIViewController {
         
         self.HomeCollectionView.delegate = self
         self.HomeCollectionView.dataSource = self
+        
+        //setup the paging of offers
+        //let paging
+       
+        
        
     }
     
@@ -155,6 +161,23 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController :UICollectionViewDelegate,UICollectionViewDataSource{
    
+    
+   //MARK: - Display Animation of Image Indicator
+        func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+            if indexPath.section == 0 {
+                PageControl.currentPage = indexPath.row
+                
+            }
+        }
+        func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+            if indexPath.section == 0 {
+                if PageControl.currentPage == indexPath.row {
+                    PageControl.currentPage = collectionView.indexPath(for: collectionView.visibleCells.first!)!.row
+                }
+            }
+           
+        }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
@@ -170,8 +193,7 @@ extension HomeViewController :UICollectionViewDelegate,UICollectionViewDataSourc
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OffersCell", for: indexPath) as! OffersCell
             cell.backgroundColor = .gray
             cell.OfferImage.image = UIImage(named: "offers")
-            cell.pageIndicator.numberOfPages = 15
-            cell.pageIndicator.currentPage = indexPath.row
+           
 
             return cell
         case 1 :
@@ -181,8 +203,8 @@ extension HomeViewController :UICollectionViewDelegate,UICollectionViewDataSourc
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OffersCell", for: indexPath) as! OffersCell
             cell.backgroundColor = .gray
             cell.OfferImage.image = UIImage(named: "offers")
-            cell.pageIndicator.numberOfPages = 15
-            cell.pageIndicator.currentPage = indexPath.row
+            
+            
             return cell
         }
         
