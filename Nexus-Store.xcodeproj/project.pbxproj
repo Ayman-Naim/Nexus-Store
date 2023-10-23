@@ -56,8 +56,6 @@
 		459D7B0C2AE2B84400AD8CC8 /* UICollectionVIew+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459D7B0B2AE2B84400AD8CC8 /* UICollectionVIew+Extension.swift */; };
 		459D7B0E2AE2B8A100AD8CC8 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459D7B0D2AE2B8A100AD8CC8 /* UIView+Extension.swift */; };
 		45D0E8912AE0A04800A07332 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D0E8902AE0A04800A07332 /* K.swift */; };
-		5BC20ABE2AE16C490071925A /* SignInnViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC20ABC2AE16C490071925A /* SignInnViewController.xib */; };
-		5BC20ABF2AE16C490071925A /* SignInnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20ABD2AE16C490071925A /* SignInnViewController.swift */; };
 		5BC20AC52AE190CA0071925A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20AC32AE190C90071925A /* SignUpViewController.swift */; };
 		5BC20AC62AE190CA0071925A /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC20AC42AE190C90071925A /* SignUpViewController.xib */; };
 		5BC20AC92AE1911F0071925A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20AC72AE1911F0071925A /* SignInViewController.swift */; };
@@ -152,8 +150,6 @@
 		459D7B0B2AE2B84400AD8CC8 /* UICollectionVIew+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionVIew+Extension.swift"; sourceTree = "<group>"; };
 		459D7B0D2AE2B8A100AD8CC8 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		45D0E8902AE0A04800A07332 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
-		5BC20ABC2AE16C490071925A /* SignInnViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInnViewController.xib; sourceTree = "<group>"; };
-		5BC20ABD2AE16C490071925A /* SignInnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInnViewController.swift; sourceTree = "<group>"; };
 		5BC20AC32AE190C90071925A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5BC20AC42AE190C90071925A /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		5BC20AC72AE1911F0071925A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -539,8 +535,6 @@
 		5BC20ABB2AE16C490071925A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5BC20ABC2AE16C490071925A /* SignInnViewController.xib */,
-				5BC20ABD2AE16C490071925A /* SignInnViewController.swift */,
 				5BC20AC72AE1911F0071925A /* SignInViewController.swift */,
 				5BC20AC82AE1911F0071925A /* SignInViewController.xib */,
 			);
@@ -969,7 +963,6 @@
 				45123AB42AE2149E001B12B7 /* productDetailsCell.xib in Resources */,
 				E35BC5872AE0A8B900742654 /* SectionHeaderReusableView.xib in Resources */,
 				E37B4DE62AE301B80051EB89 /* PayMethodViewController.xib in Resources */,
-				5BC20ABE2AE16C490071925A /* SignInnViewController.xib in Resources */,
 				45123AB92AE2149E001B12B7 /* MainCategoryCell.xib in Resources */,
 				E35BC5812AE08D3000742654 /* OffersCell.xib in Resources */,
 				E35BC57C2AE0724F00742654 /* HomeViewController.xib in Resources */,
@@ -1066,7 +1059,6 @@
 				459D7B0E2AE2B8A100AD8CC8 /* UIView+Extension.swift in Sources */,
 				5BC20AD42AE1D0170071925A /* SocialTableViewCell.swift in Sources */,
 				45123AB52AE2149E001B12B7 /* productDetailsCell.swift in Sources */,
-				5BC20ABF2AE16C490071925A /* SignInnViewController.swift in Sources */,
 				5BC20AC92AE1911F0071925A /* SignInViewController.swift in Sources */,
 				010F60FE2AE491CB00DE7EB0 /* ContentEmptyView.swift in Sources */,
 				4531FE4F2AE2EE3800F47528 /* ProductSizeDelegation.swift in Sources */,

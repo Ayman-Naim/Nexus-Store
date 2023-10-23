@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -204,6 +204,14 @@
                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" translatesAutoresizingMaskIntoConstraints="NO" id="Hu4-YE-OGs">
+                                    <rect key="frame" x="353" y="138" width="20" height="20"/>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="Pzq-0a-IA6"/>
+                                        <constraint firstAttribute="width" constant="20" id="xCa-tm-LXI"/>
+                                    </constraints>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
@@ -237,9 +245,11 @@
                                 <constraint firstItem="y8J-Xs-pzI" firstAttribute="top" secondItem="uQr-nw-gAI" secondAttribute="bottom" constant="30" id="hKX-XY-3Tj"/>
                                 <constraint firstItem="cor-ZH-mXH" firstAttribute="centerX" secondItem="Nea-t0-eZ9" secondAttribute="centerX" id="ipf-lB-rr6"/>
                                 <constraint firstItem="cor-ZH-mXH" firstAttribute="top" secondItem="3c4-6K-Epz" secondAttribute="bottom" constant="40" id="jIs-9k-y9M"/>
+                                <constraint firstAttribute="trailing" secondItem="Hu4-YE-OGs" secondAttribute="trailing" constant="20" id="lLc-G1-blj"/>
                                 <constraint firstItem="h3p-y8-JCG" firstAttribute="leading" secondItem="cor-ZH-mXH" secondAttribute="trailing" constant="10" id="rDv-x3-g23"/>
                                 <constraint firstItem="ZC6-cQ-cpP" firstAttribute="leading" secondItem="Nea-t0-eZ9" secondAttribute="leading" constant="21" id="sbQ-O7-Oi2"/>
                                 <constraint firstItem="uQr-nw-gAI" firstAttribute="top" secondItem="Nea-t0-eZ9" secondAttribute="top" constant="10" id="yA1-D4-ZfL"/>
+                                <constraint firstItem="Hu4-YE-OGs" firstAttribute="centerY" secondItem="3ah-DS-iLs" secondAttribute="centerY" id="ySQ-ja-S9o"/>
                                 <constraint firstAttribute="bottom" secondItem="ubO-g9-4Qy" secondAttribute="bottom" constant="209.66666666666663" id="zSi-9q-JM1"/>
                             </constraints>
                         </view>
@@ -266,12 +276,13 @@
     </objects>
     <resources>
         <image name="checkbox-1" width="512" height="512"/>
-        <image name="envelope.fill" catalog="system" width="128" height="93"/>
+        <image name="envelope.fill" catalog="system" width="128" height="85"/>
         <image name="exclamationmark.lock.fill" catalog="system" width="125" height="128"/>
+        <image name="eye" width="800" height="800"/>
         <image name="facebook1" width="75" height="75"/>
         <image name="google1" width="100" height="100"/>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
