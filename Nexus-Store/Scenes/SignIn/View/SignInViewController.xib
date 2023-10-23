@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -122,43 +122,27 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="iTV-zg-Pad">
                                     <rect key="frame" x="74.666666666666686" y="478" width="244" height="60"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvB-4T-HKG">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook1" translatesAutoresizingMaskIntoConstraints="NO" id="vJe-KQ-9oW">
                                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="60" id="5DJ-W4-xND"/>
-                                                <constraint firstAttribute="height" constant="60" id="doG-r3-HJY"/>
+                                                <constraint firstAttribute="width" constant="60" id="FtP-UE-35p"/>
+                                                <constraint firstAttribute="height" constant="60" id="Zte-xw-W1k"/>
                                             </constraints>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="facebook1"/>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4N-d3-5ZO">
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google1" translatesAutoresizingMaskIntoConstraints="NO" id="o4V-ei-686">
                                             <rect key="frame" x="91.999999999999986" y="0.0" width="60.000000000000014" height="60"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="60" id="93k-08-C8D"/>
-                                                <constraint firstAttribute="width" constant="60" id="Fzb-JY-YfX"/>
+                                                <constraint firstAttribute="height" constant="60" id="0Db-9H-LvV"/>
+                                                <constraint firstAttribute="width" constant="60" id="Ifj-Av-4RC"/>
                                             </constraints>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="google1"/>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOu-Nn-oQM">
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ApplePay" translatesAutoresizingMaskIntoConstraints="NO" id="sRt-YD-mZd">
                                             <rect key="frame" x="184" y="0.0" width="60" height="60"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="60" id="IL6-cn-FBL"/>
-                                                <constraint firstAttribute="width" constant="60" id="Nxk-jB-vzz"/>
+                                                <constraint firstAttribute="width" constant="60" id="7cM-OL-cgz"/>
+                                                <constraint firstAttribute="height" constant="60" id="mZh-1O-ADJ"/>
                                             </constraints>
-                                            <color key="tintColor" systemColor="labelColor"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain">
-                                                <attributedString key="attributedTitle">
-                                                    <fragment content="">
-                                                        <attributes>
-                                                            <font key="NSFont" metaFont="system" size="48"/>
-                                                            <font key="NSOriginalFont" size="12" name="Helvetica"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                            </buttonConfiguration>
-                                        </button>
+                                        </imageView>
                                     </subviews>
                                 </stackView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZC6-cQ-cpP">
@@ -182,7 +166,7 @@
                                             <rect key="frame" x="202.66666666666666" y="0.0" width="83.999999999999972" height="34.333333333333336"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" title="Sign Up">
-                                                <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="baseForegroundColor" systemColor="labelColor"/>
                                             </buttonConfiguration>
                                             <connections>
                                                 <action selector="signupButtonClicked:" destination="-1" eventType="touchUpInside" id="qxx-EA-qOo"/>
@@ -204,6 +188,14 @@
                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" translatesAutoresizingMaskIntoConstraints="NO" id="Hu4-YE-OGs">
+                                    <rect key="frame" x="353" y="138" width="20" height="20"/>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="Pzq-0a-IA6"/>
+                                        <constraint firstAttribute="width" constant="20" id="xCa-tm-LXI"/>
+                                    </constraints>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
@@ -237,9 +229,11 @@
                                 <constraint firstItem="y8J-Xs-pzI" firstAttribute="top" secondItem="uQr-nw-gAI" secondAttribute="bottom" constant="30" id="hKX-XY-3Tj"/>
                                 <constraint firstItem="cor-ZH-mXH" firstAttribute="centerX" secondItem="Nea-t0-eZ9" secondAttribute="centerX" id="ipf-lB-rr6"/>
                                 <constraint firstItem="cor-ZH-mXH" firstAttribute="top" secondItem="3c4-6K-Epz" secondAttribute="bottom" constant="40" id="jIs-9k-y9M"/>
+                                <constraint firstAttribute="trailing" secondItem="Hu4-YE-OGs" secondAttribute="trailing" constant="20" id="lLc-G1-blj"/>
                                 <constraint firstItem="h3p-y8-JCG" firstAttribute="leading" secondItem="cor-ZH-mXH" secondAttribute="trailing" constant="10" id="rDv-x3-g23"/>
                                 <constraint firstItem="ZC6-cQ-cpP" firstAttribute="leading" secondItem="Nea-t0-eZ9" secondAttribute="leading" constant="21" id="sbQ-O7-Oi2"/>
                                 <constraint firstItem="uQr-nw-gAI" firstAttribute="top" secondItem="Nea-t0-eZ9" secondAttribute="top" constant="10" id="yA1-D4-ZfL"/>
+                                <constraint firstItem="Hu4-YE-OGs" firstAttribute="centerY" secondItem="3ah-DS-iLs" secondAttribute="centerY" id="ySQ-ja-S9o"/>
                                 <constraint firstAttribute="bottom" secondItem="ubO-g9-4Qy" secondAttribute="bottom" constant="209.66666666666663" id="zSi-9q-JM1"/>
                             </constraints>
                         </view>
@@ -265,13 +259,15 @@
         </view>
     </objects>
     <resources>
+        <image name="ApplePay" width="20" height="24"/>
         <image name="checkbox-1" width="512" height="512"/>
-        <image name="envelope.fill" catalog="system" width="128" height="93"/>
+        <image name="envelope.fill" catalog="system" width="128" height="85"/>
         <image name="exclamationmark.lock.fill" catalog="system" width="125" height="128"/>
+        <image name="eye" width="800" height="800"/>
         <image name="facebook1" width="75" height="75"/>
         <image name="google1" width="100" height="100"/>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
