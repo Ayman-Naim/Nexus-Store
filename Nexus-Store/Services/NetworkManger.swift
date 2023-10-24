@@ -18,7 +18,7 @@ class ApiManger {
     
    
     
-    func fetchLeagues<T: Decodable>(url: String, decodingModel: T.Type, completion: @escaping (T?, Error?) -> Void) {
+    func fetchData<T: Decodable>(url: String, decodingModel: T.Type, completion: @escaping (T?, Error?) -> Void) {
         AF.request(url).validate().responseDecodable(of: T.self) { response in
         
         switch response.result {
