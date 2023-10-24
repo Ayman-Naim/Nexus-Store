@@ -5,6 +5,7 @@ target 'Nexus-Store' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
+
   # Pods for Nexus-Store
 	pod 'Kingfisher', '~> 7.0'
 	pod 'lottie-ios'
@@ -15,13 +16,24 @@ target 'Nexus-Store' do
 
 
 
-  target 'Nexus-StoreTests' do
-    inherit! :search_paths
-    # Pods for testing
+target 'Nexus-Admin' do
+        pod 'Kingfisher', '~> 7.0'
+	pod 'lottie-ios'
+	pod 'Alamofire'
+	pod 'Cosmos', '~> 23.0'
+	#pod 'FirebaseAuth'
+	#pod 'FirebaseFirestore'
   end
 
-  target 'Nexus-StoreUITests' do
+  #target 'Nexus-StoreTests' do
+   # inherit! :search_paths
     # Pods for testing
-  end
+ # end
+
+#  target 'Nexus-StoreUITests' do
+    # Pods for testing
+ # end
 	
 end
+
+

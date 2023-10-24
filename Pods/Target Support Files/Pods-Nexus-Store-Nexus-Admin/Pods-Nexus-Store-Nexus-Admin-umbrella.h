@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_Nexus_Store_Nexus_StoreUITestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_Nexus_Store_Nexus_StoreUITestsVersionString[];
+FOUNDATION_EXPORT double Pods_Nexus_Store_Nexus_AdminVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_Nexus_Store_Nexus_AdminVersionString[];
 

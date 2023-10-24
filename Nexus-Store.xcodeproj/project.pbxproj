@@ -33,6 +33,7 @@
 		01D776C32AE3021C0079F2B5 /* AddPromoCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D776C12AE3021C0079F2B5 /* AddPromoCodeViewController.swift */; };
 		01D776C42AE3021C0079F2B5 /* AddPromoCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01D776C22AE3021C0079F2B5 /* AddPromoCodeViewController.xib */; };
 		01D776C82AE316770079F2B5 /* ProductsOrderSheetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D776C72AE316770079F2B5 /* ProductsOrderSheetTVC.swift */; };
+		169DA9E07FECA4DC4D9C97CF /* Pods_Nexus_Store_Nexus_Admin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B19B9281328FE18BFC74F8AF /* Pods_Nexus_Store_Nexus_Admin.framework */; };
 		45123AAB2AE2149E001B12B7 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45123A922AE2149E001B12B7 /* ProductDetailsViewController.swift */; };
 		45123AAC2AE2149E001B12B7 /* ProductImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45123A952AE2149E001B12B7 /* ProductImageCell.xib */; };
 		45123AAD2AE2149E001B12B7 /* ProductImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45123A962AE2149E001B12B7 /* ProductImageCell.swift */; };
@@ -64,7 +65,15 @@
 		5BC20AD12AE1C71D0071925A /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC20ACF2AE1C71D0071925A /* WelcomeViewController.xib */; };
 		5BC20AD42AE1D0170071925A /* SocialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20AD22AE1D0170071925A /* SocialTableViewCell.swift */; };
 		5BC20AD52AE1D0170071925A /* SocialTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC20AD32AE1D0170071925A /* SocialTableViewCell.xib */; };
+		935B628CC7302E8E15C239CD /* Pods_Nexus_Store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E30A948E2AE690AC00AB0F5F /* Pods_Nexus_Store.framework */; };
 		D14182C7B08E56039861E606 /* Pods_Nexus_Store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EE52BF3C2B1CE37BD0BE425 /* Pods_Nexus_Store.framework */; };
+		E30A944D2AE68A0800AB0F5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30A944C2AE68A0800AB0F5F /* AppDelegate.swift */; };
+		E30A944F2AE68A0800AB0F5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30A944E2AE68A0800AB0F5F /* SceneDelegate.swift */; };
+		E30A94512AE68A0800AB0F5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30A94502AE68A0800AB0F5F /* ViewController.swift */; };
+		E30A94542AE68A0800AB0F5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E30A94522AE68A0800AB0F5F /* Main.storyboard */; };
+		E30A94562AE68A0A00AB0F5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E30A94552AE68A0A00AB0F5F /* Assets.xcassets */; };
+		E30A94592AE68A0A00AB0F5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E30A94572AE68A0A00AB0F5F /* LaunchScreen.storyboard */; };
+		E340D1EA2AE79A2500E2E017 /* NetworkManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E340D1E92AE79A2500E2E017 /* NetworkManger.swift */; };
 		E34556662AE1AD9400312C6C /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34556642AE1AD9400312C6C /* OrderTableViewCell.swift */; };
 		E34556672AE1AD9400312C6C /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34556652AE1AD9400312C6C /* OrderTableViewCell.xib */; };
 		E345566C2AE1B51C00312C6C /* FavouriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E345566A2AE1B51C00312C6C /* FavouriteTableViewCell.swift */; };
@@ -159,8 +168,29 @@
 		5BC20AD22AE1D0170071925A /* SocialTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialTableViewCell.swift; sourceTree = "<group>"; };
 		5BC20AD32AE1D0170071925A /* SocialTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialTableViewCell.xib; sourceTree = "<group>"; };
 		640C7D4D9600F97F07382C0A /* Pods_Nexus_Store_Nexus_StoreUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nexus_Store_Nexus_StoreUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		64BBDC51FBA6EE2E9F3009A4 /* Pods-Nexus-Store-Nexus-Admin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nexus-Store-Nexus-Admin.debug.xcconfig"; path = "Target Support Files/Pods-Nexus-Store-Nexus-Admin/Pods-Nexus-Store-Nexus-Admin.debug.xcconfig"; sourceTree = "<group>"; };
 		660EDF30701FD7C11597AC93 /* Pods_Nexus_StoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nexus_StoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABA91D9122CA115C0ACBDB5A /* Pods-Nexus-StoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nexus-StoreTests.release.xcconfig"; path = "Target Support Files/Pods-Nexus-StoreTests/Pods-Nexus-StoreTests.release.xcconfig"; sourceTree = "<group>"; };
+		B19B9281328FE18BFC74F8AF /* Pods_Nexus_Store_Nexus_Admin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nexus_Store_Nexus_Admin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3A175375D2164B8877A716D /* Pods-Nexus-Store-Nexus-Admin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nexus-Store-Nexus-Admin.release.xcconfig"; path = "Target Support Files/Pods-Nexus-Store-Nexus-Admin/Pods-Nexus-Store-Nexus-Admin.release.xcconfig"; sourceTree = "<group>"; };
+		E30A944A2AE68A0800AB0F5F /* Nexus-Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nexus-Admin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E30A944C2AE68A0800AB0F5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E30A944E2AE68A0800AB0F5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E30A94502AE68A0800AB0F5F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E30A94532AE68A0800AB0F5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E30A94552AE68A0A00AB0F5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E30A94582AE68A0A00AB0F5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E30A945A2AE68A0A00AB0F5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E30A947D2AE68F1700AB0F5F /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E30A947E2AE68F1700AB0F5F /* Cosmos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Cosmos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E30A947F2AE68F1700AB0F5F /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E30A94802AE68F1700AB0F5F /* Lottie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Lottie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E30A948A2AE690AC00AB0F5F /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E30A948B2AE690AC00AB0F5F /* Cosmos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Cosmos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E30A948C2AE690AC00AB0F5F /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E30A948D2AE690AC00AB0F5F /* Lottie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Lottie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E30A948E2AE690AC00AB0F5F /* Pods_Nexus_Store.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Nexus_Store.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E340D1E92AE79A2500E2E017 /* NetworkManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManger.swift; sourceTree = "<group>"; };
 		E34556642AE1AD9400312C6C /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		E34556652AE1AD9400312C6C /* OrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
 		E345566A2AE1B51C00312C6C /* FavouriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewCell.swift; sourceTree = "<group>"; };
@@ -193,11 +223,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E30A94472AE68A0800AB0F5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				169DA9E07FECA4DC4D9C97CF /* Pods_Nexus_Store_Nexus_Admin.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E37687A42ADDFFB400DB09A1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D14182C7B08E56039861E606 /* Pods_Nexus_Store.framework in Frameworks */,
+				935B628CC7302E8E15C239CD /* Pods_Nexus_Store.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,9 +410,19 @@
 		423F5CB5BDD8E70020970C78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E30A948A2AE690AC00AB0F5F /* Alamofire.framework */,
+				E30A948B2AE690AC00AB0F5F /* Cosmos.framework */,
+				E30A948C2AE690AC00AB0F5F /* Kingfisher.framework */,
+				E30A948D2AE690AC00AB0F5F /* Lottie.framework */,
+				E30A948E2AE690AC00AB0F5F /* Pods_Nexus_Store.framework */,
+				E30A947D2AE68F1700AB0F5F /* Alamofire.framework */,
+				E30A947E2AE68F1700AB0F5F /* Cosmos.framework */,
+				E30A947F2AE68F1700AB0F5F /* Kingfisher.framework */,
+				E30A94802AE68F1700AB0F5F /* Lottie.framework */,
 				0EE52BF3C2B1CE37BD0BE425 /* Pods_Nexus_Store.framework */,
 				640C7D4D9600F97F07382C0A /* Pods_Nexus_Store_Nexus_StoreUITests.framework */,
 				660EDF30701FD7C11597AC93 /* Pods_Nexus_StoreTests.framework */,
+				B19B9281328FE18BFC74F8AF /* Pods_Nexus_Store_Nexus_Admin.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -602,8 +651,256 @@
 				3070E81288ED7179122FDA56 /* Pods-Nexus-Store-Nexus-StoreUITests.release.xcconfig */,
 				3192D118B80B9F641DCCCBBA /* Pods-Nexus-StoreTests.debug.xcconfig */,
 				ABA91D9122CA115C0ACBDB5A /* Pods-Nexus-StoreTests.release.xcconfig */,
+				64BBDC51FBA6EE2E9F3009A4 /* Pods-Nexus-Store-Nexus-Admin.debug.xcconfig */,
+				C3A175375D2164B8877A716D /* Pods-Nexus-Store-Nexus-Admin.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E30A944B2AE68A0800AB0F5F /* Nexus-Admin */ = {
+			isa = PBXGroup;
+			children = (
+				E30A945E2AE68A5300AB0F5F /* Config */,
+				E30A945F2AE68A6E00AB0F5F /* Core */,
+				E30A94602AE68A7700AB0F5F /* Resourses */,
+				E30A94612AE68A8500AB0F5F /* Utils */,
+				E30A94622AE68A8A00AB0F5F /* Models */,
+				E30A94652AE68AA500AB0F5F /* Scenes */,
+				E30A94632AE68A9000AB0F5F /* Services */,
+				E30A94642AE68A9800AB0F5F /* CommanComponents */,
+				E30A94502AE68A0800AB0F5F /* ViewController.swift */,
+			);
+			path = "Nexus-Admin";
+			sourceTree = "<group>";
+		};
+		E30A945E2AE68A5300AB0F5F /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				E30A945A2AE68A0A00AB0F5F /* Info.plist */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		E30A945F2AE68A6E00AB0F5F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E30A944C2AE68A0800AB0F5F /* AppDelegate.swift */,
+				E30A944E2AE68A0800AB0F5F /* SceneDelegate.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E30A94602AE68A7700AB0F5F /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				E30A94522AE68A0800AB0F5F /* Main.storyboard */,
+				E30A94552AE68A0A00AB0F5F /* Assets.xcassets */,
+				E30A94572AE68A0A00AB0F5F /* LaunchScreen.storyboard */,
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
+		E30A94612AE68A8500AB0F5F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E30A94622AE68A8A00AB0F5F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E30A94632AE68A9000AB0F5F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E30A94642AE68A9800AB0F5F /* CommanComponents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CommanComponents;
+			sourceTree = "<group>";
+		};
+		E30A94652AE68AA500AB0F5F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				E30A946C2AE68C8200AB0F5F /* AddPromoCode */,
+				E30A946B2AE68C2800AB0F5F /* EditProduct */,
+				E30A946A2AE68C1F00AB0F5F /* AddProduct */,
+				E30A94692AE68C1700AB0F5F /* ProductDetails */,
+				E30A94682AE68C0F00AB0F5F /* AllProducts */,
+				E30A94672AE68C0300AB0F5F /* AllBrands */,
+				E30A94662AE68B2200AB0F5F /* Login */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		E30A94662AE68B2200AB0F5F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E30A947C2AE68D6C00AB0F5F /* Model */,
+				E30A947B2AE68D6600AB0F5F /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E30A94672AE68C0300AB0F5F /* AllBrands */ = {
+			isa = PBXGroup;
+			children = (
+				E30A94792AE68D4E00AB0F5F /* ViewModel */,
+				E30A94782AE68D4900AB0F5F /* View */,
+			);
+			path = AllBrands;
+			sourceTree = "<group>";
+		};
+		E30A94682AE68C0F00AB0F5F /* AllProducts */ = {
+			isa = PBXGroup;
+			children = (
+				E30A94772AE68D4100AB0F5F /* ViewModel */,
+				E30A94762AE68D3700AB0F5F /* View */,
+			);
+			path = AllProducts;
+			sourceTree = "<group>";
+		};
+		E30A94692AE68C1700AB0F5F /* ProductDetails */ = {
+			isa = PBXGroup;
+			children = (
+				E30A94752AE68D2E00AB0F5F /* View */,
+				E30A94742AE68D1B00AB0F5F /* ViewModel */,
+			);
+			path = ProductDetails;
+			sourceTree = "<group>";
+		};
+		E30A946A2AE68C1F00AB0F5F /* AddProduct */ = {
+			isa = PBXGroup;
+			children = (
+				E30A94732AE68D1100AB0F5F /* View */,
+				E30A94722AE68D0900AB0F5F /* ViewModel */,
+			);
+			path = AddProduct;
+			sourceTree = "<group>";
+		};
+		E30A946B2AE68C2800AB0F5F /* EditProduct */ = {
+			isa = PBXGroup;
+			children = (
+				E30A94702AE68CF700AB0F5F /* ViewModel */,
+				E30A946F2AE68CEF00AB0F5F /* View */,
+			);
+			path = EditProduct;
+			sourceTree = "<group>";
+		};
+		E30A946C2AE68C8200AB0F5F /* AddPromoCode */ = {
+			isa = PBXGroup;
+			children = (
+				E30A946E2AE68CE300AB0F5F /* ViewModel */,
+				E30A946D2AE68CB000AB0F5F /* View */,
+			);
+			path = AddPromoCode;
+			sourceTree = "<group>";
+		};
+		E30A946D2AE68CB000AB0F5F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E30A946E2AE68CE300AB0F5F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E30A946F2AE68CEF00AB0F5F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E30A94702AE68CF700AB0F5F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E30A94722AE68D0900AB0F5F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E30A94732AE68D1100AB0F5F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E30A94742AE68D1B00AB0F5F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E30A94752AE68D2E00AB0F5F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E30A94762AE68D3700AB0F5F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E30A94772AE68D4100AB0F5F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E30A94782AE68D4900AB0F5F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E30A94792AE68D4E00AB0F5F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E30A947B2AE68D6600AB0F5F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E30A947C2AE68D6C00AB0F5F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E34556622AE1AD5D00312C6C /* Components */ = {
@@ -701,6 +998,7 @@
 			isa = PBXGroup;
 			children = (
 				E37687A92ADDFFB500DB09A1 /* Nexus-Store */,
+				E30A944B2AE68A0800AB0F5F /* Nexus-Admin */,
 				E37687A82ADDFFB500DB09A1 /* Products */,
 				835A8F3C12ED85B6C7C8C92A /* Pods */,
 				423F5CB5BDD8E70020970C78 /* Frameworks */,
@@ -711,6 +1009,7 @@
 			isa = PBXGroup;
 			children = (
 				E37687A72ADDFFB500DB09A1 /* Nexus-Store.app */,
+				E30A944A2AE68A0800AB0F5F /* Nexus-Admin.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -784,6 +1083,7 @@
 			children = (
 				E37687EA2ADE059D00DB09A1 /* Network */,
 				E37687E92ADE057A00DB09A1 /* CoreData */,
+				E340D1E92AE79A2500E2E017 /* NetworkManger.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -892,6 +1192,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E30A94492AE68A0800AB0F5F /* Nexus-Admin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E30A945B2AE68A0A00AB0F5F /* Build configuration list for PBXNativeTarget "Nexus-Admin" */;
+			buildPhases = (
+				7B3CB75EB8E81AACE577B6F5 /* [CP] Check Pods Manifest.lock */,
+				E30A94462AE68A0800AB0F5F /* Sources */,
+				E30A94472AE68A0800AB0F5F /* Frameworks */,
+				E30A94482AE68A0800AB0F5F /* Resources */,
+				604FB195AACE63B3F7533895 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Nexus-Admin";
+			productName = "Nexus-Admin";
+			productReference = E30A944A2AE68A0800AB0F5F /* Nexus-Admin.app */;
+			productType = "com.apple.product-type.application";
+		};
 		E37687A62ADDFFB400DB09A1 /* Nexus-Store */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E37687D42ADDFFB800DB09A1 /* Build configuration list for PBXNativeTarget "Nexus-Store" */;
@@ -921,6 +1240,9 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					E30A94492AE68A0800AB0F5F = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					E37687A62ADDFFB400DB09A1 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -940,11 +1262,22 @@
 			projectRoot = "";
 			targets = (
 				E37687A62ADDFFB400DB09A1 /* Nexus-Store */,
+				E30A94492AE68A0800AB0F5F /* Nexus-Admin */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E30A94482AE68A0800AB0F5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E30A94592AE68A0A00AB0F5F /* LaunchScreen.storyboard in Resources */,
+				E30A94562AE68A0A00AB0F5F /* Assets.xcassets in Resources */,
+				E30A94542AE68A0800AB0F5F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E37687A52ADDFFB400DB09A1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1012,6 +1345,45 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		604FB195AACE63B3F7533895 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Nexus-Store-Nexus-Admin/Pods-Nexus-Store-Nexus-Admin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Nexus-Store-Nexus-Admin/Pods-Nexus-Store-Nexus-Admin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Nexus-Store-Nexus-Admin/Pods-Nexus-Store-Nexus-Admin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B3CB75EB8E81AACE577B6F5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Nexus-Store-Nexus-Admin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8604535707101707B5738DF1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1032,10 +1404,21 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E30A94462AE68A0800AB0F5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E30A94512AE68A0800AB0F5F /* ViewController.swift in Sources */,
+				E30A944D2AE68A0800AB0F5F /* AppDelegate.swift in Sources */,
+				E30A944F2AE68A0800AB0F5F /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E37687A32ADDFFB400DB09A1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E340D1EA2AE79A2500E2E017 /* NetworkManger.swift in Sources */,
 				E34556722AE1D18200312C6C /* SectionHeaderTableViewCell.swift in Sources */,
 				45123AB12AE2149E001B12B7 /* ReviewProductCell.swift in Sources */,
 				459D7B0C2AE2B84400AD8CC8 /* UICollectionVIew+Extension.swift in Sources */,
@@ -1091,6 +1474,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		E30A94522AE68A0800AB0F5F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E30A94532AE68A0800AB0F5F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E30A94572AE68A0A00AB0F5F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E30A94582AE68A0A00AB0F5F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		E37687B02ADDFFB500DB09A1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1110,6 +1509,68 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		E30A945C2AE68A0A00AB0F5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64BBDC51FBA6EE2E9F3009A4 /* Pods-Nexus-Store-Nexus-Admin.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7W7N543YH7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Nexus-Admin/Config/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "EOA-industry.Nexus-Admin";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E30A945D2AE68A0A00AB0F5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3A175375D2164B8877A716D /* Pods-Nexus-Store-Nexus-Admin.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7W7N543YH7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Nexus-Admin/Config/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "EOA-industry.Nexus-Admin";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		E37687D22ADDFFB800DB09A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1293,6 +1754,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E30A945B2AE68A0A00AB0F5F /* Build configuration list for PBXNativeTarget "Nexus-Admin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E30A945C2AE68A0A00AB0F5F /* Debug */,
+				E30A945D2AE68A0A00AB0F5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E37687A22ADDFFB400DB09A1 /* Build configuration list for PBXProject "Nexus-Store" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
