@@ -8,17 +8,14 @@
 import Foundation
 
 enum BaseUrl:String{
-    case baseUrl = "https://ios-q1-new-capital-admin1-2023.myshopify.com/admin/api/2023-01/"
+    static private let baseURL = "https://ios-q1-new-capital-admin1-2023.myshopify.com/admin/api/2023-01/"
     case product
     case category
     
-    var Url :String {
+    var enpoint :String {
         switch self {
-      
-        case .product: return "\(BaseUrl.baseUrl.rawValue)smart_collections.json"
-        case .category: return "\(BaseUrl.baseUrl.rawValue)"
-        case .baseUrl: return BaseUrl.baseUrl.rawValue
-            
+        case .product: return "\(BaseUrl.baseURL)smart_collections.json"
+        case .category: return "\(BaseUrl.baseURL)"
         }
     }
     

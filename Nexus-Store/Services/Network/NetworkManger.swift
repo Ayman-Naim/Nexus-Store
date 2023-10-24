@@ -12,43 +12,29 @@ class ApiManger {
     
     static let SharedApiManger = ApiManger()
     
-   private  init(){
-        
-    }
-    let headers: HTTPHeaders = [
-                "X-Shopify-Access-Token": "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"
-
-            ]
-       let headerApi: HTTPHeaders = [
-                "X-Shopify-Access-Token": "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",
-                "Content-Type": "application/json"
-            ]
-   
+    private  init(){}
     
-    func fetchData<T: Decodable>(url: String, decodingModel: T.Type, completion: @escaping (T?, Error?) -> Void) {
-        AF.request(url).validate().responseDecodable(of: T.self) { response in
-        
-        switch response.result {
-        case .success(let decodedData):
-           // print("DeBug: \(response)")
-            completion(decodedData, nil)
-        case .failure(let error):
-            completion(nil, error)
-            
-            
+    private let headerApi: HTTPHeaders = [
+        "X-Shopify-Access-Token": "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",
+        "Content-Type": "application/json"
+    ]
+    
+    
+    func fetchData<T: Decodable>(url: BaseUrl, decodingModel: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
+        AF.request(url.enpoint).validate().responseDecodable(of: T.self) { response in
+            switch response.result {
+            case .success(let decodedData):
+                // print("DeBug: \(response)")
+                completion(.success(decodedData))
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
-        
-    }
-        
     }
     
   
-    
-    
-    func postData<T: Decodable>(url: String,parameters: [String: Any],decodingModel: T.Type,completion: @escaping (Result<T,Error>) -> Void) {
-
-        
-        AF.request(url,method: .post,parameters: parameters,encoding: JSONEncoding.default, headers: headerApi).validate(statusCode: 200 ..< 299).responseData { response in
+    func postData<T: Decodable>(url: BaseUrl, parameters: [String: Any],decodingModel: T.Type,completion: @escaping (Result<T,Error>) -> Void) {
+        AF.request(url.enpoint, method: .post,parameters: parameters,encoding: JSONEncoding.default, headers: headerApi).validate(statusCode: 200 ..< 299).responseData { response in
                 switch response.result {
                 case .success(let data ):
                     do {
@@ -65,10 +51,4 @@ class ApiManger {
                 }
             }
     }
-    
-    
- 
-    
-    
-   
 }
