@@ -35,4 +35,16 @@ class ApiManger {
         
     }
     
+    func postData<T: Decodable>(url: String,parameters: [String: Any],decodingModel: T.Type,completion: @escaping (T?, Error?) -> Void) {
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .validate().responseDecodable(of: T.self) { response in
+                switch response.result {
+                case .success(let decodedData):
+                    completion(decodedData, nil)
+                case .failure(let error):
+                    completion(nil, error)
+                }
+            }
+    }
+    
 }
