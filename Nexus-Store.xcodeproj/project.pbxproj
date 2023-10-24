@@ -101,6 +101,7 @@
 		E37B4DEC2AE307BE0051EB89 /* PaymentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E37B4DEA2AE307BE0051EB89 /* PaymentTableViewCell.xib */; };
 		E3E498FA2AE19F4E00ED2924 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E498F82AE19F4E00ED2924 /* ProfileViewController.swift */; };
 		E3E498FB2AE19F4E00ED2924 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3E498F92AE19F4E00ED2924 /* ProfileViewController.xib */; };
+		E3E639FD2AE82D89002A5617 /* BaseURl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E639FC2AE82D89002A5617 /* BaseURl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -220,6 +221,7 @@
 		E37B4DEA2AE307BE0051EB89 /* PaymentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentTableViewCell.xib; sourceTree = "<group>"; };
 		E3E498F82AE19F4E00ED2924 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E3E498F92AE19F4E00ED2924 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		E3E639FC2AE82D89002A5617 /* BaseURl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1083,7 +1085,6 @@
 			children = (
 				E37687EA2ADE059D00DB09A1 /* Network */,
 				E37687E92ADE057A00DB09A1 /* CoreData */,
-				E340D1E92AE79A2500E2E017 /* NetworkManger.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1140,6 +1141,8 @@
 		E37687EA2ADE059D00DB09A1 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				E340D1E92AE79A2500E2E017 /* NetworkManger.swift */,
+				E3E639FC2AE82D89002A5617 /* BaseURl.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1450,6 +1453,7 @@
 				01D776BE2AE2FFC50079F2B5 /* Alert.swift in Sources */,
 				011281B62AE1AA6600844137 /* AddAddressViewController.swift in Sources */,
 				010F61002AE4920500DE7EB0 /* UIViewController+Extension.swift in Sources */,
+				E3E639FD2AE82D89002A5617 /* BaseURl.swift in Sources */,
 				01D776C82AE316770079F2B5 /* ProductsOrderSheetTVC.swift in Sources */,
 				E37687AB2ADDFFB500DB09A1 /* AppDelegate.swift in Sources */,
 				45123AB22AE2149E001B12B7 /* CategoryViewController.swift in Sources */,
