@@ -9,6 +9,8 @@ import UIKit
 
 class WishListViewController: UIViewController {
     
+    private let viewModel: WishListViewModel = WishListViewModel()
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -38,6 +40,8 @@ class WishListViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "Wish List"
         setupTableView()
+        bindViewModel()
+        viewModel.fetchProducts()
     }
     
     // MARK: - Helpers
@@ -47,19 +51,34 @@ class WishListViewController: UIViewController {
         
         tableView.register(ProductLandscapeTVCell.nib(), forCellReuseIdentifier: ProductLandscapeTVCell.identifier)
     }
+    
+    private func bindViewModel() {
+        viewModel.loadingIndicator = { [weak self] isLoading in
+            self?.isLoadingIndicatorAnimating = isLoading
+        }
+        
+        viewModel.reload = { [weak self] in
+            self?.tableView.reloadData()
+        }
+        
+        viewModel.errorOccure = { [weak self] error in
+            guard let self = self else { return }
+            Alert.show(on: self, title: "Error", message: error)
+        }
+    }
 }
 
 
 // MARK: - UITableView DataSource & Delegate
 extension WishListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return viewModel.numberOfRow
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProductLandscapeTVCell.identifier, for: indexPath) as! ProductLandscapeTVCell
-        cell.hideQuantity()
-        cell.delegate = self
+        viewModel.configCell(cell, at: indexPath.row)
+        cell.delegate = viewModel
         return cell
     }
 }
@@ -78,13 +97,5 @@ extension WishListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
         print("Delete")
-    }
-}
-
-
-// MARK: - ProductLandscapeCellDelegate
-extension WishListViewController: ProductLandscapeCellDelegate {
-    func didDeleteProduct(withID id: Int) {
-        
     }
 }
