@@ -35,28 +35,38 @@ class WishListViewModel {
     
     func fetchProducts() {
         loadingIndicator?(true)
-        service.getAllProducts(forCustom: userID) { [weak self] result in
+        service.getWishlist(forCustom: userID) { [weak self] result in
             guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.loadingIndicator?(false)
-            }
+            self.loadingIndicator?(false)
             switch result {
             case .success(let products):
                 self.wishList = products
-                DispatchQueue.main.async {
-                    self.reload?()
-                }
+                self.reload?()
             case .failure(let error):
                 self.errorOccure?(error.localizedDescription)
             }
         }
     }
-}
-
-
-// MARK: - ProductLandscapeCellDelegate
-extension WishListViewModel: ProductLandscapeCellDelegate {
-    func didDeleteProduct(withID id: Int) {
-        print(id)
+    
+    func removeFromWishList(at index: Int? = nil, withProductID productID: Int? = nil){
+        loadingIndicator?(true)
+        
+        if let index = index {
+            removeProduct(wishList[index].id)
+        } else if let productID = productID {
+            removeProduct(productID)
+        }
+    }
+    
+    private func removeProduct(_ id: Int) {
+        service.removeWishList(productID: id, fromCustomer: userID) { [weak self] error in
+            self?.loadingIndicator?(false)
+            if let error = error {
+                self?.errorOccure?(error.localizedDescription)
+            } else {
+                self?.wishList.removeAll(where: { $0.id == id })
+                self?.reload?()
+            }
+        }
     }
 }

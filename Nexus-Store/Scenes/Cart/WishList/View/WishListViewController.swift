@@ -42,6 +42,8 @@ class WishListViewController: UIViewController {
         setupTableView()
         bindViewModel()
         viewModel.fetchProducts()
+        
+        self.setContentEmptyTitle("No products in Wish list")
     }
     
     // MARK: - Helpers
@@ -54,11 +56,15 @@ class WishListViewController: UIViewController {
     
     private func bindViewModel() {
         viewModel.loadingIndicator = { [weak self] isLoading in
-            self?.isLoadingIndicatorAnimating = isLoading
+            DispatchQueue.main.async {
+                self?.isLoadingIndicatorAnimating = isLoading
+            }
         }
         
         viewModel.reload = { [weak self] in
-            self?.tableView.reloadData()
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }
         
         viewModel.errorOccure = { [weak self] error in
@@ -72,13 +78,14 @@ class WishListViewController: UIViewController {
 // MARK: - UITableView DataSource & Delegate
 extension WishListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.isContentEmptyViewHidden = viewModel.numberOfRow != 0
         return viewModel.numberOfRow
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProductLandscapeTVCell.identifier, for: indexPath) as! ProductLandscapeTVCell
         viewModel.configCell(cell, at: indexPath.row)
-        cell.delegate = viewModel
+        cell.delegate = self
         return cell
     }
 }
@@ -96,6 +103,24 @@ extension WishListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
-        print("Delete")
+        let closeAction = UIAlertAction(title: "Close", style: .cancel)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
+            self?.viewModel.removeFromWishList(at: indexPath.row)
+        }
+        
+        Alert.show(on: self, title: "Wishlist", message: "Are you sure you want to delete from wishlist?", actions: [deleteAction, closeAction])
+    }
+}
+
+
+// MARK: - ProductLandscapeCellDelegate
+extension WishListViewController: ProductLandscapeCellDelegate {
+    func didDeleteProduct(withID id: Int) {
+        let closeAction = UIAlertAction(title: "Close", style: .cancel)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
+            self?.viewModel.removeFromWishList(withProductID: id)
+        }
+        
+        Alert.show(on: self, title: "Wishlist", message: "Are you sure you want to delete from wishlist?", actions: [deleteAction, closeAction])
     }
 }
