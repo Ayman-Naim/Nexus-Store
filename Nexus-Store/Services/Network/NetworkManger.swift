@@ -21,7 +21,7 @@ class ApiManger {
     
     
     func fetchData<T: Decodable>(url: BaseUrl, decodingModel: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
-        AF.request(url.enpoint).validate().responseDecodable(of: T.self) { response in
+        AF.request(url.enpoint,headers: headerApi).validate().responseDecodable(of: T.self) { response in
             switch response.result {
             case .success(let decodedData):
                 // print("DeBug: \(response)")
