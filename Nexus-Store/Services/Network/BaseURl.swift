@@ -12,12 +12,14 @@ enum BaseUrl:String{
     case product
     case category
     case Brand
-    
+    case orders
+
     var enpoint :String {
         switch self {
         case .product: return "\(BaseUrl.baseURL)smart_collections.json"
         case .category: return "\(BaseUrl.baseURL)"
         case .Brand : return "\(BaseUrl.baseURL)smart_collections.json"
+        case.orders : return"\(BaseUrl.baseURL)orders.json?financial_status=paid&limit=10"
         }
     }
     
