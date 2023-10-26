@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 import Cosmos
 protocol CustomNibCellProtocol:AnyObject{
     func didTapButtonInCell(_ cell: productDetailsCell)
@@ -35,6 +36,14 @@ class productDetailsCell: UICollectionViewCell {
     @IBAction func pressFavoriteButton(_ sender: Any) {
         delegate?.didTapButtonInCell(self)
         
+    }
+    func ConfigureProductDetails(product:Product?){
+        if let image = URL(string: (product?.image?.src)!){
+            productImage.kf.setImage(with:image )
+        }
+        productName.text = product?.title
+        productPrice.text = "$\(product?.variants?.first?.price ?? "300")"
+
     }
     
     
