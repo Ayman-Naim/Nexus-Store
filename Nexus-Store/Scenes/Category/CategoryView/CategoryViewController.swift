@@ -13,6 +13,33 @@ class CategoryViewController: UIViewController {
     
     let mainCategory = ["MEN","KIDS","SALE","WOMEN"]
     let subCategory = ["ALL","SHOES","T-SHIRT","ACCESSORIES"]
+    let productSection = IndexSet(integer: 2)
+    var forMainCategory:Int = K.menID
+    var categoryProductProtocol:CategoryViewModelDelgation?
+    var products:[Product]?{
+        didSet{
+            if let validProducts =  products {
+                for product in validProducts{
+                    categoryProductProtocol?.priceOfEveryProduct(for:product, Handeler: { product in
+                        self.filterProduct?.append(product)
+                    })
+                    
+                }
+            }
+        }
+    }
+   var filterProduct :[Product]? = [] //{
+////        didSet{
+////
+////            DispatchQueue.main.async {
+////                self.products = self.filterProduct
+////                self.CategoryCollectionView.reloadSections(self.productSection)            }
+////        }
+//    }
+    var endPoint = BaseUrl.CategoryProduct
+    
+    
+    
     
     
     //MARK: - Conigure ViewWill Appear
@@ -28,20 +55,36 @@ class CategoryViewController: UIViewController {
         registerCollectionViewByCell()
         CategoryCollectionView.collectionViewLayout = createCompositionalLayout()
         configureFavoritueButton()
-
+        ConfigureFetchDataFromApi(with: K.menID)
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    
+    
+    func ConfigureFetchDataFromApi(with endPointFilter:Int){
+        BaseUrl.MainCategory = endPointFilter
+        categoryProductProtocol = CategoryViewModel()
+        let loadingView = CustomLoadingIndicator(customAnimation: "loading_4")
+        loadingView.addLoadingIndicator(to: view)
+        categoryProductProtocol?.getAllProduct(with: BaseUrl.CategoryProduct)
+        categoryProductProtocol?.fetchProductToCategoryView = { [weak self] in
+        self?.products = self?.categoryProductProtocol?.RetiviedProductResult()
+            DispatchQueue.main.async{
+                self?.CategoryCollectionView.reloadSections(self!.productSection)
+            }
+        
+            loadingView.removeFromSuperview()
+          //  loadingView = nil
+        }
+        
+        
+                
+        
     }
-    */
+    
+    
+    
 
 }
 
@@ -50,7 +93,7 @@ class CategoryViewController: UIViewController {
 
 extension CategoryViewController : UICollectionViewDelegate,UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout {
     
-    // MARK: - Number od section in Collection View
+    // MARK: - Number of section in Collection View
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 3
     }
@@ -64,7 +107,7 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
         case 1:
             return 4
         case 2:
-            return 6
+            return products?.count ?? 0
         default:
             return 0
         }
@@ -72,12 +115,57 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
     
     //MARK: - Selection Product Details
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       // let vc = ProductDetailsViewController(nibName: ProductDetailsViewController.identifier, bundle: nil)
-        let storyboard = UIStoryboard(name:ProductDetailsViewController.storyBoardName , bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: ProductDetailsViewController.identifier) as! ProductDetailsViewController
-         vc.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-         vc.modalPresentationStyle = .fullScreen
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+        switch indexPath.section {
+            
+        case 0:
+          ChangeMainAndSubColor(collectionView: collectionView, indexPath: indexPath, section: 0)
+            switch indexPath.row{
+            case 0:
+                GetMainCategoryData(with : K.menID)
+                forMainCategory = K.womenID
+            case 1:
+                GetMainCategoryData(with : K.womenID)
+                forMainCategory =  K.menID
+            case 2:
+                GetMainCategoryData(with : K.kidID)
+                forMainCategory =  K.kidID
+            case 3:
+                GetMainCategoryData(with : K.saleID)
+                forMainCategory =  K.saleID
+
+            default:
+                print("Finish")
+                
+            }
+            
+        case 1:
+            ChangeMainAndSubColor(collectionView: collectionView, indexPath: indexPath, section: 1)
+            switch indexPath.row{
+            case 0:
+                GetMainCategoryData(with : forMainCategory)
+            case 1:
+                GetSubCategoryData(for: forMainCategory, with: K.shoes)
+            case 2:
+                GetSubCategoryData(for: forMainCategory, with: K.tShirt)
+            case 3:
+                GetSubCategoryData(for: forMainCategory, with: K.accessories)
+            default:
+                print("Finish")
+                
+            }
+            
+        case 2:
+             let storyboard = UIStoryboard(name:ProductDetailsViewController.storyBoardName , bundle: nil)
+             let vc = storyboard.instantiateViewController(withIdentifier: ProductDetailsViewController.identifier) as! ProductDetailsViewController
+              vc.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+              vc.modalPresentationStyle = .fullScreen
+             self.navigationController?.pushViewController(vc, animated: true)
+            
+        default:
+            print("Done")
+        }
+      
     }
     
     // MARK: - Custom Cell of each section
@@ -103,6 +191,8 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
             
         case 2 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.customProductDetailsIdetifier, for: indexPath) as! productDetailsCell
+            
+            cell.ConfigureProductDetails(product: products?[indexPath.row])
             return cell
             
         default :
@@ -229,7 +319,7 @@ extension CategoryViewController{
         item.contentInsets = NSDirectionalEdgeInsets(top: topInset, leading: leadingInset, bottom: bottomInset, trailing: trailingInset)
         
         // Group
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(240))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(270))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
       
         // Section
@@ -270,4 +360,81 @@ extension CategoryViewController{
     }
 
     
+    //MARK: - Change Color of Main and Sub Category
+    func ChangeMainAndSubColor(collectionView:UICollectionView,indexPath:IndexPath,section:Int){
+        // Get the number of items in the section
+        let itemCount = collectionView.numberOfItems(inSection: section)
+        // Create a countable range of index paths for the section
+        let indexPaths = (0..<itemCount).map { IndexPath(item: $0, section: section) }
+        // Loop through the cells in the section
+        for index in indexPaths {
+            if let cell = collectionView.cellForItem(at: index) as? MainCategoryCell {
+                cell.backgoundMainCategoryView.configureDesignOfCellNotSelected(label: cell.mainCategoryLabel)
+                if  index.row == indexPath.row{
+                    cell.backgoundMainCategoryView.configureDesignOfcellSelected(label: cell.mainCategoryLabel)
+                }
+            }
+           
+        }
+    }
+    
+}
+
+
+//MARK: - Changing Product According Main And SubCategory
+
+extension CategoryViewController {
+    
+    //MARK: - Get all Data Needed Main Catgory
+    func GetMainCategoryData(with mainCategory:Int){
+        
+        BaseUrl.MainCategory = mainCategory
+        let loadingView = CustomLoadingIndicator(customAnimation: "loading_4")
+        loadingView.addLoadingIndicator(to: view)
+        categoryProductProtocol?.getAllProduct(with: BaseUrl.CategoryProduct)
+        categoryProductProtocol?.fetchProductToCategoryView = { [weak self] in
+        self?.products = self?.categoryProductProtocol?.RetiviedProductResult()
+            DispatchQueue.main.async{
+                self?.CategoryCollectionView.reloadSections(self!.productSection)
+            }
+        
+            loadingView.removeFromSuperview()
+        }
+        
+        
+        
+    }
+    
+    //MARK: - Get all Data Needed sub Catgory
+
+    func GetSubCategoryData(for mainCategory:Int , with subCategory:String){
+        let loadingView = CustomLoadingIndicator(customAnimation: "loading_4")
+        loadingView.addLoadingIndicator(to: view)
+        categoryProductProtocol?.getSubCategoryData(for: mainCategory, with: subCategory, Handeler: { products in
+            self.products = products
+            DispatchQueue.main.async {
+                self.CategoryCollectionView.reloadSections(self.productSection)
+            }
+            loadingView.removeFromSuperview()
+        })
+    }
+    
+    //MARK: - Get all Data Needed Price
+    func allProductofMainCategory(){
+        
+            if let validProducts =  products {
+                filterProduct?.removeAll()
+                let loadingView = CustomLoadingIndicator(customAnimation: "loading_4")
+                loadingView.addLoadingIndicator(to: view)
+                for product in validProducts{
+                    categoryProductProtocol?.priceOfEveryProduct(for:product, Handeler: { product in
+                        self.filterProduct?.append(product)
+                        loadingView.removeFromSuperview()
+                    })
+                    
+                }
+            }
+        
+        
+    }
 }

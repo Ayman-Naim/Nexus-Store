@@ -6,12 +6,15 @@
 //
 
 import Foundation
-struct AllProduct: Codable {
+struct AllProduct:Hashable, Codable {
     let products: [Product]
+}
+struct SingleProduct: Codable {
+    let product: Product
 }
 
 // MARK: - Product
-struct Product: Codable {
+struct Product:Hashable, Codable {
     let id: Int
     var title: String?
     var bodyHtml: String?
