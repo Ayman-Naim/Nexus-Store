@@ -22,6 +22,7 @@ class ProfileViewController: UIViewController {
         setupTabelView()
         circleImage()
         getOrders()
+        self.isLoadingIndicatorAnimating = true
         // Do any additional setup after loading the view.
     }
 
@@ -32,7 +33,8 @@ class ProfileViewController: UIViewController {
         TableView.register(UINib(nibName: "FavouriteTableViewCell", bundle: nil), forCellReuseIdentifier: "FavouriteTableViewCell")
         TableView.register(UINib(nibName: "OrderTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderTableViewCell")
         TableView.register(UINib(nibName: "SectionHeaderTableViewCell", bundle: nil), forHeaderFooterViewReuseIdentifier: "SectionHeaderTableViewCell")
-  
+        self.setContentEmptyTitle("No products in the Cart! 🧐")
+        self.setContentEmptyImage(UIImage(named: "empty_2"))
     }
     
     func circleImage(){
@@ -68,10 +70,10 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
             }
 
         case 1 :
-            return 2
+            return 0
             
         default:
-            return 2
+            return 0
         }
     }
     
@@ -156,6 +158,7 @@ extension ProfileViewController:ProfileDelegete{
             case .success(let orders):
                 print(orders)
                 self.orders = orders
+                self.isLoadingIndicatorAnimating = !self.isLoadingIndicatorAnimating
                 self.TableView.reloadSections(IndexSet(integer: 0), with: .fade)
                 
             case .failure(let error):

@@ -46,7 +46,8 @@ class AddAddressViewController: UIViewController {
         guard
             let name = addAddressView.nameTextField.text, !name.isEmpty,
             let city = addAddressView.cityTextField.text, !city.isEmpty,
-            let address = addAddressView.addressTextField.text, !address.isEmpty
+            let address = addAddressView.addressTextField.text, !address.isEmpty,
+            let phone = addAddressView.PhoneTextField.text ,!phone.isEmpty
         else {
             Alert.show(on: self, title: "Address", message: "All fileds must be not empty")
             return

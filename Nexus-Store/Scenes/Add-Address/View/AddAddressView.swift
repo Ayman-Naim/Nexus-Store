@@ -47,6 +47,17 @@ class AddAddressView: UIView {
         return textField
     }()
     
+    let PhoneTextField: CustomTextField = {
+        let textField = CustomTextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.placeholder = "Phone"
+        textField.returnKeyType = .done
+        textField.textContentType = .telephoneNumber
+        textField.keyboardType = .phonePad
+        return textField
+    }()
+    
+    
     let addButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -75,6 +86,7 @@ class AddAddressView: UIView {
         setupNameTextField()
         setupCityTextField()
         setupAddressTextField()
+        setupPhoneTextField()
         setupAddButton()
     }
     
@@ -128,11 +140,20 @@ class AddAddressView: UIView {
             addressTextField.heightAnchor.constraint(equalToConstant: 55)
         ])
     }
+    private func setupPhoneTextField() {
+        containerView.addSubview(PhoneTextField)
+        NSLayoutConstraint.activate([
+            PhoneTextField.topAnchor.constraint(equalTo: addressTextField.bottomAnchor, constant: 16),
+            PhoneTextField.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            PhoneTextField.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.8),
+            PhoneTextField.heightAnchor.constraint(equalToConstant: 55)
+        ])
+    }
     
     private func setupAddButton() {
         containerView.addSubview(addButton)
         NSLayoutConstraint.activate([
-            addButton.topAnchor.constraint(equalTo: addressTextField.bottomAnchor, constant: 64),
+            addButton.topAnchor.constraint(equalTo: PhoneTextField.bottomAnchor, constant: 64),
             addButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             addButton.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.8),
             addButton.heightAnchor.constraint(equalToConstant: 55),
