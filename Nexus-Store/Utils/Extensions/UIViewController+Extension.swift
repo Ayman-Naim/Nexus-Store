@@ -78,5 +78,18 @@ extension UIViewController {
         }
         get { view.subviews.contains(where: { $0 is CustomLoadingIndicator }) }
     }
+    
+    func addLogoToNavigationBarItem(logoImage:String) {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: logoImage)
+        let contentView = UIView()
+        self.navigationItem.titleView = contentView
+        self.navigationItem.titleView?.addSubview(imageView)
+        imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+    }
 }
 

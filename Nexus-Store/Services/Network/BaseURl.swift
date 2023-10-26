@@ -26,10 +26,16 @@ enum BaseUrl:String{
         case .product: return "\(BaseUrl.baseURL)smart_collections.json"
         case .category: return "\(BaseUrl.baseURL)"
         case .Brand : return "\(BaseUrl.baseURL)smart_collections.json"
-        case .CategoryProduct: return "\(BaseUrl.baseURL)collections/\(BaseUrl.MainCategory)/products.json"
-        case .SubCategory: return "\(BaseUrl.baseURL)products.json?collection_id=\(BaseUrl.MainCategory)&product_type=\(BaseUrl.SubCategoryItem)"
-        case .CategoryProductPrice: return "\(BaseUrl.baseURL)products/\(BaseUrl.CategoryPriceID).json"
         case.orders : return"\(BaseUrl.baseURL)orders.json?financial_status=paid&limit=10"
+            
+        case .CategoryProduct: return "\(BaseUrl.baseURL)collections/\(BaseUrl.MainCategory)/products.json"
+            
+        case .SubCategory: return "\(BaseUrl.baseURL)products.json?collection_id=\(BaseUrl.MainCategory)&product_type=\(BaseUrl.SubCategoryItem)"
+            
+        case .CategoryProductPrice: return "\(BaseUrl.baseURL)products/\(BaseUrl.CategoryPriceID).json"
+            
+            
+       
         }
     }
     
