@@ -10,11 +10,17 @@ import UIKit
 protocol ProductLandscapeCell: AnyObject {
     func setProduct(_ product: CartProduct)
     func hideButtons()
+    func hideQuantity()
 }
 
 protocol ProductLandscapeCellDelegate: AnyObject {
     func didDeleteProduct(withID id: Int)
     func didUpdateProductQuantity(forProductID id: Int, with quantity: Int)
+}
+
+extension ProductLandscapeCellDelegate {
+    func didDeleteProduct(withID id: Int) {}
+    func didUpdateProductQuantity(forProductID id: Int, with quantity: Int) {}
 }
 
 class ProductLandscapeTVCell: UITableViewCell {
@@ -91,5 +97,9 @@ extension ProductLandscapeTVCell: ProductLandscapeCell {
         deleteButton.isHidden = true
         plusButton.isHidden = true
         minusButton.isHidden = true
+    }
+    
+    func hideQuantity() {
+        minusButton.superview?.isHidden = true
     }
 }

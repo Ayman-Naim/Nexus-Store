@@ -33,6 +33,9 @@
 		01D776C32AE3021C0079F2B5 /* AddPromoCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D776C12AE3021C0079F2B5 /* AddPromoCodeViewController.swift */; };
 		01D776C42AE3021C0079F2B5 /* AddPromoCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01D776C22AE3021C0079F2B5 /* AddPromoCodeViewController.xib */; };
 		01D776C82AE316770079F2B5 /* ProductsOrderSheetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D776C72AE316770079F2B5 /* ProductsOrderSheetTVC.swift */; };
+		01E9BB6D2AE9525900FE881E /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9BB6C2AE9525900FE881E /* WishListViewController.swift */; };
+		01E9BB702AE9587C00FE881E /* WishListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9BB6F2AE9587C00FE881E /* WishListViewModel.swift */; };
+		01E9BB722AE96D8500FE881E /* WishListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9BB712AE96D8500FE881E /* WishListService.swift */; };
 		169DA9E07FECA4DC4D9C97CF /* Pods_Nexus_Store_Nexus_Admin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B19B9281328FE18BFC74F8AF /* Pods_Nexus_Store_Nexus_Admin.framework */; };
 		45123AAB2AE2149E001B12B7 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45123A922AE2149E001B12B7 /* ProductDetailsViewController.swift */; };
 		45123AAC2AE2149E001B12B7 /* ProductImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45123A952AE2149E001B12B7 /* ProductImageCell.xib */; };
@@ -135,6 +138,9 @@
 		01D776C12AE3021C0079F2B5 /* AddPromoCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPromoCodeViewController.swift; sourceTree = "<group>"; };
 		01D776C22AE3021C0079F2B5 /* AddPromoCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPromoCodeViewController.xib; sourceTree = "<group>"; };
 		01D776C72AE316770079F2B5 /* ProductsOrderSheetTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsOrderSheetTVC.swift; sourceTree = "<group>"; };
+		01E9BB6C2AE9525900FE881E /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
+		01E9BB6F2AE9587C00FE881E /* WishListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewModel.swift; sourceTree = "<group>"; };
+		01E9BB712AE96D8500FE881E /* WishListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListService.swift; sourceTree = "<group>"; };
 		0EE52BF3C2B1CE37BD0BE425 /* Pods_Nexus_Store.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nexus_Store.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D0897498D8507D3F7C4DEF /* Pods-Nexus-Store.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nexus-Store.release.xcconfig"; path = "Target Support Files/Pods-Nexus-Store/Pods-Nexus-Store.release.xcconfig"; sourceTree = "<group>"; };
 		294B772207E75B1ADC58E6CF /* Pods-Nexus-Store-Nexus-StoreUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nexus-Store-Nexus-StoreUITests.debug.xcconfig"; path = "Target Support Files/Pods-Nexus-Store-Nexus-StoreUITests/Pods-Nexus-Store-Nexus-StoreUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -353,6 +359,7 @@
 		01A0EB852AE0716E004310FC /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				01E9BB6A2AE9521000FE881E /* WishList */,
 				01A0EB862AE07174004310FC /* View */,
 				01A0EB872AE0717D004310FC /* ViewModel */,
 			);
@@ -415,6 +422,32 @@
 				01D776C72AE316770079F2B5 /* ProductsOrderSheetTVC.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		01E9BB6A2AE9521000FE881E /* WishList */ = {
+			isa = PBXGroup;
+			children = (
+				01E9BB712AE96D8500FE881E /* WishListService.swift */,
+				01E9BB6B2AE9522900FE881E /* View */,
+				01E9BB6E2AE9586A00FE881E /* ViewModel */,
+			);
+			path = WishList;
+			sourceTree = "<group>";
+		};
+		01E9BB6B2AE9522900FE881E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				01E9BB6C2AE9525900FE881E /* WishListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		01E9BB6E2AE9586A00FE881E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				01E9BB6F2AE9587C00FE881E /* WishListViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		423F5CB5BDD8E70020970C78 /* Frameworks */ = {
@@ -1499,12 +1532,15 @@
 				01D776BE2AE2FFC50079F2B5 /* Alert.swift in Sources */,
 				011281B62AE1AA6600844137 /* AddAddressViewController.swift in Sources */,
 				010F61002AE4920500DE7EB0 /* UIViewController+Extension.swift in Sources */,
+				01E9BB702AE9587C00FE881E /* WishListViewModel.swift in Sources */,
 				E3E639FD2AE82D89002A5617 /* BaseURl.swift in Sources */,
+				01E9BB722AE96D8500FE881E /* WishListService.swift in Sources */,
 				01D776C82AE316770079F2B5 /* ProductsOrderSheetTVC.swift in Sources */,
 				E34FE6322AE954EF006602A5 /* profileOrder.swift in Sources */,
 				E37687AB2ADDFFB500DB09A1 /* AppDelegate.swift in Sources */,
 				45123AB22AE2149E001B12B7 /* CategoryViewController.swift in Sources */,
 				011281AC2AE18D7B00844137 /* ShippingViewController.swift in Sources */,
+				01E9BB6D2AE9525900FE881E /* WishListViewController.swift in Sources */,
 				E345566C2AE1B51C00312C6C /* FavouriteTableViewCell.swift in Sources */,
 				011281B02AE1A4F900844137 /* CustomTextField.swift in Sources */,
 				4531FE512AE2EE4A00F47528 /* ProductReviewDelegation.swift in Sources */,
