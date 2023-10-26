@@ -8,7 +8,10 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
+    var ViewModel = ProfileVM()
+    var orders = [Order]()
+    var expandItemsSec1 = false
+    var expandItemsSec2 = false
     @IBOutlet weak var UserImage: UIImageView!
     @IBOutlet weak var TableView: UITableView!
     
@@ -18,6 +21,7 @@ class ProfileViewController: UIViewController {
         self.TableView.separatorColor = UIColor.clear
         setupTabelView()
         circleImage()
+        getOrders()
         // Do any additional setup after loading the view.
     }
 
@@ -53,15 +57,37 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
         return 2
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        2
+        switch section{
+        case 0 :
+            if (orders.count == 0) {
+                return 0;
+            } else if (expandItemsSec1 == false) {
+                return 2;
+            } else {
+                return orders.count;
+            }
+
+        case 1 :
+            return 2
+            
+        default:
+            return 2
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section{
         case  0 :
             let cell  = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for: indexPath) as!  OrderTableViewCell
-            return cell
-           
+            if  orders.count>0{
+                   cell.orderNo.text = "\(orders[indexPath.row].order_number!)"
+                cell.quantity.text = "\(orders[indexPath.row].line_items!.count)"
+                cell.totalAmount.text = "\(orders[indexPath.row].total_price!)\(orders[indexPath.row].currency=="EGP" ?" EGP":" $")"
+                return cell
+            }
+            else{
+                return cell
+            }
         case  1 :
             let cell  = tableView.dequeueReusableCell(withIdentifier: "FavouriteTableViewCell", for: indexPath) as!  FavouriteTableViewCell
             return cell
@@ -81,6 +107,8 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
         case 0:
             let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderTableViewCell") as! SectionHeaderTableViewCell
             headerView.HeaderTitle.text = "My Orders"
+            headerView.Delegate = self
+            headerView.section = 0
                return headerView
             
             
@@ -89,6 +117,8 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
         case 1:
             let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderTableViewCell") as! SectionHeaderTableViewCell
             headerView.HeaderTitle.text = "Wish List"
+            headerView.Delegate = self
+            headerView.section = 1
                return headerView
 
         default:
@@ -100,5 +130,44 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
     
     
    
+    
+}
+
+
+
+extension ProfileViewController:ProfileDelegete{
+    func Seeallpressed(section: Int?) {
+        if(section == 0){
+            
+            self.expandItemsSec1 = !self.expandItemsSec1
+            self.TableView.reloadSections(IndexSet(integer: 0), with: .fade)
+        }
+        if(section == 1){
+            self.expandItemsSec2 = true
+        }
+    }
+    
+  
+    
+  
+    func getOrders(){
+        ViewModel.getOrders { result in
+            switch result{
+            case .success(let orders):
+                print(orders)
+                self.orders = orders
+                self.TableView.reloadSections(IndexSet(integer: 0), with: .fade)
+                
+            case .failure(let error):
+                print(error)
+                
+                
+            }
+            
+        }
+    }
+    
+    
+    
     
 }
