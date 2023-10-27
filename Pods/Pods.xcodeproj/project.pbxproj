@@ -24959,27 +24959,27 @@
 		FC1831C9BF88B8C302DDE4F8620DC149 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BF96B57ADE05E8909F823BDF6868B3E3 /* abseil */,
-				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire */,
-				514D7742C6CBB0BDBD9984AEE97DDFDE /* BoringSSL-GRPC */,
-				05C4280976BF93DA8B36818DE2E2A5E0 /* Cosmos */,
-				43B1E4CD7B30B9FD278100133C2AC788 /* FirebaseAuth */,
-				E2B63D462DB7F827C4B11FD51E4F8E2D /* FirebaseCore */,
-				148D0F9E8C7373FEAF40D800FC5F1BAA /* FirebaseCoreInternal */,
-				92000153CD73F7FC2DBAB4AB708269F3 /* FirebaseFirestore */,
-				B43874C6CBB50E7134FBEC24BABFE14F /* GoogleUtilities */,
-				1911113E0FBF13CFF9132E5FF7685228 /* gRPC-C++ */,
-				9C7C87B5D0A6752AFA2642F1BCA967A3 /* gRPC-C++-gRPCCertificates-Cpp */,
-				B471867C535B02FA55D87E260F6480F8 /* gRPC-Core */,
-				C1998E0D8085221AD87F89B614C10E52 /* GTMSessionFetcher */,
-				C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher */,
-				0A9F46A999C47653013D3AD854352507 /* leveldb.framework */,
-				51BA97E8B5085EFFB47BC9C0B785CEA7 /* Lottie.framework */,
-				06FC5C9CF96D60C50FCD47D339C91951 /* nanopb */,
-				53271F0C651BE2AC4C88565556A83494 /* Pods-Nexus-Store */,
-				F99623AF5CAEDA7207BE78DFAFD9C4E4 /* Pods-Nexus-Store-Nexus-Admin */,
-				3347A1AB6546F0A3977529B8F199DC41 /* PromisesObjC */,
-			);
+                BF96B57ADE05E8909F823BDF6868B3E3 /* abseil /,
+                5D797E9A5C5782CE845840781FA1CC81 / Alamofire /,
+                514D7742C6CBB0BDBD9984AEE97DDFDE / BoringSSL-GRPC /,
+                05C4280976BF93DA8B36818DE2E2A5E0 / Cosmos /,
+                43B1E4CD7B30B9FD278100133C2AC788 / FirebaseAuth /,
+                E2B63D462DB7F827C4B11FD51E4F8E2D / FirebaseCore /,
+                148D0F9E8C7373FEAF40D800FC5F1BAA / FirebaseCoreInternal /,
+                92000153CD73F7FC2DBAB4AB708269F3 / FirebaseFirestore /,
+                B43874C6CBB50E7134FBEC24BABFE14F / GoogleUtilities /,
+                1911113E0FBF13CFF9132E5FF7685228 / gRPC-C++ /,
+                9C7C87B5D0A6752AFA2642F1BCA967A3 / gRPC-C++-gRPCCertificates-Cpp /,
+                B471867C535B02FA55D87E260F6480F8 / gRPC-Core /,
+                C1998E0D8085221AD87F89B614C10E52 / GTMSessionFetcher /,
+                C3F44C782D64D7EB20B61CE3844EBFAD / Kingfisher /,
+                0A9F46A999C47653013D3AD854352507 / leveldb.framework /,
+                51BA97E8B5085EFFB47BC9C0B785CEA7 / lottie-ios /,
+                06FC5C9CF96D60C50FCD47D339C91951 / nanopb /,
+                53271F0C651BE2AC4C88565556A83494 / Pods-Nexus-Store /,
+                F99623AF5CAEDA7207BE78DFAFD9C4E4 / Pods-Nexus-Store-Nexus-Admin /,
+                3347A1AB6546F0A3977529B8F199DC41 / PromisesObjC */,
+            );
 			name = Products;
 			sourceTree = "<group>";
 		};
@@ -31866,35 +31866,35 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CE04E5DEA5CB7D2E10ACBDC540C18FF1 /* leveldb-library.release.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/leveldb-library/leveldb-library-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/leveldb-library/leveldb-library-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/leveldb-library/leveldb-library.modulemap";
-				PRODUCT_MODULE_NAME = leveldb;
-				PRODUCT_NAME = leveldb;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
+                "CODE_SIGN_IDENTITY[sdk=appletvos]" = "";
+                "CODE_SIGN_IDENTITY[sdk=iphoneos]" = "";
+                "CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+                CURRENT_PROJECT_VERSION = 1;
+                DEFINES_MODULE = YES;
+                DYLIB_COMPATIBILITY_VERSION = 1;
+                DYLIB_CURRENT_VERSION = 1;
+                DYLIB_INSTALL_NAME_BASE = "@rpath";
+                GCC_PREFIX_HEADER = "Target Support Files/leveldb-library/leveldb-library-prefix.pch";
+                INFOPLIST_FILE = "Target Support Files/leveldb-library/leveldb-library-Info.plist";
+                INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+                IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+                LD_RUNPATH_SEARCH_PATHS = (
+                    "$(inherited)",
+                    "@executable_path/Frameworks",
+                    "@loader_path/Frameworks",
+                );
+                MODULEMAP_FILE = "Target Support Files/leveldb-library/leveldb-library.modulemap";
+                PRODUCT_MODULE_NAME = leveldb;
+                PRODUCT_NAME = leveldb;
+                SDKROOT = iphoneos;
+                SKIP_INSTALL = YES;
+                SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+                SWIFT_VERSION = 5.0;
+                TARGETED_DEVICE_FAMILY = "1,2";
+                VALIDATE_PRODUCT = YES;
+                VERSIONING_SYSTEM = "apple-generic";
+                VERSION_INFO_PREFIX = "";
+            };
 			name = Release;
 		};
 		59647A09F5D2FBBA32D2081F425D6802 /* Debug */ = {
@@ -32549,34 +32549,34 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CA3373FA09973F63266454B411BA35AA /* leveldb-library.debug.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/leveldb-library/leveldb-library-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/leveldb-library/leveldb-library-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/leveldb-library/leveldb-library.modulemap";
-				PRODUCT_MODULE_NAME = leveldb;
-				PRODUCT_NAME = leveldb;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
+                "CODE_SIGN_IDENTITY[sdk=appletvos]" = "";
+                "CODE_SIGN_IDENTITY[sdk=iphoneos]" = "";
+                "CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+                CURRENT_PROJECT_VERSION = 1;
+                DEFINES_MODULE = YES;
+                DYLIB_COMPATIBILITY_VERSION = 1;
+                DYLIB_CURRENT_VERSION = 1;
+                DYLIB_INSTALL_NAME_BASE = "@rpath";
+                GCC_PREFIX_HEADER = "Target Support Files/leveldb-library/leveldb-library-prefix.pch";
+                INFOPLIST_FILE = "Target Support Files/leveldb-library/leveldb-library-Info.plist";
+                INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+                IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+                LD_RUNPATH_SEARCH_PATHS = (
+                    "$(inherited)",
+                    "@executable_path/Frameworks",
+                    "@loader_path/Frameworks",
+                );
+                MODULEMAP_FILE = "Target Support Files/leveldb-library/leveldb-library.modulemap";
+                PRODUCT_MODULE_NAME = leveldb;
+                PRODUCT_NAME = leveldb;
+                SDKROOT = iphoneos;
+                SKIP_INSTALL = YES;
+                SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+                SWIFT_VERSION = 5.0;
+                TARGETED_DEVICE_FAMILY = "1,2";
+                VERSIONING_SYSTEM = "apple-generic";
+                VERSION_INFO_PREFIX = "";
+            };
 			name = Debug;
 		};
 		B669305BFC484A941CBDA98E435B7BFB /* Release */ = {

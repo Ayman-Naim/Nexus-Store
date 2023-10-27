@@ -30,44 +30,6 @@ struct Metafield: Codable {
     }
 }
 
-//struct Products: Codable {
-//    let products: [Product]
-//}
-//
-//struct Product: Codable {
-//    let id: Int
-//    let title: String
-//    let descrip: String
-//    let vendor: String
-//    let productType: String
-//    let tags: String
-//    let status: String
-//    let images: [Image]
-//    let image: Image
-//
-//    enum CodingKeys: String, CodingKey {
-//        case id
-//        case title
-//        case descrip = "body_html"
-//        case vendor
-//        case productType = "product_type"
-//        case tags
-//        case status
-//        case images
-//        case image
-//    }
-//}
-//
-//struct Image: Codable {
-//    let id: Int
-//    let urlString: String
-//
-//    enum CodingKeys: String, CodingKey {
-//        case id
-//        case urlString = "src"
-//    }
-//}
-
 
 class WishListService {
     private let baseURLString = "https://b088a15054821f0f76c1eb98b594061a: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@ios-q1-new-capital-admin1-2023.myshopify.com/admin/api/2023-01"

@@ -22,6 +22,7 @@ class ProfileViewController: UIViewController {
         setupTabelView()
         circleImage()
         getOrders()
+        self.isLoadingIndicatorAnimating = true
         // Do any additional setup after loading the view.
     }
 
@@ -32,7 +33,8 @@ class ProfileViewController: UIViewController {
         TableView.register(UINib(nibName: "FavouriteTableViewCell", bundle: nil), forCellReuseIdentifier: "FavouriteTableViewCell")
         TableView.register(UINib(nibName: "OrderTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderTableViewCell")
         TableView.register(UINib(nibName: "SectionHeaderTableViewCell", bundle: nil), forHeaderFooterViewReuseIdentifier: "SectionHeaderTableViewCell")
-  
+        self.setContentEmptyTitle("No products in the Cart! 🧐")
+        self.setContentEmptyImage(UIImage(named: "empty_2"))
     }
     
     func circleImage(){
@@ -71,7 +73,7 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
             return 2
             
         default:
-            return 2
+            return 0
         }
     }
     
@@ -80,10 +82,13 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
         case  0 :
             let cell  = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for: indexPath) as!  OrderTableViewCell
             if  orders.count>0{
-                   cell.orderNo.text = "\(orders[indexPath.row].order_number!)"
-                cell.quantity.text = "\(orders[indexPath.row].line_items!.count)"
-                cell.totalAmount.text = "\(orders[indexPath.row].total_price!)\(orders[indexPath.row].currency=="EGP" ?" EGP":" $")"
-                return cell
+                if(orders[indexPath.row].customer?.id == 6899149603052){
+                    cell.orderNo.text = "\(orders[indexPath.row].order_number!)"
+                    cell.quantity.text = "\(orders[indexPath.row].line_items!.count)"
+                    cell.totalAmount.text = "\(orders[indexPath.row].total_price!)\(orders[indexPath.row].currency=="EGP" ?" EGP":" $")"
+                    
+                    return cell
+                }
             }
             else{
                 return cell
@@ -94,6 +99,7 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
         default:
             return UITableViewCell()
         }
+        return UITableViewCell()
     }
     
   
@@ -156,6 +162,7 @@ extension ProfileViewController:ProfileDelegete{
             case .success(let orders):
                 print(orders)
                 self.orders = orders
+                self.isLoadingIndicatorAnimating = !self.isLoadingIndicatorAnimating
                 self.TableView.reloadSections(IndexSet(integer: 0), with: .fade)
                 
             case .failure(let error):
