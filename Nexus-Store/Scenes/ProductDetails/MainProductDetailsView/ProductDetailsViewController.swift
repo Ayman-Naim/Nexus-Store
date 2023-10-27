@@ -15,11 +15,15 @@ class ProductDetailsViewController: UIViewController {
     static let storyBoardName = "ProductDetails"
     static let identifier = "ProductDetails"
     
+    
+    
+    @IBOutlet weak var itemPrice: UILabel!
+    
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var stepperView: UIView!
     @IBOutlet weak var reviewCollectionView: UICollectionView!
     @IBOutlet weak var productImageCollection: UICollectionView!
-    @IBOutlet weak var productType: UILabel!
+    @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var rating: CosmosView!
     @IBOutlet weak var productBrand: UILabel!
     @IBOutlet weak var descriptionOfProduct: UILabel!
@@ -27,15 +31,19 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet weak var sizeCollectionView: UICollectionView!
     @IBOutlet weak var imageIndicator: UIPageControl!
     
+    var productDetailsViewModel:ProductDetailsDelegation?
+    
     let productSizeDelegation = ProductSizeDelegation()
     let productColorDelegation = ProductColorDelegation()
     let productReviewDelegation = ProductReviewDelegation()
-    lazy var productImageDelegation = ProdutImageDelegation(collectionView: self.productImageCollection, with: imageIndicator)
+    
+    lazy var productImageDelegation = ProdutImageDelegation(collectionView: self.productImageCollection, with: imageIndicator,itemDetails: (productDetailsViewModel?.bindDataForProductDetails())!)
     
     
     //MARK: - Conigure ViewWill Appear
     override func viewDidAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = true
+        self.addLogoToNavigationBarItem(logoImage: K.darkModeLogo)
         
     }
     
@@ -48,9 +56,10 @@ class ProductDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureDataSourceofImageCollection()
-        cosmaticsForUiView()
         productImageCollection.contentInsetAdjustmentBehavior = .never
         productImageDelegation.layoutSetup()
+        configureDetailsOfProduct()
+        print("Data oF Items\(productImageDelegation.itemDetails)")
     }
 
 
@@ -81,11 +90,17 @@ extension ProductDetailsViewController{
         
     }
     
-    //MARK: - Cosmatics Layer Adding to UIView Function
-    func cosmaticsForUiView(){
-        stepperView.addingShadowWithEffectToView()
-    }
+
     
+    
+    func configureDetailsOfProduct(){
+        
+        productName.text = productDetailsViewModel?.bindProductNameOfProduct()
+        productBrand.text = productDetailsViewModel?.bindProductTypeOfProduct()
+        descriptionOfProduct.text = productDetailsViewModel?.bindProductDescriptionOfProduct()
+        itemPrice.text = productDetailsViewModel?.bindProductPriceOfProduct()
+        
+    }
     
     
   

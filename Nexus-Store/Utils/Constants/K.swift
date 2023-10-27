@@ -32,6 +32,10 @@ struct K{
     static let accessories = "ACCESSORIES"
     static let darkModeLogo = "DarkMode-AppIcon"
     
+    //Favorite icon image system
+    static let favoriteIconNotSave = "heart"
+    static let favoriteIconSave = "heart.fill"
+    
     
     
 }

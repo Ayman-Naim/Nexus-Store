@@ -14,6 +14,7 @@ protocol CustomNibCellProtocol:AnyObject{
 }
 class productDetailsCell: UICollectionViewCell {
     
+    @IBOutlet weak var favoriteIcon: UIButton!
     @IBOutlet weak var rating: CosmosView!
     @IBOutlet weak var productImage: UIImageView!
     
@@ -23,13 +24,16 @@ class productDetailsCell: UICollectionViewCell {
     var delegate:CustomNibCellProtocol?
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        favoriteIcon.setImage(UIImage(systemName: K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
+      
+       
     }
     
     
     override func layoutSubviews() {
         super.layoutSubviews()
         self.addingShadowWithEffectToCell()
+        
         
     }
     
@@ -48,4 +52,5 @@ class productDetailsCell: UICollectionViewCell {
     
     
 
+   
 }
