@@ -1,6 +1,0 @@
-framework module Pods_Nexus_Store_Nexus_StoreUITests {
-  umbrella header "Pods-Nexus-Store-Nexus-StoreUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -14,11 +14,6 @@ build/
 DerivedData/
 *.ipa
 
-# CSV
-*.orig
-.svn
-
-
 # Other
 *~
 *.DS_Store

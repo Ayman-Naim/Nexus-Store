@@ -6,20 +6,27 @@
 //
 
 import UIKit
-
+import Kingfisher
 class HomeViewController: UIViewController {
-
+    var ViewModel = HomeVM()
+    var brands = [SmartCollection]()
+    @IBOutlet weak var PageControl: UIPageControl!
     @IBOutlet weak var HomeCollectionView: UICollectionView!
     @IBOutlet weak var ProfileImage: UIImageView!
     
     @IBOutlet weak var SerachBarText: UISearchBar!
     @IBOutlet weak var UserName: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         circleImage()
         collectionSetup()
         layoutSetup()
-       
+        getBrands()
+        PageControl.numberOfPages = 15
+        SerachBarText.delegate = self
     }
     func layoutSetup(){
         let layout = UICollectionViewCompositionalLayout { sectionIndex, enviroment in
@@ -38,7 +45,7 @@ class HomeViewController: UIViewController {
     
     
     @IBAction func CartButtonClicked(_ sender: Any) {
-        //
+        self.navigationController?.pushViewController(CartViewController(), animated: true)
     }
     
     @IBAction func favouriteButtonClicked(_ sender: Any) {
@@ -60,11 +67,16 @@ class HomeViewController: UIViewController {
         self.HomeCollectionView.register(UINib(nibName: "BrandsCollectionCell", bundle: nil), forCellWithReuseIdentifier: "BrandsCollectionCell" )
         self.HomeCollectionView.register(UINib(nibName: "SectionHeaderReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SectionHeader")
         
-       // collectionView.register(UINib(nibName: "CollectionReusableView", bundle: nil), forSupplementaryViewOfKind: "SectionHeaderElementKind", withReuseIdentifier: "headerView")
+        // collectionView.register(UINib(nibName: "CollectionReusableView", bundle: nil), forSupplementaryViewOfKind: "SectionHeaderElementKind", withReuseIdentifier: "headerView")
         
         self.HomeCollectionView.delegate = self
         self.HomeCollectionView.dataSource = self
-       
+        
+        //setup the paging of offers
+        //let paging
+        
+        
+        
     }
     
     func Offers()-> NSCollectionLayoutSection {
@@ -112,21 +124,21 @@ class HomeViewController: UIViewController {
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(145)
-                                               , heightDimension: .estimated(100))
+                                               , heightDimension: .estimated(145))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, repeatingSubitem: item, count: 2)
         group.interItemSpacing = .fixed(15)
-  
+        
         
         group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 40)
-       
+        
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 0)
         section.orthogonalScrollingBehavior = .paging
         section.boundarySupplementaryItems = [self.supplementtryHeader()]
-       
+        
         
         //animation
-     
+        
         section.visibleItemsInvalidationHandler = { items, offset, environment in
             items.forEach { item in
                 if item.representedElementCategory == .cell {
@@ -146,20 +158,46 @@ class HomeViewController: UIViewController {
     }
     
    
-
+    
     
 }
 
 
 
 extension HomeViewController :UICollectionViewDelegate,UICollectionViewDataSource{
-   
+    
+    
+    //MARK: - Display Animation of Image Indicator
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            PageControl.currentPage = indexPath.row
+            
+        }
+    }
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            if PageControl.currentPage == indexPath.row {
+                PageControl.currentPage = collectionView.indexPath(for: collectionView.visibleCells.first!)!.row
+            }
+        }
+        
+    }
+    
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
+        switch section{
+        case 0 :
+            return 15
+        case 1 :
+            return brands.count
+            
+        default:
+            return 12
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -169,25 +207,61 @@ extension HomeViewController :UICollectionViewDelegate,UICollectionViewDataSourc
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OffersCell", for: indexPath) as! OffersCell
             cell.backgroundColor = .gray
             cell.OfferImage.image = UIImage(named: "offers")
-            cell.pageIndicator.numberOfPages = 15
-            cell.pageIndicator.currentPage = indexPath.row
-
+            
+            
             return cell
         case 1 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BrandsCollectionCell", for: indexPath) as! BrandsCollectionCell
+            if let imageUrl = URL(string: self.brands[indexPath.row].image?.src ?? "") {
+                cell.BrandLogo.kf.setImage(with: imageUrl,placeholder: UIImage(named: "App-logo"),options: [.callbackQueue(.mainAsync)]){
+                    sucsees in
+                    switch sucsees
+                    {
+                    case .success(let image):
+                        
+                        cell.BrandLogo?.image = self.resizeImage(image: image.image, newWidth: 1000/4)
+                        
+
+                    case .failure(_):
+                        cell.BrandLogo?.image = UIImage(named:"App-logo")
+
+                    }
+                }
+            }
+            else{
+                cell.BrandLogo.image = UIImage(named: "App-logo")
+            }
+
+            
+         
+                                                                                                                           
+
+            cell.BrandName.text = brands[indexPath.row].title
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OffersCell", for: indexPath) as! OffersCell
             cell.backgroundColor = .gray
             cell.OfferImage.image = UIImage(named: "offers")
-            cell.pageIndicator.numberOfPages = 15
-            cell.pageIndicator.currentPage = indexPath.row
+            
+            
             return cell
         }
         
-       
         
-        return UICollectionViewCell()
+        
+       
+    }
+    //function for resieze the image
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage!
     }
     
     
@@ -197,7 +271,7 @@ extension HomeViewController :UICollectionViewDelegate,UICollectionViewDataSourc
         .init(layoutSize: .init(widthDimension:.fractionalWidth(1), heightDimension: .estimated(50)), elementKind: UICollectionView.elementKindSectionHeader, alignment: .top )
         
     }
-     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader{
             let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as! SectionHeaderReusableView
             
@@ -224,4 +298,34 @@ extension HomeViewController :UICollectionViewDelegate,UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+}
+
+
+// MARK: - SearchTextField
+extension HomeViewController: UISearchBarDelegate {
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        SearchViewController.present(on: self)
+        return true
+    }
+}
+
+extension HomeViewController{
+  
+    func getBrands(){
+        ViewModel.getBrands { result in
+            switch result{
+            case .success(let brands):
+                print(brands)
+                self.brands = brands
+                self.HomeCollectionView.reloadData()
+                
+            case .failure(let error):
+                print(error)
+                
+                
+            }
+            
+        }
+    }
+    
 }

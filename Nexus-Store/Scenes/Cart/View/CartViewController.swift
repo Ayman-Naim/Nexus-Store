@@ -7,59 +7,64 @@
 
 import UIKit
 
-struct CartProduct {
-    let id: Int
-    let title: String
-    let price: Double
-    let image: String
-    var quantity: Int
-}
 
 class CartViewController: UIViewController {
-
+    
+    // MARK: - Properties
+    private let viewModel: CartViewModel = CartViewModel()
+    
+    
+    // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var totalPriceLabel: UILabel!
-    @IBOutlet weak var emptyView: UIView!
     
-    var products: [CartProduct] = [
-        .init(id: 1, title: "Test", price: 10.99, image: "", quantity: 1),
-        .init(id: 2, title: "Test", price: 30.59, image: "", quantity: 1),
-        .init(id: 3, title: "Test", price: 5.99, image: "", quantity: 1),
-        .init(id: 4, title: "Test", price: 12.99, image: "", quantity: 1),
-    ]
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "My Cart"
+        title = "Cart"
         setupTableView()
-        updateTotalPrice()
+        bindViewModel()
+        viewModel.fetchCartProducts()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
+    
+    // MARK: - IBActions
+    @IBAction func checkoutButtonPressed(_ sender: UIButton) {
+        //self.navigationController?.pushViewController(ShippingViewController(), animated: true)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = false
-    }
     
+    
+    // MARK: - Functions
     private func setupTableView() {
-        tableView.register(CartProductTableViewCell.nib(), forCellReuseIdentifier: CartProductTableViewCell.identifier)
+        tableView.register(ProductLandscapeTVCell.nib(), forCellReuseIdentifier: ProductLandscapeTVCell.identifier)
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        self.setContentEmptyTitle("No products in the Cart! 🧐")
+        self.setContentEmptyImage(UIImage(named: "empty_2"))
     }
     
-    
-    @IBAction func checkoutButtonPressed(_ sender: UIButton) {
-        print("checkoutButtonPressed")
-    }
-    
-    private func updateTotalPrice() {
-        let totalPrice = products.map { $0.price * Double($0.quantity) }.reduce(0, +)
-        totalPriceLabel.text = "$" + String(format: "%.2f", totalPrice)
+    private func bindViewModel() {
+        viewModel.loadingIndicator = { [weak self] isLoading in
+            self?.isLoadingIndicatorAnimating = isLoading
+            self?.tableView.isUserInteractionEnabled = !isLoading
+        }
+        
+        viewModel.reload = { [weak self] in
+            self?.tableView.reloadData()
+        }
+        
+        viewModel.errorOccure = { [weak self] error in
+            guard let self = self else { return }
+            Alert.show(on: self, title: "Error", message: error)
+        }
+        
+        viewModel.updateTotalPriceLabel = { [weak self] totalPriceText in
+            self?.totalPriceLabel.text = totalPriceText
+        }
     }
     
 }
@@ -69,42 +74,54 @@ class CartViewController: UIViewController {
 // MARK: - UITableView DataSource
 extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        emptyView.isHidden = !products.isEmpty
-        return products.count
+        self.isContentEmptyViewHidden = viewModel.numberOfRows != 0
+        return viewModel.numberOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CartProductTableViewCell.identifier, for: indexPath) as! CartProductTableViewCell
-        cell.addProduct(products[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProductLandscapeTVCell.identifier, for: indexPath) as! ProductLandscapeTVCell
+        viewModel.configCell(cell, at: indexPath.row)
         cell.delegate = self
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.size.height * 0.25
+        return ProductLandscapeTVCell.height
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            print("Delete")
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-        }
+        guard editingStyle == .delete else { return }
+        viewModel.deleteProductFromCart(at: indexPath.row)
     }
 }
 
 
-extension CartViewController: CartProductCellDelegate {
-    func deleteProduct(withID id: Int) {
-        products.removeAll(where: { $0.id == id})
-        tableView.reloadData()
-    }
-    
-    func didUpdateQuantity(forProductID id: Int, with quantity: Int) {
-        if let index = products.firstIndex(where: { $0.id == id}) {
-            products[index].quantity = quantity
+extension CartViewController: ProductLandscapeCellDelegate {
+    func didDeleteProduct(withID id: Int) {
+        let closeAction = UIAlertAction(title: "Close", style: .cancel) { _ in
+            self.tableView.reloadData()
         }
         
-        updateTotalPrice()
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
+            self?.viewModel.deleteProductFromCart(forCellID: id)
+        }
+        
+        Alert.show(on: self, title: "Cart", message: "Are you sure you want to remove product from cart?", actions: [deleteAction, closeAction])
+    }
+    
+    func didUpdateProductQuantity(forCellID id: Int, with quantity: Int) {
+        if quantity <= 0 {
+            let closeAction = UIAlertAction(title: "Close", style: .cancel) { _ in
+                self.tableView.reloadData()
+            }
+            
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
+                self?.viewModel.deleteProductFromCart(forCellID: id)
+            }
+            
+            Alert.show(on: self, title: "Cart", message: "Are you sure you want to remove product from cart?", actions: [deleteAction, closeAction])
+        } else {
+            viewModel.didUpdateQuantity(forCellID: id, with: quantity)
+        }
     }
 }
