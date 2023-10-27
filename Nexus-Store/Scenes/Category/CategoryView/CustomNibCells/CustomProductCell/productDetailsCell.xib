@@ -44,7 +44,7 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
-                                            <imageReference key="image" image="heart" catalog="system" symbolScale="small"/>
+                                            <imageReference key="image" image="heart" catalog="system" symbolScale="medium"/>
                                             <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -166,6 +166,7 @@
             </constraints>
             <size key="customSize" width="97" height="181"/>
             <connections>
+                <outlet property="favoriteIcon" destination="xg6-bS-TPd" id="tGa-Et-r76"/>
                 <outlet property="productImage" destination="cgE-eB-Exx" id="dsh-AU-oIS"/>
                 <outlet property="productName" destination="EKb-dm-FTl" id="KlS-5e-8ph"/>
                 <outlet property="productPrice" destination="8pE-nV-hfI" id="dGe-HA-Hhp"/>

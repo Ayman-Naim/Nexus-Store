@@ -13,28 +13,39 @@ class ProdutImageDelegation:NSObject ,UICollectionViewDataSource,UICollectionVie
     
     
     
-   
+    var itemDetails:Product
     var productImageCollection:UICollectionView
     var imageIndicator:UIPageControl
     
    
-    init( collectionView: UICollectionView , with imageIndicator: UIPageControl) {
+    init( collectionView: UICollectionView , with imageIndicator: UIPageControl ,itemDetails:Product) {
         self.productImageCollection = collectionView
         self.imageIndicator = imageIndicator
+        self.itemDetails = itemDetails
+        self.imageIndicator.numberOfPages = itemDetails.images?.count ?? 0
        
     }
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return itemDetails.images?.count ?? 0
     }
 
+    
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
        
 
         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: ProductImageCell.identifier, for: indexPath) as! ProductImageCell
+        if let imageExistance = itemDetails.images?[indexPath.row].src{
+            cell.configureImageOfProduct(urlString: imageExistance)
+        }
         return cell
     }
 
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
  
