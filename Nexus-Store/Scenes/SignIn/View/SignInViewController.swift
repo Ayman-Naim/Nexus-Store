@@ -36,7 +36,7 @@ class SignInViewController: UIViewController {
             
             guard error == nil else {
                 // show account sign up
-                strongSelf.showSignUpButton()
+                strongSelf.showSignUpButton(emai: email, password: password)
                 return
             }
             print("You have signed in")
@@ -55,7 +55,7 @@ class SignInViewController: UIViewController {
         self.present(tabBar, animated: true)
     }
     
-    func showSignUpButton(){
+    func showSignUpButton(emai: String, password: String){
         let alert = UIAlertController(title: "Create Account", message: "Please Create Account First!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { action in
             let signupVC = SignUpViewController()
