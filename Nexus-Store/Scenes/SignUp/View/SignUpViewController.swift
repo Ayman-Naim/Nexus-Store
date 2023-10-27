@@ -13,6 +13,9 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
+    let fbViewModel = FireBaseSignUPViewModel()
+    var customer = SignUp()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,21 +31,18 @@ class SignUpViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
             return
         }
-        
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) {[weak self] result, error in
-            guard let strongSelf = self else {
-                return
-            }
-            
-            guard error == nil else {
-                // show account creation failure
-                print("Account Creation Failed!")
+        fbViewModel.createAccount(email: email, password: password)
+        fbViewModel.create(email: email) { result in
+            switch result{
+            case .success(let customer):
+                print("debug1 \(customer)")
+          //      self.customer = customer
                 
-                return
+            case .failure(let error):
+                print(error)
+                
+                
             }
-            print("You have signed in")
-            strongSelf.emailField.isHidden = true
-            strongSelf.passwordField.isHidden = true
         }
     }
     

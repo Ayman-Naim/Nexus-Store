@@ -20,6 +20,7 @@ enum BaseUrl:String{
     case CategoryProductPrice
     case SubCategory
     case orders
+    case createCustomer
 
     var enpoint :String {
         switch self {
@@ -33,7 +34,7 @@ enum BaseUrl:String{
         case .SubCategory: return "\(BaseUrl.baseURL)products.json?collection_id=\(BaseUrl.MainCategory)&product_type=\(BaseUrl.SubCategoryItem)"
             
         case .CategoryProductPrice: return "\(BaseUrl.baseURL)products/\(BaseUrl.CategoryPriceID).json"
-            
+        case .createCustomer: return "\(BaseUrl.baseURL)customers.json"
             
        
         }
