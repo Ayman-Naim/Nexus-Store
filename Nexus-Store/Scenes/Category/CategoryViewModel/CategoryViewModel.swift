@@ -8,7 +8,7 @@
 import Foundation
 
 
-protocol CategoryViewModelDelgation{
+protocol CategoryViewModelDelgation:AnyObject{
     
     var fetchProductToCategoryView: (()->Void)? {get set}
     func getAllProduct(with endPoint:BaseUrl)
@@ -20,12 +20,19 @@ protocol CategoryViewModelDelgation{
     
     
 }
+extension CategoryViewModelDelgation {
+    func test() {
+        
+    }
+}
 
 class CategoryViewModel:CategoryViewModelDelgation{
   
     
     let apiNetworkManager = ApiManger.SharedApiManger
     var fetchProductToCategoryView: (() -> Void)?
+    
+    weak var delegate: CategoryViewModelDelgation?
     
     
     private (set) var products:[Product]? = []{
@@ -42,7 +49,6 @@ class CategoryViewModel:CategoryViewModelDelgation{
             switch result{
             case .success(let decodingModel):
                 self.products = decodingModel.products
-
                 
             case .failure(let error):
                 print(error.localizedDescription)
