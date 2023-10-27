@@ -70,7 +70,7 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
             }
 
         case 1 :
-            return 0
+            return 2
             
         default:
             return 0
@@ -82,10 +82,13 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
         case  0 :
             let cell  = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for: indexPath) as!  OrderTableViewCell
             if  orders.count>0{
-                   cell.orderNo.text = "\(orders[indexPath.row].order_number!)"
-                cell.quantity.text = "\(orders[indexPath.row].line_items!.count)"
-                cell.totalAmount.text = "\(orders[indexPath.row].total_price!)\(orders[indexPath.row].currency=="EGP" ?" EGP":" $")"
-                return cell
+                if(orders[indexPath.row].customer?.id == 6899149603052){
+                    cell.orderNo.text = "\(orders[indexPath.row].order_number!)"
+                    cell.quantity.text = "\(orders[indexPath.row].line_items!.count)"
+                    cell.totalAmount.text = "\(orders[indexPath.row].total_price!)\(orders[indexPath.row].currency=="EGP" ?" EGP":" $")"
+                    
+                    return cell
+                }
             }
             else{
                 return cell
@@ -96,6 +99,7 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
         default:
             return UITableViewCell()
         }
+        return UITableViewCell()
     }
     
   
