@@ -30,7 +30,6 @@ struct Metafield: Codable {
     }
 }
 
-
 class WishListService {
     private let baseURLString = "https://b088a15054821f0f76c1eb98b594061a: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@ios-q1-new-capital-admin1-2023.myshopify.com/admin/api/2023-01"
     private lazy var customersEndpoint = baseURLString + "/customers"
