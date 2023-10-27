@@ -8,6 +8,7 @@
 import UIKit
 
 protocol ProductLandscapeCell: AnyObject {
+    func setCell(id: Int)
     func setProduct(_ product: CartProduct)
     func hideButtons()
     func hideQuantity()
@@ -15,12 +16,12 @@ protocol ProductLandscapeCell: AnyObject {
 
 protocol ProductLandscapeCellDelegate: AnyObject {
     func didDeleteProduct(withID id: Int)
-    func didUpdateProductQuantity(forProductID id: Int, with quantity: Int)
+    func didUpdateProductQuantity(forCellID id: Int, with quantity: Int)
 }
 
 extension ProductLandscapeCellDelegate {
     func didDeleteProduct(withID id: Int) {}
-    func didUpdateProductQuantity(forProductID id: Int, with quantity: Int) {}
+    func didUpdateProductQuantity(forCellID id: Int, with quantity: Int) {}
 }
 
 class ProductLandscapeTVCell: UITableViewCell {
@@ -47,50 +48,60 @@ class ProductLandscapeTVCell: UITableViewCell {
     
     // MARK: - Variables
     weak var delegate: ProductLandscapeCellDelegate?
-    private var productID: Int?
+    private var cellID: Int?
     
-    private var quantity: Int = 1 {
-        didSet { updateQuantity() }
-    }
+    private var quantity: Int = 1
     
     // MARK: - IBActions
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
-        if let productID = productID {
-            delegate?.didDeleteProduct(withID: productID)
+        if let cellID = cellID {
+            delegate?.didDeleteProduct(withID: cellID)
         }
     }
     
     @IBAction func minusButtonPressed(_ sender: UIButton) {
         quantity -= 1
+        if let cellID = cellID {
+            delegate?.didUpdateProductQuantity(forCellID: cellID, with: quantity)
+        }
     }
     
     @IBAction func plusButtonPressed(_ sender: UIButton) {
         quantity += 1
+        if let cellID = cellID {
+            delegate?.didUpdateProductQuantity(forCellID: cellID, with: quantity)
+        }
     }
     
     // MARK: - Helpers
-    private func updateQuantity() {
-        if quantity <= 0 {
-            quantity = 1
-            return
-        }
-        
-        quantityLabel.text = "\(quantity)"
-        if let productID = productID {
-            delegate?.didUpdateProductQuantity(forProductID: productID, with: quantity)
-        }
-    }
+//    private func updateQuantity() {
+//        if quantity == 0 {
+//            if let cellID = cellID {
+//                delegate?.didUpdateProductQuantity(forCellID: cellID, with: quantity)
+//            }
+//            return
+//        }
+//
+//        quantityLabel.text = "\(quantity)"
+//        if let cellID = cellID {
+//            delegate?.didUpdateProductQuantity(forCellID: cellID, with: quantity)
+//        }
+//    }
 }
 
 
 // MARK: - ProductLandscapeCell
 extension ProductLandscapeTVCell: ProductLandscapeCell {
+    func setCell(id: Int) {
+        cellID = id
+    }
+    
     func setProduct(_ product: CartProduct) {
-        productID = product.id
         productImageView.setImage(withURLString: product.image)
         productTitleLabel.text = product.title
         priceLabel.text = "$\(product.price)"
         quantityLabel.text = "\(product.quantity)"
+        quantity = product.quantity
     }
     
     func hideButtons() {
