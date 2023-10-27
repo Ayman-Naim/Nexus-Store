@@ -15,6 +15,15 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func ayman(_ sender: Any) {
+    }
+    @IBAction func khater(_ sender: Any) {
+    }
+    
+    @IBAction func mostafa(_ sender: Any) {
+    }
+    
+    @IBAction func ahmed(_ sender: Any) {
+    }
 }
 
