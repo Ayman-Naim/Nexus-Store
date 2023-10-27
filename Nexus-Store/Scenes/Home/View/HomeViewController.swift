@@ -10,6 +10,7 @@ import Kingfisher
 class HomeViewController: UIViewController {
     var ViewModel = HomeVM()
     var brands = [SmartCollection]()
+ 
     @IBOutlet weak var PageControl: UIPageControl!
     @IBOutlet weak var HomeCollectionView: UICollectionView!
     @IBOutlet weak var ProfileImage: UIImageView!
@@ -49,7 +50,8 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func favouriteButtonClicked(_ sender: Any) {
-        //
+        
+        self.navigationController?.pushViewController(WishListViewController(), animated: true)
     }
     
     
@@ -248,9 +250,15 @@ extension HomeViewController :UICollectionViewDelegate,UICollectionViewDataSourc
         }
         
         
-        
        
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = CategoryViewController()
+        vc.fromBrand = true
+        vc.vendor = brands[indexPath.item].title
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     //function for resieze the image
     func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
 
@@ -327,5 +335,6 @@ extension HomeViewController{
             
         }
     }
+    
     
 }
