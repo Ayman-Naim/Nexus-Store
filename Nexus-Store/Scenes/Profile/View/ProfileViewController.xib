@@ -38,7 +38,7 @@
                             <rect key="frame" x="252.33333333333329" y="0.0" width="104.66666666666666" height="40.666666666666664"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ab-z6-s7B">
-                                    <rect key="frame" x="0.0" y="0.0" width="69" height="40.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="69.333333333333329" height="40.666666666666664"/>
                                     <color key="tintColor" name="Title"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="cart" catalog="system">
@@ -49,10 +49,10 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iNY-DH-ScN">
-                                    <rect key="frame" x="54" y="0.0" width="50.666666666666657" height="40.666666666666664"/>
+                                    <rect key="frame" x="54.333333333333371" y="0.0" width="50.333333333333343" height="40.666666666666664"/>
                                     <color key="tintColor" name="Title"/>
                                     <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" image="suit.heart" catalog="system">
+                                    <buttonConfiguration key="configuration" style="plain" image="gearshape.fill" catalog="system">
                                         <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" weight="regular"/>
                                     </buttonConfiguration>
                                     <connections>
@@ -125,7 +125,7 @@
     <resources>
         <image name="App-logo" width="700" height="700"/>
         <image name="cart" catalog="system" width="128" height="102"/>
-        <image name="suit.heart" catalog="system" width="128" height="107"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <namedColor name="Background">
             <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

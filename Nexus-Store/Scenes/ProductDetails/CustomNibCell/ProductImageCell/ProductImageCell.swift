@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ProductImageCell: UICollectionViewCell {
 
@@ -22,6 +23,17 @@ class ProductImageCell: UICollectionViewCell {
         super.awakeFromNib()
         productImage.gradientImagetoBottom()
         // Initialization code
+    }
+    
+    
+    
+    func configureImageOfProduct(urlString:String){
+        
+        if let imageUrl = URL(string: urlString){
+            
+            productImage.kf.setImage(with: imageUrl)
+        }
+        
     }
 
 }

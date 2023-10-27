@@ -17,6 +17,10 @@ class CategoryViewController: UIViewController {
     var forMainCategory:Int = K.menID
     var flagSubCategory = 0
     var categoryProductProtocol:CategoryViewModelDelgation?
+    
+    var fromBrand:Bool?
+    var vendor:String?
+    var vendorProductList:[Product]?
     var products:[Product]? {
         didSet{
             if products?.count == 0 && filterProduct.count == 0{
@@ -31,7 +35,12 @@ class CategoryViewController: UIViewController {
                
                 DispatchQueue.main.async {
                     self.products?.removeAll()
-                    self.products = self.filterProduct
+                    if self.fromBrand != nil {
+                        self.vendorProductList = self.filterProduct.filter({ $0.vendor == self.vendor })
+                        self.products = self.vendorProductList
+                    }else{
+                        self.products = self.filterProduct
+                    }
                     self.CategoryCollectionView.reloadSections(self.productSection)
                     self.isLoadingIndicatorAnimating = false
                     self.CategoryCollectionView.isUserInteractionEnabled = true
@@ -59,6 +68,9 @@ class CategoryViewController: UIViewController {
         CategoryCollectionView.collectionViewLayout = createCompositionalLayout()
         configureFavoritueButton()
         ConfigureFetchDataFromApi(with: K.menID)
+        
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -156,11 +168,15 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
             }
             
         case 2:
-            let storyboard = UIStoryboard(name:ProductDetailsViewController.storyBoardName , bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: ProductDetailsViewController.identifier) as! ProductDetailsViewController
-            vc.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            vc.modalPresentationStyle = .fullScreen
-            self.navigationController?.pushViewController(vc, animated: true)
+            if let product = products?[indexPath.row] {
+                let storyboard = UIStoryboard(name:ProductDetailsViewController.storyBoardName , bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: ProductDetailsViewController.identifier) as! ProductDetailsViewController
+                let productDetailsViewModel = ProductDetailsViewModel(products: product)
+                vc.productDetailsViewModel = productDetailsViewModel
+                vc.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                vc.modalPresentationStyle = .fullScreen
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
             
         default:
             print("Done")
@@ -193,8 +209,8 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
             
         case 2 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.customProductDetailsIdetifier, for: indexPath) as! productDetailsCell
-            
             cell.ConfigureProductDetails(product: products?[indexPath.row])
+            cell.delegate = self
             return cell
             
         default :
@@ -401,11 +417,7 @@ extension CategoryViewController {
             self?.products = self?.categoryProductProtocol?.RetiviedProductResult()
             self?.switchsubCategory(flagNumber: self!.flagSubCategory)
             self?.CategoryCollectionView.isUserInteractionEnabled = true
-           
-            
-            
-            
-            
+          
         }
         
         
@@ -479,4 +491,25 @@ extension CategoryViewController {
     }
 }
 
+//MARK: - Set Favorite to the product
+extension CategoryViewController : CustomNibCellProtocol{
+    func didTapButtonInCell(_ cell: productDetailsCell) {
+        
+        
+        
+        
+        if  cell.favoriteIcon.currentImage == UIImage(systemName:  K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)){
+            cell.favoriteIcon.setImage(UIImage(systemName: K.favoriteIconSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
+           
+        }else{
+            cell.favoriteIcon.setImage(UIImage(systemName: K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
+        }
+        cell.favoriteIcon.tintColor = .white
+    }
+    
+    
+    
+    
+    
+}
 
