@@ -20,11 +20,7 @@ protocol CategoryViewModelDelgation:AnyObject{
     
     
 }
-extension CategoryViewModelDelgation {
-    func test() {
-        
-    }
-}
+
 
 class CategoryViewModel:CategoryViewModelDelgation{
   
