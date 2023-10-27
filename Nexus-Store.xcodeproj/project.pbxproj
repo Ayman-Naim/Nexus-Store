@@ -65,6 +65,7 @@
 		45B1EC962AE9249C00E690F9 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B1EC952AE9249C00E690F9 /* Options.swift */; };
 		45B1EC982AE9250E00E690F9 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B1EC972AE9250E00E690F9 /* Image.swift */; };
 		45D0E8912AE0A04800A07332 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D0E8902AE0A04800A07332 /* K.swift */; };
+		5B312CD32AEBD64E00394BDF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B312CD22AEBD64E00394BDF /* GoogleService-Info.plist */; };
 		5BC20AC52AE190CA0071925A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20AC32AE190C90071925A /* SignUpViewController.swift */; };
 		5BC20AC62AE190CA0071925A /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC20AC42AE190C90071925A /* SignUpViewController.xib */; };
 		5BC20AC92AE1911F0071925A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20AC72AE1911F0071925A /* SignInViewController.swift */; };
@@ -88,7 +89,6 @@
 		E345566D2AE1B51C00312C6C /* FavouriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E345566B2AE1B51C00312C6C /* FavouriteTableViewCell.xib */; };
 		E34556722AE1D18200312C6C /* SectionHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34556702AE1D18200312C6C /* SectionHeaderTableViewCell.swift */; };
 		E34556732AE1D18200312C6C /* SectionHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34556712AE1D18200312C6C /* SectionHeaderTableViewCell.xib */; };
-		E34D8AC62AE02374004B4C1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E34D8AC52AE02374004B4C1B /* GoogleService-Info.plist */; };
 		E34FE6262AE9218D006602A5 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34FE6252AE9218D006602A5 /* HomeVM.swift */; };
 		E34FE62B2AE921BC006602A5 /* BrandsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34FE62A2AE921BC006602A5 /* BrandsModel.swift */; };
 		E34FE6302AE954D9006602A5 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34FE62F2AE954D9006602A5 /* ProfileVM.swift */; };
@@ -180,6 +180,7 @@
 		45B1EC952AE9249C00E690F9 /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		45B1EC972AE9250E00E690F9 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		45D0E8902AE0A04800A07332 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		5B312CD22AEBD64E00394BDF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5BC20AC32AE190C90071925A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5BC20AC42AE190C90071925A /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		5BC20AC72AE1911F0071925A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -218,7 +219,6 @@
 		E345566B2AE1B51C00312C6C /* FavouriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteTableViewCell.xib; sourceTree = "<group>"; };
 		E34556702AE1D18200312C6C /* SectionHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		E34556712AE1D18200312C6C /* SectionHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeaderTableViewCell.xib; sourceTree = "<group>"; };
-		E34D8AC52AE02374004B4C1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E34FE6252AE9218D006602A5 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		E34FE62A2AE921BC006602A5 /* BrandsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsModel.swift; sourceTree = "<group>"; };
 		E34FE62F2AE954D9006602A5 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
@@ -1230,7 +1230,7 @@
 		E37687E82ADE054900DB09A1 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				E34D8AC52AE02374004B4C1B /* GoogleService-Info.plist */,
+				5B312CD22AEBD64E00394BDF /* GoogleService-Info.plist */,
 				E37687BB2ADDFFB800DB09A1 /* Info.plist */,
 			);
 			path = Config;
@@ -1398,7 +1398,6 @@
 				45123AB62AE2149E001B12B7 /* CustomFooterSepertator.xib in Resources */,
 				011281AD2AE18D7B00844137 /* AddressTableViewCell.xib in Resources */,
 				4531FE4B2AE2EE2400F47528 /* ProductDetails.storyboard in Resources */,
-				E34D8AC62AE02374004B4C1B /* GoogleService-Info.plist in Resources */,
 				010F61082AE49F2000DE7EB0 /* loading_3.json in Resources */,
 				010F610D2AE4A0B300DE7EB0 /* loading_4.json in Resources */,
 				011281AA2AE18D7B00844137 /* ShippingViewController.xib in Resources */,
@@ -1421,6 +1420,7 @@
 				E345566D2AE1B51C00312C6C /* FavouriteTableViewCell.xib in Resources */,
 				01D776C42AE3021C0079F2B5 /* AddPromoCodeViewController.xib in Resources */,
 				E37687B22ADDFFB500DB09A1 /* Main.storyboard in Resources */,
+				5B312CD32AEBD64E00394BDF /* GoogleService-Info.plist in Resources */,
 				010F610A2AE49F2000DE7EB0 /* loading_1.json in Resources */,
 				E35BC58D2AE0ADA500742654 /* BrandsCollectionCell.xib in Resources */,
 				45123AB02AE2149E001B12B7 /* ReviewProductCell.xib in Resources */,
