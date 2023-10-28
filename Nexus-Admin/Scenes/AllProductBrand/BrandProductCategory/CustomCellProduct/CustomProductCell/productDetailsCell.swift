@@ -14,6 +14,12 @@ protocol CustomNibCellProtocol:AnyObject{
 }
 class productDetailsCell: UICollectionViewCell {
     
+    static func Nib()->UINib{return UINib(nibName: "productDetailsCell", bundle: nil)}
+    static let identfier = "productDetailsCell"
+    
+    static let iconShapeNotFavorite = "heart"
+    static let iconShapeFavorite = "heart.fill"
+    
     @IBOutlet weak var favoriteIcon: UIButton!
     @IBOutlet weak var rating: CosmosView!
     @IBOutlet weak var productImage: UIImageView!
@@ -35,10 +41,11 @@ class productDetailsCell: UICollectionViewCell {
         
         
     }
+    
+    
     override func prepareForReuse() {
         super.prepareForReuse()
-        favoriteIcon.setImage(UIImage(systemName: K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
-
+        favoriteIcon.setImage(UIImage(systemName: productDetailsCell.iconShapeNotFavorite,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
 
     }
     
@@ -58,10 +65,28 @@ class productDetailsCell: UICollectionViewCell {
     
     
     func setFavorite(){
-        favoriteIcon.setImage(UIImage(systemName: K.favoriteIconSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
+
+        favoriteIcon.setImage(UIImage(systemName: productDetailsCell.iconShapeFavorite,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
+       
     }
     
     
 
    
+}
+
+extension UICollectionViewCell{
+    func addingShadowWithEffectToCell(){
+        layer.cornerRadius = 16
+        layer.shadowRadius = 5.0
+        layer.shadowColor = UIColor.gray.cgColor
+        layer.shadowOffset = CGSize(width: 3.3, height: 5.7)
+        layer.shadowOpacity = 0.7
+        layer.masksToBounds = false
+        contentView.layer.cornerRadius = 16
+        contentView.layer.masksToBounds = true
+        backgroundColor = .clear
+      //  contentView.backgroundColor = .white
+
+    }
 }
