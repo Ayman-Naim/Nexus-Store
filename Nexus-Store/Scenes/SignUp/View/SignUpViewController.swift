@@ -105,9 +105,9 @@ class SignUpViewController: UIViewController {
     @objc func togglePasswordVisibility() {
         passwordField.isSecureTextEntry.toggle()
         if passwordField.isSecureTextEntry {
-                toggleImage.image = UIImage(named: "eye") // Show the open eye image
-            } else {
-                toggleImage.image = UIImage(named: "eyee") // Show the crossed eye image
-            }
+            toggleImage.image = UIImage(named: "eye") // Show the open eye image
+        } else {
+            toggleImage.image = UIImage(named: "eyee") // Show the crossed eye image
+        }
     }
 }
