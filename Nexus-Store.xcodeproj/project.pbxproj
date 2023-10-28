@@ -73,6 +73,8 @@
 		5B9A027F2AECBC45007DC704 /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9A027D2AECBC45007DC704 /* SettingsTableViewCell.xib */; };
 		5B9A02822AECBC79007DC704 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A02802AECBC79007DC704 /* SettingsViewController.swift */; };
 		5B9A02832AECBC79007DC704 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9A02812AECBC79007DC704 /* SettingsViewController.xib */; };
+		5B9A02882AECD1BB007DC704 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A02862AECD1BB007DC704 /* AboutUsViewController.swift */; };
+		5B9A02892AECD1BB007DC704 /* AboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9A02872AECD1BB007DC704 /* AboutUsViewController.xib */; };
 		5BC20AC52AE190CA0071925A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20AC32AE190C90071925A /* SignUpViewController.swift */; };
 		5BC20AC62AE190CA0071925A /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC20AC42AE190C90071925A /* SignUpViewController.xib */; };
 		5BC20AC92AE1911F0071925A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20AC72AE1911F0071925A /* SignInViewController.swift */; };
@@ -195,6 +197,8 @@
 		5B9A027D2AECBC45007DC704 /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 		5B9A02802AECBC79007DC704 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5B9A02812AECBC79007DC704 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		5B9A02862AECD1BB007DC704 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		5B9A02872AECD1BB007DC704 /* AboutUsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutUsViewController.xib; sourceTree = "<group>"; };
 		5BC20AC32AE190C90071925A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5BC20AC42AE190C90071925A /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		5BC20AC72AE1911F0071925A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -686,6 +690,23 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5B9A02842AECD036007DC704 /* AboutUs */ = {
+			isa = PBXGroup;
+			children = (
+				5B9A02852AECD043007DC704 /* View */,
+			);
+			path = AboutUs;
+			sourceTree = "<group>";
+		};
+		5B9A02852AECD043007DC704 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5B9A02862AECD1BB007DC704 /* AboutUsViewController.swift */,
+				5B9A02872AECD1BB007DC704 /* AboutUsViewController.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		5BC20AB92AE16C490071925A /* SignIn */ = {
@@ -1192,6 +1213,7 @@
 		E37687DD2ADDFFFF00DB09A1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				5B9A02842AECD036007DC704 /* AboutUs */,
 				5B9A02792AECBBD4007DC704 /* Settings */,
 				01694EE02AE530BD009FC373 /* Search */,
 				01694EDC2AE4FEE7009FC373 /* TabBar */,
@@ -1458,6 +1480,7 @@
 				010F61092AE49F2000DE7EB0 /* loading_2.json in Resources */,
 				45123AB42AE2149E001B12B7 /* productDetailsCell.xib in Resources */,
 				E35BC5872AE0A8B900742654 /* SectionHeaderReusableView.xib in Resources */,
+				5B9A02892AECD1BB007DC704 /* AboutUsViewController.xib in Resources */,
 				E37B4DE62AE301B80051EB89 /* PayMethodViewController.xib in Resources */,
 				45123AB92AE2149E001B12B7 /* MainCategoryCell.xib in Resources */,
 				E35BC5812AE08D3000742654 /* OffersCell.xib in Resources */,
@@ -1600,6 +1623,7 @@
 				01694EDE2AE4FF36009FC373 /* NexusTabBarController.swift in Sources */,
 				011281AE2AE18D7B00844137 /* AddressTableViewCell.swift in Sources */,
 				5B9A02732AEC23E3007DC704 /* CreateAccount.swift in Sources */,
+				5B9A02882AECD1BB007DC704 /* AboutUsViewController.swift in Sources */,
 				45123AAF2AE2149E001B12B7 /* SizeColorCell.swift in Sources */,
 				E35BC58C2AE0ADA500742654 /* BrandsCollectionCell.swift in Sources */,
 				45123AAB2AE2149E001B12B7 /* ProductDetailsViewController.swift in Sources */,

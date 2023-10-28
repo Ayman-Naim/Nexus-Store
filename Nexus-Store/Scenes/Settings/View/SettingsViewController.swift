@@ -66,7 +66,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row{
         case 0:
-            let aboutUsVC = AddAddressViewController()
+            let aboutUsVC = AboutUsViewController()
             self.navigationController?.pushViewController(aboutUsVC, animated: true)
         case 1:
             let currencyVC = SignInViewController()
