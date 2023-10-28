@@ -191,6 +191,7 @@ extension ProfileViewController:ProfileDelegete{
             
         }
     }
+    
     func getwishlist(){
         self.isLoadingIndicatorAnimating = true
         ViewModel.getWishlist(forCustom: 6899149865196) { result in

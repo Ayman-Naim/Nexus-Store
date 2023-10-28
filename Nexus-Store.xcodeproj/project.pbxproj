@@ -117,6 +117,11 @@
 		E37B4DEC2AE307BE0051EB89 /* PaymentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E37B4DEA2AE307BE0051EB89 /* PaymentTableViewCell.xib */; };
 		E3A3ED662AEC51FC00E44737 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A3ED642AEC51FB00E44737 /* SignInViewController.swift */; };
 		E3A3ED672AEC51FC00E44737 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3A3ED652AEC51FC00E44737 /* SignInViewController.xib */; };
+		E3A60E7D2AEC87BA008FEDB5 /* BaseUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60E7C2AEC87BA008FEDB5 /* BaseUrl.swift */; };
+		E3A60E812AEC8EF2008FEDB5 /* CustomerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60E802AEC8EF2008FEDB5 /* CustomerModel.swift */; };
+		E3A60E882AEC992A008FEDB5 /* AdminNetManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60E872AEC992A008FEDB5 /* AdminNetManger.swift */; };
+		E3A60E8A2AEC9B31008FEDB5 /* AdminLoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60E892AEC9B31008FEDB5 /* AdminLoginVM.swift */; };
+		E3A60E8C2AECB044008FEDB5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3A60E8B2AECB044008FEDB5 /* GoogleService-Info.plist */; };
 		E3E498FA2AE19F4E00ED2924 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E498F82AE19F4E00ED2924 /* ProfileViewController.swift */; };
 		E3E498FB2AE19F4E00ED2924 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3E498F92AE19F4E00ED2924 /* ProfileViewController.xib */; };
 		E3E639FD2AE82D89002A5617 /* BaseURl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E639FC2AE82D89002A5617 /* BaseURl.swift */; };
@@ -255,6 +260,11 @@
 		E37B4DEA2AE307BE0051EB89 /* PaymentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentTableViewCell.xib; sourceTree = "<group>"; };
 		E3A3ED642AEC51FB00E44737 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		E3A3ED652AEC51FC00E44737 /* SignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		E3A60E7C2AEC87BA008FEDB5 /* BaseUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrl.swift; sourceTree = "<group>"; };
+		E3A60E802AEC8EF2008FEDB5 /* CustomerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerModel.swift; sourceTree = "<group>"; };
+		E3A60E872AEC992A008FEDB5 /* AdminNetManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminNetManger.swift; sourceTree = "<group>"; };
+		E3A60E892AEC9B31008FEDB5 /* AdminLoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminLoginVM.swift; sourceTree = "<group>"; };
+		E3A60E8B2AECB044008FEDB5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E3E498F82AE19F4E00ED2924 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E3E498F92AE19F4E00ED2924 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		E3E639FC2AE82D89002A5617 /* BaseURl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURl.swift; sourceTree = "<group>"; };
@@ -774,6 +784,7 @@
 		E30A945E2AE68A5300AB0F5F /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				E3A60E8B2AECB044008FEDB5 /* GoogleService-Info.plist */,
 				E30A945A2AE68A0A00AB0F5F /* Info.plist */,
 			);
 			path = Config;
@@ -815,6 +826,7 @@
 		E30A94632AE68A9000AB0F5F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E3A60E792AEC86C0008FEDB5 /* Network */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -843,6 +855,7 @@
 		E30A94662AE68B2200AB0F5F /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				E3A60E762AEC867C008FEDB5 /* ViewModel */,
 				E30A947C2AE68D6C00AB0F5F /* Model */,
 				E30A947B2AE68D6600AB0F5F /* View */,
 			);
@@ -999,6 +1012,7 @@
 		E30A947C2AE68D6C00AB0F5F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E3A60E802AEC8EF2008FEDB5 /* CustomerModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1306,6 +1320,23 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		E3A60E762AEC867C008FEDB5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E3A60E892AEC9B31008FEDB5 /* AdminLoginVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E3A60E792AEC86C0008FEDB5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E3A60E7C2AEC87BA008FEDB5 /* BaseUrl.swift */,
+				E3A60E872AEC992A008FEDB5 /* AdminNetManger.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		E3E498F52AE19F0800ED2924 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -1411,6 +1442,7 @@
 			files = (
 				E3A3ED672AEC51FC00E44737 /* SignInViewController.xib in Resources */,
 				E30A94592AE68A0A00AB0F5F /* LaunchScreen.storyboard in Resources */,
+				E3A60E8C2AECB044008FEDB5 /* GoogleService-Info.plist in Resources */,
 				E30A94562AE68A0A00AB0F5F /* Assets.xcassets in Resources */,
 				E30A94542AE68A0800AB0F5F /* Main.storyboard in Resources */,
 			);
@@ -1546,8 +1578,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3A60E812AEC8EF2008FEDB5 /* CustomerModel.swift in Sources */,
+				E3A60E882AEC992A008FEDB5 /* AdminNetManger.swift in Sources */,
+				E3A60E8A2AEC9B31008FEDB5 /* AdminLoginVM.swift in Sources */,
 				E3A3ED662AEC51FC00E44737 /* SignInViewController.swift in Sources */,
 				E30A94512AE68A0800AB0F5F /* ViewController.swift in Sources */,
+				E3A60E7D2AEC87BA008FEDB5 /* BaseUrl.swift in Sources */,
 				E30A944D2AE68A0800AB0F5F /* AppDelegate.swift in Sources */,
 				E30A944F2AE68A0800AB0F5F /* SceneDelegate.swift in Sources */,
 			);

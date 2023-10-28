@@ -10,8 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="Nexus_Admin" customModuleProvider="target">
             <connections>
-                <outlet property="emailField" destination="y8J-Xs-pzI" id="kqi-fK-GAm"/>
-                <outlet property="passwordField" destination="LzU-en-yQr" id="8cq-3p-Lkp"/>
+                <outlet property="emailField" destination="y8J-Xs-pzI" id="jRP-L8-lwv"/>
+                <outlet property="passwordField" destination="LzU-en-yQr" id="nDc-GJ-FFu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,19 +20,19 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1ZW-R3-88L">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ZW-R3-88L">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <subviews>
-                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nea-t0-eZ9">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nea-t0-eZ9">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="      " borderStyle="roundedRect" placeholder="      Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LzU-en-yQr">
-                                    <rect key="frame" x="15" y="130" width="363" height="40"/>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="      Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LzU-en-yQr">
+                                    <rect key="frame" x="48" y="130" width="330" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="3u1-69-1e0"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" textContentType="password"/>
+                                    <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                             <integer key="value" value="25"/>
@@ -57,8 +57,8 @@
                                         </label>
                                     </subviews>
                                 </stackView>
-                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="      " borderStyle="roundedRect" placeholder="      Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y8J-Xs-pzI">
-                                    <rect key="frame" x="15" y="70" width="363" height="40"/>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="      Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y8J-Xs-pzI">
+                                    <rect key="frame" x="48" y="70" width="330" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="zLZ-to-CMi"/>
                                     </constraints>
@@ -86,7 +86,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="singInButtonPressed:" destination="-1" eventType="touchUpInside" id="HXI-sv-5VL"/>
+                                        <action selector="singInButtonPressed:" destination="-1" eventType="touchUpInside" id="TwU-Vh-b1L"/>
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login To Your Store" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQr-nw-gAI">
@@ -129,7 +129,7 @@
                                 <constraint firstAttribute="trailing" secondItem="uQr-nw-gAI" secondAttribute="trailing" constant="15" id="6xj-Cw-b9u"/>
                                 <constraint firstAttribute="trailing" secondItem="LzU-en-yQr" secondAttribute="trailing" constant="15" id="ATU-OI-oKx"/>
                                 <constraint firstItem="uQr-nw-gAI" firstAttribute="leading" secondItem="Nea-t0-eZ9" secondAttribute="leading" constant="15" id="Aja-fI-DRO"/>
-                                <constraint firstItem="y8J-Xs-pzI" firstAttribute="leading" secondItem="Nea-t0-eZ9" secondAttribute="leading" constant="15" id="E3h-fj-2qW"/>
+                                <constraint firstItem="y8J-Xs-pzI" firstAttribute="leading" secondItem="Nea-t0-eZ9" secondAttribute="leading" constant="48" id="E3h-fj-2qW"/>
                                 <constraint firstItem="3ah-DS-iLs" firstAttribute="leading" secondItem="Nea-t0-eZ9" secondAttribute="leading" constant="21" id="KpW-EO-ypu"/>
                                 <constraint firstItem="G9b-Ij-Pjj" firstAttribute="leading" secondItem="Nea-t0-eZ9" secondAttribute="leading" constant="50" id="OCj-9J-mMp"/>
                                 <constraint firstItem="Y6F-qd-sRS" firstAttribute="top" secondItem="LzU-en-yQr" secondAttribute="bottom" constant="35" id="PXf-ba-2hY"/>
@@ -139,11 +139,12 @@
                                 <constraint firstItem="3ah-DS-iLs" firstAttribute="top" secondItem="y8J-Xs-pzI" secondAttribute="bottom" constant="28" id="WTo-Wv-Feb"/>
                                 <constraint firstItem="G9b-Ij-Pjj" firstAttribute="top" secondItem="Y6F-qd-sRS" secondAttribute="bottom" constant="35" id="d2y-vo-ydo"/>
                                 <constraint firstAttribute="trailing" secondItem="G9b-Ij-Pjj" secondAttribute="trailing" constant="50" id="dVf-9w-Sgt"/>
-                                <constraint firstItem="LzU-en-yQr" firstAttribute="leading" secondItem="Nea-t0-eZ9" secondAttribute="leading" constant="15" id="djN-p8-HRk"/>
+                                <constraint firstItem="LzU-en-yQr" firstAttribute="leading" secondItem="Nea-t0-eZ9" secondAttribute="leading" constant="48" id="djN-p8-HRk"/>
                                 <constraint firstItem="3ah-DS-iLs" firstAttribute="centerX" secondItem="ZC6-cQ-cpP" secondAttribute="centerX" id="fUU-0u-Ei4"/>
                                 <constraint firstItem="ZC6-cQ-cpP" firstAttribute="top" secondItem="uQr-nw-gAI" secondAttribute="bottom" constant="38" id="fdZ-RB-TUT"/>
                                 <constraint firstItem="y8J-Xs-pzI" firstAttribute="top" secondItem="uQr-nw-gAI" secondAttribute="bottom" constant="30" id="hKX-XY-3Tj"/>
                                 <constraint firstAttribute="trailing" secondItem="Hu4-YE-OGs" secondAttribute="trailing" constant="20" id="lLc-G1-blj"/>
+                                <constraint firstAttribute="height" constant="842" id="rVh-qG-3FB"/>
                                 <constraint firstItem="ZC6-cQ-cpP" firstAttribute="leading" secondItem="Nea-t0-eZ9" secondAttribute="leading" constant="21" id="sbQ-O7-Oi2"/>
                                 <constraint firstItem="uQr-nw-gAI" firstAttribute="top" secondItem="Nea-t0-eZ9" secondAttribute="top" constant="10" id="yA1-D4-ZfL"/>
                                 <constraint firstItem="Hu4-YE-OGs" firstAttribute="centerY" secondItem="3ah-DS-iLs" secondAttribute="centerY" id="ySQ-ja-S9o"/>
