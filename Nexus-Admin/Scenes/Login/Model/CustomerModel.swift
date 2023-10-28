@@ -17,3 +17,9 @@ struct adminModel:Codable{
     let id: Int?
     let email: String?
 }
+
+struct adminacoount:Codable{
+    let useremail:String?
+    let userpass:String?
+    
+}

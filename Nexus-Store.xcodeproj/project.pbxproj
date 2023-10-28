@@ -122,6 +122,11 @@
 		E3A60E882AEC992A008FEDB5 /* AdminNetManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60E872AEC992A008FEDB5 /* AdminNetManger.swift */; };
 		E3A60E8A2AEC9B31008FEDB5 /* AdminLoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60E892AEC9B31008FEDB5 /* AdminLoginVM.swift */; };
 		E3A60E8C2AECB044008FEDB5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3A60E8B2AECB044008FEDB5 /* GoogleService-Info.plist */; };
+		E3E10C142AED7C7300567D8B /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E10C122AED7C7300567D8B /* AddProductViewController.swift */; };
+		E3E10C152AED7C7300567D8B /* AddProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3E10C132AED7C7300567D8B /* AddProductViewController.xib */; };
+		E3E10C172AED86CE00567D8B /* AddProductVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E10C162AED86CE00567D8B /* AddProductVM.swift */; };
+		E3E10C182AED882500567D8B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D776BD2AE2FFC50079F2B5 /* Alert.swift */; };
+		E3E10C1B2AED8DFA00567D8B /* AddProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E10C1A2AED8DFA00567D8B /* AddProductModel.swift */; };
 		E3E498FA2AE19F4E00ED2924 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E498F82AE19F4E00ED2924 /* ProfileViewController.swift */; };
 		E3E498FB2AE19F4E00ED2924 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3E498F92AE19F4E00ED2924 /* ProfileViewController.xib */; };
 		E3E639FD2AE82D89002A5617 /* BaseURl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E639FC2AE82D89002A5617 /* BaseURl.swift */; };
@@ -265,6 +270,10 @@
 		E3A60E872AEC992A008FEDB5 /* AdminNetManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminNetManger.swift; sourceTree = "<group>"; };
 		E3A60E892AEC9B31008FEDB5 /* AdminLoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminLoginVM.swift; sourceTree = "<group>"; };
 		E3A60E8B2AECB044008FEDB5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E3E10C122AED7C7300567D8B /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
+		E3E10C132AED7C7300567D8B /* AddProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddProductViewController.xib; sourceTree = "<group>"; };
+		E3E10C162AED86CE00567D8B /* AddProductVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductVM.swift; sourceTree = "<group>"; };
+		E3E10C1A2AED8DFA00567D8B /* AddProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductModel.swift; sourceTree = "<group>"; };
 		E3E498F82AE19F4E00ED2924 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E3E498F92AE19F4E00ED2924 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		E3E639FC2AE82D89002A5617 /* BaseURl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURl.swift; sourceTree = "<group>"; };
@@ -892,6 +901,7 @@
 		E30A946A2AE68C1F00AB0F5F /* AddProduct */ = {
 			isa = PBXGroup;
 			children = (
+				E3E10C192AED8DEB00567D8B /* Model */,
 				E30A94732AE68D1100AB0F5F /* View */,
 				E30A94722AE68D0900AB0F5F /* ViewModel */,
 			);
@@ -947,6 +957,7 @@
 		E30A94722AE68D0900AB0F5F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E3E10C162AED86CE00567D8B /* AddProductVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -954,6 +965,8 @@
 		E30A94732AE68D1100AB0F5F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E3E10C122AED7C7300567D8B /* AddProductViewController.swift */,
+				E3E10C132AED7C7300567D8B /* AddProductViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1337,6 +1350,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		E3E10C192AED8DEB00567D8B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E3E10C1A2AED8DFA00567D8B /* AddProductModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E3E498F52AE19F0800ED2924 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -1442,6 +1463,7 @@
 			files = (
 				E3A3ED672AEC51FC00E44737 /* SignInViewController.xib in Resources */,
 				E30A94592AE68A0A00AB0F5F /* LaunchScreen.storyboard in Resources */,
+				E3E10C152AED7C7300567D8B /* AddProductViewController.xib in Resources */,
 				E3A60E8C2AECB044008FEDB5 /* GoogleService-Info.plist in Resources */,
 				E30A94562AE68A0A00AB0F5F /* Assets.xcassets in Resources */,
 				E30A94542AE68A0800AB0F5F /* Main.storyboard in Resources */,
@@ -1582,10 +1604,14 @@
 				E3A60E882AEC992A008FEDB5 /* AdminNetManger.swift in Sources */,
 				E3A60E8A2AEC9B31008FEDB5 /* AdminLoginVM.swift in Sources */,
 				E3A3ED662AEC51FC00E44737 /* SignInViewController.swift in Sources */,
+				E3E10C172AED86CE00567D8B /* AddProductVM.swift in Sources */,
 				E30A94512AE68A0800AB0F5F /* ViewController.swift in Sources */,
 				E3A60E7D2AEC87BA008FEDB5 /* BaseUrl.swift in Sources */,
 				E30A944D2AE68A0800AB0F5F /* AppDelegate.swift in Sources */,
+				E3E10C182AED882500567D8B /* Alert.swift in Sources */,
 				E30A944F2AE68A0800AB0F5F /* SceneDelegate.swift in Sources */,
+				E3E10C142AED7C7300567D8B /* AddProductViewController.swift in Sources */,
+				E3E10C1B2AED8DFA00567D8B /* AddProductModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
