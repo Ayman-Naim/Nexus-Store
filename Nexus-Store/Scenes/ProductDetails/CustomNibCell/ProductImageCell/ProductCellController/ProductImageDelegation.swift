@@ -17,13 +17,13 @@ class ProdutImageDelegation:NSObject ,UICollectionViewDataSource,UICollectionVie
     var productImageCollection:UICollectionView
     var imageIndicator:UIPageControl
     
-   
+    
     init( collectionView: UICollectionView , with imageIndicator: UIPageControl ,itemDetails:Product) {
         self.productImageCollection = collectionView
         self.imageIndicator = imageIndicator
         self.itemDetails = itemDetails
         self.imageIndicator.numberOfPages = itemDetails.images?.count ?? 0
-       
+        
     }
     
     
@@ -31,31 +31,31 @@ class ProdutImageDelegation:NSObject ,UICollectionViewDataSource,UICollectionVie
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemDetails.images?.count ?? 0
     }
-
+    
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-       
-
+        
+        
         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: ProductImageCell.identifier, for: indexPath) as! ProductImageCell
         if let imageExistance = itemDetails.images?[indexPath.row].src{
             cell.configureImageOfProduct(urlString: imageExistance)
         }
         return cell
     }
-
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
- 
+        
         return CGSize(width: productImageCollection.bounds.width , height: productImageCollection.bounds.height )
     }
     
     
     
     
-
+    
     //MARK: - layout Animation for Image
     func layoutSetup(){
         let layout = UICollectionViewCompositionalLayout { sectionIndex, enviroment in
@@ -69,7 +69,7 @@ class ProdutImageDelegation:NSObject ,UICollectionViewDataSource,UICollectionVie
         }
         self.productImageCollection.setCollectionViewLayout(layout, animated: true)
     }
-
+    
     
     //MARK: - Setup CompitionalLayout Animation
     func Offers()-> NSCollectionLayoutSection {
@@ -100,7 +100,7 @@ class ProdutImageDelegation:NSObject ,UICollectionViewDataSource,UICollectionVie
         
         return section
     }
-
+    
     
     //MARK: - Display Animation of Image Indicator
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

@@ -30,6 +30,7 @@ class ProductSizeDelegation: NSObject, UICollectionViewDelegate, UICollectionVie
         setIndexPathCollectionForSize = itemDetails.options?.first?.values?[0]
         self.quatityLabel = quatityLabel
         
+        
        
     }
     

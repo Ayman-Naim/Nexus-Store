@@ -11,47 +11,77 @@ import Foundation
 protocol ProductDetailsDelegation{
     
     
-    func bindDataForProductDetails()->Product
+    
+    var bindDataFromProductID:(()->Void)? {get set}
+    func bindDataForProductDetails()->Product?
     func bindProductNameOfProduct()->String?
     func bindProductTypeOfProduct()->String?
     func bindProductDescriptionOfProduct()->String?
     func bindProductPriceOfProduct()->String?
     func bindAvaliableQuantityOfProduct()->String?
-
+    func priceOfEveryProduct()
     
     
-
+    
+    
 }
 
 class ProductDetailsViewModel:ProductDetailsDelegation{
     
-    var productItem:Product
-    
-    init(products: Product) {
-        self.productItem = products
+    let apiNetworkManager = ApiManger.SharedApiManger
+    var bindDataFromProductID: (() -> Void)?
+    var ProductId:Int
+    var productItem:Product?  {
+        
+        didSet{
+            if let validretrivedDataProduct = bindDataFromProductID{
+                validretrivedDataProduct()
+            }
+        }
+        
     }
     
     
     
-    func bindDataForProductDetails()->Product {productItem}
-    func bindProductNameOfProduct() -> String? {productItem.title}
-    func bindProductTypeOfProduct() -> String? {productItem.vendor}
-    func bindProductDescriptionOfProduct() -> String? {productItem.bodyHtml}
+    
+        init(for productID: Int) {
+            self.ProductId = productID
+        }
+    
+    
+    
+    func bindDataForProductDetails()->Product? {productItem}
+    func bindProductNameOfProduct() -> String? {productItem?.title}
+    func bindProductTypeOfProduct() -> String? {productItem?.vendor}
+    func bindProductDescriptionOfProduct() -> String? {productItem?.bodyHtml}
     func bindProductPriceOfProduct() -> String? {
-        if let priceitem = productItem.variants?.first?.price {
+        if let priceitem = productItem?.variants?.first?.price {
             return "$\(priceitem)"
         }
         return "$300"
     }
     
     func bindAvaliableQuantityOfProduct() -> String? {
-        let numberOfItemAvalabile = productItem.variants?.filter({ $0.option1 == productItem.options?.first?.values?[0] })
+        let numberOfItemAvalabile = productItem?.variants?.filter({ $0.option1 == productItem?.options?.first?.values?[0] })
         if let quantityAvalible = numberOfItemAvalabile?.first?.inventoryQuantity{
             return "\(quantityAvalible) item"
         }
         return nil
     }
     
+    
+    func priceOfEveryProduct() {
+        BaseUrl.CategoryPriceID = ProductId
+        
+        apiNetworkManager.fetchData(url: BaseUrl.CategoryProductPrice, decodingModel: SingleProduct.self) { result in
+            switch result{
+            case .success(let product):
+                self.productItem = product.product
+            case .failure(let error):
+                print(String(describing: error))
+            }
+        }
+    }
     
     
     

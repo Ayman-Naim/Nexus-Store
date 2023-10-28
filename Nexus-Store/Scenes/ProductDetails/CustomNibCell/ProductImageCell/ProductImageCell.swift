@@ -27,6 +27,8 @@ class ProductImageCell: UICollectionViewCell {
     
     
     
+    
+    
     func configureImageOfProduct(urlString:String){
         
         if let imageUrl = URL(string: urlString){
