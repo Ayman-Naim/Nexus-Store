@@ -1,34 +1,16 @@
 //
-//  SignInViewController.swift
+//  SignInWithAccount.swift
 //  Nexus-Store
 //
-//  Created by Ahmed Ashraf on 19/10/2023.
+//  Created by Ahmed Ashraf on 27/10/2023.
 //
 
-import UIKit
+import Foundation
 import FirebaseAuth
 
-class SignInViewController: UIViewController {
-
-    @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    @IBAction func singInButtonPressed(_ sender: Any) {
-        guard let email = emailField.text, !email.isEmpty,
-              let password = passwordField.text, !password.isEmpty else{
-            print("Missing Field Data") // alert
-            let alert = UIAlertController(title: "Missing Field Data", message: "Please Enter Data in The Missing Fields", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Try Again", style: .cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            return
-        }
-        
+class FireBaseSignInViewModel{
+    /*
+    func signInWithAccount(email: String, password: String){
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                 // Check for errors during sign-in
                 if let error = error {
@@ -59,12 +41,6 @@ class SignInViewController: UIViewController {
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
-    }
-    
-    @IBAction func signupButtonClicked(_ sender: UIButton) {
-        let signupVC = SignUpViewController()
-        //signupVC.modalPresentationStyle = .fullScreen
-        self.present(signupVC, animated: true)
-    }
-    
+    }*/
 }
+

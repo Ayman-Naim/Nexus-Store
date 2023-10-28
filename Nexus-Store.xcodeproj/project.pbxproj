@@ -73,6 +73,9 @@
 		45B1EC982AE9250E00E690F9 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B1EC972AE9250E00E690F9 /* Image.swift */; };
 		45D0E8912AE0A04800A07332 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D0E8902AE0A04800A07332 /* K.swift */; };
 		5B312CD32AEBD64E00394BDF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B312CD22AEBD64E00394BDF /* GoogleService-Info.plist */; };
+		5B9A02732AEC23E3007DC704 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A02722AEC23E3007DC704 /* CreateAccount.swift */; };
+		5B9A02752AEC24DC007DC704 /* SignInWithAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A02742AEC24DC007DC704 /* SignInWithAccount.swift */; };
+		5B9A02782AEC29F3007DC704 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A02772AEC29F3007DC704 /* SignUp.swift */; };
 		5BC20AC52AE190CA0071925A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20AC32AE190C90071925A /* SignUpViewController.swift */; };
 		5BC20AC62AE190CA0071925A /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC20AC42AE190C90071925A /* SignUpViewController.xib */; };
 		5BC20AC92AE1911F0071925A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20AC72AE1911F0071925A /* SignInViewController.swift */; };
@@ -197,6 +200,9 @@
 		45B1EC972AE9250E00E690F9 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		45D0E8902AE0A04800A07332 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		5B312CD22AEBD64E00394BDF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5B9A02722AEC23E3007DC704 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
+		5B9A02742AEC24DC007DC704 /* SignInWithAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAccount.swift; sourceTree = "<group>"; };
+		5B9A02772AEC29F3007DC704 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		5BC20AC32AE190C90071925A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5BC20AC42AE190C90071925A /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		5BC20AC72AE1911F0071925A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -678,6 +684,14 @@
 			path = CategoryViewModel;
 			sourceTree = "<group>";
 		};
+		5B9A02762AEC29E3007DC704 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5B9A02772AEC29F3007DC704 /* SignUp.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		5BC20AB92AE16C490071925A /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
@@ -690,6 +704,7 @@
 		5BC20ABA2AE16C490071925A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				5B9A02742AEC24DC007DC704 /* SignInWithAccount.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -706,6 +721,7 @@
 		5BC20AC02AE190980071925A /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				5B9A02762AEC29E3007DC704 /* Model */,
 				5BC20AC22AE190B00071925A /* View */,
 				5BC20AC12AE190A70071925A /* ViewModel */,
 			);
@@ -715,6 +731,7 @@
 		5BC20AC12AE190A70071925A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				5B9A02722AEC23E3007DC704 /* CreateAccount.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1590,6 +1607,7 @@
 				45123AB82AE2149E001B12B7 /* MainCategoryCell.swift in Sources */,
 				01694EDE2AE4FF36009FC373 /* NexusTabBarController.swift in Sources */,
 				011281AE2AE18D7B00844137 /* AddressTableViewCell.swift in Sources */,
+				5B9A02732AEC23E3007DC704 /* CreateAccount.swift in Sources */,
 				45123AAF2AE2149E001B12B7 /* SizeColorCell.swift in Sources */,
 				E35BC58C2AE0ADA500742654 /* BrandsCollectionCell.swift in Sources */,
 				45123AAB2AE2149E001B12B7 /* ProductDetailsViewController.swift in Sources */,
@@ -1599,6 +1617,7 @@
 				5BC20AC52AE190CA0071925A /* SignUpViewController.swift in Sources */,
 				E37B4DE52AE301B80051EB89 /* PayMethodViewController.swift in Sources */,
 				E34FE6302AE954D9006602A5 /* ProfileVM.swift in Sources */,
+				5B9A02782AEC29F3007DC704 /* SignUp.swift in Sources */,
 				459D7B0E2AE2B8A100AD8CC8 /* UIView+Extension.swift in Sources */,
 				5BC20AD42AE1D0170071925A /* SocialTableViewCell.swift in Sources */,
 				45123AB52AE2149E001B12B7 /* productDetailsCell.swift in Sources */,
@@ -1612,6 +1631,7 @@
 				011281B62AE1AA6600844137 /* AddAddressViewController.swift in Sources */,
 				45B1EC942AE923CB00E690F9 /* Variants.swift in Sources */,
 				45B1EC922AE9231900E690F9 /* Product.swift in Sources */,
+				5B9A02752AEC24DC007DC704 /* SignInWithAccount.swift in Sources */,
 				010F61002AE4920500DE7EB0 /* UIViewController+Extension.swift in Sources */,
 				01E9BB702AE9587C00FE881E /* WishListViewModel.swift in Sources */,
 				E3E639FD2AE82D89002A5617 /* BaseURl.swift in Sources */,
