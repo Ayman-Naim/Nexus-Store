@@ -21,18 +21,30 @@ class CategoryViewController: UIViewController {
     var fromBrand:Bool?
     var vendor:String?
     var vendorProductList:[Product]?
+    let wishListServices = WishListService()
+    var favoriteProducts:[Product]? {
+        didSet{
+            DispatchQueue.main.async {
+                self.CategoryCollectionView.reloadSections(self.productSection)
+                self.isLoadingIndicatorAnimating = false
+                self.CategoryCollectionView.isUserInteractionEnabled = true
+            }
+        }
+    }
+    let custemerId:Int = 6899149865196
     var products:[Product]? {
         didSet{
             if products?.count == 0 && filterProduct.count == 0{
                 
                 self.CategoryCollectionView.reloadSections(self.productSection)
+                
             }
         }
     }
     var filterProduct :[Product] = [] {
         didSet {
             if Array(Set(filterProduct)).count == products?.count  && filterProduct.count != 0  {
-               
+                
                 DispatchQueue.main.async {
                     self.products?.removeAll()
                     if self.fromBrand != nil {
@@ -44,6 +56,7 @@ class CategoryViewController: UIViewController {
                     self.CategoryCollectionView.reloadSections(self.productSection)
                     self.isLoadingIndicatorAnimating = false
                     self.CategoryCollectionView.isUserInteractionEnabled = true
+                    
                 }
             }
         }
@@ -55,6 +68,14 @@ class CategoryViewController: UIViewController {
     
     
     
+    //MARK: - Set All Data when Will Appear
+    override func viewWillAppear(_ animated: Bool) {
+        self.isLoadingIndicatorAnimating = true
+        self.CategoryCollectionView.isUserInteractionEnabled = false
+        checkCustomerFavoriteProduct()
+       
+    }
+    
     //MARK: - Conigure ViewWill Appear
     override func viewDidAppear(_ animated: Bool) {
         self.addLogoToNavigationBarItem(logoImage: K.darkModeLogo)
@@ -63,14 +84,14 @@ class CategoryViewController: UIViewController {
         }
     }
     
-  
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         if fromBrand != nil{
             tabBarController?.tabBar.isHidden = false
         }
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +100,7 @@ class CategoryViewController: UIViewController {
         CategoryCollectionView.collectionViewLayout = createCompositionalLayout()
         configureFavoritueButton()
         ConfigureFetchDataFromApi(with: K.menID)
+        checkCustomerFavoriteProduct()
         
         
         
@@ -103,7 +125,7 @@ class CategoryViewController: UIViewController {
     }
     
     
-   
+    
     
 }
 
@@ -182,7 +204,7 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
             if let product = products?[indexPath.row] {
                 let storyboard = UIStoryboard(name:ProductDetailsViewController.storyBoardName , bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: ProductDetailsViewController.identifier) as! ProductDetailsViewController
-                let productDetailsViewModel = ProductDetailsViewModel(products: product)
+                let productDetailsViewModel = ProductDetailsViewModel(for: product.id)
                 vc.productDetailsViewModel = productDetailsViewModel
                 vc.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
                 vc.modalPresentationStyle = .fullScreen
@@ -193,7 +215,7 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
             print("Done")
         }
         
-      
+        
         
     }
     
@@ -222,6 +244,20 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.customProductDetailsIdetifier, for: indexPath) as! productDetailsCell
             cell.ConfigureProductDetails(product: products?[indexPath.row])
             cell.delegate = self
+            
+            if let favoriteProducts = favoriteProducts{
+                for favoriteProduct in favoriteProducts{
+                    if  favoriteProduct.id == products?[indexPath.row].id{
+                        
+                        cell.favoriteIcon.setImage(UIImage(systemName: K.favoriteIconSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
+                        cell.favoriteIcon.tintColor = .white
+                        
+                    }else{
+                        cell.favoriteIcon.setImage(UIImage(systemName: K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
+                        cell.favoriteIcon.tintColor = .white
+                    }
+                }
+            }
             return cell
             
         default :
@@ -428,7 +464,7 @@ extension CategoryViewController {
             self?.products = self?.categoryProductProtocol?.RetiviedProductResult()
             self?.switchsubCategory(flagNumber: self!.flagSubCategory)
             self?.CategoryCollectionView.isUserInteractionEnabled = true
-          
+            
         }
         
         
@@ -445,9 +481,9 @@ extension CategoryViewController {
                 self?.products = self?.categoryProductProtocol?.RetiviedProductResult()
                 self?.allProductofMainCategory()
                 self?.CategoryCollectionView.isUserInteractionEnabled = true
-       
+                
             }
-
+            
         }
         
         else if flagNumber == 1 {
@@ -459,7 +495,7 @@ extension CategoryViewController {
         else if flagNumber == 3 {
             GetSubCategoryData(for: forMainCategory, with: K.accessories)
         }
-       
+        
     }
     
     
@@ -474,7 +510,7 @@ extension CategoryViewController {
             self.products = products
             self.allProductofMainCategory()
             self.CategoryCollectionView.isUserInteractionEnabled = true
-           
+            
             
             
         })
@@ -486,7 +522,7 @@ extension CategoryViewController {
             self.isLoadingIndicatorAnimating = !validProducts.isEmpty
             self.CategoryCollectionView.isUserInteractionEnabled = validProducts.isEmpty
             self.filterProduct.removeAll()
-
+            
             for product in validProducts{
                 categoryProductProtocol?.priceOfEveryProduct(for:product, Handeler: { productItem in
                     
@@ -511,23 +547,44 @@ extension CategoryViewController : CustomNibCellProtocol{
         
         if  cell.favoriteIcon.currentImage == UIImage(systemName:  K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)){
             cell.favoriteIcon.setImage(UIImage(systemName: K.favoriteIconSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
-           
+            
+            wishListServices.addToWishList(productID: cell.productId!, toCustomer: custemerId) { error in
+                if let error = error{
+                    print(error.localizedDescription)
+                }else{return}
+            }
+            
         }else{
             cell.favoriteIcon.setImage(UIImage(systemName: K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
+            
+            
+            wishListServices.removeWishList(productID: cell.productId!, fromCustomer: custemerId) { error in
+                if let error = error{
+                    print(error.localizedDescription)
+                }else{return}
+            }
         }
         cell.favoriteIcon.tintColor = .white
         
+       
         
-        let wishListServices = WishListService()
-        wishListServices.addToWishList(productID: cell.productId!, toCustomer: 6899149865196) { error in
-            if let error = error{
-                print("There is an error Try Solve It!")
-            }else{return}
+    }
+    
+    
+    func checkCustomerFavoriteProduct(){
+        wishListServices.getWishlist(forCustom: custemerId) { result in
+            switch result{
+            case.success(let favoriteProduct):
+                self.favoriteProducts = favoriteProduct
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         }
     }
     
     
     
+
     
     
 }

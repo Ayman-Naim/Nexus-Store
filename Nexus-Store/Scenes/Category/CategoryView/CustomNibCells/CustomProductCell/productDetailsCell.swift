@@ -23,7 +23,7 @@ class productDetailsCell: UICollectionViewCell {
     var delegate:CustomNibCellProtocol?
     override func awakeFromNib() {
         super.awakeFromNib()
-        favoriteIcon.setImage(UIImage(systemName: K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
+       
       
        
     }
@@ -35,6 +35,13 @@ class productDetailsCell: UICollectionViewCell {
         
         
     }
+//    override func prepareForReuse() {
+//        super.prepareForReuse()
+//        favoriteIcon.setImage(UIImage(systemName: K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
+//        favoriteIcon.tintColor = .white
+//
+//
+//    }
     
     @IBAction func pressFavoriteButton(_ sender: Any) {
         delegate?.didTapButtonInCell(self)
