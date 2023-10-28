@@ -8,11 +8,12 @@
 import Foundation
 
 struct SignUpModel:Codable{
-    let customer : SignUp
+    let customer: SignUp
     
     
 }
 
 struct SignUp: Codable{
+    var id: Int?
     var email: String?
 }

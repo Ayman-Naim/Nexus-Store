@@ -19,8 +19,7 @@ class FireBaseSignUPViewModel{
                 return
             }
             if let result = authResult {
-                print("El Mon")
-                self.create(email: email) { result in
+                self.create(email: email, password: password) { result in
                     switch result{
                     case .success(let customer):
                         print("debug2 \(customer)")
@@ -36,19 +35,16 @@ class FireBaseSignUPViewModel{
         }
     }
     
-    func create(email: String, completion:@escaping (Result<SignUpModel, Error>) -> Void){
+    func create(email: String, password: String,completion:@escaping (Result<SignUpModel, Error>) -> Void){
         let header: HTTPHeaders = ["X-Shopify-Access-Token": "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",
             "Content-Type": "application/json"]
         let param: [String: Any]  =
         [
             "customer": [
                 "email": "\(email)",
-                "first_name": "\(email)",
-                "last_name": "\(email)",
-                "phone": "+15142546011",
-                "password" : "admin",
-                "password_confirmation" : "admin",
-                "send_email_welcome" : true
+                "password": "\(password)",
+                "password_confirmation": "\(password)",
+                "send_email_welcome": true
             ]
         ] as [String: Any]
         
@@ -58,10 +54,14 @@ class FireBaseSignUPViewModel{
                 switch response.result {
                 case .success(let data):
                     guard let data = data else { return }
+           //         print(String(data: data, encoding: .utf8))
                     do {
-                        print("Debug3 \(data)")
+               //         print("Debug3 \(data)")
                         let jsonData = try JSONDecoder().decode(SignUpModel.self, from: data)
-                        print(jsonData)
+                //        print(jsonData)
+                        let customerId = jsonData.customer.id
+                        // Save the ID to UserDefaults
+                        UserDefaults.standard.set(customerId, forKey: "customerID")
                         completion(.success(jsonData))
 
                     } catch {
@@ -73,7 +73,7 @@ class FireBaseSignUPViewModel{
                 }
             }
         } else{
-            print("Error Yasta")
+            print("Error")
         }
         
         

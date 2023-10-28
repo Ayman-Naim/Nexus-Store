@@ -11,8 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="Nexus_Store" customModuleProvider="target">
             <connections>
+                <outlet property="checkboxImage" destination="myI-f6-Brg" id="gME-W7-Hxi"/>
                 <outlet property="emailField" destination="y8J-Xs-pzI" id="kqi-fK-GAm"/>
                 <outlet property="passwordField" destination="LzU-en-yQr" id="8cq-3p-Lkp"/>
+                <outlet property="toggleImage" destination="Hu4-YE-OGs" id="oNR-T3-hml"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -55,7 +57,7 @@
                                         <constraint firstAttribute="height" constant="40" id="3u1-69-1e0"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" textContentType="password"/>
+                                    <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                             <integer key="value" value="25"/>
