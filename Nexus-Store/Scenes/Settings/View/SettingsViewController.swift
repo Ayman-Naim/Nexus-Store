@@ -38,7 +38,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         case 1:
             let cell =  tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsTableViewCell
             cell.settingsLabel.text = "Currency"
-            cell.imgView.image = UIImage(named: "currencyy")
+            cell.imgView.image = UIImage(named: "dosign")
             return cell
         case 2:
             let cell =  tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsTableViewCell
@@ -59,7 +59,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 75
     }
     
     
