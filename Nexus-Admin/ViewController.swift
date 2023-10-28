@@ -26,6 +26,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func mostafa(_ sender: Any) {
+        let vc = BrandProductsViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func ahmed(_ sender: Any) {
