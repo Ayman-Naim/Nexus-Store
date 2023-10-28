@@ -52,7 +52,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func WishListClicked(_ sender: Any) {
-        //
+        self.navigationController?.pushViewController(SettingsViewController(), animated: true)
     }
 }
 
