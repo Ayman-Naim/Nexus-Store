@@ -14,6 +14,7 @@ target 'Nexus-Store' do
 	pod 'FirebaseAuth'
 	pod 'FirebaseFirestore'
 	pod 'FirebaseCore'
+        pod 'Firebase/Google'
 
 
 target 'Nexus-Admin' do
