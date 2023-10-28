@@ -69,6 +69,10 @@
 		5B9A02732AEC23E3007DC704 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A02722AEC23E3007DC704 /* CreateAccount.swift */; };
 		5B9A02752AEC24DC007DC704 /* SignInWithAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A02742AEC24DC007DC704 /* SignInWithAccount.swift */; };
 		5B9A02782AEC29F3007DC704 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A02772AEC29F3007DC704 /* SignUp.swift */; };
+		5B9A027E2AECBC45007DC704 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A027C2AECBC45007DC704 /* SettingsTableViewCell.swift */; };
+		5B9A027F2AECBC45007DC704 /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9A027D2AECBC45007DC704 /* SettingsTableViewCell.xib */; };
+		5B9A02822AECBC79007DC704 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A02802AECBC79007DC704 /* SettingsViewController.swift */; };
+		5B9A02832AECBC79007DC704 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9A02812AECBC79007DC704 /* SettingsViewController.xib */; };
 		5BC20AC52AE190CA0071925A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20AC32AE190C90071925A /* SignUpViewController.swift */; };
 		5BC20AC62AE190CA0071925A /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC20AC42AE190C90071925A /* SignUpViewController.xib */; };
 		5BC20AC92AE1911F0071925A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20AC72AE1911F0071925A /* SignInViewController.swift */; };
@@ -187,6 +191,10 @@
 		5B9A02722AEC23E3007DC704 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
 		5B9A02742AEC24DC007DC704 /* SignInWithAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAccount.swift; sourceTree = "<group>"; };
 		5B9A02772AEC29F3007DC704 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		5B9A027C2AECBC45007DC704 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		5B9A027D2AECBC45007DC704 /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
+		5B9A02802AECBC79007DC704 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		5B9A02812AECBC79007DC704 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		5BC20AC32AE190C90071925A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5BC20AC42AE190C90071925A /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		5BC20AC72AE1911F0071925A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -651,6 +659,33 @@
 				5B9A02772AEC29F3007DC704 /* SignUp.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5B9A02792AECBBD4007DC704 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				5B9A027B2AECBC07007DC704 /* ViewModel */,
+				5B9A027A2AECBBF9007DC704 /* View */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		5B9A027A2AECBBF9007DC704 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5B9A027C2AECBC45007DC704 /* SettingsTableViewCell.swift */,
+				5B9A027D2AECBC45007DC704 /* SettingsTableViewCell.xib */,
+				5B9A02802AECBC79007DC704 /* SettingsViewController.swift */,
+				5B9A02812AECBC79007DC704 /* SettingsViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5B9A027B2AECBC07007DC704 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		5BC20AB92AE16C490071925A /* SignIn */ = {
@@ -1157,6 +1192,7 @@
 		E37687DD2ADDFFFF00DB09A1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				5B9A02792AECBBD4007DC704 /* Settings */,
 				01694EE02AE530BD009FC373 /* Search */,
 				01694EDC2AE4FEE7009FC373 /* TabBar */,
 				5BC20ACB2AE1C67A0071925A /* Welcome */,
@@ -1433,6 +1469,7 @@
 				5BC20AC62AE190CA0071925A /* SignUpViewController.xib in Resources */,
 				45123AB32AE2149E001B12B7 /* CategoryViewController.xib in Resources */,
 				5BC20AD12AE1C71D0071925A /* WelcomeViewController.xib in Resources */,
+				5B9A02832AECBC79007DC704 /* SettingsViewController.xib in Resources */,
 				01A0EB8B2AE071A1004310FC /* CartViewController.xib in Resources */,
 				E345566D2AE1B51C00312C6C /* FavouriteTableViewCell.xib in Resources */,
 				01D776C42AE3021C0079F2B5 /* AddPromoCodeViewController.xib in Resources */,
@@ -1440,6 +1477,7 @@
 				5B312CD32AEBD64E00394BDF /* GoogleService-Info.plist in Resources */,
 				010F610A2AE49F2000DE7EB0 /* loading_1.json in Resources */,
 				E35BC58D2AE0ADA500742654 /* BrandsCollectionCell.xib in Resources */,
+				5B9A027F2AECBC45007DC704 /* SettingsTableViewCell.xib in Resources */,
 				45123AB02AE2149E001B12B7 /* ReviewProductCell.xib in Resources */,
 				45123AAC2AE2149E001B12B7 /* ProductImageCell.xib in Resources */,
 				E3E498FB2AE19F4E00ED2924 /* ProfileViewController.xib in Resources */,
@@ -1587,6 +1625,7 @@
 				5B9A02752AEC24DC007DC704 /* SignInWithAccount.swift in Sources */,
 				010F61002AE4920500DE7EB0 /* UIViewController+Extension.swift in Sources */,
 				01E9BB702AE9587C00FE881E /* WishListViewModel.swift in Sources */,
+				5B9A027E2AECBC45007DC704 /* SettingsTableViewCell.swift in Sources */,
 				E3E639FD2AE82D89002A5617 /* BaseURl.swift in Sources */,
 				01E9BB722AE96D8500FE881E /* WishListService.swift in Sources */,
 				01D776C82AE316770079F2B5 /* ProductsOrderSheetTVC.swift in Sources */,
@@ -1608,6 +1647,7 @@
 				E37687AD2ADDFFB500DB09A1 /* SceneDelegate.swift in Sources */,
 				E3E498FA2AE19F4E00ED2924 /* ProfileViewController.swift in Sources */,
 				45B1EC8E2AE905F400E690F9 /* CategoryViewModel.swift in Sources */,
+				5B9A02822AECBC79007DC704 /* SettingsViewController.swift in Sources */,
 				E34FE62B2AE921BC006602A5 /* BrandsModel.swift in Sources */,
 				010F61022AE49CF800DE7EB0 /* CustomLoadingIndicator.swift in Sources */,
 				E37687B52ADDFFB500DB09A1 /* Nexus_Store.xcdatamodeld in Sources */,
