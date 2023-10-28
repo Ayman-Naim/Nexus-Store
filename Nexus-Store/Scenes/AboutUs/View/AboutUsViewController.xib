@@ -115,7 +115,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="GFK-wT-P4L">
                     <rect key="frame" x="20" y="394" width="353" height="100"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OCj-PF-h3s">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ayman" translatesAutoresizingMaskIntoConstraints="NO" id="OCj-PF-h3s">
                             <rect key="frame" x="0.0" y="0.0" width="151.66666666666666" height="100"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="5pq-Jl-jiE"/>
@@ -185,6 +185,7 @@
     <resources>
         <image name="Ahmed" width="576" height="576"/>
         <image name="App-logo" width="700" height="700"/>
+        <image name="Ayman" width="472" height="709"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
