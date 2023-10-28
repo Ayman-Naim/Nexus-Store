@@ -84,6 +84,12 @@
 		5B9A02732AEC23E3007DC704 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A02722AEC23E3007DC704 /* CreateAccount.swift */; };
 		5B9A02752AEC24DC007DC704 /* SignInWithAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A02742AEC24DC007DC704 /* SignInWithAccount.swift */; };
 		5B9A02782AEC29F3007DC704 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A02772AEC29F3007DC704 /* SignUp.swift */; };
+		5B9A027E2AECBC45007DC704 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A027C2AECBC45007DC704 /* SettingsTableViewCell.swift */; };
+		5B9A027F2AECBC45007DC704 /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9A027D2AECBC45007DC704 /* SettingsTableViewCell.xib */; };
+		5B9A02822AECBC79007DC704 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A02802AECBC79007DC704 /* SettingsViewController.swift */; };
+		5B9A02832AECBC79007DC704 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9A02812AECBC79007DC704 /* SettingsViewController.xib */; };
+		5B9A02882AECD1BB007DC704 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A02862AECD1BB007DC704 /* AboutUsViewController.swift */; };
+		5B9A02892AECD1BB007DC704 /* AboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9A02872AECD1BB007DC704 /* AboutUsViewController.xib */; };
 		5BC20AC52AE190CA0071925A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20AC32AE190C90071925A /* SignUpViewController.swift */; };
 		5BC20AC62AE190CA0071925A /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC20AC42AE190C90071925A /* SignUpViewController.xib */; };
 		5BC20AC92AE1911F0071925A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20AC72AE1911F0071925A /* SignInViewController.swift */; };
@@ -131,6 +137,16 @@
 		E37B4DEC2AE307BE0051EB89 /* PaymentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E37B4DEA2AE307BE0051EB89 /* PaymentTableViewCell.xib */; };
 		E3A3ED662AEC51FC00E44737 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A3ED642AEC51FB00E44737 /* SignInViewController.swift */; };
 		E3A3ED672AEC51FC00E44737 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3A3ED652AEC51FC00E44737 /* SignInViewController.xib */; };
+		E3A60E7D2AEC87BA008FEDB5 /* BaseUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60E7C2AEC87BA008FEDB5 /* BaseUrl.swift */; };
+		E3A60E812AEC8EF2008FEDB5 /* CustomerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60E802AEC8EF2008FEDB5 /* CustomerModel.swift */; };
+		E3A60E882AEC992A008FEDB5 /* AdminNetManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60E872AEC992A008FEDB5 /* AdminNetManger.swift */; };
+		E3A60E8A2AEC9B31008FEDB5 /* AdminLoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60E892AEC9B31008FEDB5 /* AdminLoginVM.swift */; };
+		E3A60E8C2AECB044008FEDB5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3A60E8B2AECB044008FEDB5 /* GoogleService-Info.plist */; };
+		E3E10C142AED7C7300567D8B /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E10C122AED7C7300567D8B /* AddProductViewController.swift */; };
+		E3E10C152AED7C7300567D8B /* AddProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3E10C132AED7C7300567D8B /* AddProductViewController.xib */; };
+		E3E10C172AED86CE00567D8B /* AddProductVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E10C162AED86CE00567D8B /* AddProductVM.swift */; };
+		E3E10C182AED882500567D8B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D776BD2AE2FFC50079F2B5 /* Alert.swift */; };
+		E3E10C1B2AED8DFA00567D8B /* AddProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E10C1A2AED8DFA00567D8B /* AddProductModel.swift */; };
 		E3E498FA2AE19F4E00ED2924 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E498F82AE19F4E00ED2924 /* ProfileViewController.swift */; };
 		E3E498FB2AE19F4E00ED2924 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3E498F92AE19F4E00ED2924 /* ProfileViewController.xib */; };
 		E3E639FD2AE82D89002A5617 /* BaseURl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E639FC2AE82D89002A5617 /* BaseURl.swift */; };
@@ -219,6 +235,12 @@
 		5B9A02722AEC23E3007DC704 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
 		5B9A02742AEC24DC007DC704 /* SignInWithAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAccount.swift; sourceTree = "<group>"; };
 		5B9A02772AEC29F3007DC704 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		5B9A027C2AECBC45007DC704 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		5B9A027D2AECBC45007DC704 /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
+		5B9A02802AECBC79007DC704 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		5B9A02812AECBC79007DC704 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		5B9A02862AECD1BB007DC704 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		5B9A02872AECD1BB007DC704 /* AboutUsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutUsViewController.xib; sourceTree = "<group>"; };
 		5BC20AC32AE190C90071925A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5BC20AC42AE190C90071925A /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		5BC20AC72AE1911F0071925A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -283,6 +305,15 @@
 		E37B4DEA2AE307BE0051EB89 /* PaymentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentTableViewCell.xib; sourceTree = "<group>"; };
 		E3A3ED642AEC51FB00E44737 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		E3A3ED652AEC51FC00E44737 /* SignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		E3A60E7C2AEC87BA008FEDB5 /* BaseUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrl.swift; sourceTree = "<group>"; };
+		E3A60E802AEC8EF2008FEDB5 /* CustomerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerModel.swift; sourceTree = "<group>"; };
+		E3A60E872AEC992A008FEDB5 /* AdminNetManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminNetManger.swift; sourceTree = "<group>"; };
+		E3A60E892AEC9B31008FEDB5 /* AdminLoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminLoginVM.swift; sourceTree = "<group>"; };
+		E3A60E8B2AECB044008FEDB5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E3E10C122AED7C7300567D8B /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
+		E3E10C132AED7C7300567D8B /* AddProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddProductViewController.xib; sourceTree = "<group>"; };
+		E3E10C162AED86CE00567D8B /* AddProductVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductVM.swift; sourceTree = "<group>"; };
+		E3E10C1A2AED8DFA00567D8B /* AddProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductModel.swift; sourceTree = "<group>"; };
 		E3E498F82AE19F4E00ED2924 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E3E498F92AE19F4E00ED2924 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		E3E639FC2AE82D89002A5617 /* BaseURl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURl.swift; sourceTree = "<group>"; };
@@ -736,6 +767,50 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		5B9A02792AECBBD4007DC704 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				5B9A027B2AECBC07007DC704 /* ViewModel */,
+				5B9A027A2AECBBF9007DC704 /* View */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		5B9A027A2AECBBF9007DC704 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5B9A027C2AECBC45007DC704 /* SettingsTableViewCell.swift */,
+				5B9A027D2AECBC45007DC704 /* SettingsTableViewCell.xib */,
+				5B9A02802AECBC79007DC704 /* SettingsViewController.swift */,
+				5B9A02812AECBC79007DC704 /* SettingsViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5B9A027B2AECBC07007DC704 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5B9A02842AECD036007DC704 /* AboutUs */ = {
+			isa = PBXGroup;
+			children = (
+				5B9A02852AECD043007DC704 /* View */,
+			);
+			path = AboutUs;
+			sourceTree = "<group>";
+		};
+		5B9A02852AECD043007DC704 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5B9A02862AECD1BB007DC704 /* AboutUsViewController.swift */,
+				5B9A02872AECD1BB007DC704 /* AboutUsViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		5BC20AB92AE16C490071925A /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
@@ -850,6 +925,7 @@
 		E30A945E2AE68A5300AB0F5F /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				E3A60E8B2AECB044008FEDB5 /* GoogleService-Info.plist */,
 				E30A945A2AE68A0A00AB0F5F /* Info.plist */,
 			);
 			path = Config;
@@ -891,6 +967,7 @@
 		E30A94632AE68A9000AB0F5F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E3A60E792AEC86C0008FEDB5 /* Network */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -919,6 +996,7 @@
 		E30A94662AE68B2200AB0F5F /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				E3A60E762AEC867C008FEDB5 /* ViewModel */,
 				E30A947C2AE68D6C00AB0F5F /* Model */,
 				E30A947B2AE68D6600AB0F5F /* View */,
 			);
@@ -956,6 +1034,7 @@
 		E30A946A2AE68C1F00AB0F5F /* AddProduct */ = {
 			isa = PBXGroup;
 			children = (
+				E3E10C192AED8DEB00567D8B /* Model */,
 				E30A94732AE68D1100AB0F5F /* View */,
 				E30A94722AE68D0900AB0F5F /* ViewModel */,
 			);
@@ -1011,6 +1090,7 @@
 		E30A94722AE68D0900AB0F5F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E3E10C162AED86CE00567D8B /* AddProductVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1018,6 +1098,8 @@
 		E30A94732AE68D1100AB0F5F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E3E10C122AED7C7300567D8B /* AddProductViewController.swift */,
+				E3E10C132AED7C7300567D8B /* AddProductViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1079,6 +1161,7 @@
 		E30A947C2AE68D6C00AB0F5F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E3A60E802AEC8EF2008FEDB5 /* CustomerModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1246,6 +1329,8 @@
 		E37687DD2ADDFFFF00DB09A1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				5B9A02842AECD036007DC704 /* AboutUs */,
+				5B9A02792AECBBD4007DC704 /* Settings */,
 				01694EE02AE530BD009FC373 /* Search */,
 				01694EDC2AE4FEE7009FC373 /* TabBar */,
 				5BC20ACB2AE1C67A0071925A /* Welcome */,
@@ -1388,6 +1473,31 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		E3A60E762AEC867C008FEDB5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E3A60E892AEC9B31008FEDB5 /* AdminLoginVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E3A60E792AEC86C0008FEDB5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E3A60E7C2AEC87BA008FEDB5 /* BaseUrl.swift */,
+				E3A60E872AEC992A008FEDB5 /* AdminNetManger.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E3E10C192AED8DEB00567D8B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E3E10C1A2AED8DFA00567D8B /* AddProductModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E3E498F52AE19F0800ED2924 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -1494,6 +1604,8 @@
 				45BED4242AEDA3B000795D8A /* productDetailsCell.xib in Resources */,
 				E3A3ED672AEC51FC00E44737 /* SignInViewController.xib in Resources */,
 				E30A94592AE68A0A00AB0F5F /* LaunchScreen.storyboard in Resources */,
+				E3E10C152AED7C7300567D8B /* AddProductViewController.xib in Resources */,
+				E3A60E8C2AECB044008FEDB5 /* GoogleService-Info.plist in Resources */,
 				E30A94562AE68A0A00AB0F5F /* Assets.xcassets in Resources */,
 				E30A94542AE68A0800AB0F5F /* Main.storyboard in Resources */,
 				45BED3F82AED90C200795D8A /* BrandProductsViewController.xib in Resources */,
@@ -1516,6 +1628,7 @@
 				010F61092AE49F2000DE7EB0 /* loading_2.json in Resources */,
 				45123AB42AE2149E001B12B7 /* productDetailsCell.xib in Resources */,
 				E35BC5872AE0A8B900742654 /* SectionHeaderReusableView.xib in Resources */,
+				5B9A02892AECD1BB007DC704 /* AboutUsViewController.xib in Resources */,
 				E37B4DE62AE301B80051EB89 /* PayMethodViewController.xib in Resources */,
 				45123AB92AE2149E001B12B7 /* MainCategoryCell.xib in Resources */,
 				E35BC5812AE08D3000742654 /* OffersCell.xib in Resources */,
@@ -1527,6 +1640,7 @@
 				5BC20AC62AE190CA0071925A /* SignUpViewController.xib in Resources */,
 				45123AB32AE2149E001B12B7 /* CategoryViewController.xib in Resources */,
 				5BC20AD12AE1C71D0071925A /* WelcomeViewController.xib in Resources */,
+				5B9A02832AECBC79007DC704 /* SettingsViewController.xib in Resources */,
 				01A0EB8B2AE071A1004310FC /* CartViewController.xib in Resources */,
 				E345566D2AE1B51C00312C6C /* FavouriteTableViewCell.xib in Resources */,
 				01D776C42AE3021C0079F2B5 /* AddPromoCodeViewController.xib in Resources */,
@@ -1534,6 +1648,7 @@
 				5B312CD32AEBD64E00394BDF /* GoogleService-Info.plist in Resources */,
 				010F610A2AE49F2000DE7EB0 /* loading_1.json in Resources */,
 				E35BC58D2AE0ADA500742654 /* BrandsCollectionCell.xib in Resources */,
+				5B9A027F2AECBC45007DC704 /* SettingsTableViewCell.xib in Resources */,
 				45123AB02AE2149E001B12B7 /* ReviewProductCell.xib in Resources */,
 				45123AAC2AE2149E001B12B7 /* ProductImageCell.xib in Resources */,
 				E3E498FB2AE19F4E00ED2924 /* ProfileViewController.xib in Resources */,
@@ -1632,14 +1747,22 @@
 			files = (
 				45BED4252AEDA3B000795D8A /* productDetailsCell.swift in Sources */,
 				45BED42C2AEDA88F00795D8A /* Image.swift in Sources */,
+				E3A60E812AEC8EF2008FEDB5 /* CustomerModel.swift in Sources */,
+				E3A60E882AEC992A008FEDB5 /* AdminNetManger.swift in Sources */,
+				E3A60E8A2AEC9B31008FEDB5 /* AdminLoginVM.swift in Sources */,
 				E3A3ED662AEC51FC00E44737 /* SignInViewController.swift in Sources */,
+				E3E10C172AED86CE00567D8B /* AddProductVM.swift in Sources */,
 				E30A94512AE68A0800AB0F5F /* ViewController.swift in Sources */,
 				45BED42D2AEDA88F00795D8A /* Variants.swift in Sources */,
 				45BED3F72AED90C200795D8A /* BrandProductsViewController.swift in Sources */,
-				E30A944D2AE68A0800AB0F5F /* AppDelegate.swift in Sources */,
 				45BED42E2AEDA88F00795D8A /* Product.swift in Sources */,
-				E30A944F2AE68A0800AB0F5F /* SceneDelegate.swift in Sources */,
 				45BED42B2AEDA88F00795D8A /* Options.swift in Sources */,
+				E3A60E7D2AEC87BA008FEDB5 /* BaseUrl.swift in Sources */,
+				E30A944D2AE68A0800AB0F5F /* AppDelegate.swift in Sources */,
+				E3E10C182AED882500567D8B /* Alert.swift in Sources */,
+				E30A944F2AE68A0800AB0F5F /* SceneDelegate.swift in Sources */,
+				E3E10C142AED7C7300567D8B /* AddProductViewController.swift in Sources */,
+				E3E10C1B2AED8DFA00567D8B /* AddProductModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1664,6 +1787,7 @@
 				01694EDE2AE4FF36009FC373 /* NexusTabBarController.swift in Sources */,
 				011281AE2AE18D7B00844137 /* AddressTableViewCell.swift in Sources */,
 				5B9A02732AEC23E3007DC704 /* CreateAccount.swift in Sources */,
+				5B9A02882AECD1BB007DC704 /* AboutUsViewController.swift in Sources */,
 				45123AAF2AE2149E001B12B7 /* SizeColorCell.swift in Sources */,
 				E35BC58C2AE0ADA500742654 /* BrandsCollectionCell.swift in Sources */,
 				45123AAB2AE2149E001B12B7 /* ProductDetailsViewController.swift in Sources */,
@@ -1690,6 +1814,7 @@
 				5B9A02752AEC24DC007DC704 /* SignInWithAccount.swift in Sources */,
 				010F61002AE4920500DE7EB0 /* UIViewController+Extension.swift in Sources */,
 				01E9BB702AE9587C00FE881E /* WishListViewModel.swift in Sources */,
+				5B9A027E2AECBC45007DC704 /* SettingsTableViewCell.swift in Sources */,
 				E3E639FD2AE82D89002A5617 /* BaseURl.swift in Sources */,
 				01E9BB722AE96D8500FE881E /* WishListService.swift in Sources */,
 				01D776C82AE316770079F2B5 /* ProductsOrderSheetTVC.swift in Sources */,
@@ -1716,6 +1841,7 @@
 				E37687AD2ADDFFB500DB09A1 /* SceneDelegate.swift in Sources */,
 				E3E498FA2AE19F4E00ED2924 /* ProfileViewController.swift in Sources */,
 				45B1EC8E2AE905F400E690F9 /* CategoryViewModel.swift in Sources */,
+				5B9A02822AECBC79007DC704 /* SettingsViewController.swift in Sources */,
 				E34FE62B2AE921BC006602A5 /* BrandsModel.swift in Sources */,
 				010F61022AE49CF800DE7EB0 /* CustomLoadingIndicator.swift in Sources */,
 				E37687B52ADDFFB500DB09A1 /* Nexus_Store.xcdatamodeld in Sources */,
