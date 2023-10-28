@@ -26,6 +26,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func mostafa(_ sender: Any) {
+        let vc = BrandProductsViewController()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc,animated: true)
     }
     
     @IBAction func ahmed(_ sender: Any) {

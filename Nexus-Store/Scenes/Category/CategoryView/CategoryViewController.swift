@@ -248,13 +248,7 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
             if let favoriteProducts = favoriteProducts{
                 for favoriteProduct in favoriteProducts{
                     if  favoriteProduct.id == products?[indexPath.row].id{
-                        
-                        cell.favoriteIcon.setImage(UIImage(systemName: K.favoriteIconSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
-                        cell.favoriteIcon.tintColor = .white
-                        
-                    }else{
-                        cell.favoriteIcon.setImage(UIImage(systemName: K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
-                        cell.favoriteIcon.tintColor = .white
+                       cell.setFavorite()
                     }
                 }
             }
@@ -564,7 +558,7 @@ extension CategoryViewController : CustomNibCellProtocol{
                 }else{return}
             }
         }
-        cell.favoriteIcon.tintColor = .white
+        cell.favoriteIcon.tintColor = .red
         
        
         

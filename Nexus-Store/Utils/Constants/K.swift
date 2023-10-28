@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct K{
+public struct K{
     
     
     
