@@ -36,6 +36,8 @@ struct K{
     static let favoriteIconNotSave = "heart"
     static let favoriteIconSave = "heart.fill"
     
+ 
+    
     
     
 }

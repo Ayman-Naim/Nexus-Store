@@ -58,8 +58,19 @@ class CategoryViewController: UIViewController {
     //MARK: - Conigure ViewWill Appear
     override func viewDidAppear(_ animated: Bool) {
         self.addLogoToNavigationBarItem(logoImage: K.darkModeLogo)
+        if fromBrand != nil{
+            tabBarController?.tabBar.isHidden = true
+        }
     }
     
+  
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if fromBrand != nil{
+            tabBarController?.tabBar.isHidden = false
+        }
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -505,6 +516,14 @@ extension CategoryViewController : CustomNibCellProtocol{
             cell.favoriteIcon.setImage(UIImage(systemName: K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
         }
         cell.favoriteIcon.tintColor = .white
+        
+        
+        let wishListServices = WishListService()
+        wishListServices.addToWishList(productID: cell.productId!, toCustomer: 6899149865196) { error in
+            if let error = error{
+                print("There is an error Try Solve It!")
+            }else{return}
+        }
     }
     
     

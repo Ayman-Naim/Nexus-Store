@@ -16,9 +16,9 @@ class ProductDetailsViewController: UIViewController {
     static let identifier = "ProductDetails"
     
     
+    @IBOutlet weak var numberOfItems: UILabel!
     
     @IBOutlet weak var itemPrice: UILabel!
-    
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var stepperView: UIView!
     @IBOutlet weak var reviewCollectionView: UICollectionView!
@@ -30,14 +30,33 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet weak var colorCollectionView: UICollectionView!
     @IBOutlet weak var sizeCollectionView: UICollectionView!
     @IBOutlet weak var imageIndicator: UIPageControl!
+    @IBOutlet weak var avalibleQuantity: UILabel!
     
+    
+    var constatPriceOfItem:Double? {
+        let number = productDetailsViewModel?.bindProductPriceOfProduct()?.components(separatedBy: "$")
+       return Double(number![1])
+    }
+    
+    
+    var numberOfItemsUpdates:Int = 1 {
+        didSet{
+            numberOfItems.text = "\(numberOfItemsUpdates)"
+            let price =  Double (numberOfItemsUpdates) * constatPriceOfItem!
+            itemPrice.text = "$\(String(format: "%.2f", price))"
+        }
+    }
+    let productRatting:Double = 5
     var productDetailsViewModel:ProductDetailsDelegation?
-    
-    let productSizeDelegation = ProductSizeDelegation()
-    let productColorDelegation = ProductColorDelegation()
-    let productReviewDelegation = ProductReviewDelegation()
+    lazy var productSizeDelegation = ProductSizeDelegation(itemDetails: (productDetailsViewModel?.bindDataForProductDetails())! , with:avalibleQuantity)
+    lazy var productColorDelegation = ProductColorDelegation(itemDetails: (productDetailsViewModel?.bindDataForProductDetails())!)
     
     lazy var productImageDelegation = ProdutImageDelegation(collectionView: self.productImageCollection, with: imageIndicator,itemDetails: (productDetailsViewModel?.bindDataForProductDetails())!)
+    
+    
+    let productReviewDelegation = ProductReviewDelegation(numberOfReviews: 2)
+    
+    
     
     
     //MARK: - Conigure ViewWill Appear
@@ -59,10 +78,35 @@ class ProductDetailsViewController: UIViewController {
         productImageCollection.contentInsetAdjustmentBehavior = .never
         productImageDelegation.layoutSetup()
         configureDetailsOfProduct()
-        print("Data oF Items\(productImageDelegation.itemDetails)")
+        avalibleQuntatity()
+        setRattingToProduct()
+        
     }
 
-
+    
+    @IBAction func addItem(_ sender: Any) {
+     
+        if let fullText = avalibleQuantity.text?.components(separatedBy: " "){
+            let number = fullText[0]
+            if let actualNumber = Int (number){
+                if numberOfItemsUpdates < (actualNumber/3){
+                    numberOfItemsUpdates += 1
+                }
+            }
+        }
+        
+    }
+    
+    
+    @IBAction func removeItem(_ sender: UIButton) {
+        if numberOfItemsUpdates > 1{
+            numberOfItemsUpdates -= 1
+            
+        }
+        
+        
+    }
+    
 
 }
 
@@ -92,7 +136,7 @@ extension ProductDetailsViewController{
     
 
     
-    
+    //MARK: - Configure Details of Product
     func configureDetailsOfProduct(){
         
         productName.text = productDetailsViewModel?.bindProductNameOfProduct()
@@ -102,8 +146,25 @@ extension ProductDetailsViewController{
         
     }
     
+    //MARK: - Configure Details of Quantity Product
+    func avalibleQuntatity(){
+        avalibleQuantity.text = productDetailsViewModel?.bindAvaliableQuantityOfProduct()
+    }
+    
+    //MARK: - Set Rating for Product
+    func setRattingToProduct(){
+        
+        rating.rating = productRatting.randomValue
+    }
+    
+    
+    
+    
+    
     
   
 }
+
+
 
 
