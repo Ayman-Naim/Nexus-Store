@@ -17,9 +17,9 @@ class ViewController: UIViewController {
 
     @IBAction func ayman(_ sender: Any) {
         let vc = SignInViewController()
-        let nav1 = UINavigationController()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+        
+        
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     @IBAction func khater(_ sender: Any) {
