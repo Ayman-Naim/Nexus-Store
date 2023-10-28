@@ -17,6 +17,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.delegate = self
         tableView.dataSource = self
         // Do any additional setup after loading the view.
+        tableView.register(UINib(nibName: "SettingsTableViewCell", bundle:nil), forCellReuseIdentifier: "settingsCell")
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -32,27 +33,27 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         case 0:
             let cell =  tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsTableViewCell
             cell.settingsLabel.text = "About US"
-            cell.imgView.image = UIImage(named: "Wallet")
+            cell.imgView.image = UIImage(named: "about us")
             return cell
         case 1:
             let cell =  tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsTableViewCell
             cell.settingsLabel.text = "Currency"
-            cell.imgView.image = UIImage(named: "Wallet")
+            cell.imgView.image = UIImage(named: "currencyy")
             return cell
         case 2:
             let cell =  tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsTableViewCell
-            cell.settingsLabel.text = "CurrAddressency"
-            cell.imgView.image = UIImage(named: "Wallet")
+            cell.settingsLabel.text = "Address"
+            cell.imgView.image = UIImage(named: "address")
             return cell
         case 3:
             let cell =  tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsTableViewCell
             cell.settingsLabel.text = "Logout"
-            cell.imgView.image = UIImage(named: "Wallet")
+            cell.imgView.image = UIImage(named: "logoutt")
             return cell
         default:
             let cell =  tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsTableViewCell
             cell.settingsLabel.text = "Nexus-Store"
-            cell.imgView.image = UIImage(named: "Wallet")
+            cell.imgView.image = UIImage(named: "AppIcon")
             return cell
         }
     }
