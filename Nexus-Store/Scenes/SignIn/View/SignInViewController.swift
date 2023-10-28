@@ -34,6 +34,13 @@ class SignInViewController: UIViewController {
                 if let error = error {
                     // Handle sign-in error
                     print("Sign-in error: \(error.localizedDescription)")
+                    let alert = UIAlertController(title: "Error Trial To Sign In", message: "Please Enter valid email and password or Create a new account!", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Create Account", style: .default, handler: { action in
+                        let signupVC = SignUpViewController()
+                        self.navigationController?.pushViewController(signupVC, animated: true)
+                    }))
+                    alert.addAction(UIAlertAction(title: "Try Again", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                     return
                 }
             let nav = UINavigationController(rootViewController: NexusTabBarController())
@@ -45,26 +52,23 @@ class SignInViewController: UIViewController {
                 let userId = user.uid
                 print("User ID: \(userId)")
             }
+            if let customerID = UserDefaults.standard.string(forKey: "customerID") {
+                // Use the customerID
+                print("Customer ID: \(customerID)")
+            } else {
+                // Customer ID is not available in UserDefaults
+                print("Customer ID is not available")
+            }
             self.present(tabBar, animated: true)
 
             }
     }
     
-    func showSignUpButton(emai: String, password: String){
-        let alert = UIAlertController(title: "Create Account", message: "Please Create Account First!", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { action in
-            let signupVC = SignUpViewController()
-            //signupVC.modalPresentationStyle = .fullScreen
-            self.present(signupVC, animated: true)
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
     @IBAction func signupButtonClicked(_ sender: UIButton) {
         let signupVC = SignUpViewController()
         //signupVC.modalPresentationStyle = .fullScreen
-        self.present(signupVC, animated: true)
+    //    self.present(signupVC, animated: true)
+        self.navigationController?.pushViewController(signupVC, animated: true)
     }
     
 }
