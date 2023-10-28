@@ -62,26 +62,25 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         return 120
     }
     
-    /*
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if selectedPayment != nil {
-            guard let previusSelectedcell  = tableView.cellForRow(at: selectedPayment!) as? PaymentTableViewCell else{return}
-            
-            previusSelectedcell.checkedBox.image = UIImage(named: "unchecked")
-            guard let cell = tableView.cellForRow(at: indexPath) as? PaymentTableViewCell else {
-                return}
-            
-            cell.checkedBox.image = UIImage(named: "checked")
-            selectedPayment = indexPath
-        }else{
-            selectedPayment = indexPath
-            guard let cell = tableView.cellForRow(at: indexPath) as? PaymentTableViewCell else {
-                return}
-            
-            cell.checkedBox.image = UIImage(named: "checked")
-            
+        switch indexPath.row{
+        case 0:
+            let aboutUsVC = AddAddressViewController()
+            self.navigationController?.pushViewController(aboutUsVC, animated: true)
+        case 1:
+            let currencyVC = SignInViewController()
+            self.navigationController?.pushViewController(currencyVC, animated: true)
+        case 2:
+            let addressVC = AddAddressViewController()
+            self.navigationController?.pushViewController(addressVC, animated: true)
+        case 3:
+            let signinVC = SignInViewController()
+      //      self.navigationController?.pushViewController(signinVC, animated: true)
+            self.navigationController?.setViewControllers([signinVC], animated: true)
+        default:
+            print("Default")
         }
-    }*/
+    }
 
 }
