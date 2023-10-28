@@ -70,7 +70,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="RRH-ng-2ab">
                     <rect key="frame" x="20" y="250" width="353" height="100"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I1f-ZT-4vz">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="khater" translatesAutoresizingMaskIntoConstraints="NO" id="I1f-ZT-4vz">
                             <rect key="frame" x="0.0" y="0.0" width="151.66666666666666" height="100"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="7b0-69-xvb"/>
@@ -81,7 +81,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4H0-gi-qk2">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mustafa" translatesAutoresizingMaskIntoConstraints="NO" id="4H0-gi-qk2">
                             <rect key="frame" x="201.66666666666663" y="0.0" width="151.33333333333337" height="100"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="gKS-cj-JqF"/>
@@ -186,6 +186,8 @@
         <image name="Ahmed" width="576" height="576"/>
         <image name="App-logo" width="700" height="700"/>
         <image name="Ayman" width="472" height="709"/>
+        <image name="Mustafa" width="444" height="460"/>
+        <image name="khater" width="686" height="646"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
