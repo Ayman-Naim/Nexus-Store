@@ -16,17 +16,14 @@ protocol ProductDetailsDelegation{
     func bindProductTypeOfProduct()->String?
     func bindProductDescriptionOfProduct()->String?
     func bindProductPriceOfProduct()->String?
+    func bindAvaliableQuantityOfProduct()->String?
+
+    
     
 
 }
 
 class ProductDetailsViewModel:ProductDetailsDelegation{
-   
-    
-    
-   
-    
-    
     
     var productItem:Product
     
@@ -46,6 +43,15 @@ class ProductDetailsViewModel:ProductDetailsDelegation{
         }
         return "$300"
     }
+    
+    func bindAvaliableQuantityOfProduct() -> String? {
+        let numberOfItemAvalabile = productItem.variants?.filter({ $0.option1 == productItem.options?.first?.values?[0] })
+        if let quantityAvalible = numberOfItemAvalabile?.first?.inventoryQuantity{
+            return "\(quantityAvalible) item"
+        }
+        return nil
+    }
+    
     
     
     

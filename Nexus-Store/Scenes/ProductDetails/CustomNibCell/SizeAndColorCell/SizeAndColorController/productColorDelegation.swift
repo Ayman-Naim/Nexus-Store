@@ -9,15 +9,30 @@ import UIKit
 class ProductColorDelegation: NSObject, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     
+    
+    
+    var itemDetails:Product
+    
+    init(itemDetails:Product) {
+      
+        self.itemDetails = itemDetails
+       
+    }
+   
     var colors:[UIColor] = [  #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1) , #colorLiteral(red: 0.5058823824, green: 0.3372549117, blue: 0.06666667014, alpha: 1) , #colorLiteral(red: 0.3098039329, green: 0.01568627544, blue: 0.1294117719, alpha: 1) , #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1) ]
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return colors.count
+        print("Color \(itemDetails.options?[1].values)")
+        return itemDetails.options?[1].values?.count ?? 0
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SizeColorCell.identifier, for: indexPath) as! SizeColorCell
         
-        cell.backGroundView.backgroundColor = colors[indexPath.row]
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SizeColorCell.identifier, for: indexPath) as! SizeColorCell
+        cell.backGroundView.configureDesignOfCellNotSelected(label: cell.sizeColorLabel)
+        cell.backGroundView.backgroundColor = UIColor.createSystemColor(from: itemDetails.options?[1].values?[indexPath.row])
+        cell.sizeColorLabel.textColor = UIColor.getContrastColor(for: cell.backGroundView.backgroundColor ?? UIColor.white)
         cell.sizeColorLabel.text =  indexPath.row == 0  ?   "✓" : ""
         
         return cell
@@ -53,5 +68,5 @@ class ProductColorDelegation: NSObject, UICollectionViewDelegate, UICollectionVi
     }
 
     
-    
+   
 }
