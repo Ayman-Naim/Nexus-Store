@@ -53,7 +53,7 @@ class CategoryViewController: UIViewController {
                     }else{
                         self.products = self.filterProduct
                     }
-                    self.CategoryCollectionView.reloadSections(self.productSection)
+                  //  self.CategoryCollectionView.reloadSections(self.productSection)
                     self.isLoadingIndicatorAnimating = false
                     self.CategoryCollectionView.isUserInteractionEnabled = true
                     

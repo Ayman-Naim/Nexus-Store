@@ -6,11 +6,12 @@
 //
 
 import UIKit
-
+import Lottie
 
 
 extension UIViewController {
     
+
     var isContentEmptyViewHidden: Bool {
         set {
             // Check if there is subview that is of type ContentEmptyView Class
@@ -91,5 +92,11 @@ extension UIViewController {
         imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
     }
+    
+    
+    
+
+   
+    
 }
 

@@ -117,7 +117,7 @@ class ProductDetailsViewController: UIViewController {
             sender.setImage(UIImage(systemName: K.favoriteIconSave,withConfiguration: UIImage.SymbolConfiguration(scale: .large)), for: .normal)
             wishListServices.addToWishList(productID: productItemDetails!.id, toCustomer: custemerId) { error in
                 if let error = error{
-                    print("There is an error Try Solve It!")
+                    print(error.localizedDescription)
                 }else{return}
             }
            
@@ -126,7 +126,7 @@ class ProductDetailsViewController: UIViewController {
             sender.setImage(UIImage(systemName: K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .large)), for: .normal)
             wishListServices.removeWishList(productID: productItemDetails!.id, fromCustomer: custemerId) { error in
                 if let error = error{
-                    print("There is an error Try Solve It!")
+                    print(error.localizedDescription)
                 }else{return}
             }
         }
@@ -158,6 +158,14 @@ class ProductDetailsViewController: UIViewController {
         }
     }
     
+    //MARK: - Test Add Promo Code To Product
+    @IBAction func AddToCartButton(_ sender: UIButton) {
+        
+        let vc = AddPromoCodeViewController()
+        vc.addPromoCodeViewModel = AddPromoCodeViewModel()
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
     
 }
 

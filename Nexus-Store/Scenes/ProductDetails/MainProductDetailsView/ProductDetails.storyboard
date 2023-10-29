@@ -523,6 +523,9 @@
                                                 <integer key="value" value="16"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="AddToCartButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Gqg-Lu-byL"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="Hso-HP-J2n"/>
@@ -581,6 +584,11 @@
             <point key="canvasLocation" x="-101.44927536231884" y="92.410714285714278"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="9Co-Us-UEs">
+            <size key="intrinsicContentSize" width="100" height="16"/>
+        </designable>
+    </designables>
     <resources>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="minus" catalog="system" width="128" height="26"/>

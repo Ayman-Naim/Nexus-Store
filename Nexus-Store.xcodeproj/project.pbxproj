@@ -78,6 +78,10 @@
 		4531FE4E2AE2EE3800F47528 /* productColorDelegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4531FE4C2AE2EE3800F47528 /* productColorDelegation.swift */; };
 		4531FE4F2AE2EE3800F47528 /* ProductSizeDelegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4531FE4D2AE2EE3800F47528 /* ProductSizeDelegation.swift */; };
 		4531FE512AE2EE4A00F47528 /* ProductReviewDelegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4531FE502AE2EE4A00F47528 /* ProductReviewDelegation.swift */; };
+		457276AD2AEE729800EE759D /* AddPromoCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457276AC2AEE729800EE759D /* AddPromoCodeViewModel.swift */; };
+		457276B02AEE7AC100EE759D /* PriceRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457276AF2AEE7AC100EE759D /* PriceRule.swift */; };
+		457276B22AEE7B3200EE759D /* DiscountCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457276B12AEE7B3200EE759D /* DiscountCode.swift */; };
+		457276B42AEED3A700EE759D /* SaveMoney.json in Resources */ = {isa = PBXBuildFile; fileRef = 457276B32AEED3A700EE759D /* SaveMoney.json */; };
 		459916B52AEBE8D2005F3C31 /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459916B42AEBE8D2005F3C31 /* ProductDetailsViewModel.swift */; };
 		459916B72AEC4195005F3C31 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459916B62AEC4195005F3C31 /* UIColor+Extension.swift */; };
 		459916B92AEC6024005F3C31 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459916B82AEC6024005F3C31 /* Double+Extension.swift */; };
@@ -237,6 +241,10 @@
 		4531FE4C2AE2EE3800F47528 /* productColorDelegation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = productColorDelegation.swift; sourceTree = "<group>"; };
 		4531FE4D2AE2EE3800F47528 /* ProductSizeDelegation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSizeDelegation.swift; sourceTree = "<group>"; };
 		4531FE502AE2EE4A00F47528 /* ProductReviewDelegation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductReviewDelegation.swift; sourceTree = "<group>"; };
+		457276AC2AEE729800EE759D /* AddPromoCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPromoCodeViewModel.swift; sourceTree = "<group>"; };
+		457276AF2AEE7AC100EE759D /* PriceRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRule.swift; sourceTree = "<group>"; };
+		457276B12AEE7B3200EE759D /* DiscountCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCode.swift; sourceTree = "<group>"; };
+		457276B32AEED3A700EE759D /* SaveMoney.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SaveMoney.json; sourceTree = "<group>"; };
 		459916B42AEBE8D2005F3C31 /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
 		459916B62AEC4195005F3C31 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		459916B82AEC6024005F3C31 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
@@ -371,6 +379,7 @@
 				010F61052AE49F2000DE7EB0 /* loading_2.json */,
 				010F61042AE49F2000DE7EB0 /* loading_3.json */,
 				010F610C2AE4A0B300DE7EB0 /* loading_4.json */,
+				457276B32AEED3A700EE759D /* SaveMoney.json */,
 			);
 			path = "LottieAnimations-JSON";
 			sourceTree = "<group>";
@@ -534,6 +543,8 @@
 		01D776BF2AE301D80079F2B5 /* Add-Promo-Code */ = {
 			isa = PBXGroup;
 			children = (
+				457276AE2AEE7AA300EE759D /* Model */,
+				457276AB2AEE725E00EE759D /* AddPromoCodeViewModel */,
 				01D776C02AE301F80079F2B5 /* View */,
 			);
 			path = "Add-Promo-Code";
@@ -751,6 +762,23 @@
 				45B1EC932AE923CB00E690F9 /* Variants.swift */,
 				45B1EC952AE9249C00E690F9 /* Options.swift */,
 				45B1EC972AE9250E00E690F9 /* Image.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		457276AB2AEE725E00EE759D /* AddPromoCodeViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				457276AC2AEE729800EE759D /* AddPromoCodeViewModel.swift */,
+			);
+			path = AddPromoCodeViewModel;
+			sourceTree = "<group>";
+		};
+		457276AE2AEE7AA300EE759D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				457276AF2AEE7AC100EE759D /* PriceRule.swift */,
+				457276B12AEE7B3200EE759D /* DiscountCode.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1684,6 +1712,7 @@
 				010F610D2AE4A0B300DE7EB0 /* loading_4.json in Resources */,
 				011281AA2AE18D7B00844137 /* ShippingViewController.xib in Resources */,
 				5BC20AD52AE1D0170071925A /* SocialTableViewCell.xib in Resources */,
+				457276B42AEED3A700EE759D /* SaveMoney.json in Resources */,
 				010F61092AE49F2000DE7EB0 /* loading_2.json in Resources */,
 				45123AB42AE2149E001B12B7 /* productDetailsCell.xib in Resources */,
 				E35BC5872AE0A8B900742654 /* SectionHeaderReusableView.xib in Resources */,
@@ -1843,6 +1872,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				457276B22AEE7B3200EE759D /* DiscountCode.swift in Sources */,
 				E340D1EA2AE79A2500E2E017 /* NetworkManger.swift in Sources */,
 				E34556722AE1D18200312C6C /* SectionHeaderTableViewCell.swift in Sources */,
 				45123AB12AE2149E001B12B7 /* ReviewProductCell.swift in Sources */,
@@ -1868,6 +1898,7 @@
 				E35BC5862AE0A8B900742654 /* SectionHeaderReusableView.swift in Sources */,
 				45D0E8912AE0A04800A07332 /* K.swift in Sources */,
 				5BC20AC52AE190CA0071925A /* SignUpViewController.swift in Sources */,
+				457276AD2AEE729800EE759D /* AddPromoCodeViewModel.swift in Sources */,
 				E37B4DE52AE301B80051EB89 /* PayMethodViewController.swift in Sources */,
 				E34FE6302AE954D9006602A5 /* ProfileVM.swift in Sources */,
 				5B9A02782AEC29F3007DC704 /* SignUp.swift in Sources */,
@@ -1907,6 +1938,7 @@
 				01D776C32AE3021C0079F2B5 /* AddPromoCodeViewController.swift in Sources */,
 				01A0EB8A2AE071A1004310FC /* CartViewController.swift in Sources */,
 				0199C9972AEC0AD5007B3122 /* CartViewModel.swift in Sources */,
+				457276B02AEE7AC100EE759D /* PriceRule.swift in Sources */,
 				E34556662AE1AD9400312C6C /* OrderTableViewCell.swift in Sources */,
 				01A0EB932AE075CB004310FC /* ProductLandscapeTVCell.swift in Sources */,
 				01694EE22AE53128009FC373 /* SearchViewController.swift in Sources */,
