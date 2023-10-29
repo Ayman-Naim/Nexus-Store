@@ -66,6 +66,7 @@ class HomeViewController: UIViewController {
         self.ProfileImage.layer.cornerRadius = self.ProfileImage.frame.size.width/2;
         self.ProfileImage.layer.masksToBounds = true
         self.ProfileImage.contentMode = .scaleAspectFill
+        self.ProfileImage.layer.borderWidth = 1.5
         
     }
     
@@ -259,9 +260,12 @@ extension HomeViewController :UICollectionViewDelegate,UICollectionViewDataSourc
         case 0 :
             // write to clipboard
             UIPasteboard.general.string = "\(indexPath.row)"
-            guard let promo = UIPasteboard.general.string else{return}
-            Alert.show(on: self, title: "Offer Code", message: "the offer promo code is copied \(promo)")
             // resd to clipboard
+            guard let promo = UIPasteboard.general.string else{return}
+            //Alett for promo copied
+            Alert.show(on: self, title: "Offer Code", message: "the offer promo code is copied \(promo)", actions: [(UIAlertAction(title: "ok", style: .default))])
+            
+       
       
             
         case 1 :
