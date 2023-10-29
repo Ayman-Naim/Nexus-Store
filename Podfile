@@ -16,7 +16,6 @@ target 'Nexus-Store' do
 	pod 'FirebaseCore'
         pod 'Firebase/Google'
 
-
 target 'Nexus-Admin' do
         pod 'Kingfisher', '~> 7.0'
 	pod 'lottie-ios'
