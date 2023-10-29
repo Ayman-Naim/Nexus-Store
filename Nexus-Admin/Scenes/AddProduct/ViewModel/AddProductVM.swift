@@ -17,6 +17,7 @@ class AddProductVM{
                 "body_html": "<strong>\(Descriotion)</strong>",//product descrioption
                 "vendor": "\(vendor)", // vendor name
                 "product_type": "\(type)", // product type
+                "variants": []
                 
             ] as [String : Any]
         ]
