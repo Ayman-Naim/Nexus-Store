@@ -18,7 +18,7 @@ class EditProductViewController: UIViewController {
     
     enum EditType {
         case title(String)
-//        case productType(ProductType)
+        case productType(ProductTypeM)
         case description(String)
         case addImage
         case addSizeColor
@@ -48,7 +48,6 @@ class EditProductViewController: UIViewController {
             guard let self = self else { return }
             if isSaved {
                 let closeAction = UIAlertAction(title: "Close", style: .default) { _ in
-                    //self.dismiss(animated: true)
                     self.navigationController?.popViewController(animated: true)
                 }
                 Alert.show(on: self, title: "Success", message: "Data is saved successfully", actions: [closeAction])
@@ -82,8 +81,8 @@ class EditProductViewController: UIViewController {
             viewModel?.editProduct(type: .addSizeColor, value: sizeTextField.text!, colorTextField.text!)
         } else {
             // Handle Cases: .productType
-//            let selectedProductType = ProductType.allCases[segmentControl.selectedSegmentIndex].rawValue
-//            viewModel?.editProduct(type: editType, value: selectedProductType)
+            let selectedProductType = ProductTypeM.allCases[segmentControl.selectedSegmentIndex].rawValue
+            viewModel?.editProduct(type: editType, value: selectedProductType)
         }
     }
     
@@ -106,15 +105,15 @@ class EditProductViewController: UIViewController {
             segmentControl.isHidden = true
             imageView.isHidden = true
             
-//        case .productType(let productType):
-//            title = "Product Type"
-//            textView.isHidden = true
-//            imageView.isHidden = true
-//            segmentControl.removeAllSegments()
-//            for index in ProductType.allCases.indices {
-//                segmentControl.insertSegment(withTitle: ProductType.allCases[index].rawValue, at: index, animated: true)
-//            }
-//            segmentControl.selectedSegmentIndex = ProductType.allCases.firstIndex(of: productType) ?? 0
+        case .productType(let productType):
+            title = "Product Type"
+            textView.isHidden = true
+            imageView.isHidden = true
+            segmentControl.removeAllSegments()
+            for index in ProductTypeM.allCases.indices {
+                segmentControl.insertSegment(withTitle: ProductTypeM.allCases[index].rawValue, at: index, animated: true)
+            }
+            segmentControl.selectedSegmentIndex = ProductTypeM.allCases.firstIndex(of: productType) ?? 0
             
         case .addImage:
             title = "Add New Image"

@@ -28,9 +28,9 @@ class EditProductViewModel {
         case .title:
             guard let title = value.first else { return }
             sendUpdateProductRequest(with: urlString + ".json", method: .put, params: ["product": ["title": title]])
-//        case .productType:
-//            guard let type = value.first else { return }
-//            sendUpdateProductRequest(with: urlString + ".json", method: .put, params: ["product": ["product_type": type]])
+        case .productType:
+            guard let type = value.first else { return }
+            sendUpdateProductRequest(with: urlString + ".json", method: .put, params: ["product": ["product_type": type]])
         case .description:
             guard let description = value.first else { return }
             sendUpdateProductRequest(with: urlString + ".json", method: .put, params: ["product": ["body_html": description]])
