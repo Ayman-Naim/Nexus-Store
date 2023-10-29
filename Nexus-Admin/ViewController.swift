@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func mostafa(_ sender: Any) {
-        let brandViewModel = BrandProductViewModel(brandId: 413225681132)
+        let brandViewModel = BrandProductViewModel(brandId: 413225648364)
         let vc = BrandProductsViewController()
         vc.brandProductDelegation = brandViewModel
         self.navigationController?.pushViewController(vc, animated: true)

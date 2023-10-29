@@ -37,6 +37,7 @@ class BrandProductsViewController: UIViewController {
         super.viewDidLoad()
         configureDelegationAndDataSource()
         configureNetwoorkCall()
+        addProductButton()
 
         // Do any additional setup after loading the view.
         
@@ -97,6 +98,24 @@ extension BrandProductsViewController:UICollectionViewDelegate,UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 25, bottom: 10, right: 25)
+    }
+    
+}
+
+//MARK: - Adding Function Nedded To Brand Controller
+extension BrandProductsViewController {
+    
+    //MARK: - Addinf Right Button Navigation
+    func addProductButton(){
+        
+        let addProduct = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addProductToBrand))
+        
+        navigationItem.rightBarButtonItem = addProduct
+        
+    }
+    
+    @objc func addProductToBrand(){
+        
     }
     
 }
