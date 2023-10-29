@@ -66,6 +66,7 @@ class HomeViewController: UIViewController {
         self.ProfileImage.layer.cornerRadius = self.ProfileImage.frame.size.width/2;
         self.ProfileImage.layer.masksToBounds = true
         self.ProfileImage.contentMode = .scaleAspectFill
+        self.ProfileImage.layer.borderWidth = 1.5
         
     }
     
@@ -239,11 +240,7 @@ extension HomeViewController :UICollectionViewDelegate,UICollectionViewDataSourc
             else{
                 cell.BrandLogo.image = UIImage(named: "App-logo")
             }
-
             
-         
-                                                                                                                           
-
             cell.BrandName.text = brands[indexPath.row].title
             return cell
         default:
@@ -259,10 +256,27 @@ extension HomeViewController :UICollectionViewDelegate,UICollectionViewDataSourc
        
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = CategoryViewController()
-        vc.fromBrand = true
-        vc.vendor = brands[indexPath.item].title
-        self.navigationController?.pushViewController(vc, animated: true)
+        switch indexPath.section{
+        case 0 :
+            // write to clipboard
+            UIPasteboard.general.string = "\(indexPath.row)"
+            // resd to clipboard
+            guard let promo = UIPasteboard.general.string else{return}
+            //Alett for promo copied
+            Alert.show(on: self, title: "Offer Code", message: "the offer promo code is copied \(promo)", actions: [(UIAlertAction(title: "ok", style: .default))])
+            
+       
+      
+            
+        case 1 :
+            let vc = CategoryViewController()
+            vc.fromBrand = true
+            vc.vendor = brands[indexPath.item].title
+            self.navigationController?.pushViewController(vc, animated: true)
+        default:
+            print("nothing")
+        }
+        
     }
     
     //function for resieze the image
