@@ -75,6 +75,7 @@
 		45BED45D2AEDC31000795D8A /* BrandProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BED4572AEDC31000795D8A /* BrandProductsViewController.swift */; };
 		45BED45E2AEDC31000795D8A /* productDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45BED45A2AEDC31000795D8A /* productDetailsCell.xib */; };
 		45BED45F2AEDC31000795D8A /* productDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BED45B2AEDC31000795D8A /* productDetailsCell.swift */; };
+		45BED4612AEDCA9100795D8A /* BrandProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BED4602AEDCA9100795D8A /* BrandProductViewModel.swift */; };
 		45D0E8912AE0A04800A07332 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D0E8902AE0A04800A07332 /* K.swift */; };
 		5B312CD32AEBD64E00394BDF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B312CD22AEBD64E00394BDF /* GoogleService-Info.plist */; };
 		5B9A02732AEC23E3007DC704 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A02722AEC23E3007DC704 /* CreateAccount.swift */; };
@@ -222,6 +223,7 @@
 		45BED4572AEDC31000795D8A /* BrandProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandProductsViewController.swift; sourceTree = "<group>"; };
 		45BED45A2AEDC31000795D8A /* productDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = productDetailsCell.xib; sourceTree = "<group>"; };
 		45BED45B2AEDC31000795D8A /* productDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = productDetailsCell.swift; sourceTree = "<group>"; };
+		45BED4602AEDCA9100795D8A /* BrandProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandProductViewModel.swift; sourceTree = "<group>"; };
 		45D0E8902AE0A04800A07332 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		5B312CD22AEBD64E00394BDF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B9A02722AEC23E3007DC704 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
@@ -735,6 +737,7 @@
 		45BED4542AEDC2BA00795D8A /* ProductBrandViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				45BED4602AEDCA9100795D8A /* BrandProductViewModel.swift */,
 			);
 			path = ProductBrandViewModel;
 			sourceTree = "<group>";
@@ -1730,6 +1733,7 @@
 				E3A60E882AEC992A008FEDB5 /* AdminNetManger.swift in Sources */,
 				E3A60E8A2AEC9B31008FEDB5 /* AdminLoginVM.swift in Sources */,
 				E3A3ED662AEC51FC00E44737 /* SignInViewController.swift in Sources */,
+				45BED4612AEDCA9100795D8A /* BrandProductViewModel.swift in Sources */,
 				E3E10C172AED86CE00567D8B /* AddProductVM.swift in Sources */,
 				E30A94512AE68A0800AB0F5F /* ViewController.swift in Sources */,
 				E3A60E7D2AEC87BA008FEDB5 /* BaseUrl.swift in Sources */,

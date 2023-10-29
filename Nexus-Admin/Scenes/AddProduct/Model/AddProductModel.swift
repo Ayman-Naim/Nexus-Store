@@ -6,6 +6,9 @@
 //
 
 import Foundation
+struct AllProduct:Hashable,Codable{
+    let products:[Product]
+}
 struct SingleProduct: Codable {
     let product: Product
 }
