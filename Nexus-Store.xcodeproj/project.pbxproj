@@ -28,7 +28,6 @@
 		0117D2AD2AED5E2A005D339B /* EditProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0117D2AB2AED5E2A005D339B /* EditProductViewController.xib */; };
 		0117D2AF2AED63D4005D339B /* EditProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0117D2AE2AED63D4005D339B /* EditProductViewModel.swift */; };
 		0117D2B02AED7058005D339B /* loading_4.json in Resources */ = {isa = PBXBuildFile; fileRef = 010F610C2AE4A0B300DE7EB0 /* loading_4.json */; };
-		0117D2B62AEDCD0C005D339B /* EditSizeColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0117D2B42AEDCD0C005D339B /* EditSizeColorViewController.swift */; };
 		01694EDE2AE4FF36009FC373 /* NexusTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01694EDD2AE4FF36009FC373 /* NexusTabBarController.swift */; };
 		01694EE22AE53128009FC373 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01694EE12AE53128009FC373 /* SearchViewController.swift */; };
 		0179F4BD2AEC439400114BD7 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179F4BB2AEC439400114BD7 /* ProductDetailsViewController.swift */; };
@@ -199,7 +198,6 @@
 		0117D2AA2AED5E2A005D339B /* EditProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProductViewController.swift; sourceTree = "<group>"; };
 		0117D2AB2AED5E2A005D339B /* EditProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProductViewController.xib; sourceTree = "<group>"; };
 		0117D2AE2AED63D4005D339B /* EditProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProductViewModel.swift; sourceTree = "<group>"; };
-		0117D2B42AEDCD0C005D339B /* EditSizeColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSizeColorViewController.swift; sourceTree = "<group>"; };
 		01694EDD2AE4FF36009FC373 /* NexusTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NexusTabBarController.swift; sourceTree = "<group>"; };
 		01694EE12AE53128009FC373 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		0179F4BB2AEC439400114BD7 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
@@ -465,22 +463,6 @@
 				0117D2A82AED485F005D339B /* CircularCollectionViewCell.swift */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		0117D2B22AEDCCCE005D339B /* EditSizeColor */ = {
-			isa = PBXGroup;
-			children = (
-				0117D2B32AEDCCEA005D339B /* View */,
-			);
-			path = EditSizeColor;
-			sourceTree = "<group>";
-		};
-		0117D2B32AEDCCEA005D339B /* View */ = {
-			isa = PBXGroup;
-			children = (
-				0117D2B42AEDCD0C005D339B /* EditSizeColorViewController.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		01694EDC2AE4FEE7009FC373 /* TabBar */ = {
@@ -1146,7 +1128,6 @@
 		E30A94692AE68C1700AB0F5F /* ProductDetails */ = {
 			isa = PBXGroup;
 			children = (
-				0117D2B22AEDCCCE005D339B /* EditSizeColor */,
 				E30A94752AE68D2E00AB0F5F /* View */,
 				E30A94742AE68D1B00AB0F5F /* ViewModel */,
 			);
@@ -1876,7 +1857,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				E3BB43842AEEFFCF00A0341F /* collectsModel.swift in Sources */,
 				E3BB43802AEEDDD800A0341F /* Brands.swift in Sources */,
 				0117D2AF2AED63D4005D339B /* EditProductViewModel.swift in Sources */,
@@ -1908,7 +1888,6 @@
 				0179F4CA2AEC681700114BD7 /* Alert.swift in Sources */,
 				0117D2A92AED485F005D339B /* CircularCollectionViewCell.swift in Sources */,
 				0179F4C22AEC5C8F00114BD7 /* Product.swift in Sources */,
-				0117D2B62AEDCD0C005D339B /* EditSizeColorViewController.swift in Sources */,
 				0194C58C2AEE7FA500465B5F /* ShopifyError.swift in Sources */,
 				E3E10C142AED7C7300567D8B /* AddProductViewController.swift in Sources */,
 				45BED45D2AEDC31000795D8A /* BrandProductsViewController.swift in Sources */,
