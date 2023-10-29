@@ -239,11 +239,7 @@ extension HomeViewController :UICollectionViewDelegate,UICollectionViewDataSourc
             else{
                 cell.BrandLogo.image = UIImage(named: "App-logo")
             }
-
             
-         
-                                                                                                                           
-
             cell.BrandName.text = brands[indexPath.row].title
             return cell
         default:
@@ -259,10 +255,24 @@ extension HomeViewController :UICollectionViewDelegate,UICollectionViewDataSourc
        
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = CategoryViewController()
-        vc.fromBrand = true
-        vc.vendor = brands[indexPath.item].title
-        self.navigationController?.pushViewController(vc, animated: true)
+        switch indexPath.section{
+        case 0 :
+            // write to clipboard
+            UIPasteboard.general.string = "\(indexPath.row)"
+            guard let promo = UIPasteboard.general.string else{return}
+            Alert.show(on: self, title: "Offer Code", message: "the offer promo code is copied \(promo)")
+            // resd to clipboard
+      
+            
+        case 1 :
+            let vc = CategoryViewController()
+            vc.fromBrand = true
+            vc.vendor = brands[indexPath.item].title
+            self.navigationController?.pushViewController(vc, animated: true)
+        default:
+            print("nothing")
+        }
+        
     }
     
     //function for resieze the image
