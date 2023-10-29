@@ -29,6 +29,12 @@ class HomeViewController: UIViewController {
         PageControl.numberOfPages = 15
         SerachBarText.delegate = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     func layoutSetup(){
         let layout = UICollectionViewCompositionalLayout { sectionIndex, enviroment in
             switch sectionIndex {
@@ -46,11 +52,11 @@ class HomeViewController: UIViewController {
     
     
     @IBAction func CartButtonClicked(_ sender: Any) {
+        self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.pushViewController(CartViewController(), animated: true)
     }
     
     @IBAction func favouriteButtonClicked(_ sender: Any) {
-        
         self.navigationController?.pushViewController(WishListViewController(), animated: true)
     }
     

@@ -35,6 +35,16 @@ class WishListViewController: UIViewController {
         ])
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,6 +109,10 @@ extension WishListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        let storyboard = UIStoryboard(name: ProductDetailsViewController.storyBoardName , bundle: nil)
+        let productDetailsVC = storyboard.instantiateViewController(withIdentifier: ProductDetailsViewController.identifier) as! ProductDetailsViewController
+        productDetailsVC.productDetailsViewModel = ProductDetailsViewModel(for: viewModel.getProductID(at: indexPath.row))
+        self.navigationController?.pushViewController(productDetailsVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
