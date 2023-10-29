@@ -94,6 +94,10 @@
 		5BC20AD12AE1C71D0071925A /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC20ACF2AE1C71D0071925A /* WelcomeViewController.xib */; };
 		5BC20AD42AE1D0170071925A /* SocialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20AD22AE1D0170071925A /* SocialTableViewCell.swift */; };
 		5BC20AD52AE1D0170071925A /* SocialTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC20AD32AE1D0170071925A /* SocialTableViewCell.xib */; };
+		5BFDC6472AEE683B00C2F6C7 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFDC6452AEE683B00C2F6C7 /* ContactUsViewController.swift */; };
+		5BFDC6482AEE683B00C2F6C7 /* ContactUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BFDC6462AEE683B00C2F6C7 /* ContactUsViewController.xib */; };
+		5BFDC64C2AEE69C900C2F6C7 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFDC64A2AEE69C900C2F6C7 /* ContactTableViewCell.swift */; };
+		5BFDC64D2AEE69C900C2F6C7 /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BFDC64B2AEE69C900C2F6C7 /* ContactTableViewCell.xib */; };
 		935B628CC7302E8E15C239CD /* Pods_Nexus_Store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E30A948E2AE690AC00AB0F5F /* Pods_Nexus_Store.framework */; };
 		D14182C7B08E56039861E606 /* Pods_Nexus_Store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EE52BF3C2B1CE37BD0BE425 /* Pods_Nexus_Store.framework */; };
 		E30A944D2AE68A0800AB0F5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30A944C2AE68A0800AB0F5F /* AppDelegate.swift */; };
@@ -241,6 +245,10 @@
 		5BC20ACF2AE1C71D0071925A /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		5BC20AD22AE1D0170071925A /* SocialTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialTableViewCell.swift; sourceTree = "<group>"; };
 		5BC20AD32AE1D0170071925A /* SocialTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialTableViewCell.xib; sourceTree = "<group>"; };
+		5BFDC6452AEE683B00C2F6C7 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
+		5BFDC6462AEE683B00C2F6C7 /* ContactUsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactUsViewController.xib; sourceTree = "<group>"; };
+		5BFDC64A2AEE69C900C2F6C7 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		5BFDC64B2AEE69C900C2F6C7 /* ContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
 		640C7D4D9600F97F07382C0A /* Pods_Nexus_Store_Nexus_StoreUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nexus_Store_Nexus_StoreUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64BBDC51FBA6EE2E9F3009A4 /* Pods-Nexus-Store-Nexus-Admin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nexus-Store-Nexus-Admin.debug.xcconfig"; path = "Target Support Files/Pods-Nexus-Store-Nexus-Admin/Pods-Nexus-Store-Nexus-Admin.debug.xcconfig"; sourceTree = "<group>"; };
 		660EDF30701FD7C11597AC93 /* Pods_Nexus_StoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nexus_StoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -777,6 +785,7 @@
 		5B9A02792AECBBD4007DC704 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				5BFDC64E2AEE6BB500C2F6C7 /* Component */,
 				5B9A027B2AECBC07007DC704 /* ViewModel */,
 				5B9A027A2AECBBF9007DC704 /* View */,
 			);
@@ -786,8 +795,6 @@
 		5B9A027A2AECBBF9007DC704 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5B9A027C2AECBC45007DC704 /* SettingsTableViewCell.swift */,
-				5B9A027D2AECBC45007DC704 /* SettingsTableViewCell.xib */,
 				5B9A02802AECBC79007DC704 /* SettingsViewController.swift */,
 				5B9A02812AECBC79007DC704 /* SettingsViewController.xib */,
 			);
@@ -896,6 +903,42 @@
 				5BC20AD32AE1D0170071925A /* SocialTableViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5BFDC6432AEE680900C2F6C7 /* ContactUs */ = {
+			isa = PBXGroup;
+			children = (
+				5BFDC6492AEE68AF00C2F6C7 /* Component */,
+				5BFDC6442AEE681600C2F6C7 /* View */,
+			);
+			path = ContactUs;
+			sourceTree = "<group>";
+		};
+		5BFDC6442AEE681600C2F6C7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5BFDC6452AEE683B00C2F6C7 /* ContactUsViewController.swift */,
+				5BFDC6462AEE683B00C2F6C7 /* ContactUsViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5BFDC6492AEE68AF00C2F6C7 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				5BFDC64A2AEE69C900C2F6C7 /* ContactTableViewCell.swift */,
+				5BFDC64B2AEE69C900C2F6C7 /* ContactTableViewCell.xib */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		5BFDC64E2AEE6BB500C2F6C7 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				5B9A027C2AECBC45007DC704 /* SettingsTableViewCell.swift */,
+				5B9A027D2AECBC45007DC704 /* SettingsTableViewCell.xib */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		835A8F3C12ED85B6C7C8C92A /* Pods */ = {
@@ -1309,6 +1352,7 @@
 		E37687DD2ADDFFFF00DB09A1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				5BFDC6432AEE680900C2F6C7 /* ContactUs */,
 				5B9A02842AECD036007DC704 /* AboutUs */,
 				5B9A02792AECBBD4007DC704 /* Settings */,
 				01694EE02AE530BD009FC373 /* Search */,
@@ -1599,10 +1643,12 @@
 				5BC20ACA2AE1911F0071925A /* SignInViewController.xib in Resources */,
 				E37687BA2ADDFFB800DB09A1 /* LaunchScreen.storyboard in Resources */,
 				45123AB62AE2149E001B12B7 /* CustomFooterSepertator.xib in Resources */,
+				5BFDC6482AEE683B00C2F6C7 /* ContactUsViewController.xib in Resources */,
 				011281AD2AE18D7B00844137 /* AddressTableViewCell.xib in Resources */,
 				4531FE4B2AE2EE2400F47528 /* ProductDetails.storyboard in Resources */,
 				010F61082AE49F2000DE7EB0 /* loading_3.json in Resources */,
 				010F610D2AE4A0B300DE7EB0 /* loading_4.json in Resources */,
+				5BFDC64D2AEE69C900C2F6C7 /* ContactTableViewCell.xib in Resources */,
 				011281AA2AE18D7B00844137 /* ShippingViewController.xib in Resources */,
 				5BC20AD52AE1D0170071925A /* SocialTableViewCell.xib in Resources */,
 				010F61092AE49F2000DE7EB0 /* loading_2.json in Resources */,
@@ -1746,6 +1792,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BFDC64C2AEE69C900C2F6C7 /* ContactTableViewCell.swift in Sources */,
 				E340D1EA2AE79A2500E2E017 /* NetworkManger.swift in Sources */,
 				E34556722AE1D18200312C6C /* SectionHeaderTableViewCell.swift in Sources */,
 				45123AB12AE2149E001B12B7 /* ReviewProductCell.swift in Sources */,
@@ -1811,6 +1858,7 @@
 				01A0EB8A2AE071A1004310FC /* CartViewController.swift in Sources */,
 				0199C9972AEC0AD5007B3122 /* CartViewModel.swift in Sources */,
 				E34556662AE1AD9400312C6C /* OrderTableViewCell.swift in Sources */,
+				5BFDC6472AEE683B00C2F6C7 /* ContactUsViewController.swift in Sources */,
 				01A0EB932AE075CB004310FC /* ProductLandscapeTVCell.swift in Sources */,
 				01694EE22AE53128009FC373 /* SearchViewController.swift in Sources */,
 				45B1EC982AE9250E00E690F9 /* Image.swift in Sources */,
