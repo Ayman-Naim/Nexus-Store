@@ -21,22 +21,29 @@ class EditProductViewModel {
         self.productID = productID
     }
     
-    func editProduct(type: EditProductViewController.EditType, value: String) {
+    func editProduct(type: EditProductViewController.EditType, value: String...) {
         let urlString = K.baseURL + "/products/\(productID)"
         
         switch type {
         case .title:
-            sendUpdateProductRequest(with: urlString + ".json", method: .put, params: ["product": ["title": value]])
-        case .productType:
-            sendUpdateProductRequest(with: urlString + ".json", method: .put, params: ["product": ["product_type": value]])
+            guard let title = value.first else { return }
+            sendUpdateProductRequest(with: urlString + ".json", method: .put, params: ["product": ["title": title]])
+//        case .productType:
+//            guard let type = value.first else { return }
+//            sendUpdateProductRequest(with: urlString + ".json", method: .put, params: ["product": ["product_type": type]])
         case .description:
-            sendUpdateProductRequest(with: urlString + ".json", method: .put, params: ["product": ["body_html": value]])
+            guard let description = value.first else { return }
+            sendUpdateProductRequest(with: urlString + ".json", method: .put, params: ["product": ["body_html": description]])
         case .addImage:
-            if value.isEmpty {
-                self.error?("Need to add url to the image in text field")
+            guard let urlString = value.first else { return }
+            if let _ = URL(string: urlString)  {
+                sendUpdateProductRequest(with: urlString + "/images.json", method: .post, params: ["image": ["src": urlString]])
             } else {
-                sendUpdateProductRequest(with: urlString + "/images.json", method: .post, params: ["image": ["src": value]])
+                self.error?("The URL you added is not valid!")
             }
+            
+        case .addSizeColor:
+            print(value)
         }
     }
     
