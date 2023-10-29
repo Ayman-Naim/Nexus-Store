@@ -17,17 +17,21 @@ enum BaseUrl:String{
     
     case customer
     case AddProduct
+    case Brand
+    case collects
     case BrandProduct
     case productDetails
+
 
     var enpoint :String {
         switch self {
         case .customer: return "\(BaseUrl.baseURL)customers/search.json?query=email:\(BaseUrl.AdminEmail)"
         case.AddProduct: return "\(BaseUrl.baseURL)products.json"
+        case .Brand : return "\(BaseUrl.baseURL)smart_collections.json"
+        case.collects : return "\(BaseUrl.baseURL)collects.json"
         case .BrandProduct: return "\(BaseUrl.baseURL)collections/\(BaseUrl.brandId)/products.json"
         case .productDetails : return "\(BaseUrl.baseURL)products/\(BaseUrl.productId).json"
-            
-            
+
        
 
         }

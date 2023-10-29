@@ -40,6 +40,7 @@ class AdminNetManger {
                 case .success(let data ):
                     do {
                         let result = try JSONDecoder().decode(decodingModel, from: data)
+                        
                         completion(.success(result))
                     } catch {
                         completion(.failure(error))

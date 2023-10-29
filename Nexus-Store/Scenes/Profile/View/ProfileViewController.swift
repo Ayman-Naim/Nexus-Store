@@ -52,7 +52,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func WishListClicked(_ sender: Any) {
-        //
+        self.navigationController?.pushViewController(SettingsViewController(), animated: true)
     }
 }
 
@@ -147,6 +147,11 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
         }
     }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let url = URL(string: orders[indexPath.row].order_status_url ?? "") else { return }
+        UIApplication.shared.open(url)
+    }
     
     
    

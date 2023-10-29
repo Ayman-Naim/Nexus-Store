@@ -31,7 +31,7 @@ class CartViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func checkoutButtonPressed(_ sender: UIButton) {
-        //self.navigationController?.pushViewController(ShippingViewController(), animated: true)
+        self.navigationController?.pushViewController(ShippingViewController(), animated: true)
     }
     
     

@@ -10,7 +10,8 @@ import Alamofire
 class ProfileVM{
     
     func getOrders(completion:@escaping (Result<[Order], Error>) -> Void){
-        ApiManger.SharedApiManger.fetchData(url: .orders, decodingModel: profileOrder.self) { result in
+        BaseUrl.userID = 6899149603052
+        ApiManger.SharedApiManger.fetchData(url: .usersOrder, decodingModel: profileOrder.self) { result in
             switch result{
             case .success(let data):
                 guard let orders =  data.orders else{return}
