@@ -45,14 +45,13 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
                                             <imageReference key="image" image="heart" catalog="system" symbolScale="medium"/>
-                                            <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="baseForegroundColor" systemColor="systemPinkColor"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="pressFavoriteButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="f6i-QO-5rC"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" name="Title"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="YWe-jc-lN1"/>
                                     <constraint firstItem="xg6-bS-TPd" firstAttribute="centerX" secondItem="UaL-qH-LzU" secondAttribute="centerX" id="rgM-pc-K6l"/>
@@ -187,5 +186,8 @@
         <namedColor name="Title">
             <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

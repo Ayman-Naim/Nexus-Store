@@ -130,7 +130,6 @@ class ProductDetailsViewController: UIViewController {
                 }else{return}
             }
         }
-        sender.tintColor = .black
         
     }
     

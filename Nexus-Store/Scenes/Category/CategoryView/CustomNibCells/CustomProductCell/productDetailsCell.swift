@@ -35,13 +35,12 @@ class productDetailsCell: UICollectionViewCell {
         
         
     }
-//    override func prepareForReuse() {
-//        super.prepareForReuse()
-//        favoriteIcon.setImage(UIImage(systemName: K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
-//        favoriteIcon.tintColor = .white
-//
-//
-//    }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        favoriteIcon.setImage(UIImage(systemName: K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
+
+
+    }
     
     @IBAction func pressFavoriteButton(_ sender: Any) {
         delegate?.didTapButtonInCell(self)
@@ -55,6 +54,11 @@ class productDetailsCell: UICollectionViewCell {
         productPrice.text = "$\(product?.variants?.first?.price ?? "300")"
         productId = product?.id
 
+    }
+    
+    
+    func setFavorite(){
+        favoriteIcon.setImage(UIImage(systemName: K.favoriteIconSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
     }
     
     

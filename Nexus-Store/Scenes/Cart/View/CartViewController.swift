@@ -66,7 +66,6 @@ class CartViewController: UIViewController {
             self?.totalPriceLabel.text = totalPriceText
         }
     }
-    
 }
 
 

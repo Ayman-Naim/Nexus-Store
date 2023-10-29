@@ -35,6 +35,10 @@ class WishListViewModel {
         cell.hideQuantity()
     }
     
+    func getProductID(at index: Int) -> Int {
+        return wishList[index].id
+    }
+    
     func fetchProducts() {
         loadingIndicator?(true)
         service.getWishlist(forCustom: userID) { [weak self] result in
