@@ -123,7 +123,6 @@ class ProductDetailsViewController: UIViewController {
         layout.scrollDirection = .horizontal
         sizeCollectionView.setCollectionViewLayout(layout, animated: true)
         sizeCollectionView.showsHorizontalScrollIndicator = false
-        //sizeCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .centeredHorizontally)
     }
     
     private func setupColorCollectionView() {
@@ -136,16 +135,28 @@ class ProductDetailsViewController: UIViewController {
         layout.scrollDirection = .horizontal
         colorCollectionView.setCollectionViewLayout(layout, animated: true)
         colorCollectionView.showsHorizontalScrollIndicator = false
-        //colorCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .centeredHorizontally)
     }
     
     private func bindViewModel() {
         viewModel.reload = { [weak self] in
-            self?.imageCollectionView.reloadData()
-            self?.sizeCollectionView.reloadData()
-            self?.colorCollectionView.reloadData()
+            guard let self = self else { return }
+            self.imageCollectionView.reloadData()
+            self.sizeCollectionView.reloadData()
+            self.colorCollectionView.reloadData()
             //self?.sizeCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .centeredHorizontally)
             //self?.colorCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+            
+            self.sizeCollectionView.performBatchUpdates {
+                if self.viewModel.numberOfSizes > 0 {
+                    self.sizeCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+                }
+            }
+            
+            self.colorCollectionView.performBatchUpdates {
+                if self.viewModel.numberOfColor > 0 {
+                    self.colorCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+                }
+            }
         }
         
         viewModel.error = { [weak self] errorMessage in

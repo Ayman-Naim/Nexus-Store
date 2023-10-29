@@ -129,6 +129,28 @@ class ProductDetailsViewModel {
         }
     }
     
+    private func filterFields() {
+        guard let product = product else { return }
+        images = product.images
+        if let sizes = product.options.first(where: { $0.name == "Size" })?.values {
+            self.sizes = sizes
+        }
+
+        if let colors = product.options.first(where: { $0.name == "Color" })?.values {
+            self.colors = colors
+        }
+        updateCurrentVariant()
+    }
+    
+    
+    private func updateCurrentVariant() {
+        guard let product = product, !sizes.isEmpty, !colors.isEmpty else {
+            currentVariant = product?.variants.first
+            return
+        }
+        currentVariant = product.variants.first(where: { $0.title == "\(sizes[selectedSize]) / \(colors[selectedColor])" })
+    }
+    
     func deleteImage(at index: Int) {
         guard !images.isEmpty else {
             self.error?("No image to be deleted!")
@@ -152,28 +174,6 @@ class ProductDetailsViewModel {
                 self.error?(error.localizedDescription)
             }
         }
-    }
-    
-    private func filterFields() {
-        guard let product = product else { return }
-        images = product.images
-        if let sizes = product.options.first(where: { $0.name == "Size" })?.values {
-            self.sizes = sizes
-        }
-
-        if let colors = product.options.first(where: { $0.name == "Color" })?.values {
-            self.colors = colors
-        }
-        updateCurrentVariant()
-    }
-    
-    
-    private func updateCurrentVariant() {
-        guard let product = product, !sizes.isEmpty, !colors.isEmpty else {
-            currentVariant = product?.variants.first
-            return
-        }
-        currentVariant = product.variants.first(where: { $0.title == "\(sizes[selectedSize]) / \(colors[selectedColor])" })
     }
     
     func saveNewQuantity() {
@@ -215,6 +215,7 @@ class ProductDetailsViewModel {
             case .success(let data):
                 //print(String(data: data!, encoding: .utf8) ?? "")
                 self.saved?(data != nil)
+                self.fetchProduct(id: self.productID)
                 DispatchQueue.main.async {
                     self.hideSavePriceButton?(true)
                 }
@@ -237,6 +238,7 @@ class ProductDetailsViewModel {
             case .success(let data):
                 //print(String(data: data!, encoding: .utf8) ?? "")
                 self.saved?(data != nil)
+                self.fetchProduct(id: self.productID)
                 
             case .failure(let error):
                 self.error?(error.localizedDescription)
