@@ -42,59 +42,58 @@ class ProductDetailsViewController: UIViewController {
         super.viewWillAppear(animated)
         // 8054104424684
         // 8031031165164
-//        viewModel.fetchProduct(id: 8031031165164)
+        viewModel.fetchProduct(id: 8031031165164)
     }
     
     
     
     // MARK: - IBAction
     @IBAction func deleteImageButtonPressed(_ sender: UIButton) {
-//        viewModel.deleteImage(at: pageControl.currentPage)
+        viewModel.deleteImage(at: pageControl.currentPage)
     }
     
     @IBAction func addImageButtonPressed(_ sender: UIButton) {
-//        EditProductViewController.present(on: self, editingOn: .addImage, productID: viewModel.productID)
+        EditProductViewController.present(on: self, editingOn: .addImage, productID: viewModel.productID)
     }
     
     @IBAction func editTitleButtonPressed(_ sender: UIButton) {
-//        EditProductViewController.present(on: self, editingOn: .title(titleLabel.text!), productID: viewModel.productID)
+        EditProductViewController.present(on: self, editingOn: .title(titleLabel.text!), productID: viewModel.productID)
     }
     
     @IBAction func editTypeButtonPressed(_ sender: UIButton) {
-//        EditProductViewController.present(on: self, editingOn: .productType(viewModel.productType), productID: viewModel.productID)
+        EditProductViewController.present(on: self, editingOn: .productType(viewModel.productType), productID: viewModel.productID)
     }
     
     @IBAction func editDescriptionButtonPressed(_ sender: UIButton) {
-//        EditProductViewController.present(on: self, editingOn: .description(descriptionLabel.text!), productID: viewModel.productID)
+        EditProductViewController.present(on: self, editingOn: .description(descriptionLabel.text!), productID: viewModel.productID)
     }
     
     @IBAction func quantityButtonPressed(_ sender: UIButton) {
         // Minus Button
         if sender.tag == 0 {
-//            viewModel.decrementQuantity()
-            
+            viewModel.decrementQuantity()
         }
         
         // Plus Button
         if sender.tag == 1 {
-//            viewModel.incrementQuantity()
+            viewModel.incrementQuantity()
         }
     }
     
     @IBAction func saveQuantityButtonPressed(_ sender: UIButton) {
-//        viewModel.saveNewQuantity()
+        viewModel.saveNewQuantity()
     }
     
     
     @IBAction func savePriceButtonPressed(_ sender: UIButton) {
-//        viewModel.savePrice(priceTextField.text)
+        viewModel.savePrice(priceTextField.text)
     }
     
     @IBAction func deleteProductButtonPressed(_ sender: UIButton) {
-//        viewModel.deleteProduct()
+        viewModel.deleteProduct()
     }
     @IBAction func addNewSizeColorButtonPressed(_ sender: UIButton) {
-//        EditProductViewController.present(on: self, editingOn: .addSizeColor, productID: viewModel.productID)
+        EditProductViewController.present(on: self, editingOn: .addSizeColor, productID: viewModel.productID)
     }
     
     
@@ -124,7 +123,6 @@ class ProductDetailsViewController: UIViewController {
         layout.scrollDirection = .horizontal
         sizeCollectionView.setCollectionViewLayout(layout, animated: true)
         sizeCollectionView.showsHorizontalScrollIndicator = false
-        //sizeCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .centeredHorizontally)
     }
     
     private func setupColorCollectionView() {
@@ -137,58 +135,70 @@ class ProductDetailsViewController: UIViewController {
         layout.scrollDirection = .horizontal
         colorCollectionView.setCollectionViewLayout(layout, animated: true)
         colorCollectionView.showsHorizontalScrollIndicator = false
-        //colorCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .centeredHorizontally)
     }
     
     private func bindViewModel() {
-//        viewModel.reload = { [weak self] in
-//            self?.imageCollectionView.reloadData()
-//            self?.sizeCollectionView.reloadData()
-//            self?.colorCollectionView.reloadData()
-//            //self?.sizeCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .centeredHorizontally)
-//            //self?.colorCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .centeredHorizontally)
-//        }
+        viewModel.reload = { [weak self] in
+            guard let self = self else { return }
+            self.imageCollectionView.reloadData()
+            self.sizeCollectionView.reloadData()
+            self.colorCollectionView.reloadData()
+            //self?.sizeCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+            //self?.colorCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+            
+            self.sizeCollectionView.performBatchUpdates {
+                if self.viewModel.numberOfSizes > 0 {
+                    self.sizeCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+                }
+            }
+            
+            self.colorCollectionView.performBatchUpdates {
+                if self.viewModel.numberOfColor > 0 {
+                    self.colorCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+                }
+            }
+        }
         
-//        viewModel.error = { [weak self] errorMessage in
-//            guard let self = self else { return }
-//            Alert.show(on: self, title: "Error", message: errorMessage)
-//        }
-//        
-//        viewModel.updateUI = { [weak self] product in
-//            guard let self = self else { return }
-//            self.titleLabel.text = product.title
-//            self.descriptionLabel.text = product.description
-//            self.typeLabel.text = product.productType.rawValue
-//        }
-//        
-//        viewModel.updataPrice = { [weak self] price in
-//            self?.priceTextField.text = "\(price)"
-//        }
-//        
-//        viewModel.updateQuantity = { [weak self] quantity in
-//            self?.quantityLabel.text = quantity
-//        }
-//        
-//        viewModel.loading = { [weak self] isLoading in
-//            self?.isLoadingIndicatorAnimating = isLoading
-//            self?.view.isUserInteractionEnabled = !isLoading
-//        }
-//        
-//        viewModel.saved = { [weak self] isSaved in
-//            guard let self = self else { return }
-//            if isSaved {
-//                let closeAction = UIAlertAction(title: "Close", style: .default)
-//                Alert.show(on: self, title: "Success", message: "Data is saved successfully", actions: [closeAction])
-//            }
-//        }
-//        
-//        viewModel.hideSaveQuantityButton = { [weak self] isHidden in
-//            self?.saveQuantityButton.isHidden = isHidden
-//        }
-//        
-//        viewModel.hideSavePriceButton = { [weak self] isHidden in
-//            self?.savePriceButton.isHidden = isHidden
-//        }
+        viewModel.error = { [weak self] errorMessage in
+            guard let self = self else { return }
+            Alert.show(on: self, title: "Error", message: errorMessage)
+        }
+        
+        viewModel.updateUI = { [weak self] product in
+            guard let self = self else { return }
+            self.titleLabel.text = product.title
+            self.descriptionLabel.text = product.description
+            self.typeLabel.text = product.productType.rawValue
+        }
+        
+        viewModel.updataPrice = { [weak self] price in
+            self?.priceTextField.text = "\(price)"
+        }
+        
+        viewModel.updateQuantity = { [weak self] quantity in
+            self?.quantityLabel.text = quantity
+        }
+        
+        viewModel.loading = { [weak self] isLoading in
+            self?.isLoadingIndicatorAnimating = isLoading
+            self?.view.isUserInteractionEnabled = !isLoading
+        }
+        
+        viewModel.saved = { [weak self] isSaved in
+            guard let self = self else { return }
+            if isSaved {
+                let closeAction = UIAlertAction(title: "Close", style: .default)
+                Alert.show(on: self, title: "Success", message: "Data is saved successfully", actions: [closeAction])
+            }
+        }
+        
+        viewModel.hideSaveQuantityButton = { [weak self] isHidden in
+            self?.saveQuantityButton.isHidden = isHidden
+        }
+        
+        viewModel.hideSavePriceButton = { [weak self] isHidden in
+            self?.savePriceButton.isHidden = isHidden
+        }
     }
     
     private func updatePageControl() {
