@@ -23,6 +23,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Sm-jW-HOy">
                                 <rect key="frame" x="9.3333333333333339" y="9.3333333333333339" width="21.666666666666664" height="21.666666666666664"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -43,6 +44,7 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="DNh-mp-jbw" secondAttribute="trailing" id="0sy-bA-qDq"/>
                 <constraint firstItem="DNh-mp-jbw" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="IRN-xa-7G8"/>

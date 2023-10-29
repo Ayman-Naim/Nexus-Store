@@ -17,14 +17,13 @@ class productDetailsCell: UICollectionViewCell {
     @IBOutlet weak var favoriteIcon: UIButton!
     @IBOutlet weak var rating: CosmosView!
     @IBOutlet weak var productImage: UIImageView!
-    
     @IBOutlet weak var productName: UILabel!
-    
     @IBOutlet weak var productPrice: UILabel!
+    var productId:Int?
     var delegate:CustomNibCellProtocol?
     override func awakeFromNib() {
         super.awakeFromNib()
-        favoriteIcon.setImage(UIImage(systemName: K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
+       
       
        
     }
@@ -35,6 +34,12 @@ class productDetailsCell: UICollectionViewCell {
         self.addingShadowWithEffectToCell()
         
         
+    }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        favoriteIcon.setImage(UIImage(systemName: K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
+
+
     }
     
     @IBAction func pressFavoriteButton(_ sender: Any) {
@@ -47,7 +52,13 @@ class productDetailsCell: UICollectionViewCell {
         }
         productName.text = product?.title
         productPrice.text = "$\(product?.variants?.first?.price ?? "300")"
+        productId = product?.id
 
+    }
+    
+    
+    func setFavorite(){
+        favoriteIcon.setImage(UIImage(systemName: K.favoriteIconSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
     }
     
     

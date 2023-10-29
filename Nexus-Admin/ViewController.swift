@@ -16,6 +16,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func ayman(_ sender: Any) {
+        let vc = SignInViewController()
+        
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     @IBAction func khater(_ sender: Any) {
         let nav = UINavigationController(rootViewController: ProductDetailsViewController())
@@ -24,6 +29,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func mostafa(_ sender: Any) {
+        let vc = BrandProductsViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func ahmed(_ sender: Any) {
