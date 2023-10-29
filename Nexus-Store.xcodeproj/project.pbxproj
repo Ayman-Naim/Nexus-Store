@@ -136,6 +136,9 @@
 		E3A60E8C2AECB044008FEDB5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3A60E8B2AECB044008FEDB5 /* GoogleService-Info.plist */; };
 		E3BB437C2AEEA33B00A0341F /* AdressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BB437B2AEEA33B00A0341F /* AdressModel.swift */; };
 		E3BB437E2AEEAB6F00A0341F /* AddAdressVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BB437D2AEEAB6F00A0341F /* AddAdressVM.swift */; };
+		E3BB43802AEEDDD800A0341F /* Brands.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BB437F2AEEDDD700A0341F /* Brands.swift */; };
+		E3BB43822AEEF80400A0341F /* CollectsID.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BB43812AEEF80400A0341F /* CollectsID.swift */; };
+		E3BB43842AEEFFCF00A0341F /* collectsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BB43832AEEFFCF00A0341F /* collectsModel.swift */; };
 		E3E10C142AED7C7300567D8B /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E10C122AED7C7300567D8B /* AddProductViewController.swift */; };
 		E3E10C152AED7C7300567D8B /* AddProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3E10C132AED7C7300567D8B /* AddProductViewController.xib */; };
 		E3E10C172AED86CE00567D8B /* AddProductVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E10C162AED86CE00567D8B /* AddProductVM.swift */; };
@@ -298,6 +301,9 @@
 		E3A60E8B2AECB044008FEDB5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E3BB437B2AEEA33B00A0341F /* AdressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressModel.swift; sourceTree = "<group>"; };
 		E3BB437D2AEEAB6F00A0341F /* AddAdressVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAdressVM.swift; sourceTree = "<group>"; };
+		E3BB437F2AEEDDD700A0341F /* Brands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brands.swift; sourceTree = "<group>"; };
+		E3BB43812AEEF80400A0341F /* CollectsID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectsID.swift; sourceTree = "<group>"; };
+		E3BB43832AEEFFCF00A0341F /* collectsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collectsModel.swift; sourceTree = "<group>"; };
 		E3E10C122AED7C7300567D8B /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		E3E10C132AED7C7300567D8B /* AddProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddProductViewController.xib; sourceTree = "<group>"; };
 		E3E10C162AED86CE00567D8B /* AddProductVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductVM.swift; sourceTree = "<group>"; };
@@ -1460,6 +1466,9 @@
 			isa = PBXGroup;
 			children = (
 				E3E10C1A2AED8DFA00567D8B /* AddProductModel.swift */,
+				E3BB437F2AEEDDD700A0341F /* Brands.swift */,
+				E3BB43812AEEF80400A0341F /* CollectsID.swift */,
+				E3BB43832AEEFFCF00A0341F /* collectsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1709,6 +1718,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3BB43842AEEFFCF00A0341F /* collectsModel.swift in Sources */,
+				E3BB43802AEEDDD800A0341F /* Brands.swift in Sources */,
 				E3A60E812AEC8EF2008FEDB5 /* CustomerModel.swift in Sources */,
 				E3A60E882AEC992A008FEDB5 /* AdminNetManger.swift in Sources */,
 				E3A60E8A2AEC9B31008FEDB5 /* AdminLoginVM.swift in Sources */,
@@ -1719,6 +1730,7 @@
 				E30A944D2AE68A0800AB0F5F /* AppDelegate.swift in Sources */,
 				E3E10C182AED882500567D8B /* Alert.swift in Sources */,
 				E30A944F2AE68A0800AB0F5F /* SceneDelegate.swift in Sources */,
+				E3BB43822AEEF80400A0341F /* CollectsID.swift in Sources */,
 				E3E10C142AED7C7300567D8B /* AddProductViewController.swift in Sources */,
 				E3E10C1B2AED8DFA00567D8B /* AddProductModel.swift in Sources */,
 			);
