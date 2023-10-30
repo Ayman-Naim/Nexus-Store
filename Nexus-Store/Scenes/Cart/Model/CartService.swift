@@ -9,11 +9,6 @@ import Foundation
 import Alamofire
 
 
-fileprivate let CUSTOMER = 6899149865196
-fileprivate let MOCKPRODUCT = Product(id: 8031031787756, title: "ADIDAS | CLASSIC BACKPACK", bodyHtml: nil, vendor: "ADIDAS", productType: "ACCESSORIES", createdAt: nil, handle: nil, updatedAt: nil, publishedAt: nil, status: nil, publishedScope: nil, tags: nil, adminGraphqlApiId: nil, variants: [Variants(id: 44007215464684, productId: 44007215464684, price: "70.00")], image: Image(id: 39285105197292, productId: 8031031787756, position: nil, createdAt: nil, updatedAt: nil, width: nil, height: nil, src: "https://cdn.shopify.com/s/files/1/0668/7650/6348/products/85cc58608bf138a50036bcfe86a3a362.jpg?v=1698170984", adminGraphqlApiId: nil))
-
-
-
 class CartService {
     private let baseURLString = "https://ios-q1-new-capital-admin1-2023.myshopify.com/admin/api/2023-01/draft_orders"
     private let header: HTTPHeaders = ["X-Shopify-Access-Token": "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"]
@@ -22,21 +17,6 @@ class CartService {
     // MARK: - Helpers
     private func customError(message: String) -> Error {
         return NSError(domain: "Error", code: 400, userInfo: [NSLocalizedDescriptionKey: message])
-    }
-    
-    private func testResponse(withURLString urlString: String) {
-        AF.request(urlString, method: .get, encoding: JSONEncoding.default, headers: header).response { response in
-            switch response.result {
-            case .success(let data):
-                guard let data = data else {
-                    print("Test Response Error || No Data from response")
-                    return
-                }
-                print(String(data: data, encoding: .utf8) ?? "Test Response Error || Decoding Response")
-            case .failure(let error):
-                print("Test Response Error || \(error)")
-            }
-        }
     }
     
     
