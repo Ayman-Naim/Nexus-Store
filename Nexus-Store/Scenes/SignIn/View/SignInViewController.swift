@@ -27,6 +27,10 @@ class SignInViewController: UIViewController {
         toggleImage.isUserInteractionEnabled = true
         toggleImage.addGestureRecognizer(tapGestureRecognizerForToggleEye)
         
+  //      let googleImageTapGesture = UITapGestureRecognizer(target: self, action: #selector(signInWithGoogleTapped))
+  //      googleImage.isUserInteractionEnabled = true
+  //      googleImage.addGestureRecognizer(googleImageTapGesture)
+        
  /*       // Load the "Remember Me" preference from UserDefaults
         isRememberMeSelected = UserDefaults.standard.bool(forKey: "RememberMe")
         updateRememberMeUI()*/
