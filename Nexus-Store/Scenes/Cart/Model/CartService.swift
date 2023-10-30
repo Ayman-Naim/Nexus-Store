@@ -14,30 +14,6 @@ fileprivate let MOCKPRODUCT = Product(id: 8031031787756, title: "ADIDAS | CLASSI
 
 
 
-
-
-
-
-
-
-//struct ShippinAddress: Codable {
-//
-//}
-
-//struct AppliedDiscount: Codable {
-//    let title: String
-//    let value: String
-//    let amount: String
-//    let valueType: ValueType
-//
-//
-//    enum ValueType: String, Codable {
-//        case fixed = "fixed_amount"
-//        case percentage
-//    }
-//}
-
-
 class CartService {
     private let baseURLString = "https://ios-q1-new-capital-admin1-2023.myshopify.com/admin/api/2023-01/draft_orders"
     private let header: HTTPHeaders = ["X-Shopify-Access-Token": "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"]
