@@ -59,6 +59,7 @@
 		01C9812F2AEFA20800D9F2A7 /* ShippingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C9812E2AEFA20800D9F2A7 /* ShippingViewModel.swift */; };
 		01CAA06D2AF05CE3005A29FD /* DraftOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CAA06C2AF05CE3005A29FD /* DraftOrder.swift */; };
 		01CAA06F2AF05D21005A29FD /* LineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CAA06E2AF05D21005A29FD /* LineItem.swift */; };
+		01CAA0712AF05D73005A29FD /* DraftOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CAA0702AF05D73005A29FD /* DraftOrderResponse.swift */; };
 		01D776BE2AE2FFC50079F2B5 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D776BD2AE2FFC50079F2B5 /* Alert.swift */; };
 		01D776C32AE3021C0079F2B5 /* AddPromoCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D776C12AE3021C0079F2B5 /* AddPromoCodeViewController.swift */; };
 		01D776C42AE3021C0079F2B5 /* AddPromoCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01D776C22AE3021C0079F2B5 /* AddPromoCodeViewController.xib */; };
@@ -236,6 +237,7 @@
 		01C9812E2AEFA20800D9F2A7 /* ShippingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingViewModel.swift; sourceTree = "<group>"; };
 		01CAA06C2AF05CE3005A29FD /* DraftOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftOrder.swift; sourceTree = "<group>"; };
 		01CAA06E2AF05D21005A29FD /* LineItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineItem.swift; sourceTree = "<group>"; };
+		01CAA0702AF05D73005A29FD /* DraftOrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftOrderResponse.swift; sourceTree = "<group>"; };
 		01D776BD2AE2FFC50079F2B5 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		01D776C12AE3021C0079F2B5 /* AddPromoCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPromoCodeViewController.swift; sourceTree = "<group>"; };
 		01D776C22AE3021C0079F2B5 /* AddPromoCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPromoCodeViewController.xib; sourceTree = "<group>"; };
@@ -567,6 +569,7 @@
 			children = (
 				01AA3A2F2AEB276A00552386 /* CartProduct.swift */,
 				01AA3A2D2AEB0AD400552386 /* CartService.swift */,
+				01CAA0702AF05D73005A29FD /* DraftOrderResponse.swift */,
 				01CAA06C2AF05CE3005A29FD /* DraftOrder.swift */,
 				01CAA06E2AF05D21005A29FD /* LineItem.swift */,
 			);
@@ -1998,6 +2001,7 @@
 				5B9A02732AEC23E3007DC704 /* CreateAccount.swift in Sources */,
 				5B9A02882AECD1BB007DC704 /* AboutUsViewController.swift in Sources */,
 				45123AAF2AE2149E001B12B7 /* SizeColorCell.swift in Sources */,
+				01CAA0712AF05D73005A29FD /* DraftOrderResponse.swift in Sources */,
 				E35BC58C2AE0ADA500742654 /* BrandsCollectionCell.swift in Sources */,
 				45123AAB2AE2149E001B12B7 /* ProductDetailsViewController.swift in Sources */,
 				5BC20AD02AE1C71D0071925A /* WelcomeViewController.swift in Sources */,

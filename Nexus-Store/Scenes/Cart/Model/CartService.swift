@@ -14,15 +14,7 @@ fileprivate let MOCKPRODUCT = Product(id: 8031031787756, title: "ADIDAS | CLASSI
 
 
 
-struct DraftOrders: Codable {
-    let singleResult: DraftOrder?
-    let result: [DraftOrder]?
-    
-    enum CodingKeys: String, CodingKey {
-        case singleResult = "draft_order"
-        case result = "draft_orders"
-    }
-}
+
 
 
 
@@ -75,7 +67,7 @@ class CartService {
     // MARK: - Private Functions
     private func fetchDraftOrders(completion: @escaping (Result<[DraftOrder], Error>) -> Void) {
         let urlString = baseURLString + ".json"
-        AF.request(urlString, method: .get, encoding: JSONEncoding.default, headers: header).responseDecodable(of: DraftOrders.self) { response in
+        AF.request(urlString, method: .get, encoding: JSONEncoding.default, headers: header).responseDecodable(of: DraftOrderResponse.self) { response in
             switch response.result {
             case .success(let draftOrders):
                 guard let draftOrdersResult = draftOrders.result else {
@@ -129,7 +121,7 @@ class CartService {
             ] as [String : Any]
         ]
         
-        AF.request(urlString, method: .post, parameters: params, encoding: JSONEncoding.default, headers: header).responseDecodable(of: DraftOrders.self) { response in
+        AF.request(urlString, method: .post, parameters: params, encoding: JSONEncoding.default, headers: header).responseDecodable(of: DraftOrderResponse.self) { response in
             switch response.result {
             case .success(let newDraftOrder):
                 print("Create Draft Order of Customer with ID: \(customerID)")
