@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -85,7 +86,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         case 4:
             let signinVC = SignInViewController()
       //      self.navigationController?.pushViewController(signinVC, animated: true)
-            self.navigationController?.setViewControllers([signinVC], animated: true)
+            do{
+                try Auth.auth().signOut()
+                UserDefaults.standard.removeObject(forKey: "customerID")
+                UserDefaults.standard.synchronize()
+                self.navigationController?.setViewControllers([signinVC], animated: true)
+            } catch{
+                print("Logout Error: \(error.localizedDescription)")
+            }
         default:
             print("Default")
         }
