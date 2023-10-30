@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AddressCell: AnyObject {
-    func setAddress(_ address: (name: String, city: String, address: String, isSelected: Bool))
+    func setAddress(_ address: Address)
     func selecteAddress(_ isSelected: Bool)
 }
 
@@ -31,9 +31,9 @@ class AddressTableViewCell: UITableViewCell {
 
 // MARK: - AddressCell
 extension AddressTableViewCell: AddressCell {
-    func setAddress(_ address: (name: String, city: String, address: String, isSelected: Bool)) {
+    func setAddress(_ address: Address) {
         nameLabel.text = address.name
-        addressLabel.text = "\(address.city), \(address.address)"
+        addressLabel.text = "\(address.city ?? ""), \(address.address1 ?? ""), \(address.address2 ?? "")"
     }
     
     func selecteAddress(_ isSelected: Bool) {
