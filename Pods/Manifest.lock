@@ -636,6 +636,11 @@ PODS:
     - BoringSSL-GRPC/Interface (= 0.0.24)
   - BoringSSL-GRPC/Interface (0.0.24)
   - Cosmos (23.0.0)
+  - FirebaseAnalytics (3.4.2):
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
+    - GoogleUtilities (~> 1.2)
   - FirebaseAuth (10.6.0):
     - FirebaseCore (~> 10.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
@@ -660,6 +665,30 @@ PODS:
     - "gRPC-C++ (~> 1.50.1)"
     - leveldb-library (~> 1.22)
     - nanopb (< 2.30910.0, >= 2.30908.0)
+  - FirebaseInstanceID (1.0.9)
+  - Google/Core (3.1.0):
+    - FirebaseAnalytics (~> 3.2)
+  - Google/SignIn (3.1.0):
+    - Google/Core
+    - GoogleSignIn (~> 4.0)
+  - GoogleAppUtilities (1.1.2):
+    - GoogleSymbolUtilities (~> 1.1)
+  - GoogleAuthUtilities (2.0.2):
+    - GoogleNetworkingUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
+  - GoogleInterchangeUtilities (1.2.2):
+    - GoogleSymbolUtilities (~> 1.1)
+  - GoogleNetworkingUtilities (1.2.2):
+    - GoogleSymbolUtilities (~> 1.1)
+  - GoogleSignIn (4.0.0):
+    - GoogleAppUtilities (~> 1.1)
+    - GoogleAuthUtilities (~> 2.0)
+    - GoogleNetworkingUtilities (~> 1.2)
+    - GoogleUtilities (~> 1.3)
+  - GoogleSignInSwift (0.3.2)
+  - GoogleSymbolUtilities (1.1.2)
+  - GoogleUtilities (1.3.2):
+    - GoogleSymbolUtilities (~> 1.1)
   - GoogleUtilities/AppDelegateSwizzler (7.11.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -753,6 +782,8 @@ DEPENDENCIES:
   - FirebaseAuth
   - FirebaseCore
   - FirebaseFirestore
+  - Google/SignIn
+  - GoogleSignInSwift
   - Kingfisher (~> 7.0)
   - lottie-ios
 
@@ -762,10 +793,20 @@ SPEC REPOS:
     - Alamofire
     - BoringSSL-GRPC
     - Cosmos
+    - FirebaseAnalytics
     - FirebaseAuth
     - FirebaseCore
     - FirebaseCoreInternal
     - FirebaseFirestore
+    - FirebaseInstanceID
+    - Google
+    - GoogleAppUtilities
+    - GoogleAuthUtilities
+    - GoogleInterchangeUtilities
+    - GoogleNetworkingUtilities
+    - GoogleSignIn
+    - GoogleSignInSwift
+    - GoogleSymbolUtilities
     - GoogleUtilities
     - "gRPC-C++"
     - gRPC-Core
@@ -781,10 +822,20 @@ SPEC CHECKSUMS:
   Alamofire: 0e92e751b3e9e66d7982db43919d01f313b8eb91
   BoringSSL-GRPC: 3175b25143e648463a56daeaaa499c6cb86dad33
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
+  FirebaseAnalytics: 3f5358d9104adf159cc8d99b7b501e50099a39ad
   FirebaseAuth: 743e5cd568af59d6d99a91ea9300843672515cf7
   FirebaseCore: fa80ad16a62d52f67274b5b88304c3a318bbf9a4
   FirebaseCoreInternal: c7cd505e2136811096b225ac388d6254a2622362
   FirebaseFirestore: 808dd08cbc1c7be9052055f62ab312fdae611e37
+  FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
+  Google: 98da4b1a60ed0beb80a290387a28333406a1eb90
+  GoogleAppUtilities: a8a552aa74f6597f805e45b5a3962766c3134973
+  GoogleAuthUtilities: ccad2e0a9284699973ff57c0dd24c3893657fda4
+  GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
+  GoogleNetworkingUtilities: 3edd3a8161347494f2da60ea0deddc8a472d94cb
+  GoogleSignIn: 09036ed61f8e75f1424100d63f7719480b2428c3
+  GoogleSignInSwift: b7d54b0ab8d9fd17928ab9b68d91a65d82e056d7
+  GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleUtilities: c2bdc4cf2ce786c4d2e6b3bcfd599a25ca78f06f
   "gRPC-C++": 0968bace703459fd3e5dcb0b2bed4c573dbff046
   gRPC-Core: 17108291d84332196d3c8466b48f016fc17d816d
@@ -795,6 +846,6 @@ SPEC CHECKSUMS:
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
 
-PODFILE CHECKSUM: d6836904c7458280b0cf2c9e79d479f3f35b4465
+PODFILE CHECKSUM: 8049f30b5e0e6a5d4d7c72f02d6b37a0bc258a31
 
-COCOAPODS: 1.12.0
+COCOAPODS: 1.12.1

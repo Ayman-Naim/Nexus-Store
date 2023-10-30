@@ -14,7 +14,9 @@ target 'Nexus-Store' do
 	pod 'FirebaseAuth'
 	pod 'FirebaseFirestore'
 	pod 'FirebaseCore'
-        pod 'Firebase/Google'
+        #pod 'Firebase/Google'
+	pod 'Google/SignIn'
+	pod 'GoogleSignInSwift'
 
 target 'Nexus-Admin' do
         pod 'Kingfisher', '~> 7.0'
