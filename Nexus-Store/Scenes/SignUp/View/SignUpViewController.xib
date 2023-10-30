@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="emailField" destination="27q-Of-SAA" id="7mn-lp-tgl"/>
                 <outlet property="passwordField" destination="8L1-pb-zYl" id="Epf-C7-Ucb"/>
+                <outlet property="toggleImage" destination="hHn-Ne-hya" id="Ub8-b9-aZC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -42,13 +43,13 @@
                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="      Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8L1-pb-zYl">
-                                    <rect key="frame" x="15" y="130" width="363" height="40"/>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8L1-pb-zYl">
+                                    <rect key="frame" x="35" y="130" width="343" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="3CO-sI-Ch9"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" textContentType="password"/>
+                                    <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                             <integer key="value" value="25"/>
@@ -73,8 +74,8 @@
                                         </label>
                                     </subviews>
                                 </stackView>
-                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="      Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="27q-Of-SAA">
-                                    <rect key="frame" x="15" y="70" width="363" height="40"/>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="27q-Of-SAA">
+                                    <rect key="frame" x="35" y="70" width="343" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="hp3-cT-lM5"/>
                                     </constraints>
@@ -124,14 +125,14 @@
                                                 <constraint firstAttribute="width" constant="60" id="lfE-B3-wuV"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google1" translatesAutoresizingMaskIntoConstraints="NO" id="5P0-Kc-e35">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="googleP" translatesAutoresizingMaskIntoConstraints="NO" id="5P0-Kc-e35">
                                             <rect key="frame" x="91.999999999999986" y="0.0" width="60.000000000000014" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="60" id="Ta7-dV-jLy"/>
                                                 <constraint firstAttribute="height" constant="60" id="cGM-BF-fkE"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ApplePay" translatesAutoresizingMaskIntoConstraints="NO" id="9OG-0a-ZPg">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple-logo-transparent" translatesAutoresizingMaskIntoConstraints="NO" id="9OG-0a-ZPg">
                                             <rect key="frame" x="184" y="0.0" width="60" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="MKV-bv-jbu"/>
@@ -141,7 +142,7 @@
                                     </subviews>
                                 </stackView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="PFu-EU-0D5">
-                                    <rect key="frame" x="21" y="80.333333333333329" width="20" height="16"/>
+                                    <rect key="frame" x="10" y="80.333333333333329" width="20" height="16"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="3ge-NE-2L0"/>
@@ -178,7 +179,7 @@
                                     </subviews>
                                 </stackView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.lock.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xZ6-Id-69O">
-                                    <rect key="frame" x="21" y="139" width="20" height="18"/>
+                                    <rect key="frame" x="10" y="139" width="20" height="18"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="D58-Mu-0xB"/>
@@ -198,6 +199,7 @@
                                 <constraint firstItem="4qQ-e7-PWp" firstAttribute="top" secondItem="9ch-D8-csy" secondAttribute="bottom" constant="90" id="27H-DJ-ptj"/>
                                 <constraint firstItem="hHn-Ne-hya" firstAttribute="centerY" secondItem="xZ6-Id-69O" secondAttribute="centerY" id="4RY-rN-o7g"/>
                                 <constraint firstAttribute="trailing" secondItem="4qQ-e7-PWp" secondAttribute="trailing" constant="18" id="6MO-y2-9em"/>
+                                <constraint firstItem="PFu-EU-0D5" firstAttribute="leading" secondItem="wvN-IX-KtZ" secondAttribute="leading" constant="10" id="7t3-v3-3jc"/>
                                 <constraint firstItem="JAL-3p-w0B" firstAttribute="top" secondItem="qfV-Sx-zJM" secondAttribute="bottom" constant="72.666666666666742" id="9Sh-4n-ctm"/>
                                 <constraint firstItem="PFu-EU-0D5" firstAttribute="top" secondItem="6Bc-fs-bzh" secondAttribute="bottom" constant="38" id="9bx-3F-sg8"/>
                                 <constraint firstAttribute="trailing" secondItem="6Bc-fs-bzh" secondAttribute="trailing" constant="15" id="BYd-gF-RvF"/>
@@ -205,14 +207,13 @@
                                 <constraint firstItem="8L1-pb-zYl" firstAttribute="top" secondItem="27q-Of-SAA" secondAttribute="bottom" constant="20" id="IyS-NA-HgV"/>
                                 <constraint firstAttribute="trailing" secondItem="hHn-Ne-hya" secondAttribute="trailing" constant="20" id="MpL-LB-Pls"/>
                                 <constraint firstAttribute="trailing" secondItem="9ch-D8-csy" secondAttribute="trailing" constant="50" id="Q9d-an-Msn"/>
-                                <constraint firstItem="8L1-pb-zYl" firstAttribute="leading" secondItem="wvN-IX-KtZ" secondAttribute="leading" constant="15" id="Qpz-Un-ppp"/>
                                 <constraint firstItem="e62-Wd-GDP" firstAttribute="top" secondItem="9ch-D8-csy" secondAttribute="bottom" constant="90" id="RmZ-bo-oBV"/>
                                 <constraint firstItem="9ch-D8-csy" firstAttribute="leading" secondItem="wvN-IX-KtZ" secondAttribute="leading" constant="50" id="TeZ-bd-SMh"/>
                                 <constraint firstItem="9ch-D8-csy" firstAttribute="top" secondItem="5VT-9m-Yoe" secondAttribute="bottom" constant="35" id="Udt-OM-cdR"/>
-                                <constraint firstItem="27q-Of-SAA" firstAttribute="leading" secondItem="wvN-IX-KtZ" secondAttribute="leading" constant="15" id="VRW-4i-WJL"/>
                                 <constraint firstItem="5VT-9m-Yoe" firstAttribute="top" secondItem="8L1-pb-zYl" secondAttribute="bottom" constant="35" id="Wi3-hy-piB"/>
                                 <constraint firstAttribute="trailing" secondItem="8L1-pb-zYl" secondAttribute="trailing" constant="15" id="WsE-RC-Ko8"/>
                                 <constraint firstItem="5VT-9m-Yoe" firstAttribute="centerX" secondItem="wvN-IX-KtZ" secondAttribute="centerX" id="acf-Dz-OmC"/>
+                                <constraint firstItem="27q-Of-SAA" firstAttribute="leading" secondItem="PFu-EU-0D5" secondAttribute="trailing" constant="5" id="ajk-uM-j4r"/>
                                 <constraint firstItem="4qQ-e7-PWp" firstAttribute="leading" secondItem="njO-cx-BEQ" secondAttribute="trailing" constant="10" id="bHH-JC-B0j"/>
                                 <constraint firstItem="njO-cx-BEQ" firstAttribute="leading" secondItem="e62-Wd-GDP" secondAttribute="trailing" constant="10" id="edt-VA-vzR"/>
                                 <constraint firstItem="qfV-Sx-zJM" firstAttribute="centerX" secondItem="wvN-IX-KtZ" secondAttribute="centerX" id="fff-pt-qTQ"/>
@@ -221,13 +222,13 @@
                                 <constraint firstItem="JAL-3p-w0B" firstAttribute="centerX" secondItem="wvN-IX-KtZ" secondAttribute="centerX" id="j5f-TW-XMM"/>
                                 <constraint firstAttribute="trailing" secondItem="27q-Of-SAA" secondAttribute="trailing" constant="15" id="k3z-at-Fqi"/>
                                 <constraint firstItem="6Bc-fs-bzh" firstAttribute="top" secondItem="wvN-IX-KtZ" secondAttribute="top" constant="10" id="kAh-oj-JFV"/>
+                                <constraint firstItem="xZ6-Id-69O" firstAttribute="leading" secondItem="wvN-IX-KtZ" secondAttribute="leading" constant="10" id="lNr-u2-OFK"/>
                                 <constraint firstAttribute="bottom" secondItem="JAL-3p-w0B" secondAttribute="bottom" constant="209.66666666666663" id="oqK-Bs-Oiz"/>
-                                <constraint firstItem="xZ6-Id-69O" firstAttribute="leading" secondItem="wvN-IX-KtZ" secondAttribute="leading" constant="21" id="p1y-WC-5WY"/>
                                 <constraint firstItem="9ch-D8-csy" firstAttribute="centerX" secondItem="wvN-IX-KtZ" secondAttribute="centerX" id="rg1-BV-kAa"/>
+                                <constraint firstItem="8L1-pb-zYl" firstAttribute="leading" secondItem="xZ6-Id-69O" secondAttribute="trailing" constant="5" id="sMP-vs-Eng"/>
                                 <constraint firstItem="njO-cx-BEQ" firstAttribute="centerX" secondItem="wvN-IX-KtZ" secondAttribute="centerX" id="waa-vT-Gtb"/>
                                 <constraint firstItem="qfV-Sx-zJM" firstAttribute="top" secondItem="njO-cx-BEQ" secondAttribute="bottom" constant="50" id="xtQ-TA-bUv"/>
                                 <constraint firstItem="6Bc-fs-bzh" firstAttribute="leading" secondItem="wvN-IX-KtZ" secondAttribute="leading" constant="15" id="yvO-zF-X6G"/>
-                                <constraint firstItem="PFu-EU-0D5" firstAttribute="leading" secondItem="wvN-IX-KtZ" secondAttribute="leading" constant="21" id="z3c-EM-a46"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -252,13 +253,13 @@
         </view>
     </objects>
     <resources>
-        <image name="ApplePay" width="20" height="24"/>
+        <image name="apple-logo-transparent" width="2400" height="2398"/>
         <image name="checkbox-1" width="512" height="512"/>
         <image name="envelope.fill" catalog="system" width="128" height="85"/>
         <image name="exclamationmark.lock.fill" catalog="system" width="125" height="128"/>
         <image name="eye" width="800" height="800"/>
         <image name="facebook1" width="75" height="75"/>
-        <image name="google1" width="100" height="100"/>
+        <image name="googleP" width="768" height="768"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

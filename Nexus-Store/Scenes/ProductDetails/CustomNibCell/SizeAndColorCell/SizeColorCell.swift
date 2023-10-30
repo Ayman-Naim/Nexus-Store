@@ -7,9 +7,10 @@
 
 import UIKit
 
+
+
 class SizeColorCell: UICollectionViewCell {
 
-    
     static let identifier = "SizeColorCell"
     
     static func nib() -> UINib {
@@ -23,12 +24,6 @@ class SizeColorCell: UICollectionViewCell {
         // Initialization code
     }
     
+ 
     
-    //Animation
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        self.addingShadowWithEffect()
-//
-//    }
-
 }

@@ -10,6 +10,7 @@ import UIKit
 class ProfileViewController: UIViewController {
     var ViewModel = ProfileVM()
     var orders = [Order]()
+    var wishList: [Product] = []
     var expandItemsSec1 = false
     var expandItemsSec2 = false
     @IBOutlet weak var UserImage: UIImageView!
@@ -22,7 +23,8 @@ class ProfileViewController: UIViewController {
         setupTabelView()
         circleImage()
         getOrders()
-        self.isLoadingIndicatorAnimating = true
+        getwishlist()
+       
         // Do any additional setup after loading the view.
     }
 
@@ -41,6 +43,7 @@ class ProfileViewController: UIViewController {
         self.UserImage.layer.cornerRadius = self.UserImage.frame.size.width/2;
         self.UserImage.layer.masksToBounds = true
         self.UserImage.contentMode = .scaleAspectFill
+        self.UserImage.layer.borderWidth = 1.5
         
     }
     
@@ -50,7 +53,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func WishListClicked(_ sender: Any) {
-        //
+        self.navigationController?.pushViewController(SettingsViewController(), animated: true)
     }
 }
 
@@ -68,9 +71,16 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
             } else {
                 return orders.count;
             }
-
+            
         case 1 :
-            return 2
+            if (wishList.count == 0) {
+                return 0;
+            } else if (expandItemsSec2 == false) {
+                return 2;
+            } else {
+                return wishList.count;
+            }
+            
             
         default:
             return 0
@@ -82,29 +92,33 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
         case  0 :
             let cell  = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for: indexPath) as!  OrderTableViewCell
             if  orders.count>0{
-                if(orders[indexPath.row].customer?.id == 6899149603052){
-                    cell.orderNo.text = "\(orders[indexPath.row].order_number!)"
-                    cell.quantity.text = "\(orders[indexPath.row].line_items!.count)"
-                    cell.totalAmount.text = "\(orders[indexPath.row].total_price!)\(orders[indexPath.row].currency=="EGP" ?" EGP":" $")"
-                    
-                    return cell
-                }
+                //if(orders[indexPath.row].customer?.id == 6899149603052){
+                cell.orderNo.text = "\(orders[indexPath.row].order_number!)"
+                cell.quantity.text = "\(orders[indexPath.row].line_items!.count)"
+                cell.totalAmount.text = "\(orders[indexPath.row].total_price!)\(orders[indexPath.row].currency=="EGP" ?" EGP":" $")"
+                
+                return cell
+                // }
             }
             else{
                 return cell
             }
         case  1 :
             let cell  = tableView.dequeueReusableCell(withIdentifier: "FavouriteTableViewCell", for: indexPath) as!  FavouriteTableViewCell
+            cell.productImage.setImage(withURLString: wishList[indexPath.row].image?.src ?? "")
+            cell.productName.text = wishList[indexPath.row].title
+            cell.ProductPrice.text = "\(wishList[indexPath.row].variants!.first?.price) $"
+            
             return cell
         default:
             return UITableViewCell()
         }
-        return UITableViewCell()
+        //return UITableViewCell()
     }
     
-  
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 130
     }
     
     
@@ -115,54 +129,76 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
             headerView.HeaderTitle.text = "My Orders"
             headerView.Delegate = self
             headerView.section = 0
-               return headerView
+            return headerView
             
             
-         
-
+            
+            
         case 1:
             let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderTableViewCell") as! SectionHeaderTableViewCell
             headerView.HeaderTitle.text = "Wish List"
             headerView.Delegate = self
             headerView.section = 1
-               return headerView
-
+            
+            return headerView
+            
         default:
             return UIView()
-
+            
         }
     }
     
     
-    
-   
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section{
+        case 0 :
+            guard let url = URL(string: orders[indexPath.row].order_status_url ?? "") else { return }
+            UIApplication.shared.open(url)
+        case 1 :
+            let product = wishList[indexPath.row]
+            let storyboard = UIStoryboard(name:ProductDetailsViewController.storyBoardName , bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: ProductDetailsViewController.identifier) as! ProductDetailsViewController
+            let productDetailsViewModel = ProductDetailsViewModel(for: product.id)
+            vc.productDetailsViewModel = productDetailsViewModel
+            vc.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            vc.modalPresentationStyle = .fullScreen
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+            
+        default:
+            print("nothing")
+        }
+        
+    }
 }
-
 
 
 extension ProfileViewController:ProfileDelegete{
     func Seeallpressed(section: Int?) {
+       
         if(section == 0){
             
             self.expandItemsSec1 = !self.expandItemsSec1
             self.TableView.reloadSections(IndexSet(integer: 0), with: .fade)
         }
         if(section == 1){
-            self.expandItemsSec2 = true
+            self.expandItemsSec2 = !self.expandItemsSec2
+            self.TableView.reloadSections(IndexSet(integer: 1), with: .fade)
         }
     }
     
-  
     
-  
+    
+    
     func getOrders(){
+        self.isLoadingIndicatorAnimating = true
         ViewModel.getOrders { result in
             switch result{
             case .success(let orders):
                 print(orders)
-                self.orders = orders
+                self.orders = orders.filter({ $0.customer?.id == 6899149603052 })
                 self.isLoadingIndicatorAnimating = !self.isLoadingIndicatorAnimating
+              
                 self.TableView.reloadSections(IndexSet(integer: 0), with: .fade)
                 
             case .failure(let error):
@@ -174,7 +210,25 @@ extension ProfileViewController:ProfileDelegete{
         }
     }
     
-    
-    
-    
+    func getwishlist(){
+        self.isLoadingIndicatorAnimating = true
+        ViewModel.getWishlist(forCustom: 6899149865196) { result in
+            switch result{
+            case .success(let wishLists):
+                print(wishLists)
+                self.wishList = wishLists
+                self.isLoadingIndicatorAnimating = !self.isLoadingIndicatorAnimating
+                self.TableView.reloadSections(IndexSet(integer: 1), with: .fade)
+              
+                
+            case .failure(let error):
+                print(error)
+                
+                
+            }
+        }
+        
+        
+        
+    }
 }

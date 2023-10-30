@@ -27,10 +27,18 @@ class ReviewProductCell: UICollectionViewCell {
     
     @IBOutlet weak var reviewerDescription: UILabel!
     
+    @IBOutlet weak var reviewDate: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         cosmaticsForReViewCell()
+    }
+    
+    func ConfigureReviewForProduct(review:Review){
+        reviewName.text = review.name
+        rating.rating = review.ratting
+        reviewerDescription.text = review.review
+        reviewDate.text = review.date
     }
 
 }

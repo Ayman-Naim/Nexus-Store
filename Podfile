@@ -14,16 +14,16 @@ target 'Nexus-Store' do
 	pod 'FirebaseAuth'
 	pod 'FirebaseFirestore'
 	pod 'FirebaseCore'
-
+        pod 'Firebase/Google'
 
 target 'Nexus-Admin' do
         pod 'Kingfisher', '~> 7.0'
 	pod 'lottie-ios'
 	pod 'Alamofire'
 	pod 'Cosmos', '~> 23.0'
-	pod 'FirebaseAuth'
-	pod 'FirebaseFirestore'
-	pod 'FirebaseCore'
+	#pod 'FirebaseAuth'
+	#pod 'FirebaseFirestore'
+	#pod 'FirebaseCore'
   end
 
   #target 'Nexus-StoreTests' do

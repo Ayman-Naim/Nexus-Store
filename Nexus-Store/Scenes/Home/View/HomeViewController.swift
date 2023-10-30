@@ -10,6 +10,7 @@ import Kingfisher
 class HomeViewController: UIViewController {
     var ViewModel = HomeVM()
     var brands = [SmartCollection]()
+ 
     @IBOutlet weak var PageControl: UIPageControl!
     @IBOutlet weak var HomeCollectionView: UICollectionView!
     @IBOutlet weak var ProfileImage: UIImageView!
@@ -28,6 +29,12 @@ class HomeViewController: UIViewController {
         PageControl.numberOfPages = 15
         SerachBarText.delegate = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     func layoutSetup(){
         let layout = UICollectionViewCompositionalLayout { sectionIndex, enviroment in
             switch sectionIndex {
@@ -45,11 +52,12 @@ class HomeViewController: UIViewController {
     
     
     @IBAction func CartButtonClicked(_ sender: Any) {
+        self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.pushViewController(CartViewController(), animated: true)
     }
     
     @IBAction func favouriteButtonClicked(_ sender: Any) {
-        //
+        self.navigationController?.pushViewController(WishListViewController(), animated: true)
     }
     
     
@@ -58,6 +66,7 @@ class HomeViewController: UIViewController {
         self.ProfileImage.layer.cornerRadius = self.ProfileImage.frame.size.width/2;
         self.ProfileImage.layer.masksToBounds = true
         self.ProfileImage.contentMode = .scaleAspectFill
+        self.ProfileImage.layer.borderWidth = 1.5
         
     }
     
@@ -231,11 +240,7 @@ extension HomeViewController :UICollectionViewDelegate,UICollectionViewDataSourc
             else{
                 cell.BrandLogo.image = UIImage(named: "App-logo")
             }
-
             
-         
-                                                                                                                           
-
             cell.BrandName.text = brands[indexPath.row].title
             return cell
         default:
@@ -248,9 +253,32 @@ extension HomeViewController :UICollectionViewDelegate,UICollectionViewDataSourc
         }
         
         
-        
        
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.section{
+        case 0 :
+            // write to clipboard
+            UIPasteboard.general.string = "\(indexPath.row)"
+            // resd to clipboard
+            guard let promo = UIPasteboard.general.string else{return}
+            //Alett for promo copied
+            Alert.show(on: self, title: "Offer Code", message: "the offer promo code is copied \(promo)", actions: [(UIAlertAction(title: "ok", style: .default))])
+            
+       
+      
+            
+        case 1 :
+            let vc = CategoryViewController()
+            vc.fromBrand = true
+            vc.vendor = brands[indexPath.item].title
+            self.navigationController?.pushViewController(vc, animated: true)
+        default:
+            print("nothing")
+        }
+        
+    }
+    
     //function for resieze the image
     func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
 
@@ -327,5 +355,6 @@ extension HomeViewController{
             
         }
     }
+    
     
 }
