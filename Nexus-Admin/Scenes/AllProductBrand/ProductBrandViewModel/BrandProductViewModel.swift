@@ -67,11 +67,11 @@ class BrandProductViewModel:BrandProductProtocol{
     
     func fetchAllProductForBrand() {
         BaseUrl.brandId = "\(self.brandId)"
-        apiManager.fetchDataaa(url: BaseUrl.BrandProduct, decodingModel:AllProduct.self) { result in
+        apiManager.fetchDataaa(url: BaseUrl.BrandProduct, decodingModel: AllProductsResponse.self) { result in
             
             switch result{
             case .success(let brandProduct):
-                self.brandProduct = brandProduct.products
+                self.brandProduct = brandProduct.result
             case.failure(let error):
                 print(error.localizedDescription)
             }
@@ -90,11 +90,13 @@ class BrandProductViewModel:BrandProductProtocol{
     func bindAvalibleQuatitiyOfProduct(singleProduct:Product?) -> Int? {
         var quantity = 0
         if let variants = singleProduct?.variants{
-            for variant in variants{
-                
-                quantity = quantity + (variant.inventoryQuantity ?? 0)
-                
+            for variant in variants {
+                quantity = quantity + variant.inventoryQuantity
             }
+            // You Can add this line is the same as the above
+            // compactMap -> Return Array of Int Which containts quntity for each variant
+            // reduce -> Add all array to gether (0 -> Strat index, + -> add operiton)
+            //quantity = variants.compactMap({ $0.inventoryQuantity }).reduce(0, +)
         }
         return quantity
     }
@@ -102,10 +104,10 @@ class BrandProductViewModel:BrandProductProtocol{
     
     func bindPriceOfProdunctId(productId:Product) {
         BaseUrl.productId = "\(productId.id)"
-        apiManager.fetchDataaa(url: BaseUrl.productDetails, decodingModel: SingleProduct.self) { result in
+        apiManager.fetchDataaa(url: BaseUrl.productDetails, decodingModel: SingleProductResponse.self) { result in
             switch result{
             case .success(let product):
-                self.product = product.product
+                self.product = product.result
             case .failure(let error):
                 print(error.localizedDescription)
                 

@@ -9,6 +9,12 @@ import UIKit
 
 class ProductDetailsViewController: UIViewController {
     
+    static func show(on vc: UIViewController, productID: Int) {
+        let productDetailsVC = ProductDetailsViewController()
+        productDetailsVC.viewModel.setProductID(productID)
+        vc.navigationController?.pushViewController(productDetailsVC, animated: true)
+    }
+    
     
     private let viewModel = ProductDetailsViewModel()
     
@@ -27,6 +33,14 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet weak var savePriceButton: UIButton!
     
     
+    private init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +54,8 @@ class ProductDetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // 8054104424684
         // 8031031165164
-        viewModel.fetchProduct(id: 8031031165164)
+        viewModel.fetchProduct()
     }
     
     
@@ -53,19 +66,19 @@ class ProductDetailsViewController: UIViewController {
     }
     
     @IBAction func addImageButtonPressed(_ sender: UIButton) {
-        EditProductViewController.present(on: self, editingOn: .addImage, productID: viewModel.productID)
+        EditProductViewController.show(on: self, editingOn: .addImage, productID: viewModel.productID)
     }
     
     @IBAction func editTitleButtonPressed(_ sender: UIButton) {
-        EditProductViewController.present(on: self, editingOn: .title(titleLabel.text!), productID: viewModel.productID)
+        EditProductViewController.show(on: self, editingOn: .title(titleLabel.text!), productID: viewModel.productID)
     }
     
     @IBAction func editTypeButtonPressed(_ sender: UIButton) {
-        EditProductViewController.present(on: self, editingOn: .productType(viewModel.productType), productID: viewModel.productID)
+        EditProductViewController.show(on: self, editingOn: .productType(viewModel.productType), productID: viewModel.productID)
     }
     
     @IBAction func editDescriptionButtonPressed(_ sender: UIButton) {
-        EditProductViewController.present(on: self, editingOn: .description(descriptionLabel.text!), productID: viewModel.productID)
+        EditProductViewController.show(on: self, editingOn: .description(descriptionLabel.text!), productID: viewModel.productID)
     }
     
     @IBAction func quantityButtonPressed(_ sender: UIButton) {
@@ -93,7 +106,7 @@ class ProductDetailsViewController: UIViewController {
         viewModel.deleteProduct()
     }
     @IBAction func addNewSizeColorButtonPressed(_ sender: UIButton) {
-        EditProductViewController.present(on: self, editingOn: .addSizeColor, productID: viewModel.productID)
+        EditProductViewController.show(on: self, editingOn: .addSizeColor, productID: viewModel.productID)
     }
     
     
