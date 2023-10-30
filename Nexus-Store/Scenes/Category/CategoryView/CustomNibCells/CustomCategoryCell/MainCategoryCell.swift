@@ -42,9 +42,6 @@ extension UIView {
         self.layer.borderColor = UIColor(red: 0.58, green: 0.58, blue: 0.58, alpha: 1).cgColor
         self.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
 
-        
-        
-
     }
     
     

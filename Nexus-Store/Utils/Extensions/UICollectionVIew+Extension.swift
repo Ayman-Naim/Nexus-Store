@@ -14,12 +14,12 @@ extension UICollectionViewCell{
         layer.shadowRadius = 5.0
         layer.shadowColor = UIColor.gray.cgColor
         layer.shadowOffset = CGSize(width: 3.3, height: 5.7)
-        layer.shadowOpacity = 0.7
+        layer.shadowOpacity = 0.1
         layer.masksToBounds = false
         contentView.layer.cornerRadius = 16
         contentView.layer.masksToBounds = true
         backgroundColor = .clear
-      //  contentView.backgroundColor = .white
+        contentView.backgroundColor = .white
 
     }
 }

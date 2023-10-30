@@ -17,12 +17,18 @@ protocol CategoryViewModelDelgation:AnyObject{
     func priceOfEveryProduct(for product:Product , Handeler: @escaping (Product) -> Void)
     func getSubCategoryData(for mainCategory:Int , with subCategory:String , Handeler: @escaping ([Product]) -> Void)
     
+    func bindFilterProductAccordingAlphbetic(filterProduct:[Product]?)->[Product]?
+    func bindFilterProductAccordingPrice(filterProduct:[Product]?)->[Product]?
+    
     
     
 }
 
 
 class CategoryViewModel:CategoryViewModelDelgation{
+  
+   
+    
   
     
     let apiNetworkManager = ApiManger.SharedApiManger
@@ -90,6 +96,20 @@ class CategoryViewModel:CategoryViewModelDelgation{
     func RetiviedProductResultCount() -> Int? {
         return products?.count
     }
+    
+    func bindFilterProductAccordingAlphbetic( filterProduct: [Product]?) -> [Product]? {
+        return filterProduct?.sorted(by: {
+            $0.title < $1.title
+        })
+    }
+    
+    func bindFilterProductAccordingPrice(filterProduct: [Product]?) -> [Product]? {
+        return filterProduct?.sorted(by: {
+            Double($0.variants?.first?.price ?? "0" ) ?? 0 < Double($1.variants?.first?.price ?? "1") ?? 1
+            
+        })
+    }
+    
     
     
     

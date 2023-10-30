@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,6 +13,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryViewController" customModule="Nexus_Store" customModuleProvider="target">
             <connections>
                 <outlet property="CategoryCollectionView" destination="O3t-Mo-kFI" id="2v1-o0-UZY"/>
+                <outlet property="PriceFilterButton" destination="yw8-ah-YT7" id="ptS-R9-rtz"/>
+                <outlet property="alphapiticFilter" destination="Stl-Kv-oV8" id="Ujs-aN-hPx"/>
+                <outlet property="listFilterButton" destination="Sit-fd-AoH" id="GN5-iL-7C3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,21 +34,97 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sit-fd-AoH">
+                    <rect key="frame" x="317" y="742" width="60" height="60"/>
+                    <color key="backgroundColor" name="Title"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="vwR-gA-pNc"/>
+                        <constraint firstAttribute="height" constant="60" id="y8Z-cb-ldP"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain">
+                        <imageReference key="image" image="list.bullet" catalog="system" symbolScale="large"/>
+                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="18" scale="large" weight="medium"/>
+                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </buttonConfiguration>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBound" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="ListToChooseFilter:" destination="-1" eventType="touchUpInside" id="pas-1J-GvP"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Stl-Kv-oV8">
+                    <rect key="frame" x="297" y="666" width="60" height="60"/>
+                    <color key="backgroundColor" name="Title"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="43D-nQ-sO0"/>
+                        <constraint firstAttribute="width" constant="60" id="V0I-33-lqc"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="ABC">
+                        <color key="baseForegroundColor" name="Background"/>
+                    </buttonConfiguration>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBound" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="filterProductAlphabeticButton:" destination="-1" eventType="touchUpInside" id="Paf-c9-YqR"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yw8-ah-YT7">
+                    <rect key="frame" x="235" y="726" width="60" height="60"/>
+                    <color key="backgroundColor" name="Title"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="6If-2M-whc"/>
+                        <constraint firstAttribute="height" constant="60" id="IJB-5D-gLd"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="$">
+                        <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
+                        <color key="baseForegroundColor" name="Background"/>
+                    </buttonConfiguration>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBound" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="filterProductPriceButton:" destination="-1" eventType="touchUpInside" id="DS0-Ee-5K9"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="Background"/>
             <constraints>
+                <constraint firstItem="Sit-fd-AoH" firstAttribute="top" secondItem="Stl-Kv-oV8" secondAttribute="bottom" constant="16" id="5lg-gf-jqt"/>
                 <constraint firstItem="O3t-Mo-kFI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Dxh-h4-iJc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="O3t-Mo-kFI" secondAttribute="bottom" id="EWy-mU-C9C"/>
+                <constraint firstItem="yw8-ah-YT7" firstAttribute="top" secondItem="Stl-Kv-oV8" secondAttribute="bottom" id="P3x-Si-bvl"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Sit-fd-AoH" secondAttribute="bottom" constant="16" id="Xzf-fR-6Xv"/>
                 <constraint firstItem="O3t-Mo-kFI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Yww-RY-Kxk"/>
+                <constraint firstItem="Sit-fd-AoH" firstAttribute="leading" secondItem="yw8-ah-YT7" secondAttribute="trailing" constant="22" id="bVR-G3-msP"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="O3t-Mo-kFI" secondAttribute="trailing" id="hea-NT-8rJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Stl-Kv-oV8" secondAttribute="trailing" constant="36" id="lTd-nO-Wbz"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Sit-fd-AoH" secondAttribute="trailing" constant="16" id="x0p-pL-1ct"/>
             </constraints>
             <point key="canvasLocation" x="52.671755725190835" y="20.422535211267608"/>
         </view>
     </objects>
     <resources>
+        <image name="list.bullet" catalog="system" width="128" height="87"/>
         <namedColor name="Background">
             <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Title">
+            <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

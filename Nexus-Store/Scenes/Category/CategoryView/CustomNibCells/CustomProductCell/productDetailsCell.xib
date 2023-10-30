@@ -7,6 +7,7 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,7 +23,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KSm-eT-9ko">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="250"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mus\ProductImage" translatesAutoresizingMaskIntoConstraints="NO" id="cgE-eB-Exx">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceHolderImage" translatesAutoresizingMaskIntoConstraints="NO" id="cgE-eB-Exx">
                                 <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="z24-D8-sM6"/>
@@ -175,8 +176,8 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="PlaceHolderImage" width="700" height="700"/>
         <image name="heart" catalog="system" width="128" height="107"/>
-        <image name="mus\ProductImage" width="150" height="150"/>
         <namedColor name="SearchPlaceholderColor">
             <color red="0.60799998044967651" green="0.60799998044967651" blue="0.60799998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

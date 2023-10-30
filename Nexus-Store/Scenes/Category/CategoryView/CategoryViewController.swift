@@ -9,10 +9,13 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     @IBOutlet weak var CategoryCollectionView: UICollectionView!
+    @IBOutlet weak var listFilterButton: UIButton!
+    @IBOutlet weak var alphapiticFilter: UIButton!
+    @IBOutlet weak var PriceFilterButton: UIButton!
+    var flagShowFilter = false
     
     let mainCategory = ["MEN","KIDS","SALE","WOMEN"]
     let subCategory = ["ALL","SHOES","T-SHIRT","ACCESSORIES"]
-    
     let productSection = IndexSet(integer: 2)
     var forMainCategory:Int = K.menID
     var flagSubCategory = 0
@@ -22,6 +25,7 @@ class CategoryViewController: UIViewController {
     var vendor:String?
     var vendorProductList:[Product]?
     let wishListServices = WishListService()
+    
     var favoriteProducts:[Product]? {
         didSet{
             DispatchQueue.main.async {
@@ -35,12 +39,11 @@ class CategoryViewController: UIViewController {
     var products:[Product]? {
         didSet{
             if products?.count == 0 && filterProduct.count == 0{
-                
                 self.CategoryCollectionView.reloadSections(self.productSection)
-                
+
             }
         }
-    }
+   }
     var filterProduct :[Product] = [] {
         didSet {
             if Array(Set(filterProduct)).count == products?.count  && filterProduct.count != 0  {
@@ -53,7 +56,7 @@ class CategoryViewController: UIViewController {
                     }else{
                         self.products = self.filterProduct
                     }
-                  //  self.CategoryCollectionView.reloadSections(self.productSection)
+                    self.CategoryCollectionView.reloadSections(self.productSection)
                     self.isLoadingIndicatorAnimating = false
                     self.CategoryCollectionView.isUserInteractionEnabled = true
                     
@@ -101,6 +104,9 @@ class CategoryViewController: UIViewController {
         configureFavoritueButton()
         ConfigureFetchDataFromApi(with: K.menID)
         checkCustomerFavoriteProduct()
+        loadShadowToButton(listFilterButton)
+        loadShadowToButton(alphapiticFilter)
+        loadShadowToButton(PriceFilterButton)
         
         
         
@@ -125,7 +131,22 @@ class CategoryViewController: UIViewController {
     }
     
     
+    @IBAction func ListToChooseFilter(_ sender: UIButton) {
+        showFiltersButton()
+    }
     
+    @IBAction func filterProductAlphabeticButton(_ sender: Any) {
+        
+        if let filterAlphabeticProduct = categoryProductProtocol?.bindFilterProductAccordingAlphbetic(filterProduct: filterProduct){
+            filterProduct = filterAlphabeticProduct
+        }
+       
+    }
+    @IBAction func filterProductPriceButton(_ sender: UIButton) {
+        if let filterPriceProduct = categoryProductProtocol?.bindFilterProductAccordingPrice(filterProduct: filterProduct){
+            filterProduct = filterPriceProduct
+        }
+    }
     
 }
 
@@ -536,9 +557,9 @@ extension CategoryViewController {
 
 //MARK: - Set Favorite to the product
 extension CategoryViewController : CustomNibCellProtocol{
+    
+    
     func didTapButtonInCell(_ cell: productDetailsCell) {
-        
-        
         
         
         if  cell.favoriteIcon.currentImage == UIImage(systemName:  K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)){
@@ -582,5 +603,35 @@ extension CategoryViewController : CustomNibCellProtocol{
 
     
     
+}
+
+
+
+extension CategoryViewController {
+    
+    func loadShadowToButton(_ Button:UIButton){
+        Button.layer.shadowColor = UIColor.black.cgColor
+        Button.layer.shadowOffset = CGSize(width: 0, height: 2)
+        Button.layer.shadowOpacity = 0.7
+        Button.layer.shadowRadius = 4
+    }
+    
+    func showFiltersButton(){
+  
+        self.PriceFilterButton.alpha = (flagShowFilter == false ) ? 0 : 1
+        self.alphapiticFilter.alpha = (flagShowFilter == false) ? 0 : 1
+
+        UIView.animate(withDuration: 0.8) {
+                self.PriceFilterButton.isHidden = self.flagShowFilter
+                self.alphapiticFilter.isHidden = self.flagShowFilter
+            
+            self.PriceFilterButton.alpha = ( self.flagShowFilter == false) ? 1 : 0
+            self.alphapiticFilter.alpha = (self.flagShowFilter == false) ? 1 : 0
+           
+        }
+        
+        self.flagShowFilter = !self.flagShowFilter
+        
+    }
 }
 
