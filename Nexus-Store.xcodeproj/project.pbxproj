@@ -120,6 +120,8 @@
 		5BC20AD12AE1C71D0071925A /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC20ACF2AE1C71D0071925A /* WelcomeViewController.xib */; };
 		5BC20AD42AE1D0170071925A /* SocialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20AD22AE1D0170071925A /* SocialTableViewCell.swift */; };
 		5BC20AD52AE1D0170071925A /* SocialTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC20AD32AE1D0170071925A /* SocialTableViewCell.xib */; };
+		5BEEA9A82AF0340A007169D6 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 5BEEA9A72AF0340A007169D6 /* GoogleSignIn */; };
+		5BEEA9AA2AF0340A007169D6 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5BEEA9A92AF0340A007169D6 /* GoogleSignInSwift */; };
 		5BFDC6472AEE683B00C2F6C7 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFDC6452AEE683B00C2F6C7 /* ContactUsViewController.swift */; };
 		5BFDC6482AEE683B00C2F6C7 /* ContactUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BFDC6462AEE683B00C2F6C7 /* ContactUsViewController.xib */; };
 		5BFDC64C2AEE69C900C2F6C7 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFDC64A2AEE69C900C2F6C7 /* ContactTableViewCell.swift */; };
@@ -388,6 +390,8 @@
 			files = (
 				D14182C7B08E56039861E606 /* Pods_Nexus_Store.framework in Frameworks */,
 				935B628CC7302E8E15C239CD /* Pods_Nexus_Store.framework in Frameworks */,
+				5BEEA9A82AF0340A007169D6 /* GoogleSignIn in Frameworks */,
+				5BEEA9AA2AF0340A007169D6 /* GoogleSignInSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1680,6 +1684,10 @@
 			dependencies = (
 			);
 			name = "Nexus-Store";
+			packageProductDependencies = (
+				5BEEA9A72AF0340A007169D6 /* GoogleSignIn */,
+				5BEEA9A92AF0340A007169D6 /* GoogleSignInSwift */,
+			);
 			productName = "Nexus-Store";
 			productReference = E37687A72ADDFFB500DB09A1 /* Nexus-Store.app */;
 			productType = "com.apple.product-type.application";
@@ -1711,6 +1719,9 @@
 				Base,
 			);
 			mainGroup = E376879E2ADDFFB400DB09A1;
+			packageReferences = (
+				5BEEA9A62AF0340A007169D6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+			);
 			productRefGroup = E37687A82ADDFFB500DB09A1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -2317,6 +2328,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5BEEA9A62AF0340A007169D6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5BEEA9A72AF0340A007169D6 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BEEA9A62AF0340A007169D6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		5BEEA9A92AF0340A007169D6 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BEEA9A62AF0340A007169D6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E37687B32ADDFFB500DB09A1 /* Nexus_Store.xcdatamodeld */ = {
