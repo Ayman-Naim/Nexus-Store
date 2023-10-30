@@ -9,7 +9,7 @@ import UIKit
 
 class EditProductViewController: UIViewController {
     
-    static func present(on vc: UIViewController, editingOn type: EditType, productID: Int) {
+    static func show(on vc: UIViewController, editingOn type: EditType, productID: Int) {
         let editProductVC = EditProductViewController()
         editProductVC.editType = type
         editProductVC.viewModel = EditProductViewModel(productID: productID)
@@ -18,7 +18,7 @@ class EditProductViewController: UIViewController {
     
     enum EditType {
         case title(String)
-        case productType(ProductTypeM)
+        case productType(ProductType)
         case description(String)
         case addImage
         case addSizeColor
@@ -85,7 +85,7 @@ class EditProductViewController: UIViewController {
             }
         } else {
             // Handle Cases: .productType
-            let selectedProductType = ProductTypeM.allCases[segmentControl.selectedSegmentIndex].rawValue
+            let selectedProductType = ProductType.allCases[segmentControl.selectedSegmentIndex].rawValue
             viewModel?.editProduct(type: editType, value: selectedProductType)
         }
     }
@@ -120,10 +120,10 @@ class EditProductViewController: UIViewController {
             sizeTextField.isHidden = true
             colorTextField.isHidden = true
             segmentControl.removeAllSegments()
-            for index in ProductTypeM.allCases.indices {
-                segmentControl.insertSegment(withTitle: ProductTypeM.allCases[index].rawValue, at: index, animated: true)
+            for index in ProductType.allCases.indices {
+                segmentControl.insertSegment(withTitle: ProductType.allCases[index].rawValue, at: index, animated: true)
             }
-            segmentControl.selectedSegmentIndex = ProductTypeM.allCases.firstIndex(of: productType) ?? 0
+            segmentControl.selectedSegmentIndex = ProductType.allCases.firstIndex(of: productType) ?? 0
             
         case .addImage:
             title = "Add New Image"

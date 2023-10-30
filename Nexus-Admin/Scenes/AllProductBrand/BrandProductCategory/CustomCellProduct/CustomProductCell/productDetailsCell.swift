@@ -63,7 +63,7 @@ class productDetailsCell: UICollectionViewCell {
             productImage.image = UIImage(named: "PlaceHolderImage")
         }
         productName.text = product?.title
-        productPrice.text = "$\(product?.variants?.first?.price ?? "300")"
+        productPrice.text = "$\(product?.variants.first?.price ?? "300")"
         productId = product?.id
         if let quatity =  inStock{
             avalibleInStock.text = "\(quatity) in Stock"

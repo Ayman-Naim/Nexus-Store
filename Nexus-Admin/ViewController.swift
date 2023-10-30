@@ -23,9 +23,7 @@ class ViewController: UIViewController {
         
     }
     @IBAction func khater(_ sender: Any) {
-        let nav = UINavigationController(rootViewController: ProductDetailsViewController())
-        nav.modalPresentationStyle = .fullScreen
-        self.present(nav, animated: true)
+        ProductDetailsViewController.show(on: self, productID: 8031031165164)
     }
     
     @IBAction func mostafa(_ sender: Any) {
