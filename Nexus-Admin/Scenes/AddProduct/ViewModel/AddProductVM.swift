@@ -9,7 +9,7 @@ import Foundation
 class AddProductVM{
     
     
-    func AddProduct(title:String,type:String,Descriotion:String,vendor:String ,category:String,completion: @escaping (Result<SingleProduct, Error>) -> Void){
+    func AddProduct(title:String,type:String,Descriotion:String,vendor:String ,category:String,completion: @escaping (Result<SingleProductResponse, Error>) -> Void){
         
         let parameter :[String: Any] = [
             "product": [
@@ -22,9 +22,9 @@ class AddProductVM{
             ] as [String : Any]
         ]
         
-        AdminNetManger.SharedApiManger.postData(url: .AddProduct, parameters:parameter , decodingModel:SingleProduct.self ){result in
+        AdminNetManger.SharedApiManger.postData(url: .AddProduct, parameters:parameter , decodingModel: SingleProductResponse.self ){result in
             switch result{
-            case.success(let Data):
+            case.success(let product):
                 var coolectid : Int?
                 collectsID.allCases.forEach({ collects in
                     if (collects.rawValue == category){
@@ -37,14 +37,14 @@ class AddProductVM{
                     "collect": [
                        
                         "collection_id": collectionID,
-                        "product_id": Data.product.id
+                        "product_id": product.result.id
                         ] as [String : Any]
                 ]
                              
                 AdminNetManger.SharedApiManger.postData(url: .collects, parameters: collectsparameter, decodingModel: collectsModel.self) { result in
                     switch result{
                     case.success(_):
-                        completion(.success(Data))
+                        completion(.success(product))
                     case.failure(let error):
                         completion(.failure(error))
                     }

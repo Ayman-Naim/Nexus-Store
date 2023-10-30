@@ -13,7 +13,15 @@ import Alamofire
 class ProductDetailsViewModel {
     
     // MARK: - Properties
-    private var product: ProductM? {
+    public private(set) var productID: Int = 0
+    var productType: ProductType { product!.productType }
+    private var images: [Image] = []
+    private var sizes: [String] = []
+    private var colors: [String] = []
+    private var selectedSize = 0
+    private var selectedColor = 0
+    
+    private var product: Product? {
         didSet {
             DispatchQueue.main.async {
                 if let product = self.product {
@@ -23,12 +31,7 @@ class ProductDetailsViewModel {
         }
     }
     
-    private var images: [ImageM] = []
-    private var sizes: [String] = []
-    private var colors: [String] = []
-    private var selectedSize = 0
-    private var selectedColor = 0
-    private var currentVariant: VariantM? {
+    private var currentVariant: Variant? {
         didSet {
             guard let currentVariant = currentVariant else { return }
             currentQuantity = currentVariant.inventoryQuantity
@@ -37,6 +40,7 @@ class ProductDetailsViewModel {
             }
         }
     }
+    
     private var currentQuantity = 0 {
         didSet {
             DispatchQueue.main.async {
@@ -48,14 +52,11 @@ class ProductDetailsViewModel {
         }
     }
     
-    var productID: Int { product?.id ?? 0 }
-    var productType: ProductTypeM { product!.productType }
-    
     
     // MARK: - Clousers
     var reload: (() -> Void)?
     var error: ((String) -> Void)?
-    var updateUI: ((ProductM) -> Void)?
+    var updateUI: ((Product) -> Void)?
     var updataPrice: ((String) -> Void)?
     var updateQuantity: ((String) -> Void)?
     var loading: ((Bool) -> Void)?
@@ -106,9 +107,13 @@ class ProductDetailsViewModel {
     
     
     // MARK: - Functions
-    func fetchProduct(id: Int) {
+    func setProductID(_ id: Int) {
+        self.productID = id
+    }
+    
+    func fetchProduct() {
         loading?(true)
-        AF.request(K.baseURL + "/products/\(id).json", headers: K.APIHeader).responseDecodable(of: ProductResponseM.self) { [weak self] response in
+        AF.request(K.baseURL + "/products/\(productID).json", headers: K.APIHeader).responseDecodable(of: SingleProductResponse.self) { [weak self] response in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.loading?(false)
@@ -168,7 +173,7 @@ class ProductDetailsViewModel {
             case .success(let data):
                 //print(String(data: data!, encoding: .utf8) ?? "")
                 self.saved?(data != nil)
-                self.fetchProduct(id: self.productID)
+                self.fetchProduct()
                 
             case .failure(let error):
                 self.error?(error.localizedDescription)
@@ -197,7 +202,6 @@ class ProductDetailsViewModel {
     
     func priceDidChange(_ price: String?) {
         guard let currentVariant = currentVariant else { return }
-        print("adsasdfasdfasdfasdf")
         if let price = price {
             hideSavePriceButton?(price == currentVariant.price)
         }
@@ -215,7 +219,7 @@ class ProductDetailsViewModel {
             case .success(let data):
                 //print(String(data: data!, encoding: .utf8) ?? "")
                 self.saved?(data != nil)
-                self.fetchProduct(id: self.productID)
+                self.fetchProduct()
                 DispatchQueue.main.async {
                     self.hideSavePriceButton?(true)
                 }
@@ -236,9 +240,8 @@ class ProductDetailsViewModel {
             }
             switch response.result {
             case .success(let data):
-                //print(String(data: data!, encoding: .utf8) ?? "")
                 self.saved?(data != nil)
-                self.fetchProduct(id: self.productID)
+                self.fetchProduct()
                 
             case .failure(let error):
                 self.error?(error.localizedDescription)
@@ -246,7 +249,7 @@ class ProductDetailsViewModel {
         }
     }
     
-    private func deleteVariants(_ variants: [VariantM]) {
+    private func deleteVariants(_ variants: [Variant]) {
         guard let product = product else { return }
         if !variants.isEmpty {
             loading?(true)
@@ -261,13 +264,12 @@ class ProductDetailsViewModel {
                 }
                 switch response.result {
                 case .success(let data):
-                    //print(String(data: data!, encoding: .utf8) ?? "")
                     DispatchQueue.main.async {
                         self.saved?(data != nil)
                     }
 
                     if variantIndex == variants.count - 1 {
-                        self.fetchProduct(id: product.id)
+                        self.fetchProduct()
                     }
 
                 case .failure(let error):

@@ -65,7 +65,7 @@ class SignUpViewController: UIViewController {
         let signinVC = SignInViewController()
         //signupVC.modalPresentationStyle = .fullScreen
    //     self.present(signinVC, animated: true)
-        self.navigationController?.pushViewController(signinVC, animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     // Function to check if email is valid using regex

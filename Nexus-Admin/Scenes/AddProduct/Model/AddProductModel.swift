@@ -5,6 +5,7 @@
 //  Created by ayman on 28/10/2023.
 //
 
+/*
 import Foundation
 struct AllProduct:Hashable,Codable{
     let products:[Product]
@@ -157,4 +158,4 @@ struct Image:Hashable, Codable {
     
 }
 
-
+ */

@@ -8,31 +8,35 @@
 import UIKit
 
 class AddProductViewController: UIViewController {
-
+    
     var MenuItemArray : [String] = []
     var menuItemsArray: [UIAction] = []
+    
+    
     @IBOutlet weak var VendorDropDown: UIButton!
-
     @IBOutlet weak var TypeSegment: UISegmentedControl!
     @IBOutlet weak var ProductTitle: UITextField!
-
     @IBOutlet weak var ProductCategory: UISegmentedControl!
     @IBOutlet weak var ProductDescription: UITextField!
+    
+    
     var viewModel :AddProductVM = AddProductVM()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupVendorDropDown()
-        // Do any additional setup after loading the view.
+        setupTypeSegmentControl()
     }
-  
     
-
+    
+    
     @IBAction func AddButtonClicked(_ sender: Any) {
         guard let title = ProductTitle.text ,!title.isEmpty,
               let type  = TypeSegment.titleForSegment(at:TypeSegment.selectedSegmentIndex) ,!type.isEmpty,
               let description  = ProductDescription.text ,!description.isEmpty,
               let vendor  = VendorDropDown.currentTitle,!vendor.isEmpty,
-            let category = ProductCategory.titleForSegment(at: ProductCategory.selectedSegmentIndex), !category.isEmpty
+              let category = ProductCategory.titleForSegment(at: ProductCategory.selectedSegmentIndex), !category.isEmpty
         else{
             Alert.show(on: self, title: "Add Product", message: "All fileds must be not empty")
             return
@@ -51,13 +55,13 @@ class AddProductViewController: UIViewController {
         }
     }
     
-
+    
     
     func setupVendorDropDown(){
         let optionClosure =  { (action:UIAction) in
             self.settitle(action: action)
         }
-            
+        
         viewModel.getBrands { result in
             switch result{
             case .success(let brands):
@@ -72,18 +76,24 @@ class AddProductViewController: UIViewController {
                 
                 self.VendorDropDown.showsMenuAsPrimaryAction = true
                 self.VendorDropDown.changesSelectionAsPrimaryAction = true
-                   
                 
-             
+                
+                
             case.failure(let error):
                 Alert.show(on: self, title: "get brands", message: error.localizedDescription)
             }
         }
-      
-            
+    }
+    
+    func setupTypeSegmentControl() {
+        TypeSegment.removeAllSegments()
+        for index in ProductType.allCases.indices {
+            TypeSegment.insertSegment(withTitle: ProductType.allCases[index].rawValue, at: index, animated: true)
         }
-    func  settitle(action:UIAction)
-    {
+        TypeSegment.selectedSegmentIndex = 0
+    }
+    
+    func  settitle(action: UIAction) {
         self.VendorDropDown.titleLabel?.text = action.title
     }
     
