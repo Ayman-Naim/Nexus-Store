@@ -15,7 +15,6 @@
 		010F610A2AE49F2000DE7EB0 /* loading_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 010F61062AE49F2000DE7EB0 /* loading_1.json */; };
 		010F610D2AE4A0B300DE7EB0 /* loading_4.json in Resources */ = {isa = PBXBuildFile; fileRef = 010F610C2AE4A0B300DE7EB0 /* loading_4.json */; };
 		011281AA2AE18D7B00844137 /* ShippingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 011281A32AE18D7B00844137 /* ShippingViewController.xib */; };
-		011281AB2AE18D7B00844137 /* ShippingTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011281A52AE18D7B00844137 /* ShippingTableViewHeader.swift */; };
 		011281AC2AE18D7B00844137 /* ShippingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011281A62AE18D7B00844137 /* ShippingViewController.swift */; };
 		011281AD2AE18D7B00844137 /* AddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 011281A82AE18D7B00844137 /* AddressTableViewCell.xib */; };
 		011281AE2AE18D7B00844137 /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011281A92AE18D7B00844137 /* AddressTableViewCell.swift */; };
@@ -187,7 +186,6 @@
 		010F61062AE49F2000DE7EB0 /* loading_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_1.json; sourceTree = "<group>"; };
 		010F610C2AE4A0B300DE7EB0 /* loading_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_4.json; sourceTree = "<group>"; };
 		011281A32AE18D7B00844137 /* ShippingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShippingViewController.xib; sourceTree = "<group>"; };
-		011281A52AE18D7B00844137 /* ShippingTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingTableViewHeader.swift; sourceTree = "<group>"; };
 		011281A62AE18D7B00844137 /* ShippingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingViewController.swift; sourceTree = "<group>"; };
 		011281A82AE18D7B00844137 /* AddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressTableViewCell.xib; sourceTree = "<group>"; };
 		011281A92AE18D7B00844137 /* AddressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
@@ -406,20 +404,11 @@
 		011281A22AE18D7B00844137 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				011281A42AE18D7B00844137 /* ShippingTableViewHeader */,
 				011281A72AE18D7B00844137 /* AddressCell */,
 				011281A62AE18D7B00844137 /* ShippingViewController.swift */,
 				011281A32AE18D7B00844137 /* ShippingViewController.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		011281A42AE18D7B00844137 /* ShippingTableViewHeader */ = {
-			isa = PBXGroup;
-			children = (
-				011281A52AE18D7B00844137 /* ShippingTableViewHeader.swift */,
-			);
-			path = ShippingTableViewHeader;
 			sourceTree = "<group>";
 		};
 		011281A72AE18D7B00844137 /* AddressCell */ = {
@@ -1876,7 +1865,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				E3BB43842AEEFFCF00A0341F /* collectsModel.swift in Sources */,
 				E3BB43802AEEDDD800A0341F /* Brands.swift in Sources */,
 				0117D2AF2AED63D4005D339B /* EditProductViewModel.swift in Sources */,
@@ -1983,7 +1971,6 @@
 				011281B02AE1A4F900844137 /* CustomTextField.swift in Sources */,
 				459916B72AEC4195005F3C31 /* UIColor+Extension.swift in Sources */,
 				4531FE512AE2EE4A00F47528 /* ProductReviewDelegation.swift in Sources */,
-				011281AB2AE18D7B00844137 /* ShippingTableViewHeader.swift in Sources */,
 				01D776C32AE3021C0079F2B5 /* AddPromoCodeViewController.swift in Sources */,
 				01A0EB8A2AE071A1004310FC /* CartViewController.swift in Sources */,
 				0199C9972AEC0AD5007B3122 /* CartViewModel.swift in Sources */,
