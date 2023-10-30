@@ -9,6 +9,13 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
+    var search:String=""
+    var Allproduct:[Product] = []
+    var FilterdProduct:[Product]? = []
+    var viewModel = SearchVM()
+ 
+   
+  
     static func present(on vc: UIViewController) {
         let nav = UINavigationController(rootViewController: SearchViewController())
         nav.modalPresentationStyle = .fullScreen
@@ -50,7 +57,8 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         setupComponents()
         setupCollectionView()
-        
+        getProducts()
+       // FilterdProduct = Allproduct
         cancelButton.addTarget(self, action: #selector(cancelButtonClicked), for: .touchUpInside)
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -102,13 +110,15 @@ class SearchViewController: UIViewController {
         collectionView.setCollectionViewLayout(createCollectionViewLayout(), animated: true)
         collectionView.dataSource = self
         collectionView.delegate = self
-        
+        searchTextField.delegate = self
         collectionView.register(UINib(nibName: K.customProductDetailsIdetifier, bundle: nil), forCellWithReuseIdentifier: K.customProductDetailsIdetifier)
+        self.setContentEmptyTitle("No products in the Cart! 🧐")
+        self.setContentEmptyImage(UIImage(named: "empty_2"))
     }
     
     func createCollectionViewLayout() -> UICollectionViewLayout {
         let topInset: CGFloat = 10
-        let bottomInset: CGFloat = 5
+        let bottomInset: CGFloat = 11
         let leadingInset: CGFloat = 5
         let trailingInset: CGFloat = 5
         
@@ -141,21 +151,47 @@ class SearchViewController: UIViewController {
 // MARK: - UICollectionView DataSource & Delegate
 extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return FilterdProduct?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.customProductDetailsIdetifier, for: indexPath) as! productDetailsCell
+        cell.productName.text = FilterdProduct?[indexPath.row].title
+        if let imageUrl = URL(string: self.FilterdProduct?[indexPath.row].image?.src ?? "") {
+            cell.productImage.kf.setImage(with: imageUrl,placeholder: UIImage(named: "App-logo")?.withTintColor(.black, renderingMode: .alwaysOriginal),options: [.callbackQueue(.mainAsync)]){
+                sucsees in
+                switch sucsees
+                {
+                case .success(let image):
+                    
+                    cell.productImage?.image = image.image
+                    
+
+                case .failure(_):
+                    cell.productImage?.image = UIImage(named:"App-logo")?.withTintColor(.black, renderingMode: .alwaysOriginal)
+
+                }
+            }
+        }
+        else{
+            cell.productImage.image = UIImage(named: "App-logo")?.withTintColor(.black, renderingMode: .alwaysOriginal)
+        }
         
+        cell.rating.isHidden = true
+        cell.colorSize.isHidden = true
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name:ProductDetailsViewController.storyBoardName , bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: ProductDetailsViewController.identifier) as! ProductDetailsViewController
-//         vc.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//         vc.modalPresentationStyle = .fullScreen
-        self.navigationController?.pushViewController(vc, animated: true)
+        if let product = FilterdProduct?[indexPath.row] {
+            let storyboard = UIStoryboard(name:ProductDetailsViewController.storyBoardName , bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: ProductDetailsViewController.identifier) as! ProductDetailsViewController
+            let productDetailsViewModel = ProductDetailsViewModel(for: product.id)
+            vc.productDetailsViewModel = productDetailsViewModel
+            vc.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            vc.modalPresentationStyle = .fullScreen
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -163,3 +199,50 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
     }
 }
 
+extension SearchViewController:UITextFieldDelegate  {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if string.isEmpty{
+            search = String(search.dropLast())
+        }else{
+            search = searchTextField.text!+string
+        }
+        
+       // let predicate = NSPredicate(format: "title CONTAINS[cd] %@", search)
+      //  let arr = ( Allproduct as NSArray).filtered(using: predicate)
+        
+       let arr = Allproduct.filter{$0.title?.range(of: search ,options:[.caseInsensitive]) != nil  }
+    
+        if arr.count > 0 {
+            FilterdProduct?.removeAll()
+            FilterdProduct = arr as [Product]
+                
+            }
+            else{
+            FilterdProduct = Allproduct
+        }
+  
+        //print(search)
+       // print(FilterdProduct)
+        self.collectionView.reloadData()
+        return true
+    }
+    
+    
+    
+    func getProducts(){
+        self.isLoadingIndicatorAnimating = true
+        viewModel.getProducts { result in
+            switch result{
+            case .success(let products ):
+                self.Allproduct = products
+                self.FilterdProduct = self.Allproduct
+                self.isLoadingIndicatorAnimating = !self.isLoadingIndicatorAnimating
+                self.collectionView.reloadData()
+               
+            case .failure(let error):
+                print(error)
+                //alert
+            }
+        }
+    }
+}
