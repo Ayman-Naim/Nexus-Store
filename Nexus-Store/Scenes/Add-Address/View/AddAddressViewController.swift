@@ -9,7 +9,7 @@ import UIKit
 
 
 protocol AddAddressDelegate: AnyObject {
-    func didAddNewAddress(_ address: (name: String, city: String, address: String))
+    func didAddNewAddress()
 }
 
 
@@ -63,7 +63,7 @@ class AddAddressViewController: UIViewController {
                 else {
                     return
                 }
-                self.delegate?.didAddNewAddress((name1 , city1, address1 ))
+                self.delegate?.didAddNewAddress()
                 self.navigationController?.popViewController(animated: true)
                
             case.failure(let error):
