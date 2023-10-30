@@ -1037,9 +1037,9 @@
 				E30A94602AE68A7700AB0F5F /* Resourses */,
 				E30A94612AE68A8500AB0F5F /* Utils */,
 				E30A94622AE68A8A00AB0F5F /* Models */,
-				E30A94652AE68AA500AB0F5F /* Scenes */,
 				E30A94632AE68A9000AB0F5F /* Services */,
 				E30A94642AE68A9800AB0F5F /* CommanComponents */,
+				E30A94652AE68AA500AB0F5F /* Scenes */,
 				E30A94502AE68A0800AB0F5F /* ViewController.swift */,
 			);
 			path = "Nexus-Admin";
