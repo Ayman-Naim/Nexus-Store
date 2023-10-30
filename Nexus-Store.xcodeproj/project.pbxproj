@@ -517,6 +517,7 @@
 		01A0EB852AE0716E004310FC /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				01CAA06B2AF05C6D005A29FD /* Model */,
 				01A0EB862AE07174004310FC /* View */,
 				01A0EB872AE0717D004310FC /* ViewModel */,
 			);
@@ -535,8 +536,6 @@
 		01A0EB872AE0717D004310FC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				01AA3A2F2AEB276A00552386 /* CartProduct.swift */,
-				01AA3A2D2AEB0AD400552386 /* CartService.swift */,
 				0199C9962AEC0AD5007B3122 /* CartViewModel.swift */,
 			);
 			path = ViewModel;
@@ -557,6 +556,15 @@
 				01C9812E2AEFA20800D9F2A7 /* ShippingViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		01CAA06B2AF05C6D005A29FD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				01AA3A2F2AEB276A00552386 /* CartProduct.swift */,
+				01AA3A2D2AEB0AD400552386 /* CartService.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		01D776BF2AE301D80079F2B5 /* Add-Promo-Code */ = {
