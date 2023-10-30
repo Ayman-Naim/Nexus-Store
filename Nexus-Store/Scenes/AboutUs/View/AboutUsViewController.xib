@@ -21,19 +21,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Us" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sr6-jA-qkG">
-                    <rect key="frame" x="20" y="130" width="353" height="30"/>
+                    <rect key="frame" x="20" y="120" width="353" height="30"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                     <color key="textColor" red="0.024229738630000001" green="0.058464285140000002" blue="0.65161456480000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wq0-Bj-qZh">
-                    <rect key="frame" x="20" y="180" width="353" height="0.0"/>
+                    <rect key="frame" x="20" y="170" width="353" height="0.0"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Our Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rx1-hY-KNO">
-                    <rect key="frame" x="20" y="200" width="353" height="30"/>
+                    <rect key="frame" x="20" y="190" width="353" height="30"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                     <color key="textColor" red="0.024229738630000001" green="0.058464285140000002" blue="0.65161456480000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
@@ -68,7 +68,7 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="RRH-ng-2ab">
-                    <rect key="frame" x="20" y="250" width="353" height="100"/>
+                    <rect key="frame" x="20" y="240" width="353" height="100"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="khater" translatesAutoresizingMaskIntoConstraints="NO" id="I1f-ZT-4vz">
                             <rect key="frame" x="0.0" y="0.0" width="151.66666666666666" height="100"/>
@@ -95,25 +95,25 @@
                     </subviews>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mohamed Khater" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6S5-7d-iig">
-                    <rect key="frame" x="15" y="360" width="161.66666666666666" height="24"/>
+                    <rect key="frame" x="15" y="350" width="161.66666666666666" height="24"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mostafa Adel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82n-kq-3Cm">
-                    <rect key="frame" x="235.33333333333334" y="360" width="123.66666666666666" height="24"/>
+                    <rect key="frame" x="235.33333333333334" y="350" width="123.66666666666666" height="24"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ayman Mohamed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJ8-Ab-ArI">
-                    <rect key="frame" x="14" y="504" width="163.33333333333334" height="24"/>
+                    <rect key="frame" x="14" y="494" width="163.33333333333334" height="24"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="GFK-wT-P4L">
-                    <rect key="frame" x="20" y="394" width="353" height="100"/>
+                    <rect key="frame" x="20" y="384" width="353" height="100"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ayman" translatesAutoresizingMaskIntoConstraints="NO" id="OCj-PF-h3s">
                             <rect key="frame" x="0.0" y="0.0" width="151.66666666666666" height="100"/>
@@ -140,7 +140,7 @@
                     </subviews>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ahmed Ashraf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSb-cS-aie">
-                    <rect key="frame" x="230" y="504" width="134.66666666666663" height="24"/>
+                    <rect key="frame" x="230" y="494" width="134.66666666666663" height="24"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -167,7 +167,7 @@
                 <constraint firstItem="JJ8-Ab-ArI" firstAttribute="centerY" secondItem="zSb-cS-aie" secondAttribute="centerY" id="Xpi-Sa-nJu"/>
                 <constraint firstItem="82n-kq-3Cm" firstAttribute="centerY" secondItem="6S5-7d-iig" secondAttribute="centerY" id="YA0-4G-4jj"/>
                 <constraint firstItem="Wq0-Bj-qZh" firstAttribute="centerX" secondItem="sr6-jA-qkG" secondAttribute="centerX" id="dLM-dR-LG2"/>
-                <constraint firstItem="sr6-jA-qkG" firstAttribute="top" secondItem="KS0-lF-oV7" secondAttribute="bottom" constant="10" id="e3e-BQ-Fdv"/>
+                <constraint firstItem="sr6-jA-qkG" firstAttribute="top" secondItem="KS0-lF-oV7" secondAttribute="bottom" id="e3e-BQ-Fdv"/>
                 <constraint firstItem="82n-kq-3Cm" firstAttribute="centerX" secondItem="4H0-gi-qk2" secondAttribute="centerX" id="e7Q-6i-EdJ"/>
                 <constraint firstItem="sr6-jA-qkG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="h5D-9a-fER"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="RRH-ng-2ab" secondAttribute="trailing" constant="20" id="i44-c8-KDQ"/>

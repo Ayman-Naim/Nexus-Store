@@ -9,7 +9,7 @@ import UIKit
 
 class EditProductViewController: UIViewController {
     
-    static func present(on vc: UIViewController, editingOn type: EditType, productID: Int) {
+    static func show(on vc: UIViewController, editingOn type: EditType, productID: Int) {
         let editProductVC = EditProductViewController()
         editProductVC.editType = type
         editProductVC.viewModel = EditProductViewModel(productID: productID)
@@ -18,7 +18,7 @@ class EditProductViewController: UIViewController {
     
     enum EditType {
         case title(String)
-//        case productType(ProductType)
+        case productType(ProductType)
         case description(String)
         case addImage
         case addSizeColor
@@ -48,7 +48,6 @@ class EditProductViewController: UIViewController {
             guard let self = self else { return }
             if isSaved {
                 let closeAction = UIAlertAction(title: "Close", style: .default) { _ in
-                    //self.dismiss(animated: true)
                     self.navigationController?.popViewController(animated: true)
                 }
                 Alert.show(on: self, title: "Success", message: "Data is saved successfully", actions: [closeAction])
@@ -76,14 +75,18 @@ class EditProductViewController: UIViewController {
             if textView.text.isEmpty {
                 Alert.show(on: self, title: "Text Field Error", message: "The text field can't be empty!")
             } else {
-                viewModel?.editProduct(type: .title(textView.text!), value: textView.text!)
+                viewModel?.editProduct(type: editType, value: textView.text!)
             }
         } else if !sizeTextField.isHidden && !colorTextField.isHidden {
-            viewModel?.editProduct(type: .addSizeColor, value: sizeTextField.text!, colorTextField.text!)
+            if sizeTextField.text!.isEmpty || colorTextField.text!.isEmpty {
+                Alert.show(on: self, title: "Size & Color", message: "The size or color can't be empty!")
+            } else {
+                viewModel?.editProduct(type: editType, value: sizeTextField.text!, colorTextField.text!)
+            }
         } else {
             // Handle Cases: .productType
-//            let selectedProductType = ProductType.allCases[segmentControl.selectedSegmentIndex].rawValue
-//            viewModel?.editProduct(type: editType, value: selectedProductType)
+            let selectedProductType = ProductType.allCases[segmentControl.selectedSegmentIndex].rawValue
+            viewModel?.editProduct(type: editType, value: selectedProductType)
         }
     }
     
@@ -99,26 +102,34 @@ class EditProductViewController: UIViewController {
             textView.text = productTitle
             segmentControl.isHidden = true
             imageView.isHidden = true
+            sizeTextField.isHidden = true
+            colorTextField.isHidden = true
             
         case .description(let description):
             title = "Product Description"
             textView.text = description
             segmentControl.isHidden = true
             imageView.isHidden = true
+            sizeTextField.isHidden = true
+            colorTextField.isHidden = true
             
-//        case .productType(let productType):
-//            title = "Product Type"
-//            textView.isHidden = true
-//            imageView.isHidden = true
-//            segmentControl.removeAllSegments()
-//            for index in ProductType.allCases.indices {
-//                segmentControl.insertSegment(withTitle: ProductType.allCases[index].rawValue, at: index, animated: true)
-//            }
-//            segmentControl.selectedSegmentIndex = ProductType.allCases.firstIndex(of: productType) ?? 0
+        case .productType(let productType):
+            title = "Product Type"
+            textView.isHidden = true
+            imageView.isHidden = true
+            sizeTextField.isHidden = true
+            colorTextField.isHidden = true
+            segmentControl.removeAllSegments()
+            for index in ProductType.allCases.indices {
+                segmentControl.insertSegment(withTitle: ProductType.allCases[index].rawValue, at: index, animated: true)
+            }
+            segmentControl.selectedSegmentIndex = ProductType.allCases.firstIndex(of: productType) ?? 0
             
         case .addImage:
             title = "Add New Image"
             segmentControl.isHidden = true
+            sizeTextField.isHidden = true
+            colorTextField.isHidden = true
             textView.delegate = self
             textView.text = "Add image URL here..."
             

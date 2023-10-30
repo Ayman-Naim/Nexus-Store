@@ -5,15 +5,17 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddProductViewController" customModule="Nexus_Admin" customModuleProvider="target">
             <connections>
+                <outlet property="ProductCategory" destination="DBV-QI-KTm" id="twJ-c3-HLI"/>
                 <outlet property="ProductDescription" destination="gMu-D6-kpS" id="g5n-2y-bhc"/>
                 <outlet property="ProductTitle" destination="QF2-BY-lx6" id="iej-Ca-Az1"/>
-                <outlet property="ProductType" destination="hSh-fd-co2" id="sp1-Jg-ra1"/>
-                <outlet property="VendorTitle" destination="1Vl-10-H6T" id="kvc-Sg-LXv"/>
+                <outlet property="TypeSegment" destination="y06-3n-BcY" id="Smd-sf-cdY"/>
+                <outlet property="VendorDropDown" destination="PhI-w5-qIc" id="sAS-1j-JIy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -33,7 +35,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4vX-d1-pMt">
-                    <rect key="frame" x="77" y="568" width="239" height="35"/>
+                    <rect key="frame" x="77" y="636.66666666666663" width="239" height="35"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="239" id="sxm-bR-FiF"/>
                         <constraint firstAttribute="height" constant="35" id="z9d-lv-Rl3"/>
@@ -48,7 +50,7 @@
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="A5I-Te-wUw">
-                    <rect key="frame" x="39" y="162.99999999999997" width="315" height="321.33333333333326"/>
+                    <rect key="frame" x="39" y="163" width="315" height="390"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6i-68-hdX">
                             <rect key="frame" x="0.0" y="0.0" width="39.333333333333336" height="25.333333333333332"/>
@@ -68,68 +70,84 @@
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <real key="value" value="10"/>
                                 </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="setShadow" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="setShadow" value="NO"/>
                                 <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                    <real key="value" value="1"/>
+                                    <real key="value" value="0.0"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vendor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fay-Gd-Ath">
                             <rect key="frame" x="0.0" y="83.333333333333343" width="65.666666666666671" height="25.333333333333329"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25.329999999999998" id="ov7-UC-UPa"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="21"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Vendor" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Vl-10-H6T">
-                            <rect key="frame" x="0.0" y="120.66666666666669" width="315" height="34"/>
+                        <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PhI-w5-qIc">
+                            <rect key="frame" x="0.0" y="120.66666666666667" width="315" height="25.333333333333329"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="34" id="6Am-cZ-ahl"/>
-                                <constraint firstAttribute="width" constant="315" id="t1S-sd-vXe"/>
+                                <constraint firstAttribute="width" constant="315" id="1oT-yN-hj7"/>
+                                <constraint firstAttribute="height" constant="25.329999999999998" id="7Me-4Y-60S"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="10"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="setShadow" value="YES"/>
-                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                    <real key="value" value="1"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </textField>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <menu key="menu" id="8J9-A0-Jhw">
+                                <menuOptions key="menuOptions" displayInline="YES"/>
+                                <children>
+                                    <command title="Item 1" id="6Ub-Xg-77U"/>
+                                    <command title="Item 2" id="uFW-Hr-4iu"/>
+                                </children>
+                            </menu>
+                            <state key="normal" title="" image="chevron.down" catalog="system"/>
+                            <buttonConfiguration key="configuration" style="filled" title=""/>
+                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmF-nj-Oya">
-                            <rect key="frame" x="0.0" y="166.66666666666669" width="44.666666666666664" height="25.333333333333343"/>
+                            <rect key="frame" x="0.0" y="158" width="44.666666666666664" height="25.333333333333343"/>
                             <fontDescription key="fontDescription" type="system" pointSize="21"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hSh-fd-co2">
-                            <rect key="frame" x="0.0" y="204" width="315" height="34"/>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="y06-3n-BcY">
+                            <rect key="frame" x="0.0" y="195.33333333333331" width="315" height="32"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="315" id="w1O-Kq-As5"/>
-                                <constraint firstAttribute="height" constant="34" id="xnN-TH-av6"/>
+                                <constraint firstAttribute="width" constant="315" id="lmt-Yq-w0O"/>
+                                <constraint firstAttribute="height" constant="31" id="sjt-Oj-f12"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="10"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="setShadow" value="YES"/>
-                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                    <real key="value" value="1"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </textField>
+                            <segments>
+                                <segment title="T-SHIRTS"/>
+                                <segment title="SHOES"/>
+                                <segment title="ACCESSORIES"/>
+                            </segments>
+                        </segmentedControl>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XvC-kv-SzY">
+                            <rect key="frame" x="0.0" y="238.33333333333331" width="84.333333333333329" height="25.333333333333314"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DBV-QI-KTm">
+                            <rect key="frame" x="0.0" y="275.66666666666669" width="315" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="31" id="2mb-AA-lGm"/>
+                                <constraint firstAttribute="width" constant="315" id="G39-AV-cBW"/>
+                            </constraints>
+                            <segments>
+                                <segment title="Men"/>
+                                <segment title="Kids"/>
+                                <segment title="Sale"/>
+                                <segment title="Women"/>
+                            </segments>
+                        </segmentedControl>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fr7-E9-SXU">
-                            <rect key="frame" x="0.0" y="250.00000000000003" width="104.66666666666667" height="25.333333333333343"/>
+                            <rect key="frame" x="0.0" y="318.66666666666669" width="104.66666666666667" height="25.333333333333314"/>
                             <fontDescription key="fontDescription" type="system" pointSize="21"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gMu-D6-kpS">
-                            <rect key="frame" x="0.0" y="287.33333333333331" width="315" height="34"/>
+                            <rect key="frame" x="0.0" y="356" width="315" height="34"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="315" id="HEs-vt-RIa"/>
                                 <constraint firstAttribute="height" constant="34" id="iwV-c1-1Qw"/>
@@ -140,9 +158,9 @@
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <real key="value" value="10"/>
                                 </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="setShadow" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="setShadow" value="NO"/>
                                 <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                    <real key="value" value="1"/>
+                                    <real key="value" value="0.0"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </textField>
@@ -167,6 +185,7 @@
         </view>
     </objects>
     <resources>
+        <image name="chevron.down" catalog="system" width="128" height="70"/>
         <namedColor name="Background">
             <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

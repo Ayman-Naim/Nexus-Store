@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -25,7 +26,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -37,15 +38,20 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             return cell
         case 1:
             let cell =  tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsTableViewCell
+            cell.settingsLabel.text = "Contact US"
+            cell.imgView.image = UIImage(named: "contactUs")
+            return cell
+        case 2:
+            let cell =  tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsTableViewCell
             cell.settingsLabel.text = "Currency"
             cell.imgView.image = UIImage(named: "dosign")
             return cell
-        case 2:
+        case 3:
             let cell =  tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsTableViewCell
             cell.settingsLabel.text = "Address"
             cell.imgView.image = UIImage(named: "address")
             return cell
-        case 3:
+        case 4:
             let cell =  tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsTableViewCell
             cell.settingsLabel.text = "Logout"
             cell.imgView.image = UIImage(named: "logoutt")
@@ -59,7 +65,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 75
+        return 70
     }
     
     
@@ -69,15 +75,31 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             let aboutUsVC = AboutUsViewController()
             self.navigationController?.pushViewController(aboutUsVC, animated: true)
         case 1:
+            let contactUsVC = ContactUsViewController()
+            self.navigationController?.pushViewController(contactUsVC, animated: true)
+        case 2:
             let currencyVC = SignInViewController()
             self.navigationController?.pushViewController(currencyVC, animated: true)
-        case 2:
+        case 3:
             let addressVC = AddAddressViewController()
             self.navigationController?.pushViewController(addressVC, animated: true)
-        case 3:
+        case 4:
             let signinVC = SignInViewController()
       //      self.navigationController?.pushViewController(signinVC, animated: true)
-            self.navigationController?.setViewControllers([signinVC], animated: true)
+            do{
+                try Auth.auth().signOut()
+                UserDefaults.standard.removeObject(forKey: "customerID")
+                UserDefaults.standard.removeObject(forKey: "customerEmail")
+                UserDefaults.standard.synchronize()
+        //        self.navigationController?.setViewControllers([signinVC], animated: true)
+                if let sceneDelegate = UIApplication.shared.connectedScenes
+                    .first!.delegate as? SceneDelegate {
+                    let nav = UINavigationController(rootViewController: SignInViewController())
+                    sceneDelegate.window!.rootViewController = nav
+                }
+            } catch{
+                print("Logout Error: \(error.localizedDescription)")
+            }
         default:
             print("Default")
         }

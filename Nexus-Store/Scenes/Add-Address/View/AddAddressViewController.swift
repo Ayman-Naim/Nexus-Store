@@ -17,7 +17,7 @@ class AddAddressViewController: UIViewController {
     
     private let addAddressView = AddAddressView()
     weak var delegate: AddAddressDelegate?
-
+    private var viewModel :AddAddressVM = AddAddressVM()
     override func loadView() {
         super.loadView()
         self.view = addAddressView
@@ -52,8 +52,27 @@ class AddAddressViewController: UIViewController {
             Alert.show(on: self, title: "Address", message: "All fileds must be not empty")
             return
         }
-        navigationController?.popViewController(animated: true)
-        delegate?.didAddNewAddress((name, city, address))
+        viewModel.addAdress(name: name, city: city, adddress: address, Phone: phone) { result in
+            switch result{
+            case .success(let data ):
+                
+                
+                guard let address1 = data.customer_address?.address1 ,
+                      let city1 = data.customer_address?.city,
+                      let name1 = data.customer_address?.name
+                else {
+                    return
+                }
+                self.delegate?.didAddNewAddress((name1 , city1, address1 ))
+                self.navigationController?.popViewController(animated: true)
+               
+            case.failure(let error):
+                    Alert.show(on: self, title: "Add Adress Error", message: "these Addtess Data Already found please change the details or go back to adress list ")
+                
+                return
+            }
+        }
+       
     }
     
     deinit {
@@ -73,7 +92,9 @@ extension AddAddressViewController: UITextFieldDelegate {
         case addAddressView.cityTextField:
             addAddressView.addressTextField.becomeFirstResponder()
             return false
-            
+        case addAddressView.addressTextField:
+            addAddressView.PhoneTextField.becomeFirstResponder()
+            return false
         default:
             textField.endEditing(true)
             return true

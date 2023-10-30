@@ -9,29 +9,72 @@ import Foundation
 class AddProductVM{
     
     
-    func AddProduct(title:String,type:String,Descriotion:String,vendor:String){
+    func AddProduct(title:String,type:String,Descriotion:String,vendor:String ,category:String,completion: @escaping (Result<SingleProductResponse, Error>) -> Void){
         
         let parameter :[String: Any] = [
             "product": [
-                "title": "\(title)", //product tilte
-                "body_html": "<strong>\(Descriotion)</strong>",//product descrioption
+                "title": "\(vendor)|\(title)", //product tilte
+                "body_html": "\(Descriotion)",//product descrioption
                 "vendor": "\(vendor)", // vendor name
                 "product_type": "\(type)", // product type
+                "variants": []
                 
             ] as [String : Any]
         ]
         
-        AdminNetManger.SharedApiManger.postData(url: .AddProduct, parameters:parameter , decodingModel:SingleProduct.self ){result in
+        AdminNetManger.SharedApiManger.postData(url: .AddProduct, parameters:parameter , decodingModel: SingleProductResponse.self ){result in
             switch result{
-            case.success(let Data):
-                print(Data)
+            case.success(let product):
+                var coolectid : Int?
+                collectsID.allCases.forEach({ collects in
+                    if (collects.rawValue == category){
+                        coolectid = collects.collectionId
+                        
+                    }
+                })
+                guard let collectionID = coolectid else {return}
+                let collectsparameter :[String: Any] = [
+                    "collect": [
+                       
+                        "collection_id": collectionID,
+                        "product_id": product.result.id
+                        ] as [String : Any]
+                ]
+                             
+                AdminNetManger.SharedApiManger.postData(url: .collects, parameters: collectsparameter, decodingModel: collectsModel.self) { result in
+                    switch result{
+                    case.success(_):
+                        completion(.success(product))
+                    case.failure(let error):
+                        completion(.failure(error))
+                    }
+                }
+               // completion(.success( Data))
+                
+                
             case.failure(let erorr):
-                print(erorr)
+                completion(.failure(erorr))
             }
             
             
         }
         
+        
+    }
+    
+    func getBrands(completion:@escaping (Result<[SmartCollection], Error>) -> Void){
+        AdminNetManger.SharedApiManger.fetchDataaa(url: .Brand, decodingModel: BrandsModel.self) { result in
+            switch result{
+            case .success(let data):
+                completion(.success(data.smart_collections))
+                
+            case .failure(let error):
+                completion(.failure(error))
+            
+                
+        }
+          
+        }
         
     }
     

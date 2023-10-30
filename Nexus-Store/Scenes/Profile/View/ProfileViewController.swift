@@ -43,6 +43,7 @@ class ProfileViewController: UIViewController {
         self.UserImage.layer.cornerRadius = self.UserImage.frame.size.width/2;
         self.UserImage.layer.masksToBounds = true
         self.UserImage.contentMode = .scaleAspectFill
+        self.UserImage.layer.borderWidth = 1.5
         
     }
     
@@ -52,7 +53,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func WishListClicked(_ sender: Any) {
-        //
+        self.navigationController?.pushViewController(SettingsViewController(), animated: true)
     }
 }
 
@@ -70,7 +71,7 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
             } else {
                 return orders.count;
             }
-
+            
         case 1 :
             if (wishList.count == 0) {
                 return 0;
@@ -79,7 +80,7 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
             } else {
                 return wishList.count;
             }
-
+            
             
         default:
             return 0
@@ -92,12 +93,12 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
             let cell  = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for: indexPath) as!  OrderTableViewCell
             if  orders.count>0{
                 //if(orders[indexPath.row].customer?.id == 6899149603052){
-                    cell.orderNo.text = "\(orders[indexPath.row].order_number!)"
-                    cell.quantity.text = "\(orders[indexPath.row].line_items!.count)"
-                    cell.totalAmount.text = "\(orders[indexPath.row].total_price!)\(orders[indexPath.row].currency=="EGP" ?" EGP":" $")"
-                    
-                    return cell
-               // }
+                cell.orderNo.text = "\(orders[indexPath.row].order_number!)"
+                cell.quantity.text = "\(orders[indexPath.row].line_items!.count)"
+                cell.totalAmount.text = "\(orders[indexPath.row].total_price!)\(orders[indexPath.row].currency=="EGP" ?" EGP":" $")"
+                
+                return cell
+                // }
             }
             else{
                 return cell
@@ -106,8 +107,8 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
             let cell  = tableView.dequeueReusableCell(withIdentifier: "FavouriteTableViewCell", for: indexPath) as!  FavouriteTableViewCell
             cell.productImage.setImage(withURLString: wishList[indexPath.row].image?.src ?? "")
             cell.productName.text = wishList[indexPath.row].title
-            cell.ProductPrice.text = "\(wishList[indexPath.row].variants?.first?.price) $"
-           
+            cell.ProductPrice.text = "\(wishList[indexPath.row].variants!.first?.price) $"
+            
             return cell
         default:
             return UITableViewCell()
@@ -115,7 +116,7 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
         //return UITableViewCell()
     }
     
-  
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
     }
@@ -131,8 +132,8 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
             return headerView
             
             
-         
-
+            
+            
         case 1:
             let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderTableViewCell") as! SectionHeaderTableViewCell
             headerView.HeaderTitle.text = "Wish List"
@@ -140,19 +141,36 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
             headerView.section = 1
             
             return headerView
-
+            
         default:
             return UIView()
-
+            
         }
     }
     
     
-    
-   
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section{
+        case 0 :
+            guard let url = URL(string: orders[indexPath.row].order_status_url ?? "") else { return }
+            UIApplication.shared.open(url)
+        case 1 :
+            let product = wishList[indexPath.row]
+            let storyboard = UIStoryboard(name:ProductDetailsViewController.storyBoardName , bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: ProductDetailsViewController.identifier) as! ProductDetailsViewController
+            let productDetailsViewModel = ProductDetailsViewModel(for: product.id)
+            vc.productDetailsViewModel = productDetailsViewModel
+            vc.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            vc.modalPresentationStyle = .fullScreen
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+            
+        default:
+            print("nothing")
+        }
+        
+    }
 }
-
 
 
 extension ProfileViewController:ProfileDelegete{

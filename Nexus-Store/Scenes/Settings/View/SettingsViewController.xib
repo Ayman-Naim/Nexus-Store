@@ -23,7 +23,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHu-qw-yti">
                     <rect key="frame" x="20" y="59" width="353" height="30"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" red="0.024229738630000001" green="0.058464285140000002" blue="0.65161456480000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
@@ -33,7 +33,7 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="13U-U2-b0q">
-                    <rect key="frame" x="20" y="109" width="353" height="689"/>
+                    <rect key="frame" x="10" y="109" width="373" height="689"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
@@ -42,11 +42,11 @@
             <constraints>
                 <constraint firstItem="bHu-qw-yti" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="32X-jl-rda"/>
                 <constraint firstItem="13U-U2-b0q" firstAttribute="top" secondItem="bHu-qw-yti" secondAttribute="bottom" constant="20" id="A7S-AV-cuz"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="13U-U2-b0q" secondAttribute="trailing" constant="20" id="E6c-xM-wFJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="13U-U2-b0q" secondAttribute="trailing" constant="10" id="E6c-xM-wFJ"/>
                 <constraint firstItem="bHu-qw-yti" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Qpc-Pe-iBY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bHu-qw-yti" secondAttribute="trailing" constant="20" id="U2W-5L-D8h"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="13U-U2-b0q" secondAttribute="bottom" constant="20" id="mSf-Hn-mIr"/>
-                <constraint firstItem="13U-U2-b0q" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="mlP-6f-50j"/>
+                <constraint firstItem="13U-U2-b0q" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="mlP-6f-50j"/>
             </constraints>
             <point key="canvasLocation" x="102" y="20"/>
         </view>
