@@ -24,6 +24,7 @@ class ProfileViewController: UIViewController {
         circleImage()
         getOrders()
         getwishlist()
+        setUserName()
        
         // Do any additional setup after loading the view.
     }
@@ -223,12 +224,21 @@ extension ProfileViewController:ProfileDelegete{
                 
             case .failure(let error):
                 print(error)
-                
-                
             }
         }
-        
-        
+       
+    }
+    //get user name
+    func setUserName(){
+        let user = ViewModel.getUserData()
+        switch user{
+        case.success(let userEmail):
+            UserName.text = "aymanmohamedsheniar@yahoo.com"
+        case.failure(let error ):
+            UserName.text = error.localizedDescription
+            
+        }
         
     }
+    
 }

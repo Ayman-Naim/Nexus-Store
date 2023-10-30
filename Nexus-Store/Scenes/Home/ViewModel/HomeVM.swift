@@ -26,6 +26,26 @@ class HomeVM{
     }
     
     
+    func getUserData()->Result<String,Error>{
+       guard let contentData = UserDefaults.standard.string(forKey: "customerEmail") 
+              else{ return(.failure(UserDfaultError.emptyUser)) }
+        print(contentData)
+        return(.success(contentData))
+        
+
+    }
     
     
+    
+}
+
+enum UserDfaultError : Error{
+case emptyUser
+    
+    
+    var errorDescription :String{
+        switch self{
+        case.emptyUser : return "No User LogedIN"
+        }
+    }
 }

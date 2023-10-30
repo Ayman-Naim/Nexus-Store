@@ -71,6 +71,17 @@ class ProfileVM{
             }
         }
     }
+    
+    
+    func getUserData()->Result<String,Error>{
+       guard let contentData = UserDefaults.standard.string(forKey: "customerEmail")
+              else{ return(.failure(UserDfaultError.emptyUser)) }
+        print(contentData)
+        return(.success(contentData))
+        
+
+    }
+
 
     
 }
