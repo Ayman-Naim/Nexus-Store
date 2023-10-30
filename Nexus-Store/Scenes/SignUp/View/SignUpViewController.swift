@@ -63,7 +63,7 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signInButton(_ sender: Any) {
-        let signinVC = SignInViewController()
+   //     let signinVC = SignInViewController()
         //signupVC.modalPresentationStyle = .fullScreen
    //     self.present(signinVC, animated: true)
         self.navigationController?.popViewController(animated: true)
