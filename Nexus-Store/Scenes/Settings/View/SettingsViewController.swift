@@ -39,7 +39,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         case 1:
             let cell =  tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsTableViewCell
             cell.settingsLabel.text = "Contact US"
-            cell.imgView.image = UIImage(named: "about us")
+            cell.imgView.image = UIImage(named: "contactUs")
             return cell
         case 2:
             let cell =  tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsTableViewCell
@@ -89,8 +89,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             do{
                 try Auth.auth().signOut()
                 UserDefaults.standard.removeObject(forKey: "customerID")
+                UserDefaults.standard.removeObject(forKey: "customerEmail")
                 UserDefaults.standard.synchronize()
-                self.navigationController?.setViewControllers([signinVC], animated: true)
+        //        self.navigationController?.setViewControllers([signinVC], animated: true)
+                if let sceneDelegate = UIApplication.shared.connectedScenes
+                    .first!.delegate as? SceneDelegate {
+                    let nav = UINavigationController(rootViewController: SignInViewController())
+                    sceneDelegate.window!.rootViewController = nav
+                }
             } catch{
                 print("Logout Error: \(error.localizedDescription)")
             }

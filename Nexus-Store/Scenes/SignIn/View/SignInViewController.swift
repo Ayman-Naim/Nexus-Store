@@ -55,23 +55,34 @@ class SignInViewController: UIViewController {
                     self.present(alert, animated: true, completion: nil)
                     return
                 }
-            let nav = UINavigationController(rootViewController: NexusTabBarController())
+            if let sceneDelegate = UIApplication.shared.connectedScenes
+                .first!.delegate as? SceneDelegate {
+                let tabBar = NexusTabBarController()
+                tabBar.navigationController?.isNavigationBarHidden = true
+                sceneDelegate.window!.rootViewController = tabBar
+                
+            }
+ /*           let nav = UINavigationController(rootViewController: NexusTabBarController())
             nav.modalPresentationStyle = .fullScreen
             let tabBar = NexusTabBarController()
             tabBar.modalPresentationStyle = .fullScreen
-            //nav.isNavigationBarHidden = true
+            //nav.isNavigationBarHidden = true*/
             if let user = Auth.auth().currentUser {
                 let userId = user.uid
+                UserDefaults.standard.set(userId, forKey: "customerID")
                 print("User ID: \(userId)")
+                let userEmail = user.email
+                UserDefaults.standard.set(userEmail, forKey: "customerEmail")
+                print("User Email: \(userEmail!)")
+                if let customerID = UserDefaults.standard.string(forKey: "customerID") {
+                    // Use the customerID
+                    print("Customer ID: \(customerID)")
+                } else {
+                    // Customer ID is not available in UserDefaults
+                    print("Customer ID is not available")
+                }
             }
-            if let customerID = UserDefaults.standard.string(forKey: "customerID") {
-                // Use the customerID
-                print("Customer ID: \(customerID)")
-            } else {
-                // Customer ID is not available in UserDefaults
-                print("Customer ID is not available")
-            }
-            self.present(tabBar, animated: true)
+     //       self.present(tabBar, animated: true)
 
             }
 
