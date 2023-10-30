@@ -24,25 +24,7 @@ struct DraftOrders: Codable {
     }
 }
 
-struct DraftOrder: Codable {
-    let id: Int
-//    let orderID: Int
-    let currency: String
-    let lineItems: [LineItem]
-//    let shippingAddress: ShippinAddress?
-//    let appliedDiscount: AppliedDiscount?
-//    let shippingLine: String?
-    let totalPrice: String
-    let customer: Customer
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case currency
-        case lineItems = "line_items"
-        case totalPrice = "total_price"
-        case customer
-    }
-}
+
 
 struct LineItem: Codable {
     let id: Int
