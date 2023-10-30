@@ -86,12 +86,13 @@ extension ShippingViewController: UITableViewDataSource, UITableViewDelegate {
 
 // MARK: - AddAddressDelegate
 extension ShippingViewController: AddAddressDelegate {
-    func didAddNewAddress(_ address: (name: String, city: String, address: String)) {
+    func didAddNewAddress() {
 //        addresses.indices.forEach({ addresses[$0].isSelected = false })
 //        addresses.insert((name: address.name,
 //                          city: address.city,
 //                          address: address.address,
 //                          isSelected: true), at: 0)
 //        tableView.reloadData()
+        viewModel.getCustomerAddresses()
     }
 }
