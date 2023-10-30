@@ -523,6 +523,9 @@
                                                 <integer key="value" value="16"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="AddToCartButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Gqg-Lu-byL"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="Hso-HP-J2n"/>

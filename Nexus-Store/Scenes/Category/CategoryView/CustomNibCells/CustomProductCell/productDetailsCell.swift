@@ -47,8 +47,10 @@ class productDetailsCell: UICollectionViewCell {
         
     }
     func ConfigureProductDetails(product:Product?){
-        if let image = URL(string: (product?.image?.src)!){
-            productImage.kf.setImage(with:image )
+        if let image = product?.image?.src{
+            if let urlImage = URL(string: image){
+                productImage.kf.setImage(with:urlImage )
+            }
         }
         productName.text = product?.title
         productPrice.text = "$\(product?.variants?.first?.price ?? "300")"

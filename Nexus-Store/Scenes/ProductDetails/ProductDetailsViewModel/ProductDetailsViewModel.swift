@@ -62,7 +62,7 @@ class ProductDetailsViewModel:ProductDetailsDelegation{
     }
     
     func bindAvaliableQuantityOfProduct() -> String? {
-        let numberOfItemAvalabile = productItem?.variants?.filter({ $0.option1 == productItem?.options?.first?.values?[0] })
+        let numberOfItemAvalabile = productItem?.variants?.filter({ $0.option1 == productItem?.options?.first?.values?[0] &&  $0.option2 == productItem?.options?[1].values?[0] })
         if let quantityAvalible = numberOfItemAvalabile?.first?.inventoryQuantity{
             return "\(quantityAvalible) item"
         }

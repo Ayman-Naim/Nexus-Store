@@ -35,7 +35,24 @@ class ProductDetailsViewController: UIViewController {
     var productItemDetails:Product?
     var numberOfAvalibleItems:Int?
     let wishListServices = WishListService()
-    var favoriteProducts:[Product]?
+    var favoriteProducts:[Product]?{
+        didSet{
+            if  let count = productItemDetails?.options?.first?.values?.count  {
+                if count > 0{
+                    let indexPath = IndexPath(item: 0, section: 0)
+                    
+                    // Select the first item with animation and scroll it to visible
+                                        sizeCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+//                    if let selectedCell = sizeCollectionView.cellForItem(at: indexPath) {
+//                        // Customize the appearance of the selected cell
+//                        selectedCell.isSelected = true
+//                    }
+                    
+                }
+            }
+
+        }
+    }
     let custemerId:Int = 6899149865196
     var constatPriceOfItem:Double?
     
@@ -50,7 +67,6 @@ class ProductDetailsViewController: UIViewController {
                 avalibleQuantity.text = "\(numberOfAvalibleItems!  - ( numberOfItemsUpdates )) Item"
                 
             }
-            
         }
     }
     let productRatting:Double = 5
@@ -81,6 +97,8 @@ class ProductDetailsViewController: UIViewController {
         ConfigureCallNetworlForProduct()
         productImageCollection.contentInsetAdjustmentBehavior = .never
         checkCustomerFavoriteProduct()
+       
+       
        
         
     }
@@ -117,7 +135,7 @@ class ProductDetailsViewController: UIViewController {
             sender.setImage(UIImage(systemName: K.favoriteIconSave,withConfiguration: UIImage.SymbolConfiguration(scale: .large)), for: .normal)
             wishListServices.addToWishList(productID: productItemDetails!.id, toCustomer: custemerId) { error in
                 if let error = error{
-                    print("There is an error Try Solve It!")
+                    print(error.localizedDescription)
                 }else{return}
             }
            
@@ -126,7 +144,7 @@ class ProductDetailsViewController: UIViewController {
             sender.setImage(UIImage(systemName: K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .large)), for: .normal)
             wishListServices.removeWishList(productID: productItemDetails!.id, fromCustomer: custemerId) { error in
                 if let error = error{
-                    print("There is an error Try Solve It!")
+                    print(error.localizedDescription)
                 }else{return}
             }
         }
@@ -158,6 +176,14 @@ class ProductDetailsViewController: UIViewController {
         }
     }
     
+    //MARK: - Test Add Promo Code To Product
+    @IBAction func AddToCartButton(_ sender: UIButton) {
+        
+        let vc = AddPromoCodeViewController()
+        vc.addPromoCodeViewModel = AddPromoCodeViewModel()
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
     
 }
 
