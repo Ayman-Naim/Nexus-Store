@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="checkboxImage" destination="myI-f6-Brg" id="gME-W7-Hxi"/>
                 <outlet property="emailField" destination="y8J-Xs-pzI" id="kqi-fK-GAm"/>
+                <outlet property="googleImage" destination="o4V-ei-686" id="9FM-63-Opt"/>
                 <outlet property="passwordField" destination="LzU-en-yQr" id="8cq-3p-Lkp"/>
                 <outlet property="toggleImage" destination="Hu4-YE-OGs" id="oNR-T3-hml"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

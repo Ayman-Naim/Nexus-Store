@@ -10,6 +10,7 @@ import FirebaseAuth
 
 class SignUpViewController: UIViewController {
 
+    @IBOutlet weak var googleImage: UIImageView!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var toggleImage: UIImageView!

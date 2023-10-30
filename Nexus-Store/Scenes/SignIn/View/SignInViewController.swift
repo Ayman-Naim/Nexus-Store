@@ -10,6 +10,7 @@ import FirebaseAuth
 
 class SignInViewController: UIViewController {
 
+    @IBOutlet weak var googleImage: UIImageView!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var toggleImage: UIImageView!
@@ -22,9 +23,9 @@ class SignInViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         // Add a tap gesture recognizer to the toggleImage
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(togglePasswordVisibility))
+        let tapGestureRecognizerForToggleEye = UITapGestureRecognizer(target: self, action: #selector(togglePasswordVisibility))
         toggleImage.isUserInteractionEnabled = true
-        toggleImage.addGestureRecognizer(tapGestureRecognizer)
+        toggleImage.addGestureRecognizer(tapGestureRecognizerForToggleEye)
         
  /*       // Load the "Remember Me" preference from UserDefaults
         isRememberMeSelected = UserDefaults.standard.bool(forKey: "RememberMe")

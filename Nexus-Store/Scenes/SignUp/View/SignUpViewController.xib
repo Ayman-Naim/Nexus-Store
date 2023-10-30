@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController" customModule="Nexus_Store" customModuleProvider="target">
             <connections>
                 <outlet property="emailField" destination="27q-Of-SAA" id="7mn-lp-tgl"/>
+                <outlet property="googleImage" destination="5P0-Kc-e35" id="fnc-dX-QPO"/>
                 <outlet property="passwordField" destination="8L1-pb-zYl" id="Epf-C7-Ucb"/>
                 <outlet property="toggleImage" destination="hHn-Ne-hya" id="Ub8-b9-aZC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
