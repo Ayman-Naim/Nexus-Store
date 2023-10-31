@@ -26,6 +26,7 @@ class HomeViewController: UIViewController {
         collectionSetup()
         layoutSetup()
         getBrands()
+        setUserName()
         PageControl.numberOfPages = 15
         SerachBarText.delegate = self
     }
@@ -67,6 +68,17 @@ class HomeViewController: UIViewController {
         self.ProfileImage.layer.masksToBounds = true
         self.ProfileImage.contentMode = .scaleAspectFill
         self.ProfileImage.layer.borderWidth = 1.5
+        
+    }
+    func setUserName(){
+        let user = ViewModel.getUserData()
+        switch user{
+        case.success(let userEmail):
+            UserName.text = userEmail
+        case.failure(let error ):
+            UserName.text = error.localizedDescription
+            
+        }
         
     }
     
@@ -159,10 +171,7 @@ class HomeViewController: UIViewController {
                 }
             }
         }
-        
-        
-        
-        
+       
         return section
     }
     
@@ -228,7 +237,7 @@ extension HomeViewController :UICollectionViewDelegate,UICollectionViewDataSourc
                     {
                     case .success(let image):
                         
-                        cell.BrandLogo?.image = self.resizeImage(image: image.image, newWidth: 1000/4)
+                        cell.BrandLogo?.image = image.image//self.resizeImage(image: image.image, newWidth: 1000/4)
                         
 
                     case .failure(_):

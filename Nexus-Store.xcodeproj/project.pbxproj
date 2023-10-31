@@ -171,6 +171,7 @@
 		E37B4DE62AE301B80051EB89 /* PayMethodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E37B4DE42AE301B80051EB89 /* PayMethodViewController.xib */; };
 		E37B4DEB2AE307BE0051EB89 /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37B4DE92AE307BE0051EB89 /* PaymentTableViewCell.swift */; };
 		E37B4DEC2AE307BE0051EB89 /* PaymentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E37B4DEA2AE307BE0051EB89 /* PaymentTableViewCell.xib */; };
+		E382B31B2AF016730004110D /* SearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382B31A2AF016730004110D /* SearchVM.swift */; };
 		E3A3ED662AEC51FC00E44737 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A3ED642AEC51FB00E44737 /* SignInViewController.swift */; };
 		E3A3ED672AEC51FC00E44737 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3A3ED652AEC51FC00E44737 /* SignInViewController.xib */; };
 		E3A60E7D2AEC87BA008FEDB5 /* BaseUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60E7C2AEC87BA008FEDB5 /* BaseUrl.swift */; };
@@ -370,6 +371,7 @@
 		E37B4DE42AE301B80051EB89 /* PayMethodViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayMethodViewController.xib; sourceTree = "<group>"; };
 		E37B4DE92AE307BE0051EB89 /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
 		E37B4DEA2AE307BE0051EB89 /* PaymentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentTableViewCell.xib; sourceTree = "<group>"; };
+		E382B31A2AF016730004110D /* SearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVM.swift; sourceTree = "<group>"; };
 		E3A3ED642AEC51FB00E44737 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		E3A3ED652AEC51FC00E44737 /* SignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		E3A60E7C2AEC87BA008FEDB5 /* BaseUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrl.swift; sourceTree = "<group>"; };
@@ -510,7 +512,9 @@
 		01694EE02AE530BD009FC373 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				01694EE12AE53128009FC373 /* SearchViewController.swift */,
+				E382B3182AF012EB0004110D /* Model */,
+				E382B3172AF012E50004110D /* ViewModel */,
+				E382B3152AF012DA0004110D /* View */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1639,6 +1643,29 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		E382B3152AF012DA0004110D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				01694EE12AE53128009FC373 /* SearchViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E382B3172AF012E50004110D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E382B31A2AF016730004110D /* SearchVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E382B3182AF012EB0004110D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E3A60E762AEC867C008FEDB5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1987,6 +2014,7 @@
 				5BFDC64C2AEE69C900C2F6C7 /* ContactTableViewCell.swift in Sources */,
 				E340D1EA2AE79A2500E2E017 /* NetworkManger.swift in Sources */,
 				E34556722AE1D18200312C6C /* SectionHeaderTableViewCell.swift in Sources */,
+				E382B31B2AF016730004110D /* SearchVM.swift in Sources */,
 				45123AB12AE2149E001B12B7 /* ReviewProductCell.swift in Sources */,
 				45B1EC962AE9249C00E690F9 /* Options.swift in Sources */,
 				E34FE6262AE9218D006602A5 /* HomeVM.swift in Sources */,

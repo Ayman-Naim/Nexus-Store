@@ -24,6 +24,7 @@ class ProfileViewController: UIViewController {
         circleImage()
         getOrders()
         getwishlist()
+        setUserName()
        
         // Do any additional setup after loading the view.
     }
@@ -90,7 +91,9 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section{
         case  0 :
+            
             let cell  = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for: indexPath) as!  OrderTableViewCell
+            //cell.selectionStyle = .none
             if  orders.count>0{
                 //if(orders[indexPath.row].customer?.id == 6899149603052){
                 cell.orderNo.text = "\(orders[indexPath.row].order_number!)"
@@ -106,8 +109,9 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
         case  1 :
             let cell  = tableView.dequeueReusableCell(withIdentifier: "FavouriteTableViewCell", for: indexPath) as!  FavouriteTableViewCell
             cell.productImage.setImage(withURLString: wishList[indexPath.row].image?.src ?? "")
-            cell.productName.text = wishList[indexPath.row].title
-            cell.ProductPrice.text = "\(wishList[indexPath.row].variants!.first?.price) $"
+            guard let title = wishList[indexPath.row].title,let price = wishList[indexPath.row].variants!.first?.price else{return cell}
+            cell.productName.text = title
+            cell.ProductPrice.text = "\(price) $"
             
             return cell
         default:
@@ -151,6 +155,7 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section{
+            
         case 0 :
             guard let url = URL(string: orders[indexPath.row].order_status_url ?? "") else { return }
             UIApplication.shared.open(url)
@@ -223,12 +228,21 @@ extension ProfileViewController:ProfileDelegete{
                 
             case .failure(let error):
                 print(error)
-                
-                
             }
         }
-        
-        
+       
+    }
+    //get user name
+    func setUserName(){
+        let user = ViewModel.getUserData()
+        switch user{
+        case.success(let userEmail):
+            UserName.text = userEmail
+        case.failure(let error ):
+            UserName.text = error.localizedDescription
+            
+        }
         
     }
+    
 }
