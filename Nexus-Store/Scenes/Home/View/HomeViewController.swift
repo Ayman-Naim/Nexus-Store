@@ -74,7 +74,7 @@ class HomeViewController: UIViewController {
         let user = ViewModel.getUserData()
         switch user{
         case.success(let userEmail):
-            UserName.text = "aymanmohamedsheniar@yahoo.com"
+            UserName.text = userEmail
         case.failure(let error ):
             UserName.text = error.localizedDescription
             
@@ -237,7 +237,7 @@ extension HomeViewController :UICollectionViewDelegate,UICollectionViewDataSourc
                     {
                     case .success(let image):
                         
-                        cell.BrandLogo?.image = self.resizeImage(image: image.image, newWidth: 1000/4)
+                        cell.BrandLogo?.image = image.image//self.resizeImage(image: image.image, newWidth: 1000/4)
                         
 
                     case .failure(_):

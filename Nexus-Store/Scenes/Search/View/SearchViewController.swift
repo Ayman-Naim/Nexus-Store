@@ -179,6 +179,7 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         
         cell.rating.isHidden = true
         cell.colorSize.isHidden = true
+        cell.favoriteIcon.isHidden = true
         return cell
     }
     
