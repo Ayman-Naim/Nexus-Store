@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 import FirebaseCore
+import BraintreeCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        
+        BTAppContextSwitcher.sharedInstance.returnURLScheme = "EOA-industry.Nexus-Store.payments"
         //UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -1000.0, vertical: 0.0), for: .default)
         return true
     }
@@ -80,6 +81,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        if url.scheme?.localizedCaseInsensitiveCompare("EOA-industry.Nexus-Store.payments") == .orderedSame {
+                return BTAppContextSwitcher.sharedInstance.handleOpen(url)
+            }
+            return false
+    }
 
 }
-
