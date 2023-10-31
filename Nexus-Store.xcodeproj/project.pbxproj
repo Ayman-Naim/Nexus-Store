@@ -112,6 +112,11 @@
 		45D0E8912AE0A04800A07332 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D0E8902AE0A04800A07332 /* K.swift */; };
 		5B312CD32AEBD64E00394BDF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B312CD22AEBD64E00394BDF /* GoogleService-Info.plist */; };
 		5B94B7C82AF0C2B10010071D /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B94B7C72AF0C2B10010071D /* SignIn.swift */; };
+		5B94B7CB2AF1147C0010071D /* BraintreeAmericanExpress in Frameworks */ = {isa = PBXBuildFile; productRef = 5B94B7CA2AF1147C0010071D /* BraintreeAmericanExpress */; };
+		5B94B7CD2AF1147C0010071D /* BraintreeApplePay in Frameworks */ = {isa = PBXBuildFile; productRef = 5B94B7CC2AF1147C0010071D /* BraintreeApplePay */; };
+		5B94B7CF2AF1147C0010071D /* BraintreeCard in Frameworks */ = {isa = PBXBuildFile; productRef = 5B94B7CE2AF1147C0010071D /* BraintreeCard */; };
+		5B94B7D12AF1147C0010071D /* BraintreeCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5B94B7D02AF1147C0010071D /* BraintreeCore */; };
+		5B94B7D32AF1147C0010071D /* BraintreeDataCollector in Frameworks */ = {isa = PBXBuildFile; productRef = 5B94B7D22AF1147C0010071D /* BraintreeDataCollector */; };
 		5B9A02732AEC23E3007DC704 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A02722AEC23E3007DC704 /* CreateAccount.swift */; };
 		5B9A02752AEC24DC007DC704 /* SignInWithAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A02742AEC24DC007DC704 /* SignInWithAccount.swift */; };
 		5B9A02782AEC29F3007DC704 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A02772AEC29F3007DC704 /* SignUp.swift */; };
@@ -408,10 +413,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B94B7CB2AF1147C0010071D /* BraintreeAmericanExpress in Frameworks */,
 				D14182C7B08E56039861E606 /* Pods_Nexus_Store.framework in Frameworks */,
+				5B94B7D32AF1147C0010071D /* BraintreeDataCollector in Frameworks */,
+				5B94B7D12AF1147C0010071D /* BraintreeCore in Frameworks */,
 				935B628CC7302E8E15C239CD /* Pods_Nexus_Store.framework in Frameworks */,
 				5BEEA9A82AF0340A007169D6 /* GoogleSignIn in Frameworks */,
 				5BEEA9AA2AF0340A007169D6 /* GoogleSignInSwift in Frameworks */,
+				5B94B7CD2AF1147C0010071D /* BraintreeApplePay in Frameworks */,
+				5B94B7CF2AF1147C0010071D /* BraintreeCard in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1773,6 +1783,11 @@
 			packageProductDependencies = (
 				5BEEA9A72AF0340A007169D6 /* GoogleSignIn */,
 				5BEEA9A92AF0340A007169D6 /* GoogleSignInSwift */,
+				5B94B7CA2AF1147C0010071D /* BraintreeAmericanExpress */,
+				5B94B7CC2AF1147C0010071D /* BraintreeApplePay */,
+				5B94B7CE2AF1147C0010071D /* BraintreeCard */,
+				5B94B7D02AF1147C0010071D /* BraintreeCore */,
+				5B94B7D22AF1147C0010071D /* BraintreeDataCollector */,
 			);
 			productName = "Nexus-Store";
 			productReference = E37687A72ADDFFB500DB09A1 /* Nexus-Store.app */;
@@ -1807,6 +1822,7 @@
 			mainGroup = E376879E2ADDFFB400DB09A1;
 			packageReferences = (
 				5BEEA9A62AF0340A007169D6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				5B94B7C92AF1147C0010071D /* XCRemoteSwiftPackageReference "braintree_ios" */,
 			);
 			productRefGroup = E37687A82ADDFFB500DB09A1 /* Products */;
 			projectDirPath = "";
@@ -2426,6 +2442,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5B94B7C92AF1147C0010071D /* XCRemoteSwiftPackageReference "braintree_ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/braintree/braintree_ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.8.0;
+			};
+		};
 		5BEEA9A62AF0340A007169D6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
@@ -2437,6 +2461,31 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5B94B7CA2AF1147C0010071D /* BraintreeAmericanExpress */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B94B7C92AF1147C0010071D /* XCRemoteSwiftPackageReference "braintree_ios" */;
+			productName = BraintreeAmericanExpress;
+		};
+		5B94B7CC2AF1147C0010071D /* BraintreeApplePay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B94B7C92AF1147C0010071D /* XCRemoteSwiftPackageReference "braintree_ios" */;
+			productName = BraintreeApplePay;
+		};
+		5B94B7CE2AF1147C0010071D /* BraintreeCard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B94B7C92AF1147C0010071D /* XCRemoteSwiftPackageReference "braintree_ios" */;
+			productName = BraintreeCard;
+		};
+		5B94B7D02AF1147C0010071D /* BraintreeCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B94B7C92AF1147C0010071D /* XCRemoteSwiftPackageReference "braintree_ios" */;
+			productName = BraintreeCore;
+		};
+		5B94B7D22AF1147C0010071D /* BraintreeDataCollector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B94B7C92AF1147C0010071D /* XCRemoteSwiftPackageReference "braintree_ios" */;
+			productName = BraintreeDataCollector;
+		};
 		5BEEA9A72AF0340A007169D6 /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5BEEA9A62AF0340A007169D6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
