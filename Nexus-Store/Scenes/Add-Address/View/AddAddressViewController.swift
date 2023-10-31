@@ -57,9 +57,9 @@ class AddAddressViewController: UIViewController {
             case .success(let data ):
                 
                 
-                guard let address1 = data.customer_address?.address1 ,
-                      let city1 = data.customer_address?.city,
-                      let name1 = data.customer_address?.name
+                guard let address1 = data.singleResult?.address1 ,
+                      let city1 = data.singleResult?.city,
+                      let name1 = data.singleResult?.name
                 else {
                     return
                 }
@@ -67,7 +67,7 @@ class AddAddressViewController: UIViewController {
                 self.navigationController?.popViewController(animated: true)
                
             case.failure(let error):
-                    Alert.show(on: self, title: "Add Adress Error", message: "these Addtess Data Already found please change the details or go back to adress list ")
+                    Alert.show(on: self, title: "Add Adress Error", message: "these Address Data Already found please change the details or go back to adress list ")
                 
                 return
             }

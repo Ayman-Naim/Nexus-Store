@@ -55,10 +55,11 @@ class ShippingViewModel {
     func getCustomerAddresses() {
         guard let customerID = customerID else { return }
         let url = baseURL + "/customers/\(customerID)/addresses.json"
-        AF.request(url, method: .get, headers: header).responseDecodable(of: CustomerAddressesResponse.self) { response in
+        AF.request(url, method: .get, headers: header).responseDecodable(of: CustomerAddressResponse.self) { response in
             switch response.result {
-            case .success(let addresses):
-                self.customerAdresses = addresses.result
+            case .success(let addressesResponse):
+                guard let addresses = addressesResponse.results else { return }
+                self.customerAdresses = addresses
             case .failure(let error):
                 print(error)
             }
@@ -68,7 +69,7 @@ class ShippingViewModel {
     private func updateCustomerDefaultAddress(withAddressID addressID: Int) {
         guard let customerID = customerID else { return }
         let url = baseURL + "/customers/\(customerID)/addresses/\(addressID)/default.json"
-        AF.request(url, method: .put, headers: header).responseDecodable(of: CustomerAddresses.self) { response in
+        AF.request(url, method: .put, headers: header).responseDecodable(of: CustomerAddressResponse.self) { response in
             switch response.result {
             case .success(_):
                 self.getCustomerAddresses()

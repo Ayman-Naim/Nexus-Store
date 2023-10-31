@@ -27,6 +27,8 @@
 		0117D2AD2AED5E2A005D339B /* EditProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0117D2AB2AED5E2A005D339B /* EditProductViewController.xib */; };
 		0117D2AF2AED63D4005D339B /* EditProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0117D2AE2AED63D4005D339B /* EditProductViewModel.swift */; };
 		0117D2B02AED7058005D339B /* loading_4.json in Resources */ = {isa = PBXBuildFile; fileRef = 010F610C2AE4A0B300DE7EB0 /* loading_4.json */; };
+		012DD7FD2AF1357C003845A4 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012DD7FC2AF1357C003845A4 /* Address.swift */; };
+		012DD7FF2AF1363B003845A4 /* CustomerAddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012DD7FE2AF1363B003845A4 /* CustomerAddressResponse.swift */; };
 		01694EDE2AE4FF36009FC373 /* NexusTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01694EDD2AE4FF36009FC373 /* NexusTabBarController.swift */; };
 		01694EE22AE53128009FC373 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01694EE12AE53128009FC373 /* SearchViewController.swift */; };
 		0179F4BD2AEC439400114BD7 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179F4BB2AEC439400114BD7 /* ProductDetailsViewController.swift */; };
@@ -180,7 +182,6 @@
 		E3A60E882AEC992A008FEDB5 /* AdminNetManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60E872AEC992A008FEDB5 /* AdminNetManger.swift */; };
 		E3A60E8A2AEC9B31008FEDB5 /* AdminLoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60E892AEC9B31008FEDB5 /* AdminLoginVM.swift */; };
 		E3A60E8C2AECB044008FEDB5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3A60E8B2AECB044008FEDB5 /* GoogleService-Info.plist */; };
-		E3BB437C2AEEA33B00A0341F /* AdressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BB437B2AEEA33B00A0341F /* AdressModel.swift */; };
 		E3BB437E2AEEAB6F00A0341F /* AddAdressVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BB437D2AEEAB6F00A0341F /* AddAdressVM.swift */; };
 		E3BB43802AEEDDD800A0341F /* Brands.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BB437F2AEEDDD700A0341F /* Brands.swift */; };
 		E3BB43822AEEF80400A0341F /* CollectsID.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BB43812AEEF80400A0341F /* CollectsID.swift */; };
@@ -215,6 +216,8 @@
 		0117D2AA2AED5E2A005D339B /* EditProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProductViewController.swift; sourceTree = "<group>"; };
 		0117D2AB2AED5E2A005D339B /* EditProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProductViewController.xib; sourceTree = "<group>"; };
 		0117D2AE2AED63D4005D339B /* EditProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProductViewModel.swift; sourceTree = "<group>"; };
+		012DD7FC2AF1357C003845A4 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		012DD7FE2AF1363B003845A4 /* CustomerAddressResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAddressResponse.swift; sourceTree = "<group>"; };
 		01694EDD2AE4FF36009FC373 /* NexusTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NexusTabBarController.swift; sourceTree = "<group>"; };
 		01694EE12AE53128009FC373 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		0179F4BB2AEC439400114BD7 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
@@ -381,7 +384,6 @@
 		E3A60E872AEC992A008FEDB5 /* AdminNetManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminNetManger.swift; sourceTree = "<group>"; };
 		E3A60E892AEC9B31008FEDB5 /* AdminLoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminLoginVM.swift; sourceTree = "<group>"; };
 		E3A60E8B2AECB044008FEDB5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		E3BB437B2AEEA33B00A0341F /* AdressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressModel.swift; sourceTree = "<group>"; };
 		E3BB437D2AEEAB6F00A0341F /* AddAdressVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAdressVM.swift; sourceTree = "<group>"; };
 		E3BB437F2AEEDDD700A0341F /* Brands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brands.swift; sourceTree = "<group>"; };
 		E3BB43812AEEF80400A0341F /* CollectsID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectsID.swift; sourceTree = "<group>"; };
@@ -461,7 +463,6 @@
 		011281B12AE1AA0D00844137 /* Add-Address */ = {
 			isa = PBXGroup;
 			children = (
-				E3BB43782AEE9D2000A0341F /* Model */,
 				011281B22AE1AA2400844137 /* View */,
 				011281B32AE1AA3000844137 /* ViewModel */,
 			);
@@ -1556,6 +1557,8 @@
 		E37687E02ADE002B00DB09A1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				012DD7FC2AF1357C003845A4 /* Address.swift */,
+				012DD7FE2AF1363B003845A4 /* CustomerAddressResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1692,14 +1695,6 @@
 				E3A60E872AEC992A008FEDB5 /* AdminNetManger.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		E3BB43782AEE9D2000A0341F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E3BB437B2AEEA33B00A0341F /* AdressModel.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		E3E10C192AED8DEB00567D8B /* Model */ = {
@@ -2056,7 +2051,6 @@
 				E34FE6302AE954D9006602A5 /* ProfileVM.swift in Sources */,
 				5B9A02782AEC29F3007DC704 /* SignUp.swift in Sources */,
 				459D7B0E2AE2B8A100AD8CC8 /* UIView+Extension.swift in Sources */,
-				E3BB437C2AEEA33B00A0341F /* AdressModel.swift in Sources */,
 				5BC20AD42AE1D0170071925A /* SocialTableViewCell.swift in Sources */,
 				45123AB52AE2149E001B12B7 /* productDetailsCell.swift in Sources */,
 				459916B92AEC6024005F3C31 /* Double+Extension.swift in Sources */,
@@ -2075,6 +2069,7 @@
 				5B9A02752AEC24DC007DC704 /* SignInWithAccount.swift in Sources */,
 				010F61002AE4920500DE7EB0 /* UIViewController+Extension.swift in Sources */,
 				01E9BB702AE9587C00FE881E /* WishListViewModel.swift in Sources */,
+				012DD7FD2AF1357C003845A4 /* Address.swift in Sources */,
 				5B9A027E2AECBC45007DC704 /* SettingsTableViewCell.swift in Sources */,
 				E3E639FD2AE82D89002A5617 /* BaseURl.swift in Sources */,
 				01E9BB722AE96D8500FE881E /* WishListService.swift in Sources */,
@@ -2097,6 +2092,7 @@
 				0199C9972AEC0AD5007B3122 /* CartViewModel.swift in Sources */,
 				457276B02AEE7AC100EE759D /* PriceRule.swift in Sources */,
 				E34556662AE1AD9400312C6C /* OrderTableViewCell.swift in Sources */,
+				012DD7FF2AF1363B003845A4 /* CustomerAddressResponse.swift in Sources */,
 				5BFDC6472AEE683B00C2F6C7 /* ContactUsViewController.swift in Sources */,
 				01A0EB932AE075CB004310FC /* ProductLandscapeTVCell.swift in Sources */,
 				5B94B7C82AF0C2B10010071D /* SignIn.swift in Sources */,
