@@ -211,7 +211,7 @@ extension SearchViewController:UITextFieldDelegate  {
        // let predicate = NSPredicate(format: "title CONTAINS[cd] %@", search)
       //  let arr = ( Allproduct as NSArray).filtered(using: predicate)
         
-       let arr = Allproduct.filter{$0.title?.range(of: search ,options:[.caseInsensitive]) != nil  }
+        let arr = Allproduct.filter{$0.title.range(of: search ,options:[.caseInsensitive]) != nil  }
     
         if arr.count > 0 {
             FilterdProduct?.removeAll()

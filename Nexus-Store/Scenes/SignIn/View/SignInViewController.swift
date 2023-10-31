@@ -18,6 +18,8 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var checkboxImage: UIImageView!
     
 //    var isRememberMeSelected = false
+    var signInVM = FireBaseSignInViewModel()
+//    let customerID = UserDefaults.standard.value(forKey: "customerID")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,20 +72,43 @@ class SignInViewController: UIViewController {
             tabBar.modalPresentationStyle = .fullScreen
             //nav.isNavigationBarHidden = true*/
             if let user = Auth.auth().currentUser {
-                let userId = user.uid
-                UserDefaults.standard.set(userId, forKey: "customerID")
-                print("User ID: \(userId)")
+          //      let userId = user.uid
+          //      UserDefaults.standard.set(userId, forKey: "customerID")
+         //       print("User ID: \(userId)")
                 let userEmail = user.email
                 UserDefaults.standard.set(userEmail, forKey: "customerEmail")
                 print("User Email: \(userEmail!)")
-                if let customerID = UserDefaults.standard.string(forKey: "customerID") {
-                    // Use the customerID
-                    print("Customer ID: \(customerID)")
-                } else {
-                    // Customer ID is not available in UserDefaults
-                    print("Customer ID is not available")
+    //            UserDefaults.standard.set(self.customerID, forKey: "customerEmail")
+                self.signInVM.getCustomerId(email: email) { result in
+                    switch result {
+                    case .success(let customerId):
+                        let customerrId = customerId
+                        
+                        print("Customer ID: \(customerrId)")
+
+                        if let customerID = UserDefaults.standard.value(forKey: "customerID") {
+                            // Use the customerID
+                            print("Customer ID: \(customerID)")
+                        } else {
+                            // Customer ID is not available in UserDefaults
+                            print("Customer ID is not available")
+                        }
+
+                    case .failure(let error):
+                        print("Failed to retrieve customer ID: \(error)")
+                        // Handle the error as needed
+                    }
                 }
+                
             }
+      /*      self.signInVM.getCustomerId { result in
+                switch result {
+                case .success(let customerId):
+                    print("Customer ID: \(customerId)")
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+            }*/
      //       self.present(tabBar, animated: true)
 
             }
