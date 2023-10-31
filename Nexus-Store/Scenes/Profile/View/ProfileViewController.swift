@@ -110,8 +110,8 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
             let cell  = tableView.dequeueReusableCell(withIdentifier: "FavouriteTableViewCell", for: indexPath) as!  FavouriteTableViewCell
             cell.productImage.setImage(withURLString: wishList[indexPath.row].image?.src ?? "")
             let title = wishList[indexPath.row].title
-            let price = wishList[indexPath.row].variants!.first?.price
             cell.productName.text = title
+            guard let price = wishList[indexPath.row].variants!.first?.price else{return cell}
             cell.ProductPrice.text = "\(price) $"
             
             return cell

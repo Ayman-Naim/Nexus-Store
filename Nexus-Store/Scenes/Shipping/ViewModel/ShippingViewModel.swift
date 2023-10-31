@@ -77,4 +77,42 @@ class ShippingViewModel {
             }
         }
     }
+    
+    func setDraftOrderAddress() {
+        guard let customerID = customerID else { return }
+        guard let selectedAddress = customerAdresses.first(where: { $0.isDefault }) else { return }
+        
+        let draftOrderService = DraftOrderService()
+        draftOrderService.customerDraftOrders(customerID: customerID) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let draftOrders):
+                guard let encodedAddress = try? JSONEncoder().encode(selectedAddress) else { return }
+                guard let dicAddress = try? JSONSerialization.jsonObject(with: encodedAddress, options: [.fragmentsAllowed]) as? [String:Any] else { return }
+                let params = [
+                    "draft_order": [
+                        "shipping_address": dicAddress
+                    ]
+                ]
+                
+                
+                for order in draftOrders {
+                    AF.request("https://ios-q1-new-capital-admin1-2023.myshopify.com/admin/api/2023-01/draft_orders/\(order.id).json", method: .put, parameters: params, headers: self.header).response { response in
+                        switch response.result {
+                        case .success(let data):
+                            guard let data = data else { return }
+                            print(String(data: data, encoding: .utf8) ?? "No Data")
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
+                }
+                
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
 }
