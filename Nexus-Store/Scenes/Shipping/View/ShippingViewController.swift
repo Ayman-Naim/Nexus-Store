@@ -44,12 +44,16 @@ class ShippingViewController: UIViewController {
     }
     
     @IBAction func continueToPaymentButtonPressed(_ sender: UIButton) {
-//        self.navigationController?.pushViewController(PayMethodViewController(), animated: true)
+        viewModel.setAddressForOrder {
+            self.navigationController?.pushViewController(PayMethodViewController(), animated: true)
+        }
     }
     
     
     @IBAction func addPromoCodeButtonPressed(_ sender: UIButton) {
-        self.navigationController?.pushViewController(AddPromoCodeViewController(), animated: true)
+        viewModel.setAddressForOrder {
+            self.navigationController?.pushViewController(AddPromoCodeViewController(), animated: true)
+        }
     }
     
     
