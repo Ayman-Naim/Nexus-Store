@@ -30,7 +30,9 @@ struct K{
     static let tShirt = "T-SHIRTS"
     static let shoes = "SHOES"
     static let accessories = "ACCESSORIES"
+    static let all = "All"
     static let darkModeLogo = "DarkMode-AppIcon"
+    
     
     //Favorite icon image system
     static let favoriteIconNotSave = "heart"

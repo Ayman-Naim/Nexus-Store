@@ -92,6 +92,7 @@
 		457276B02AEE7AC100EE759D /* PriceRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457276AF2AEE7AC100EE759D /* PriceRule.swift */; };
 		457276B22AEE7B3200EE759D /* DiscountCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457276B12AEE7B3200EE759D /* DiscountCode.swift */; };
 		457276B42AEED3A700EE759D /* SaveMoney.json in Resources */ = {isa = PBXBuildFile; fileRef = 457276B32AEED3A700EE759D /* SaveMoney.json */; };
+		458B24232AF273FA00E40E8F /* NexusShopping.json in Resources */ = {isa = PBXBuildFile; fileRef = 458B24222AF273FA00E40E8F /* NexusShopping.json */; };
 		459916B52AEBE8D2005F3C31 /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459916B42AEBE8D2005F3C31 /* ProductDetailsViewModel.swift */; };
 		459916B72AEC4195005F3C31 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459916B62AEC4195005F3C31 /* UIColor+Extension.swift */; };
 		459916B92AEC6024005F3C31 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459916B82AEC6024005F3C31 /* Double+Extension.swift */; };
@@ -99,6 +100,8 @@
 		459A214E2AE5DC770040977F /* ProductImageDelegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459A214D2AE5DC770040977F /* ProductImageDelegation.swift */; };
 		459D7B0C2AE2B84400AD8CC8 /* UICollectionVIew+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459D7B0B2AE2B84400AD8CC8 /* UICollectionVIew+Extension.swift */; };
 		459D7B0E2AE2B8A100AD8CC8 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459D7B0D2AE2B8A100AD8CC8 /* UIView+Extension.swift */; };
+		45A3D9702AF1B4900015EF5E /* NexusShoping.json in Resources */ = {isa = PBXBuildFile; fileRef = 45A3D96F2AF1B4900015EF5E /* NexusShoping.json */; };
+		45A3D9732AF1B8C60015EF5E /* SplashNexusScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3D9722AF1B8C60015EF5E /* SplashNexusScreen.swift */; };
 		45B1EC8E2AE905F400E690F9 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B1EC8D2AE905F400E690F9 /* CategoryViewModel.swift */; };
 		45B1EC922AE9231900E690F9 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B1EC912AE9231900E690F9 /* Product.swift */; };
 		45B1EC942AE923CB00E690F9 /* Variants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B1EC932AE923CB00E690F9 /* Variants.swift */; };
@@ -278,6 +281,7 @@
 		457276AF2AEE7AC100EE759D /* PriceRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRule.swift; sourceTree = "<group>"; };
 		457276B12AEE7B3200EE759D /* DiscountCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCode.swift; sourceTree = "<group>"; };
 		457276B32AEED3A700EE759D /* SaveMoney.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SaveMoney.json; sourceTree = "<group>"; };
+		458B24222AF273FA00E40E8F /* NexusShopping.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NexusShopping.json; sourceTree = "<group>"; };
 		459916B42AEBE8D2005F3C31 /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
 		459916B62AEC4195005F3C31 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		459916B82AEC6024005F3C31 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
@@ -285,6 +289,8 @@
 		459A214D2AE5DC770040977F /* ProductImageDelegation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageDelegation.swift; sourceTree = "<group>"; };
 		459D7B0B2AE2B84400AD8CC8 /* UICollectionVIew+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionVIew+Extension.swift"; sourceTree = "<group>"; };
 		459D7B0D2AE2B8A100AD8CC8 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		45A3D96F2AF1B4900015EF5E /* NexusShoping.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NexusShoping.json; sourceTree = "<group>"; };
+		45A3D9722AF1B8C60015EF5E /* SplashNexusScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashNexusScreen.swift; sourceTree = "<group>"; };
 		45B1EC8D2AE905F400E690F9 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		45B1EC912AE9231900E690F9 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		45B1EC932AE923CB00E690F9 /* Variants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variants.swift; sourceTree = "<group>"; };
@@ -426,6 +432,8 @@
 				010F61042AE49F2000DE7EB0 /* loading_3.json */,
 				010F610C2AE4A0B300DE7EB0 /* loading_4.json */,
 				457276B32AEED3A700EE759D /* SaveMoney.json */,
+				45A3D96F2AF1B4900015EF5E /* NexusShoping.json */,
+				458B24222AF273FA00E40E8F /* NexusShopping.json */,
 			);
 			path = "LottieAnimations-JSON";
 			sourceTree = "<group>";
@@ -669,6 +677,7 @@
 		45123A8E2AE2149E001B12B7 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				45A3D9712AF1B7A30015EF5E /* SplashScreen */,
 				451E238E2AE9A6A1005AB8F1 /* Model */,
 				45B1EC8C2AE905D500E690F9 /* CategoryViewModel */,
 				45123A9D2AE2149E001B12B7 /* CategoryView */,
@@ -850,6 +859,14 @@
 				459A214D2AE5DC770040977F /* ProductImageDelegation.swift */,
 			);
 			path = ProductCellController;
+			sourceTree = "<group>";
+		};
+		45A3D9712AF1B7A30015EF5E /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				45A3D9722AF1B8C60015EF5E /* SplashNexusScreen.swift */,
+			);
+			path = SplashScreen;
 			sourceTree = "<group>";
 		};
 		45B1EC8C2AE905D500E690F9 /* CategoryViewModel */ = {
@@ -1856,6 +1873,7 @@
 				010F61092AE49F2000DE7EB0 /* loading_2.json in Resources */,
 				45123AB42AE2149E001B12B7 /* productDetailsCell.xib in Resources */,
 				E35BC5872AE0A8B900742654 /* SectionHeaderReusableView.xib in Resources */,
+				458B24232AF273FA00E40E8F /* NexusShopping.json in Resources */,
 				5B9A02892AECD1BB007DC704 /* AboutUsViewController.xib in Resources */,
 				E37B4DE62AE301B80051EB89 /* PayMethodViewController.xib in Resources */,
 				45123AB92AE2149E001B12B7 /* MainCategoryCell.xib in Resources */,
@@ -1877,6 +1895,7 @@
 				010F610A2AE49F2000DE7EB0 /* loading_1.json in Resources */,
 				E35BC58D2AE0ADA500742654 /* BrandsCollectionCell.xib in Resources */,
 				5B9A027F2AECBC45007DC704 /* SettingsTableViewCell.xib in Resources */,
+				45A3D9702AF1B4900015EF5E /* NexusShoping.json in Resources */,
 				45123AB02AE2149E001B12B7 /* ReviewProductCell.xib in Resources */,
 				45123AAC2AE2149E001B12B7 /* ProductImageCell.xib in Resources */,
 				E3E498FB2AE19F4E00ED2924 /* ProfileViewController.xib in Resources */,
@@ -2056,6 +2075,7 @@
 				E34FE6302AE954D9006602A5 /* ProfileVM.swift in Sources */,
 				5B9A02782AEC29F3007DC704 /* SignUp.swift in Sources */,
 				459D7B0E2AE2B8A100AD8CC8 /* UIView+Extension.swift in Sources */,
+				45A3D9732AF1B8C60015EF5E /* SplashNexusScreen.swift in Sources */,
 				E3BB437C2AEEA33B00A0341F /* AdressModel.swift in Sources */,
 				5BC20AD42AE1D0170071925A /* SocialTableViewCell.swift in Sources */,
 				45123AB52AE2149E001B12B7 /* productDetailsCell.swift in Sources */,

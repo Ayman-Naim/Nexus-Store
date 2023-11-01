@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       
         if UserDefaults.standard.object(forKey: "customerID") != nil {
             //Key exists
-            
+
             guard let windowScene = (scene as? UIWindowScene) else { return }
             let window = UIWindow(windowScene: windowScene)
             // let nav = UINavigationController(rootViewController: SignInViewController())
@@ -36,6 +36,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.makeKeyAndVisible()
             self.window = window
         }
+//        guard let scene = (scene as? UIWindowScene) else { return }
+//        window = UIWindow(windowScene: scene)
+//        let rootViewController = SplashNexusScreen()
+//        window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+//        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
