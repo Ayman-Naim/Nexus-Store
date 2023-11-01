@@ -44,13 +44,16 @@ class ShippingViewController: UIViewController {
     }
     
     @IBAction func continueToPaymentButtonPressed(_ sender: UIButton) {
-//        self.navigationController?.pushViewController(PayMethodViewController(), animated: true)
-        viewModel.setDraftOrderAddress()
+        viewModel.setOrdersAddress { [weak self] in
+            self?.navigationController?.pushViewController(PayMethodViewController(), animated: true)
+        }
     }
     
     
     @IBAction func addPromoCodeButtonPressed(_ sender: UIButton) {
-        self.navigationController?.pushViewController(AddPromoCodeViewController(), animated: true)
+        viewModel.setOrdersAddress { [weak self] in
+            self?.navigationController?.pushViewController(AddPromoCodeViewController(), animated: true)
+        }
     }
     
     
@@ -58,6 +61,16 @@ class ShippingViewController: UIViewController {
     private func bindViewModel() {
         viewModel.reload = { [weak self] in
             self?.tableView.reloadData()
+        }
+        
+        viewModel.loadingIndicator = { [weak self] isLoading in
+            self?.isLoadingIndicatorAnimating = isLoading
+            self?.tableView.isUserInteractionEnabled = !isLoading
+        }
+        
+        viewModel.errorOccure = { [weak self] error in
+            guard let self = self else { return }
+            Alert.show(on: self, title: "Error", message: error)
         }
     }
 }
@@ -76,9 +89,6 @@ extension ShippingViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        addresses.indices.forEach({ addresses[$0].isSelected = false })
-//        addresses[indexPath.row].isSelected = true
-//        tableView.reloadData()
         viewModel.didSelectCell(at: indexPath.row)
     }
 }
@@ -88,12 +98,6 @@ extension ShippingViewController: UITableViewDataSource, UITableViewDelegate {
 // MARK: - AddAddressDelegate
 extension ShippingViewController: AddAddressDelegate {
     func didAddNewAddress() {
-//        addresses.indices.forEach({ addresses[$0].isSelected = false })
-//        addresses.insert((name: address.name,
-//                          city: address.city,
-//                          address: address.address,
-//                          isSelected: true), at: 0)
-//        tableView.reloadData()
         viewModel.getCustomerAddresses()
     }
 }
