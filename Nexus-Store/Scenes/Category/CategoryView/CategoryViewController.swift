@@ -29,10 +29,20 @@ class CategoryViewController: UIViewController {
         forSubCategory = K.all
         CategoryViewModuleRefactor.selectedMainCategory = 0
         CategoryViewModuleRefactor.selectedSubCategory = 0
-        if checkApperane != 1 {
+        DispatchQueue.main.async {
+            self.CategoryCollectionView.reloadSections(IndexSet(integer: 0))
+            self.CategoryCollectionView.reloadSections(IndexSet(integer: 1))
+
+        }
+        
+        if fromBrand == true {
            
             categoryViewModuleRefactor.CheckIsAllProductMainCategoryForAllProduct(for: forMainCategory, with: forSubCategory)
             navigationItem.leftBarButtonItem?.isHidden  = true
+        }
+        if checkApperane != 1{
+            categoryViewModuleRefactor.CheckIsAllProductMainCategoryForAllProduct(for: forMainCategory, with: forSubCategory)
+
         }
         
     }
@@ -60,11 +70,14 @@ class CategoryViewController: UIViewController {
         registerCollectionViewByCell()
         CategoryCollectionView.collectionViewLayout = createCompositionalLayout()
         bindViewModel()
-        categoryViewModuleRefactor.CheckIsAllProductMainCategoryForAllProduct(for: forMainCategory, with: forSubCategory)
+       
         configureFavoritueButton()
         loadShadowToButton(listFilterButton)
         loadShadowToButton(alphapiticFilter)
         loadShadowToButton(PriceFilterButton)
+        if fromBrand == false{
+            categoryViewModuleRefactor.CheckIsAllProductMainCategoryForAllProduct(for: forMainCategory, with: forSubCategory)
+        }
         
         
         
@@ -112,6 +125,7 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
         case 1:
             return categoryViewModuleRefactor.numberOfsubCategory
         case 2:
+            self.isContentEmptyViewHidden = categoryViewModuleRefactor.numberOfProduct != 0
             return  categoryViewModuleRefactor.numberOfProduct
         default:
             return 0
@@ -247,21 +261,19 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
             DispatchQueue.main.async {
             
                 self?.CategoryCollectionView.reloadSections(IndexSet(integer: 2))
-                
-                if let ContentHidden = self?.categoryViewModuleRefactor.bindNoProductFound(){
-                    self?.isContentEmptyViewHidden = ContentHidden
-                }
-                
+               
                 if self?.fromBrand == true {
                     self?.categoryViewModuleRefactor.filteraccodingToBrand(brandName: self!.vendor)
                     self?.CategoryCollectionView.reloadSections(IndexSet(integer: 2))
                 }
+                
+               
             }
         }
         
         categoryViewModuleRefactor.errorOccurs = { [weak self] error in
-            guard let self = self else { return }
-            Alert.show(on: self, title: "Error", message: error)
+            self?.isLoadingIndicatorAnimating = false
+            Alert.show(on: self!, title: "Error", message: error)
         }
     }
     
