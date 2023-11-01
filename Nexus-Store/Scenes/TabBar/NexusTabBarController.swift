@@ -7,13 +7,14 @@
 
 import UIKit
 
-class NexusTabBarController: UITabBarController {
+class NexusTabBarController: UITabBarController,UITabBarControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabBarAppearance()
         setupViewControllers()
         setupNavigationAppearance()
+        self.delegate = self
     }
     
     private  func setupViewControllers() {
@@ -22,6 +23,7 @@ class NexusTabBarController: UITabBarController {
             createNavigationController(withRoot: CategoryViewController(), barTitle: "Category", barImage: UIImage(systemName: "square.grid.2x2")),
             createNavigationController(withRoot: ProfileViewController(), barTitle: "Profile", barImage: UIImage(systemName: "person")),
         ]
+        
         setViewControllers(vc, animated: true)
     }
     
@@ -45,4 +47,23 @@ class NexusTabBarController: UITabBarController {
         UITabBar.appearance().tintColor = .label
         UITabBar.appearance().backgroundColor = .secondarySystemBackground
     }
+    
+    
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+           // Check if the selected view controller is the fifth view controller
+               // Access the fifth view controller and its data or attributes
+        if let navigationController = viewController as? UINavigationController {
+               // Access the root view controller of the navigation controller
+               if let categoryViewController = navigationController.viewControllers.first as? CategoryViewController {
+                   // Access the CategoryViewController and its data or attributes
+                   categoryViewController.fromBrand = false
+                   categoryViewController.forMainCategory = K.menID
+                   categoryViewController.forSubCategory = K.all
+                   CategoryViewModuleRefactor.selectedMainCategory = 0
+                   CategoryViewModuleRefactor.selectedSubCategory = 0
+               }
+           }
+           
+       }
 }

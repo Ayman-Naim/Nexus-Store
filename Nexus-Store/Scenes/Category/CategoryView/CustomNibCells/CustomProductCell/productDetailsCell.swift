@@ -39,6 +39,7 @@ class productDetailsCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         favoriteIcon.setImage(UIImage(systemName: K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
+        productImage.image = UIImage(named: "PlaceHolderImage")
 
 
     }

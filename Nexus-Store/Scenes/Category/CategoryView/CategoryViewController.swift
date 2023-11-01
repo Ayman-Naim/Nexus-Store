@@ -19,45 +19,41 @@ class CategoryViewController: UIViewController {
     var flagShowFilter = false
     var fromBrand = false
     var vendor:String = ""
+    var backButton : UIBarButtonItem?
+   
    
     
     
     //MARK: - Set All Data when Will Appear
     override func viewWillAppear(_ animated: Bool) {
         
-        forMainCategory = K.menID
-        forSubCategory = K.all
-        CategoryViewModuleRefactor.selectedMainCategory = 0
-        CategoryViewModuleRefactor.selectedSubCategory = 0
-        DispatchQueue.main.async {
-            self.CategoryCollectionView.reloadSections(IndexSet(integer: 0))
-            self.CategoryCollectionView.reloadSections(IndexSet(integer: 1))
-
-        }
-        
-        if fromBrand == true {
-           
-            categoryViewModuleRefactor.CheckIsAllProductMainCategoryForAllProduct(for: forMainCategory, with: forSubCategory)
-            navigationItem.leftBarButtonItem?.isHidden  = true
-        }
+            startShowProducts()
         if checkApperane != 1{
             categoryViewModuleRefactor.CheckIsAllProductMainCategoryForAllProduct(for: forMainCategory, with: forSubCategory)
-
         }
+       
         
     }
     
     //MARK: - Configure ViewWill Appear
     override func viewDidAppear(_ animated: Bool) {
+        checkApperane = 0
         self.addLogoToNavigationBarItem(logoImage: K.darkModeLogo)
+        if fromBrand == true {
+            tabBarController?.tabBar.isHidden = true
+            navigationItem.leftBarButtonItem = backButton
+
+        }
       
     }
     
     
     //MARK: - Configure Will DisAppear
     override func viewWillDisappear(_ animated: Bool) {
-        checkApperane = 0
-        navigationItem.leftBarButtonItem?.isHidden  = false
+        if fromBrand == true {
+            tabBarController?.tabBar.isHidden = false
+            navigationItem.leftBarButtonItem?.isHidden = true
+        }
 
         
     }
@@ -66,27 +62,36 @@ class CategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkApperane = 1
+        categoryViewModuleRefactor.brandName = vendor
+        categoryViewModuleRefactor.fromBrand = fromBrand
         configureCollectionView()
         registerCollectionViewByCell()
         CategoryCollectionView.collectionViewLayout = createCompositionalLayout()
         bindViewModel()
-       
         configureFavoritueButton()
         loadShadowToButton(listFilterButton)
         loadShadowToButton(alphapiticFilter)
         loadShadowToButton(PriceFilterButton)
-        if fromBrand == false{
-            categoryViewModuleRefactor.CheckIsAllProductMainCategoryForAllProduct(for: forMainCategory, with: forSubCategory)
-        }
+        categoryViewModuleRefactor.CheckIsAllProductMainCategoryForAllProduct(for: forMainCategory, with: forSubCategory)
+        let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonPressed))
+        navigationItem.leftBarButtonItem = backButton
         
-        
+//        if self.fromBrand == true {
+//
+//            self.categoryViewModuleRefactor.filteraccodingToBrand(brandName: self.vendor)
+//            self.CategoryCollectionView.reloadSections(IndexSet(integer: 2))
+//        }
+      
         
         // Do any additional setup after loading the view.
     }
     
     
     
-    
+    @objc func backButtonPressed(){
+        
+        self.dismiss(animated: true)
+    }
 
     
     
@@ -125,6 +130,7 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
         case 1:
             return categoryViewModuleRefactor.numberOfsubCategory
         case 2:
+            
             self.isContentEmptyViewHidden = categoryViewModuleRefactor.numberOfProduct != 0
             return  categoryViewModuleRefactor.numberOfProduct
         default:
@@ -167,6 +173,7 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
             
             categoryViewModuleRefactor .CheckIsAllProductMainCategoryForAllProduct(for: forMainCategory, with: forSubCategory)
             ChangeMainAndSubColor(collectionView: collectionView, indexPath: indexPath, section: 0)
+
             
         case 1:
             
@@ -193,7 +200,7 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
             }
             categoryViewModuleRefactor .CheckIsAllProductMainCategoryForAllProduct(for: forMainCategory, with: forSubCategory)
             ChangeMainAndSubColor(collectionView: collectionView, indexPath: indexPath, section: 1)
-            
+
         case 2:
           
             let product = categoryViewModuleRefactor.retrivedDataAboutProducts(for: indexPath)
@@ -259,21 +266,16 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
         
         categoryViewModuleRefactor.reload = { [weak self] in
             DispatchQueue.main.async {
-            
-                self?.CategoryCollectionView.reloadSections(IndexSet(integer: 2))
-               
-                if self?.fromBrand == true {
-                    self?.categoryViewModuleRefactor.filteraccodingToBrand(brandName: self!.vendor)
-                    self?.CategoryCollectionView.reloadSections(IndexSet(integer: 2))
-                }
                 
-               
+                self?.CategoryCollectionView.reloadSections(IndexSet(integer: 2))
+
             }
         }
         
         categoryViewModuleRefactor.errorOccurs = { [weak self] error in
-            self?.isLoadingIndicatorAnimating = false
-            Alert.show(on: self!, title: "Error", message: error)
+            guard let self = self else { return }
+            self.isLoadingIndicatorAnimating = false
+            Alert.show(on: self, title: "Error", message: error)
         }
     }
     
@@ -485,5 +487,15 @@ extension CategoryViewController {
             self.flagShowFilter = !self.flagShowFilter
             
         }
+    
+    
+    
+    func startShowProducts(){
+       
+        DispatchQueue.main.async {
+            self.CategoryCollectionView.reloadSections(IndexSet(integer: 0))
+            self.CategoryCollectionView.reloadSections(IndexSet(integer: 1))
+        }
+    }
 }
 
