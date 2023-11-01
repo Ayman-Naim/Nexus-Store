@@ -19,6 +19,10 @@ class ShippingViewModel {
     private var customerID: Int?
     private var customerAdresses: [Address] = [] {
         didSet {
+            if let defaultIndex = customerAdresses.firstIndex(where: { $0.isDefault }) {
+                let defaultAddress = customerAdresses.remove(at: defaultIndex)
+                customerAdresses.insert(defaultAddress, at: 0)
+            }
             DispatchQueue.main.async {
                 self.reload?()
             }
