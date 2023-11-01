@@ -6,12 +6,19 @@
 //
 
 import UIKit
+import BraintreeCore
+import BraintreeApplePay
+import BraintreePayPal
 
 class PayMethodViewController: UIViewController {
 
     @IBOutlet weak var PaymentTable: UITableView!
     @IBOutlet weak var TotalAmountLabel: UILabel!
+    let authorization = "sandbox_8h3qzxnj_76tbywh3qkq2yw2k"
+    var braintreeAPIClient:BTAPIClient!
+    
     var selectedPayment:IndexPath?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         TableViewSetup()
@@ -28,7 +35,14 @@ class PayMethodViewController: UIViewController {
     }
 
     @IBAction func PayButtonClicked(_ sender: Any) {
-        //
+        if selectedPayment?.row == 0 {
+            
+        } else if selectedPayment?.row == 1 {
+            let total = Double(TotalAmountLabel.text ?? "") ?? 0.0
+      //      self.paypalCheckout(amount: total)
+        } else {
+            
+        }
     }
 }
 extension PayMethodViewController:UITableViewDelegate,UITableViewDataSource{
@@ -75,7 +89,16 @@ extension PayMethodViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        switch indexPath.row{
+            case 0:
+                print("Cash")
+            case 1:
+                print("paypal")
+            case 2:
+                print("apple")
+            default:
+                print("nothing")
+        }
         if selectedPayment != nil {
             guard let previusSelectedcell  = tableView.cellForRow(at: selectedPayment!) as? PaymentTableViewCell else{return}
             
@@ -91,14 +114,36 @@ extension PayMethodViewController:UITableViewDelegate,UITableViewDataSource{
                 return}
             
             cell.checkedBox.image = UIImage(named: "checked")
-            
         }
-         
-           
-        
-            
     }
-    
-    
-    
+/*
+    func paypalCheckout(amount: Double) {
+        self.braintreeAPIClient = BTAPIClient(authorization: authorization)
+        let payPalDriver = BTPayPalClient(apiClient: braintreeAPIClient!)
+        let request = BTPayPalCheckoutRequest(amount: "\(amount)")
+   /*     if ApplicationUserManger.shared.getSelectedCurrency(){
+            request.currencyCode = "USD"
+        }else{
+            request.currencyCode = "EGP"
+        }*/
+        var err:Error?
+        payPalDriver.tokenize(request) { [weak self] (tokenizedPayPalAccount, error) in
+            if tokenizedPayPalAccount != nil {
+            } else if let error = error {
+                err = error
+                print("error is \(error)")
+            }
+            if err == nil{
+          //      let orders = CoreDataManager.shared.fetchDataFromCart()
+          //      self!.ViewModel.postOrdersToApi(cartArray: orders)
+                let alert = UIAlertController(title: "Successfull Payment!", message: "Thanks For Dealing With Us", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Go Shopping", style: .default) { _ in
+                    // Navigate to the Home view controller
+                    let home = HomeViewController()
+                    self?.navigationController?.pushViewController(home, animated: true)
+                })
+                self?.present(alert, animated: true, completion: nil)
+            }
+        }
+    }*/
 }
