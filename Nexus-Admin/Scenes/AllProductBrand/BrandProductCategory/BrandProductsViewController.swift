@@ -16,7 +16,7 @@ class BrandProductsViewController: UIViewController {
     
     
     var brandProductDelegation:BrandProductProtocol?
-    var pricedProduct = [Product](){
+    var pricedProduct = [ProductMustafa](){
         didSet{
             if pricedProduct.count == brandProducts?.count {
                 self.brandProducts = self.pricedProduct
@@ -27,7 +27,7 @@ class BrandProductsViewController: UIViewController {
         }
     }
     
-    var brandProducts:[Product]?{
+    var brandProducts:[ProductMustafa]?{
         didSet{
             
             navigationItem.title = brandProducts?.first?.vendor
@@ -93,7 +93,7 @@ extension BrandProductsViewController:UICollectionViewDelegate,UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 150, height: 270)
+        return CGSize(width: (UIScreen.main.bounds.size.width )/2.4 , height: 270)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

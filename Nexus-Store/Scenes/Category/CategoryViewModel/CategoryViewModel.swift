@@ -21,14 +21,29 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
     let custemerId:Int = 6899149865196
     static var selectedMainCategory = 0
     static var selectedSubCategory = 0
-    var formBrand = false
+    var fromBrand = false
+    var brandName = "ADIDAS"
     let wishListServices = WishListService()
     private var favoriteProducts:[Product] = []
+    private var productForBrand:[Product] = []
+    {
+        didSet{
+            print("Product Brand Count \(productForBrand.count) || FilterProduct Count \(filterProduct.count)")
+            if fromBrand == true  && allProduct.count == filterProduct.count  {
+                filterProduct = productForBrand
+                self.reload?()
+                
+            }
+        }
+    }
     private var filterProduct :[Product] = [] {
         didSet{
-            if allProduct.count == filterProduct.count {
+            print("All Product Count\(allProduct.count) || FilterProduct Count \(filterProduct.count)")
+            if allProduct.count == filterProduct.count && fromBrand == false {
                 self.reload?()
             }
+           
+           
         }
     }
     private var allProduct:[Product] = []
@@ -69,7 +84,7 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
                 {
                 case .success(let image):
                     
-                    cell.productImage?.image = image.image//self.resizeImage(image: image.image, newWidth: 1000/4)
+                    cell.productImage?.image = image.image
                     
 
                 case .failure(_):
@@ -95,9 +110,7 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
     //MARK: - Get All Product filter to it's Category
     func getAllProduct(for mainCategory:Int){
         loadingAnimation?(true)
-        filterProduct.removeAll()
-        favoriteProducts.removeAll()
-        allProduct.removeAll()
+
         BaseUrl.MainCategory = mainCategory
         apiNetworkManager.fetchData(url: BaseUrl.CategoryProduct , decodingModel: AllProduct.self) { result in
             switch result{
@@ -105,13 +118,17 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
                 
                 self.checkCustomerFavoriteProduct(for: self.custemerId)
                 self.allProduct = AllProducts.products
+                
+                self.filterProduct.removeAll()
+                self.favoriteProducts.removeAll()
+               // self.allProduct.removeAll()
+
                 for product in AllProducts.products {
                     self.priceOfEveryProduct(for: product)
                 }
                 self.loadingAnimation?(false)
             case .failure(let error):
-                print(String(describing: error))
-                self.errorOccurs?(String(describing: error))
+                self.errorOccurs?(String(describing: error.localizedDescription))
             }
         }
     }
@@ -122,9 +139,7 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
     
     func getSubCategoryData(for mainCategory: Int, with subCategory: String) {
         loadingAnimation?(true)
-        filterProduct.removeAll()
-        favoriteProducts.removeAll()
-        allProduct.removeAll()
+
         BaseUrl.MainCategory = mainCategory
         BaseUrl.SubCategoryItem = subCategory
         apiNetworkManager.fetchData(url: BaseUrl.SubCategory , decodingModel: AllProduct.self) { result in
@@ -133,15 +148,15 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
             case .success(let AllProducts):
                 self.checkCustomerFavoriteProduct(for: self.custemerId)
                 self.allProduct = AllProducts.products
+                self.filterProduct.removeAll()
+                self.favoriteProducts.removeAll()
+               // self.allProduct.removeAll()
                 for product in AllProducts.products {
                     self.priceOfEveryProduct(for: product)
                 }
                 self.loadingAnimation?(false)
             case .failure(let error):
-                print(String(describing: error))
-
-                self.errorOccurs?(String(describing: error))
-
+                self.errorOccurs?(String(describing: error.localizedDescription))
               
             }
         }
@@ -156,10 +171,10 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
             switch result{
             case .success(let product):
                 self.filterProduct.append(product.product)
+                self.filteraccodingToBrand(brandName: self.brandName)
             //    self.reload?()
             case .failure(let error):
-                print(String(describing: error))
-                self.errorOccurs?(String(describing: error))
+                self.errorOccurs?(String(describing: error.localizedDescription))
             }
         }
         
@@ -177,7 +192,7 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
                     self.loadingAnimation?(false)
                     self.reload?()
                 case .failure(let error):
-                    self.errorOccurs?(String(describing: error))
+                    self.errorOccurs?(String(describing: error.localizedDescription))
                 }
             }
         }
@@ -186,11 +201,7 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
     //MARK: - Check is the Content is Empty
     func bindNoProductFound()->Bool{
        
-        if allProduct.count == 0 && filterProduct.count == 0{
-            return true
-        }else{
-            return false
-        }
+        return filterProduct.count == 0 ? false : true
         
     }
     
@@ -207,6 +218,8 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
             getSubCategoryData(for: mainCategory, with: subCategory)
         }
         
+       
+        
         
     }
     
@@ -219,7 +232,7 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
                 
                 wishListServices.addToWishList(productID: cell.productId!, toCustomer: custemerId) { error in
                     if let error = error{
-                        print(error.localizedDescription)
+                        self.errorOccurs?(String(describing: error.localizedDescription))
                     }else{return}
                 }
                 
@@ -228,7 +241,7 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
                 cell.favoriteIcon.setImage(UIImage(systemName: K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
                 wishListServices.removeWishList(productID: cell.productId!, fromCustomer: custemerId) { error in
                     if let error = error{
-                        print(error.localizedDescription)
+                        self.errorOccurs?(String(describing: error.localizedDescription))
                     }else{return}
                 }
             }
@@ -267,10 +280,9 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
     
     //MARK: - Filter according To Brand
     func filteraccodingToBrand(brandName:String){
-        loadingAnimation?(true)
-        filterProduct =  filterProduct.filter({ $0.vendor == brandName
+        productForBrand =  filterProduct.filter({ $0.vendor == brandName
         })
-        loadingAnimation?(false)
+      
         
     }
     

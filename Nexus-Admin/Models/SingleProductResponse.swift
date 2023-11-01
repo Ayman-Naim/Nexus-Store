@@ -15,3 +15,10 @@ struct SingleProductResponse: Codable {
         case result = "product"
     }
 }
+struct SingleProductResponseMustafa: Codable {
+    let result: ProductMustafa
+    
+    enum CodingKeys: String, CodingKey {
+        case result = "product"
+    }
+}

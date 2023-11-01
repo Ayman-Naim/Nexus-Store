@@ -55,7 +55,7 @@ class productDetailsCell: UICollectionViewCell {
         delegate?.didTapButtonInCell(self)
         
     }
-    func ConfigureProductDetails(product:Product?,inStock:Int?){
+    func ConfigureProductDetails(product:ProductMustafa?,inStock:Int?){
         
         if let imageUrl = product?.image?.src {
             productImage.kf.setImage(with: URL(string: imageUrl))
@@ -63,10 +63,10 @@ class productDetailsCell: UICollectionViewCell {
             productImage.image = UIImage(named: "PlaceHolderImage")
         }
         productName.text = product?.title
-        productPrice.text = "$\(product?.variants.first?.price ?? "300")"
+        productPrice.text = "$\(product?.variants?.first?.price ?? "300")"
         productId = product?.id
         if let quatity =  inStock{
-            avalibleInStock.text = "\(quatity) in Stock"
+            avalibleInStock.text = "\(quatity) Item"
         }
 
     }
@@ -94,7 +94,7 @@ extension UICollectionViewCell{
         contentView.layer.cornerRadius = 16
         contentView.layer.masksToBounds = true
         backgroundColor = .clear
-      //  contentView.backgroundColor = .white
+        contentView.backgroundColor = .white
 
     }
 }

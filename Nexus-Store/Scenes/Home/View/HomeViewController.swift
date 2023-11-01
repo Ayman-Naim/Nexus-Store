@@ -280,6 +280,10 @@ extension HomeViewController :UICollectionViewDelegate,UICollectionViewDataSourc
         case 1 :
             let vc = CategoryViewController()
             vc.fromBrand = true
+            vc.forMainCategory = K.menID
+            vc.forSubCategory = K.all
+            CategoryViewModuleRefactor.selectedMainCategory = 0
+            CategoryViewModuleRefactor.selectedSubCategory = 0
             vc.vendor = brands[indexPath.item].title ?? "ADIDAS"
             self.navigationController?.pushViewController(vc, animated: true)
         default:
