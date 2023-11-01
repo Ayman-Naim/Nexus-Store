@@ -38,6 +38,8 @@ struct K{
     static let favoriteIconNotSave = "heart"
     static let favoriteIconSave = "heart.fill"
     
+    static let customerIdKey = "customerID"
+    
  
     
     

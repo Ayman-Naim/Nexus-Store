@@ -104,3 +104,22 @@ class ProductDetailsViewModel:ProductDetailsDelegation{
     
     
 }
+
+
+class ProductDetailsViewModuleRefactor{
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    var reload:(()->Void)?
+    var isLoadingAnimation:(()->Void)?
+    var errorOccurs:((String)->Void)?
+    
+}
+
+
