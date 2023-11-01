@@ -95,7 +95,8 @@ class ProductDetailsViewModel:ProductDetailsDelegation{
 //        let varientID
 //        let Quatity
 //        let imageUrl
-        
+        let cartService = CartService()
+//        cartService.addProductToCart(forCustomerID: <#T##Int#>, variantID: <#T##Int#>, imageURLString: <#T##String#>, completion: <#T##(Error?) -> Void#>)
         
     }
     

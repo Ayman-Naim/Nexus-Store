@@ -19,6 +19,10 @@ class ShippingViewModel {
     private var customerID: Int?
     private var customerAdresses: [Address] = [] {
         didSet {
+            if let defaultIndex = customerAdresses.firstIndex(where: { $0.isDefault }) {
+                let defaultAddress = customerAdresses.remove(at: defaultIndex)
+                customerAdresses.insert(defaultAddress, at: 0)
+            }
             DispatchQueue.main.async {
                 self.reload?()
             }
@@ -28,6 +32,9 @@ class ShippingViewModel {
     
     // MARK: - Clouser
     var reload: (() -> Void)?
+    var loadingIndicator: ((Bool) -> Void)?
+    var errorOccure: ((String) -> Void)?
+    
     
     
     // MARK: - DataSource
@@ -55,12 +62,21 @@ class ShippingViewModel {
     func getCustomerAddresses() {
         guard let customerID = customerID else { return }
         let url = baseURL + "/customers/\(customerID)/addresses.json"
-        AF.request(url, method: .get, headers: header).responseDecodable(of: CustomerAddressesResponse.self) { response in
+        
+        loadingIndicator?(true)
+        
+        AF.request(url, method: .get, headers: header).responseDecodable(of: CustomerAddressResponse.self) { response in
+            
+            DispatchQueue.main.async {
+                self.loadingIndicator?(false)
+            }
+            
             switch response.result {
-            case .success(let addresses):
-                self.customerAdresses = addresses.result
+            case .success(let addressesRespone):
+                guard let addresses = addressesRespone.results else { return }
+                self.customerAdresses = addresses
             case .failure(let error):
-                print(error)
+                self.errorOccure?(error.localizedDescription)
             }
         }
     }
@@ -68,21 +84,32 @@ class ShippingViewModel {
     private func updateCustomerDefaultAddress(withAddressID addressID: Int) {
         guard let customerID = customerID else { return }
         let url = baseURL + "/customers/\(customerID)/addresses/\(addressID)/default.json"
-        AF.request(url, method: .put, headers: header).responseDecodable(of: CustomerAddresses.self) { response in
+        
+        loadingIndicator?(true)
+        
+        AF.request(url, method: .put, headers: header).responseDecodable(of: CustomerAddressResponse.self) { response in
+            
+            DispatchQueue.main.async {
+                self.loadingIndicator?(false)
+            }
+            
             switch response.result {
             case .success(_):
                 self.getCustomerAddresses()
             case .failure(let error):
-                print(error)
+                self.errorOccure?(error.localizedDescription)
             }
         }
     }
     
-    func setDraftOrderAddress() {
+    func setAddressForOrder(navigate: @escaping () -> Void) {
         guard let customerID = customerID else { return }
         guard let selectedAddress = customerAdresses.first(where: { $0.isDefault }) else { return }
         
         let draftOrderService = DraftOrderService()
+        
+        loadingIndicator?(true)
+        
         draftOrderService.customerDraftOrders(customerID: customerID) { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -96,21 +123,34 @@ class ShippingViewModel {
                 ]
                 
                 
-                for order in draftOrders {
-                    AF.request("https://ios-q1-new-capital-admin1-2023.myshopify.com/admin/api/2023-01/draft_orders/\(order.id).json", method: .put, parameters: params, headers: self.header).response { response in
+                for orderIndex in draftOrders.indices {
+                    AF.request("https://ios-q1-new-capital-admin1-2023.myshopify.com/admin/api/2023-01/draft_orders/\(draftOrders[orderIndex].id).json", method: .put, parameters: params, headers: self.header).response { response in
                         switch response.result {
-                        case .success(let data):
-                            guard let data = data else { return }
-                            print(String(data: data, encoding: .utf8) ?? "No Data")
+                        case .success(_):
+//                            guard let data = data else { return }
+//                            print(String(data: data, encoding: .utf8) ?? "No Data")
+                            if orderIndex == draftOrders.count - 1 {
+                                DispatchQueue.main.async {
+                                    self.loadingIndicator?(false)
+                                    navigate()
+                                }
+                            }
+                            
                         case .failure(let error):
-                            print(error)
+                            DispatchQueue.main.async {
+                                self.loadingIndicator?(false)
+                            }
+                            self.errorOccure?(error.localizedDescription)
                         }
                     }
                 }
                 
                 
             case .failure(let error):
-                print(error)
+                DispatchQueue.main.async {
+                    self.loadingIndicator?(false)
+                }
+                self.errorOccure?(error.localizedDescription)
             }
         }
     }
