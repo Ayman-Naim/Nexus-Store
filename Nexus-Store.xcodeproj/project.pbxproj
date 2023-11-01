@@ -43,6 +43,7 @@
 		0179F4D02AEC689400114BD7 /* CustomLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010F61012AE49CF800DE7EB0 /* CustomLoadingIndicator.swift */; };
 		0194C58C2AEE7FA500465B5F /* ShopifyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0194C58B2AEE7FA500465B5F /* ShopifyError.swift */; };
 		0199C9972AEC0AD5007B3122 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199C9962AEC0AD5007B3122 /* CartViewModel.swift */; };
+		019C83312AF2ED0A003DB9EA /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019C83302AF2ED0A003DB9EA /* Address.swift */; };
 		01A0EB8A2AE071A1004310FC /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0EB882AE071A1004310FC /* CartViewController.swift */; };
 		01A0EB8B2AE071A1004310FC /* CartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01A0EB892AE071A1004310FC /* CartViewController.xib */; };
 		01A0EB932AE075CB004310FC /* ProductLandscapeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0EB912AE075CB004310FC /* ProductLandscapeTVCell.swift */; };
@@ -227,6 +228,7 @@
 		0179F4C52AEC61CF00114BD7 /* ProductImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		0194C58B2AEE7FA500465B5F /* ShopifyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopifyError.swift; sourceTree = "<group>"; };
 		0199C9962AEC0AD5007B3122 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		019C83302AF2ED0A003DB9EA /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		01A0EB882AE071A1004310FC /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		01A0EB892AE071A1004310FC /* CartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartViewController.xib; sourceTree = "<group>"; };
 		01A0EB912AE075CB004310FC /* ProductLandscapeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductLandscapeTVCell.swift; sourceTree = "<group>"; };
@@ -1573,6 +1575,7 @@
 		E37687E02ADE002B00DB09A1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				019C83302AF2ED0A003DB9EA /* Address.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2081,6 +2084,7 @@
 				45123AB52AE2149E001B12B7 /* productDetailsCell.swift in Sources */,
 				459916B92AEC6024005F3C31 /* Double+Extension.swift in Sources */,
 				01CAA06D2AF05CE3005A29FD /* DraftOrder.swift in Sources */,
+				019C83312AF2ED0A003DB9EA /* Address.swift in Sources */,
 				5BC20AC92AE1911F0071925A /* SignInViewController.swift in Sources */,
 				010F60FE2AE491CB00DE7EB0 /* ContentEmptyView.swift in Sources */,
 				4531FE4F2AE2EE3800F47528 /* ProductSizeDelegation.swift in Sources */,
