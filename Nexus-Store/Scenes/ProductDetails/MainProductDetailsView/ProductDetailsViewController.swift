@@ -198,8 +198,8 @@ class ProductDetailsViewController: UIViewController {
         
         if numberOfItemsUpdates != 0 {
             
-            let vc = AddPromoCodeViewController()
-            vc.addPromoCodeViewModel = AddPromoCodeViewModel()
+            let vc = ShippingViewController()
+           // vc.addPromoCodeViewModel = AddPromoCodeViewModel()
             var okAction = UIAlertAction(title: "OK", style: .default) { action in
                 self.navigationController?.pushViewController(vc, animated: true)
             }
