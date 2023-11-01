@@ -43,8 +43,7 @@ class ProductSizeDelegation: NSObject, UICollectionViewDelegate, UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SizeColorCell.identifier, for: indexPath) as! SizeColorCell
         
         cell.sizeColorLabel.text = itemDetails.options?.first?.values?[indexPath.row]
-//        indexPath.row == 0 ? cell.backGroundView.configureDesignOfcellSelected(label: cell.sizeColorLabel) :  cell.backGroundView.configureDesignOfCellNotSelected(label: cell.sizeColorLabel)
-//        
+
         return cell
     }
     
@@ -60,21 +59,7 @@ class ProductSizeDelegation: NSObject, UICollectionViewDelegate, UICollectionVie
         // Specify the section you want to loop through
         setIndexPathCollectionForSize = itemDetails.options?.first?.values?[indexPath.row]
         didSelectCertainSize()
-//        let section = 0
-//        // Get the number of items in the section
-//        let itemCount = collectionView.numberOfItems(inSection: section)
-//        // Create a countable range of index paths for the section
-//        let indexPaths = (0..<itemCount).map { IndexPath(item: $0, section: section) }
-//        // Loop through the cells in the section
-//        for index in indexPaths {
-//            if let cell = collectionView.cellForItem(at: index) as? SizeColorCell {
-//                cell.backGroundView.configureDesignOfCellNotSelected(label: cell.sizeColorLabel)
-//                if  index.row == indexPath.row{
-//                    cell.backGroundView.configureDesignOfcellSelected(label: cell.sizeColorLabel)
-//                }
-//            }
-//
-//        }
+
     }
 
     

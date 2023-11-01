@@ -80,6 +80,8 @@ extension UIViewController {
         get { view.subviews.contains(where: { $0 is CustomLoadingIndicator }) }
     }
     
+    
+    //MARK: -  ADding Logo to Navigation Bar
     func addLogoToNavigationBarItem(logoImage:String) {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false

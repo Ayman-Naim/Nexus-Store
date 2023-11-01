@@ -31,6 +31,7 @@ class ProductDetailsViewModel:ProductDetailsDelegation{
     let apiNetworkManager = ApiManger.SharedApiManger
     var bindDataFromProductID: (() -> Void)?
     var ProductId:Int
+    
     var productItem:Product?  {
         
         didSet{
@@ -81,6 +82,21 @@ class ProductDetailsViewModel:ProductDetailsDelegation{
                 print(String(describing: error))
             }
         }
+    }
+    
+    
+    
+    
+    
+    func addProductToCart(){
+        
+        
+//        let custemerId
+//        let varientID
+//        let Quatity
+//        let imageUrl
+        
+        
     }
     
     
