@@ -198,13 +198,13 @@ class ProductDetailsViewController: UIViewController {
         
         if numberOfItemsUpdates != 0 {
             
-            let vc = ShippingViewController()
            // vc.addPromoCodeViewModel = AddPromoCodeViewModel()
             var okAction = UIAlertAction(title: "OK", style: .default) { action in
-                self.navigationController?.pushViewController(vc, animated: true)
+
             }
             Alert.show(on: self, title: "Congratulation", message: "You scussfully added the quatity to the Cart",actions: [okAction])
-         
+            
+            // productDetailsViewModel?.addProductToCart()
             
         }else{
             
