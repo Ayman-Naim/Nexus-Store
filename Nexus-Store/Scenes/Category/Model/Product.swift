@@ -17,7 +17,7 @@ struct SingleProduct: Codable {
 // MARK: - Product
 struct Product:Hashable, Codable {
     let id: Int
-    var title: String
+    var title: String?
     var bodyHtml: String?
     var vendor: String?
     var productType: String?

@@ -9,9 +9,9 @@ import UIKit
 import Cosmos
 
 class ProductDetailsViewController: UIViewController {
-         
-
-  
+    
+    
+    
     static let storyBoardName = "ProductDetails"
     static let identifier = "ProductDetails"
     
@@ -35,27 +35,25 @@ class ProductDetailsViewController: UIViewController {
     var productItemDetails:Product?
     var numberOfAvalibleItems:Int?
     let wishListServices = WishListService()
+    
+    
     var favoriteProducts:[Product]?{
         didSet{
             if  let count = productItemDetails?.options?.first?.values?.count  {
                 if count > 0{
                     let indexPath = IndexPath(item: 0, section: 0)
                     
-                    // Select the first item with animation and scroll it to visible
-                                        sizeCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
-//                    if let selectedCell = sizeCollectionView.cellForItem(at: indexPath) {
-//                        // Customize the appearance of the selected cell
-//                        selectedCell.isSelected = true
-//                    }
+                    sizeCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+                    
                     
                 }
             }
-
+            
         }
     }
+    
     let custemerId:Int = 6899149865196
     var constatPriceOfItem:Double?
-    
     
     var numberOfItemsUpdates:Int = 0 {
         didSet{
@@ -86,32 +84,42 @@ class ProductDetailsViewController: UIViewController {
         
     }
     
+    //MARK: - View Will Desappear
     override func viewWillDisappear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = false
     }
-
     
     
+    //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         ConfigureCallNetworlForProduct()
         productImageCollection.contentInsetAdjustmentBehavior = .never
         checkCustomerFavoriteProduct()
-       
-       
-       
+        
+        
+        
         
     }
-
     
+    
+    
+    //MARK: - Increase Quatity of Item
     @IBAction func addItem(_ sender: Any) {
-     
+        
         if let fullText = avalibleQuantity.text?.components(separatedBy: " "){
             let number = fullText[0]
             
             if let actualNumber = Int (number){
                 if numberOfItemsUpdates < (actualNumber/3){
                     numberOfItemsUpdates += 1
+                }else{
+                    if actualNumber ==  0 {
+                        Alert.show(on: self, title: "Out of Stock", message: "This Item You choosen is out of Stock.")
+                    }else{
+                        Alert.show(on: self, title: "Maxmium Limit", message: "You Reached Maximum Limit For You.")
+                    }
+                  
                 }
             }
         }
@@ -119,10 +127,14 @@ class ProductDetailsViewController: UIViewController {
     }
     
     
+    
+    //MARK: - Decrease Quatity of Item
     @IBAction func removeItem(_ sender: UIButton) {
         if numberOfItemsUpdates > 0{
             numberOfItemsUpdates -= 1
             
+        }else{
+            Alert.show(on: self, title: "Add Item", message: "Please Add Item To Allow Decrease Quantity!")
         }
         
         
@@ -130,6 +142,8 @@ class ProductDetailsViewController: UIViewController {
     
     
     
+    //MARK: - Set Item IS in Favorite Or Not
+
     @IBAction func setOrRemoveFavorite(_ sender: UIButton) {
         if  sender.currentImage == UIImage(systemName:  K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .large)){
             sender.setImage(UIImage(systemName: K.favoriteIconSave,withConfiguration: UIImage.SymbolConfiguration(scale: .large)), for: .normal)
@@ -138,7 +152,7 @@ class ProductDetailsViewController: UIViewController {
                     print(error.localizedDescription)
                 }else{return}
             }
-           
+            
         }else{
             
             sender.setImage(UIImage(systemName: K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .large)), for: .normal)
@@ -152,6 +166,8 @@ class ProductDetailsViewController: UIViewController {
     }
     
     
+    //MARK: - Check Customer Favorite Item
+
     func checkCustomerFavoriteProduct(){
         wishListServices.getWishlist(forCustom: custemerId) { result in
             switch result{
@@ -165,6 +181,7 @@ class ProductDetailsViewController: UIViewController {
     }
     
     
+    //MARK: - Check is The Item in Favorite Ofr Not
     func checkIsFavorite(){
         let checkProductExistance = favoriteProducts?.filter({$0.id ==  productItemDetails?.id})
         if productItemDetails?.id == checkProductExistance?.first?.id {
@@ -172,16 +189,28 @@ class ProductDetailsViewController: UIViewController {
         }
         else{
             showFavoriteOrNot.setImage(UIImage(systemName: K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .large)), for: .normal)
-          
+            
         }
     }
     
     //MARK: - Test Add Promo Code To Product
     @IBAction func AddToCartButton(_ sender: UIButton) {
         
-        let vc = AddPromoCodeViewController()
-        vc.addPromoCodeViewModel = AddPromoCodeViewModel()
-        navigationController?.pushViewController(vc, animated: true)
+        if numberOfItemsUpdates != 0 {
+            
+            let vc = AddPromoCodeViewController()
+            vc.addPromoCodeViewModel = AddPromoCodeViewModel()
+            var okAction = UIAlertAction(title: "OK", style: .default) { action in
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            Alert.show(on: self, title: "Congratulation", message: "You scussfully added the quatity to the Cart",actions: [okAction])
+         
+            
+        }else{
+            
+            Alert.show(on: self, title: "No Quantity", message: "Please Select Qunatity From The Available Stock.")
+        }
+        
         
     }
     
@@ -211,7 +240,7 @@ extension ProductDetailsViewController{
         
     }
     
-
+    
     
     //MARK: - Configure Details of Product
     func configureDetailsOfProduct(){
@@ -266,16 +295,18 @@ extension ProductDetailsViewController{
         
     }
     
+    
+    //MARK: - Get Price Of Items
     func getSinglePriceOfItem()->Double?{
         let number = productDetailsViewModel?.bindProductPriceOfProduct()?.components(separatedBy: "$")
         if let actualPrice = Double((number?[1])!){
             return Double(actualPrice)
         }
-      return nil
+        return nil
     }
     
     
-  
+    
 }
 
 

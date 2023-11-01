@@ -25,7 +25,7 @@ class productDetailsCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
        
-      
+
        
     }
     
@@ -42,22 +42,12 @@ class productDetailsCell: UICollectionViewCell {
 
 
     }
-    
+
     @IBAction func pressFavoriteButton(_ sender: Any) {
         delegate?.didTapButtonInCell(self)
         
     }
-    func ConfigureProductDetails(product:Product?){
-        if let image = product?.image?.src{
-            if let urlImage = URL(string: image){
-                productImage.kf.setImage(with:urlImage )
-            }
-        }
-        productName.text = product?.title
-        productPrice.text = "$\(product?.variants?.first?.price ?? "300")"
-        productId = product?.id
-
-    }
+ 
     
     
     func setFavorite(){

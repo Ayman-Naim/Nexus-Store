@@ -15,15 +15,27 @@ class MainCategoryCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         mainCategoryLabel.translatesAutoresizingMaskIntoConstraints = false
+        backgoundMainCategoryView.configureDesignOfCellNotSelected(label:mainCategoryLabel)
 
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-       // self.addingShadowWithEffect()
     }
     
-   
+    override var isSelected: Bool {
+        didSet{
+            if isSelected {
+                backgoundMainCategoryView.configureDesignOfcellSelected(label: mainCategoryLabel)
+            }
+        }
+    }
+    
+    func ConfigureLabelOfCell(label:String){
+        
+        self.mainCategoryLabel.text = label
+    }
+
     
 
 }

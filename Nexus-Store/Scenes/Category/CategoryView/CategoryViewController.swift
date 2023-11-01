@@ -12,98 +12,56 @@ class CategoryViewController: UIViewController {
     @IBOutlet weak var listFilterButton: UIButton!
     @IBOutlet weak var alphapiticFilter: UIButton!
     @IBOutlet weak var PriceFilterButton: UIButton!
-    var flagShowFilter = false
-    
-    let mainCategory = ["MEN","KIDS","SALE","WOMEN"]
-    let subCategory = ["ALL","SHOES","T-SHIRT","ACCESSORIES"]
-    let productSection = IndexSet(integer: 2)
+    private let categoryViewModuleRefactor = CategoryViewModuleRefactor()
     var forMainCategory:Int = K.menID
-    var flagSubCategory = 0
-    var categoryProductProtocol:CategoryViewModelDelgation?
-    
-    var fromBrand:Bool?
-    var vendor:String?
-    var vendorProductList:[Product]?
-    let wishListServices = WishListService()
-    
-    var favoriteProducts:[Product]? {
-        didSet{
-            DispatchQueue.main.async {
-                self.CategoryCollectionView.reloadSections(self.productSection)
-                self.isLoadingIndicatorAnimating = false
-                self.CategoryCollectionView.isUserInteractionEnabled = true
-            }
-        }
-    }
-    let custemerId:Int = 6899149865196
-    var products:[Product]? {
-        didSet{
-            if products?.count == 0 && filterProduct.count == 0{
-                self.CategoryCollectionView.reloadSections(self.productSection)
-
-            }
-        }
-   }
-    var filterProduct :[Product] = [] {
-        didSet {
-            if Array(Set(filterProduct)).count == products?.count  && filterProduct.count != 0  {
-                
-                DispatchQueue.main.async {
-                    self.products?.removeAll()
-                    if self.fromBrand != nil {
-                        self.vendorProductList = self.filterProduct.filter({ $0.vendor == self.vendor })
-                        self.products = self.vendorProductList
-                    }else{
-                        self.products = self.filterProduct
-                    }
-                    self.CategoryCollectionView.reloadSections(self.productSection)
-                    self.isLoadingIndicatorAnimating = false
-                    self.CategoryCollectionView.isUserInteractionEnabled = true
-                    
-                }
-            }
-        }
-    }
-    
-    var endPoint = BaseUrl.CategoryProduct
-    
-    
-    
+    var forSubCategory:String = K.all
+    var checkApperane = 0
+    var flagShowFilter = false
+    var fromBrand = false
+    var vendor:String = ""
+   
     
     
     //MARK: - Set All Data when Will Appear
     override func viewWillAppear(_ animated: Bool) {
-        self.isLoadingIndicatorAnimating = true
-        self.CategoryCollectionView.isUserInteractionEnabled = false
-        checkCustomerFavoriteProduct()
-       
+        
+        forMainCategory = K.menID
+        forSubCategory = K.all
+        CategoryViewModuleRefactor.selectedMainCategory = 0
+        CategoryViewModuleRefactor.selectedSubCategory = 0
+        if checkApperane != 1 {
+           
+            categoryViewModuleRefactor.CheckIsAllProductMainCategoryForAllProduct(for: forMainCategory, with: forSubCategory)
+            navigationItem.leftBarButtonItem?.isHidden  = true
+        }
+        
     }
     
-    //MARK: - Conigure ViewWill Appear
+    //MARK: - Configure ViewWill Appear
     override func viewDidAppear(_ animated: Bool) {
         self.addLogoToNavigationBarItem(logoImage: K.darkModeLogo)
-        if fromBrand != nil{
-            tabBarController?.tabBar.isHidden = true
-        }
+      
     }
     
     
-    
+    //MARK: - Configure Will DisAppear
     override func viewWillDisappear(_ animated: Bool) {
-        if fromBrand != nil{
-            tabBarController?.tabBar.isHidden = false
-        }
+        checkApperane = 0
+        navigationItem.leftBarButtonItem?.isHidden  = false
+
+        
     }
     
-    
+    //MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkApperane = 1
         configureCollectionView()
         registerCollectionViewByCell()
         CategoryCollectionView.collectionViewLayout = createCompositionalLayout()
+        bindViewModel()
+        categoryViewModuleRefactor.CheckIsAllProductMainCategoryForAllProduct(for: forMainCategory, with: forSubCategory)
         configureFavoritueButton()
-        ConfigureFetchDataFromApi(with: K.menID)
-        checkCustomerFavoriteProduct()
         loadShadowToButton(listFilterButton)
         loadShadowToButton(alphapiticFilter)
         loadShadowToButton(PriceFilterButton)
@@ -116,36 +74,21 @@ class CategoryViewController: UIViewController {
     
     
     
-    func ConfigureFetchDataFromApi(with endPointFilter:Int){
-        BaseUrl.MainCategory = endPointFilter
-        categoryProductProtocol = CategoryViewModel()
-        self.CategoryCollectionView.isUserInteractionEnabled = false
-        categoryProductProtocol?.getAllProduct(with: BaseUrl.CategoryProduct)
-        categoryProductProtocol?.fetchProductToCategoryView = { [weak self] in
-            self?.products = self?.categoryProductProtocol?.RetiviedProductResult()
-            self?.CategoryCollectionView.isUserInteractionEnabled = true
-            self?.allProductofMainCategory()
-        }
-        
-        
-    }
+
     
     
     @IBAction func ListToChooseFilter(_ sender: UIButton) {
-        showFiltersButton()
+           showFiltersButton()
     }
     
     @IBAction func filterProductAlphabeticButton(_ sender: Any) {
         
-        if let filterAlphabeticProduct = categoryProductProtocol?.bindFilterProductAccordingAlphbetic(filterProduct: filterProduct){
-            filterProduct = filterAlphabeticProduct
-        }
-       
+        categoryViewModuleRefactor.bindFilterProductAccordingAlphbetic()
+        
     }
     @IBAction func filterProductPriceButton(_ sender: UIButton) {
-        if let filterPriceProduct = categoryProductProtocol?.bindFilterProductAccordingPrice(filterProduct: filterProduct){
-            filterProduct = filterPriceProduct
-        }
+        
+        categoryViewModuleRefactor.bindFilterProductAccordingPrice()
     }
     
 }
@@ -165,15 +108,19 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
         
         switch section{
         case 0:
-            return 4
+            return categoryViewModuleRefactor.numberOfMainCategory
         case 1:
-            return 4
+            return categoryViewModuleRefactor.numberOfsubCategory
         case 2:
-            return products?.count ?? 0
+            return  categoryViewModuleRefactor.numberOfProduct
         default:
             return 0
         }
     }
+    
+    
+    
+    
     
     //MARK: - Selection Product Details
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -181,48 +128,61 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
         switch indexPath.section {
             
         case 0:
-            ChangeMainAndSubColor(collectionView: collectionView, indexPath: indexPath, section: 0)
+            
             switch indexPath.row{
             case 0:
-                GetMainCategoryData(with : K.menID)
-                forMainCategory = K.menID
+                forMainCategory =  K.menID
+                CategoryViewModuleRefactor.selectedMainCategory = 0
             case 1:
-                GetMainCategoryData(with : K.kidID)
                 forMainCategory =  K.kidID
+                CategoryViewModuleRefactor.selectedMainCategory = 1
+
             case 2:
-                GetMainCategoryData(with : K.saleID)
-                forMainCategory =  K.saleID
+                forMainCategory = K.saleID
+                CategoryViewModuleRefactor.selectedMainCategory = 2
+
             case 3:
-                GetMainCategoryData(with : K.womenID)
-                forMainCategory =  K.womenID
+                forMainCategory = K.womenID
+                CategoryViewModuleRefactor.selectedMainCategory = 3
+
                 
             default:
                 print("Finish")
             }
             
+            
+            categoryViewModuleRefactor .CheckIsAllProductMainCategoryForAllProduct(for: forMainCategory, with: forSubCategory)
+            ChangeMainAndSubColor(collectionView: collectionView, indexPath: indexPath, section: 0)
             
         case 1:
-            ChangeMainAndSubColor(collectionView: collectionView, indexPath: indexPath, section: 1)
+            
+            
             switch indexPath.row{
             case 0:
-                GetMainCategoryData(with : forMainCategory)
-                flagSubCategory = 0
+                forSubCategory = K.all
+                CategoryViewModuleRefactor.selectedSubCategory = 0
             case 1:
-                GetSubCategoryData(for: forMainCategory, with: K.shoes)
-                flagSubCategory = 1
+                forSubCategory = K.shoes
+                CategoryViewModuleRefactor.selectedSubCategory = 1
+
             case 2:
-                GetSubCategoryData(for: forMainCategory, with: K.tShirt)
-                flagSubCategory = 2
+                forSubCategory = K.tShirt
+                CategoryViewModuleRefactor.selectedSubCategory = 2
+
             case 3:
-                GetSubCategoryData(for: forMainCategory, with: K.accessories)
-                flagSubCategory = 3
+                forSubCategory = K.accessories
+                CategoryViewModuleRefactor.selectedSubCategory = 3
+
             default:
                 print("Finish")
                 
             }
+            categoryViewModuleRefactor .CheckIsAllProductMainCategoryForAllProduct(for: forMainCategory, with: forSubCategory)
+            ChangeMainAndSubColor(collectionView: collectionView, indexPath: indexPath, section: 1)
             
         case 2:
-            if let product = products?[indexPath.row] {
+          
+            let product = categoryViewModuleRefactor.retrivedDataAboutProducts(for: indexPath)
                 let storyboard = UIStoryboard(name:ProductDetailsViewController.storyBoardName , bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: ProductDetailsViewController.identifier) as! ProductDetailsViewController
                 let productDetailsViewModel = ProductDetailsViewModel(for: product.id)
@@ -230,7 +190,9 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
                 vc.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
                 vc.modalPresentationStyle = .fullScreen
                 self.navigationController?.pushViewController(vc, animated: true)
-            }
+            
+            
+            
             
         default:
             print("Done")
@@ -245,44 +207,82 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
         
         switch indexPath.section{
         case 0 :
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.customCategoryCellIdetifier, for: indexPath) as! MainCategoryCell
-            cell.mainCategoryLabel.text = mainCategory[indexPath.row]
             
-            indexPath.row == 0 ? cell.backgoundMainCategoryView.configureDesignOfcellSelected(label: cell.mainCategoryLabel) :  cell.backgoundMainCategoryView.configureDesignOfCellNotSelected(label: cell.mainCategoryLabel)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.customCategoryCellIdetifier, for: indexPath) as! MainCategoryCell
+            categoryViewModuleRefactor.mainCategoeyCellConfiguration(cell: cell, indexPath: indexPath)
             
             return cell
             
         case 1 :
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.customCategoryCellIdetifier, for: indexPath) as! MainCategoryCell
-            cell.mainCategoryLabel.text = subCategory[indexPath.row]
-            
-            indexPath.row == 0 ? cell.backgoundMainCategoryView.configureDesignOfcellSelected(label: cell.mainCategoryLabel) :  cell.backgoundMainCategoryView.configureDesignOfCellNotSelected(label: cell.mainCategoryLabel)
+            categoryViewModuleRefactor.subCategoeyCellConfiguration(cell: cell, indexPath: indexPath)
             
             return cell
-            
+            //
         case 2 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.customProductDetailsIdetifier, for: indexPath) as! productDetailsCell
-            cell.ConfigureProductDetails(product: products?[indexPath.row])
-            cell.delegate = self
             
-            if let favoriteProducts = favoriteProducts{
-                for favoriteProduct in favoriteProducts{
-                    if  favoriteProduct.id == products?[indexPath.row].id{
-                        
-                        cell.setFavorite()
-                        
-                    }
-                }
-            }
+            categoryViewModuleRefactor.ConfigureProductDetails(for: cell, indexPath: indexPath)
+            
             return cell
             
         default :
             return UICollectionViewCell()
             
         }
+        
+        
     }
     
+    //MARK: - Bind View of Category
+    private func bindViewModel() {
+        categoryViewModuleRefactor.loadingAnimation = { [weak self] isLoading in
+            DispatchQueue.main.async {
+                self?.isLoadingIndicatorAnimating = isLoading
+            }
+        }
+        
+        categoryViewModuleRefactor.reload = { [weak self] in
+            DispatchQueue.main.async {
+            
+                self?.CategoryCollectionView.reloadSections(IndexSet(integer: 2))
+                
+                if let ContentHidden = self?.categoryViewModuleRefactor.bindNoProductFound(){
+                    self?.isContentEmptyViewHidden = ContentHidden
+                }
+                
+                if self?.fromBrand == true {
+                    self?.categoryViewModuleRefactor.filteraccodingToBrand(brandName: self!.vendor)
+                    self?.CategoryCollectionView.reloadSections(IndexSet(integer: 2))
+                }
+            }
+        }
+        
+        categoryViewModuleRefactor.errorOccurs = { [weak self] error in
+            guard let self = self else { return }
+            Alert.show(on: self, title: "Error", message: error)
+        }
+    }
+    
+    
+    //MARK: - Change Highlight Of cell
+    func ChangeMainAndSubColor(collectionView:UICollectionView,indexPath:IndexPath,section:Int){
+        // Get the number of items in the section
+        let itemCount = collectionView.numberOfItems(inSection: section)
+        // Create a countable range of index paths for the section
+        let indexPaths = (0..<itemCount).map { IndexPath(item: $0, section: section) }
+        // Loop through the cells in the section
+        for index in indexPaths {
+            if let cell = collectionView.cellForItem(at: index) as? MainCategoryCell {
+                cell.backgoundMainCategoryView.configureDesignOfCellNotSelected(label: cell.mainCategoryLabel)
+                if  index.row == indexPath.row{
+                    cell.backgoundMainCategoryView.configureDesignOfcellSelected(label: cell.mainCategoryLabel)
+                }
+            }
+            
+        }
+    }
     
     //MARK: Header Functions
     func supplementtryFooter()->NSCollectionLayoutBoundarySupplementaryItem{
@@ -333,10 +333,7 @@ extension CategoryViewController{
         
         self.CategoryCollectionView!.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Cell")
         
-        
         CategoryCollectionView.register(UINib(nibName: K.customCategoryCellIdetifier, bundle: nil), forCellWithReuseIdentifier: K.customCategoryCellIdetifier)
-        
-        CategoryCollectionView.register(UINib(nibName:K.customCategoryCellIdetifier, bundle: nil), forCellWithReuseIdentifier: K.customCategoryCellIdetifier)
         
         CategoryCollectionView.register(UINib(nibName: K.customProductDetailsIdetifier, bundle: nil), forCellWithReuseIdentifier: K.customProductDetailsIdetifier)
         CategoryCollectionView.register(UINib(nibName: K.customFooterNib, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Seperator")
@@ -415,6 +412,8 @@ extension CategoryViewController{
     
     
     
+    
+    
     // MARK: - Setting Adding Favorite Button to NAvigation bar
     func configureFavoritueButton(){
         if let favoriteImage = UIImage(named: K.heartIcon) , let cartImage =  UIImage(named: K.cartIcon) ,let searchImage =  UIImage(named: K.searchIcon) {
@@ -444,194 +443,35 @@ extension CategoryViewController{
         self.navigationController?.pushViewController(WishListViewController(), animated: true)
     }
     
-    //MARK: - Change Color of Main and Sub Category
-    func ChangeMainAndSubColor(collectionView:UICollectionView,indexPath:IndexPath,section:Int){
-        // Get the number of items in the section
-        let itemCount = collectionView.numberOfItems(inSection: section)
-        // Create a countable range of index paths for the section
-        let indexPaths = (0..<itemCount).map { IndexPath(item: $0, section: section) }
-        // Loop through the cells in the section
-        for index in indexPaths {
-            if let cell = collectionView.cellForItem(at: index) as? MainCategoryCell {
-                cell.backgoundMainCategoryView.configureDesignOfCellNotSelected(label: cell.mainCategoryLabel)
-                if  index.row == indexPath.row{
-                    cell.backgoundMainCategoryView.configureDesignOfcellSelected(label: cell.mainCategoryLabel)
-                }
-            }
-            
-        }
-    }
     
 }
-
-
 //MARK: - Changing Product According Main And SubCategory
-
+   
 extension CategoryViewController {
-    
-    //MARK: - Get all Data Needed Main Catgory
-    func GetMainCategoryData(with mainCategory:Int){
         
-        BaseUrl.MainCategory = mainCategory
-        self.CategoryCollectionView.isUserInteractionEnabled = false
-        categoryProductProtocol?.getAllProduct(with: BaseUrl.CategoryProduct)
-        categoryProductProtocol?.fetchProductToCategoryView = { [weak self] in
-            self?.products?.removeAll()
-            self?.filterProduct.removeAll()
-            self?.products = self?.categoryProductProtocol?.RetiviedProductResult()
-            self?.switchsubCategory(flagNumber: self!.flagSubCategory)
-            self?.CategoryCollectionView.isUserInteractionEnabled = true
-            
+        func loadShadowToButton(_ Button:UIButton){
+            Button.layer.shadowColor = UIColor.black.cgColor
+            Button.layer.shadowOffset = CGSize(width: 0, height: 2)
+            Button.layer.shadowOpacity = 0.7
+            Button.layer.shadowRadius = 4
         }
         
-        
-        
-    }
-    
-    func switchsubCategory(flagNumber:Int){
-        if flagNumber == 0 {
-            self.CategoryCollectionView.isUserInteractionEnabled = false
-            categoryProductProtocol?.getAllProduct(with: BaseUrl.CategoryProduct)
-            categoryProductProtocol?.fetchProductToCategoryView = { [weak self] in
-                self?.products?.removeAll()
-                self?.filterProduct.removeAll()
-                self?.products = self?.categoryProductProtocol?.RetiviedProductResult()
-                self?.allProductofMainCategory()
-                self?.CategoryCollectionView.isUserInteractionEnabled = true
-                
-            }
+        func showFiltersButton(){
             
-        }
-        
-        else if flagNumber == 1 {
-            GetSubCategoryData(for: forMainCategory, with: K.shoes)
-        }
-        else if flagNumber == 2 {
-            GetSubCategoryData(for: forMainCategory, with: K.tShirt)
-        }
-        else if flagNumber == 3 {
-            GetSubCategoryData(for: forMainCategory, with: K.accessories)
-        }
-        
-    }
-    
-    
-    //MARK: - Get all Data Needed sub Catgory
-    
-    func GetSubCategoryData(for mainCategory:Int , with subCategory:String){
-        
-        self.CategoryCollectionView.isUserInteractionEnabled = false
-        categoryProductProtocol?.getSubCategoryData(for: mainCategory, with: subCategory, Handeler: { products in
-            self.products?.removeAll()
-            self.filterProduct.removeAll()
-            self.products = products
-            self.allProductofMainCategory()
-            self.CategoryCollectionView.isUserInteractionEnabled = true
+            self.PriceFilterButton.alpha = (flagShowFilter == false ) ? 0 : 1
+            self.alphapiticFilter.alpha = (flagShowFilter == false) ? 0 : 1
             
-            
-            
-        })
-    }
-    
-    //MARK: - Get all Data Needed Price
-    func allProductofMainCategory(){
-        if let validProducts =  products {
-            self.isLoadingIndicatorAnimating = !validProducts.isEmpty
-            self.CategoryCollectionView.isUserInteractionEnabled = validProducts.isEmpty
-            self.filterProduct.removeAll()
-            
-            for product in validProducts{
-                categoryProductProtocol?.priceOfEveryProduct(for:product, Handeler: { productItem in
-                    
-                    if productItem.id == product.id {
-                        self.filterProduct.append(productItem)
-                    }
-                })
-                
-            }
-        }
-        
-        
-    }
-}
-
-//MARK: - Set Favorite to the product
-extension CategoryViewController : CustomNibCellProtocol{
-    
-    
-    func didTapButtonInCell(_ cell: productDetailsCell) {
-        
-        
-        if  cell.favoriteIcon.currentImage == UIImage(systemName:  K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)){
-            cell.favoriteIcon.setImage(UIImage(systemName: K.favoriteIconSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
-            
-            wishListServices.addToWishList(productID: cell.productId!, toCustomer: custemerId) { error in
-                if let error = error{
-                    print(error.localizedDescription)
-                }else{return}
-            }
-            
-        }else{
-            cell.favoriteIcon.setImage(UIImage(systemName: K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
-            
-            
-            wishListServices.removeWishList(productID: cell.productId!, fromCustomer: custemerId) { error in
-                if let error = error{
-                    print(error.localizedDescription)
-                }else{return}
-            }
-        }
-        
-       
-        
-    }
-    
-    
-    func checkCustomerFavoriteProduct(){
-        wishListServices.getWishlist(forCustom: custemerId) { result in
-            switch result{
-            case.success(let favoriteProduct):
-                self.favoriteProducts = favoriteProduct
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    
-    
-
-    
-    
-}
-
-
-
-extension CategoryViewController {
-    
-    func loadShadowToButton(_ Button:UIButton){
-        Button.layer.shadowColor = UIColor.black.cgColor
-        Button.layer.shadowOffset = CGSize(width: 0, height: 2)
-        Button.layer.shadowOpacity = 0.7
-        Button.layer.shadowRadius = 4
-    }
-    
-    func showFiltersButton(){
-  
-        self.PriceFilterButton.alpha = (flagShowFilter == false ) ? 0 : 1
-        self.alphapiticFilter.alpha = (flagShowFilter == false) ? 0 : 1
-
-        UIView.animate(withDuration: 0.8) {
+            UIView.animate(withDuration: 0.8) {
                 self.PriceFilterButton.isHidden = self.flagShowFilter
                 self.alphapiticFilter.isHidden = self.flagShowFilter
+                
+                self.PriceFilterButton.alpha = ( self.flagShowFilter == false) ? 1 : 0
+                self.alphapiticFilter.alpha = (self.flagShowFilter == false) ? 1 : 0
+                
+            }
             
-            self.PriceFilterButton.alpha = ( self.flagShowFilter == false) ? 1 : 0
-            self.alphapiticFilter.alpha = (self.flagShowFilter == false) ? 1 : 0
-           
+            self.flagShowFilter = !self.flagShowFilter
+            
         }
-        
-        self.flagShowFilter = !self.flagShowFilter
-        
-    }
 }
 
