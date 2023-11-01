@@ -102,7 +102,7 @@ class ShippingViewModel {
         }
     }
     
-    func setDraftOrderAddress() {
+    func setAddressForOrder(navigate: @escaping () -> Void) {
         guard let customerID = customerID else { return }
         guard let selectedAddress = customerAdresses.first(where: { $0.isDefault }) else { return }
         
@@ -123,12 +123,19 @@ class ShippingViewModel {
                 ]
                 
                 
-                for order in draftOrders {
-                    AF.request("https://ios-q1-new-capital-admin1-2023.myshopify.com/admin/api/2023-01/draft_orders/\(order.id).json", method: .put, parameters: params, headers: self.header).response { response in
+                for orderIndex in draftOrders.indices {
+                    AF.request("https://ios-q1-new-capital-admin1-2023.myshopify.com/admin/api/2023-01/draft_orders/\(draftOrders[orderIndex].id).json", method: .put, parameters: params, headers: self.header).response { response in
                         switch response.result {
-                        case .success(let data):
-                            guard let data = data else { return }
-                            print(String(data: data, encoding: .utf8) ?? "No Data")
+                        case .success(_):
+//                            guard let data = data else { return }
+//                            print(String(data: data, encoding: .utf8) ?? "No Data")
+                            if orderIndex == draftOrders.count - 1 {
+                                DispatchQueue.main.async {
+                                    self.loadingIndicator?(false)
+                                    navigate()
+                                }
+                            }
+                            
                         case .failure(let error):
                             DispatchQueue.main.async {
                                 self.loadingIndicator?(false)
