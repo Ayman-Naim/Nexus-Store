@@ -57,9 +57,9 @@ class AddAddressViewController: UIViewController {
             case .success(let data ):
                 
                 
-                guard let address1 = data.customer_address?.address1 ,
-                      let city1 = data.customer_address?.city,
-                      let name1 = data.customer_address?.name
+                guard let address1 = data.singleResult?.address1 ,
+                      let city1 = data.singleResult?.city,
+                      let name1 = data.singleResult?.name
                 else {
                     return
                 }
