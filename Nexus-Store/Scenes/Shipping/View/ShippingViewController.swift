@@ -59,6 +59,16 @@ class ShippingViewController: UIViewController {
         viewModel.reload = { [weak self] in
             self?.tableView.reloadData()
         }
+        
+        viewModel.loadingIndicator = { [weak self] isLoading in
+            self?.isLoadingIndicatorAnimating = isLoading
+            self?.tableView.isUserInteractionEnabled = !isLoading
+        }
+        
+        viewModel.errorOccure = { [weak self] error in
+            guard let self = self else { return }
+            Alert.show(on: self, title: "Error", message: error)
+        }
     }
 }
 
