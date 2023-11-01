@@ -45,7 +45,6 @@ class ShippingViewController: UIViewController {
     
     @IBAction func continueToPaymentButtonPressed(_ sender: UIButton) {
 //        self.navigationController?.pushViewController(PayMethodViewController(), animated: true)
-        viewModel.setDraftOrderAddress()
     }
     
     
@@ -86,9 +85,6 @@ extension ShippingViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        addresses.indices.forEach({ addresses[$0].isSelected = false })
-//        addresses[indexPath.row].isSelected = true
-//        tableView.reloadData()
         viewModel.didSelectCell(at: indexPath.row)
     }
 }
@@ -98,12 +94,6 @@ extension ShippingViewController: UITableViewDataSource, UITableViewDelegate {
 // MARK: - AddAddressDelegate
 extension ShippingViewController: AddAddressDelegate {
     func didAddNewAddress() {
-//        addresses.indices.forEach({ addresses[$0].isSelected = false })
-//        addresses.insert((name: address.name,
-//                          city: address.city,
-//                          address: address.address,
-//                          isSelected: true), at: 0)
-//        tableView.reloadData()
         viewModel.getCustomerAddresses()
     }
 }
