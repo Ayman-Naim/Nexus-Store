@@ -188,6 +188,11 @@
 		E3BB43802AEEDDD800A0341F /* Brands.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BB437F2AEEDDD700A0341F /* Brands.swift */; };
 		E3BB43822AEEF80400A0341F /* CollectsID.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BB43812AEEF80400A0341F /* CollectsID.swift */; };
 		E3BB43842AEEFFCF00A0341F /* collectsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BB43832AEEFFCF00A0341F /* collectsModel.swift */; };
+		E3C64A422AF2C77A00083137 /* BrandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C64A402AF2C77A00083137 /* BrandTableViewCell.swift */; };
+		E3C64A432AF2C77A00083137 /* BrandTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3C64A412AF2C77A00083137 /* BrandTableViewCell.xib */; };
+		E3C64A462AF2C88800083137 /* allBrandsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C64A442AF2C88800083137 /* allBrandsViewController.swift */; };
+		E3C64A472AF2C88800083137 /* allBrandsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3C64A452AF2C88800083137 /* allBrandsViewController.xib */; };
+		E3C64A4B2AF2CC2A00083137 /* AllBrandsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C64A4A2AF2CC2A00083137 /* AllBrandsVM.swift */; };
 		E3E10C142AED7C7300567D8B /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E10C122AED7C7300567D8B /* AddProductViewController.swift */; };
 		E3E10C152AED7C7300567D8B /* AddProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3E10C132AED7C7300567D8B /* AddProductViewController.xib */; };
 		E3E10C172AED86CE00567D8B /* AddProductVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E10C162AED86CE00567D8B /* AddProductVM.swift */; };
@@ -392,6 +397,11 @@
 		E3BB437F2AEEDDD700A0341F /* Brands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brands.swift; sourceTree = "<group>"; };
 		E3BB43812AEEF80400A0341F /* CollectsID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectsID.swift; sourceTree = "<group>"; };
 		E3BB43832AEEFFCF00A0341F /* collectsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collectsModel.swift; sourceTree = "<group>"; };
+		E3C64A402AF2C77A00083137 /* BrandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandTableViewCell.swift; sourceTree = "<group>"; };
+		E3C64A412AF2C77A00083137 /* BrandTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrandTableViewCell.xib; sourceTree = "<group>"; };
+		E3C64A442AF2C88800083137 /* allBrandsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allBrandsViewController.swift; sourceTree = "<group>"; };
+		E3C64A452AF2C88800083137 /* allBrandsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = allBrandsViewController.xib; sourceTree = "<group>"; };
+		E3C64A4A2AF2CC2A00083137 /* AllBrandsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllBrandsVM.swift; sourceTree = "<group>"; };
 		E3E10C122AED7C7300567D8B /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		E3E10C132AED7C7300567D8B /* AddProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddProductViewController.xib; sourceTree = "<group>"; };
 		E3E10C162AED86CE00567D8B /* AddProductVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductVM.swift; sourceTree = "<group>"; };
@@ -1222,6 +1232,8 @@
 		E30A94672AE68C0300AB0F5F /* AllBrands */ = {
 			isa = PBXGroup;
 			children = (
+				E3B4C0192AF2C08C00563F33 /* Component */,
+				E3B4C0182AF2C04E00563F33 /* Model */,
 				E30A94792AE68D4E00AB0F5F /* ViewModel */,
 				E30A94782AE68D4900AB0F5F /* View */,
 			);
@@ -1334,6 +1346,8 @@
 		E30A94782AE68D4900AB0F5F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E3C64A442AF2C88800083137 /* allBrandsViewController.swift */,
+				E3C64A452AF2C88800083137 /* allBrandsViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1341,6 +1355,7 @@
 		E30A94792AE68D4E00AB0F5F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E3C64A4A2AF2CC2A00083137 /* AllBrandsVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1711,6 +1726,22 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		E3B4C0182AF2C04E00563F33 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E3B4C0192AF2C08C00563F33 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				E3C64A402AF2C77A00083137 /* BrandTableViewCell.swift */,
+				E3C64A412AF2C77A00083137 /* BrandTableViewCell.xib */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		E3BB43782AEE9D2000A0341F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1845,6 +1876,8 @@
 				E30A94592AE68A0A00AB0F5F /* LaunchScreen.storyboard in Resources */,
 				0117D2B02AED7058005D339B /* loading_4.json in Resources */,
 				0179F4BE2AEC439400114BD7 /* ProductDetailsViewController.xib in Resources */,
+				E3C64A472AF2C88800083137 /* allBrandsViewController.xib in Resources */,
+				E3C64A432AF2C77A00083137 /* BrandTableViewCell.xib in Resources */,
 				0117D2AD2AED5E2A005D339B /* EditProductViewController.xib in Resources */,
 				E3E10C152AED7C7300567D8B /* AddProductViewController.xib in Resources */,
 				E3A60E8C2AECB044008FEDB5 /* GoogleService-Info.plist in Resources */,
@@ -2000,8 +2033,10 @@
 				0179F4CC2AEC688000114BD7 /* UIView+Extension.swift in Sources */,
 				0179F4CB2AEC687000114BD7 /* UIImageView+Extension.swift in Sources */,
 				01C42FA72AEF20F0000FFFE2 /* Image.swift in Sources */,
+				E3C64A462AF2C88800083137 /* allBrandsViewController.swift in Sources */,
 				E30A94512AE68A0800AB0F5F /* ViewController.swift in Sources */,
 				0179F4C42AEC5DC300114BD7 /* K.swift in Sources */,
+				E3C64A4B2AF2CC2A00083137 /* AllBrandsVM.swift in Sources */,
 				0117D2AC2AED5E2A005D339B /* EditProductViewController.swift in Sources */,
 				0179F4CF2AEC689100114BD7 /* ContentEmptyView.swift in Sources */,
 				0179F4C62AEC61CF00114BD7 /* ProductImageCollectionViewCell.swift in Sources */,
@@ -2029,6 +2064,7 @@
 				0179F4CA2AEC681700114BD7 /* Alert.swift in Sources */,
 				0117D2A92AED485F005D339B /* CircularCollectionViewCell.swift in Sources */,
 				0194C58C2AEE7FA500465B5F /* ShopifyError.swift in Sources */,
+				E3C64A422AF2C77A00083137 /* BrandTableViewCell.swift in Sources */,
 				01C42F9B2AEF2083000FFFE2 /* AllProductsResponse.swift in Sources */,
 				E3E10C142AED7C7300567D8B /* AddProductViewController.swift in Sources */,
 				45BED45D2AEDC31000795D8A /* BrandProductsViewController.swift in Sources */,
