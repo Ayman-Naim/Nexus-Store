@@ -45,6 +45,11 @@
 		0199C9972AEC0AD5007B3122 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199C9962AEC0AD5007B3122 /* CartViewModel.swift */; };
 		019C83312AF2ED0A003DB9EA /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019C83302AF2ED0A003DB9EA /* Address.swift */; };
 		019C83332AF2ED57003DB9EA /* CustomerAddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019C83322AF2ED57003DB9EA /* CustomerAddressResponse.swift */; };
+		019C833B2AF31871003DB9EA /* Nexus_StoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019C833A2AF31871003DB9EA /* Nexus_StoreTests.swift */; };
+		019C83472AF318DE003DB9EA /* AhmedUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019C83462AF318DE003DB9EA /* AhmedUnitTest.swift */; };
+		019C83492AF318F1003DB9EA /* MustafaUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019C83482AF318F1003DB9EA /* MustafaUnitTest.swift */; };
+		019C834B2AF31900003DB9EA /* AymanUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019C834A2AF31900003DB9EA /* AymanUnitTest.swift */; };
+		019C834D2AF31910003DB9EA /* KhaterUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019C834C2AF31910003DB9EA /* KhaterUnitTest.swift */; };
 		01A0EB8A2AE071A1004310FC /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0EB882AE071A1004310FC /* CartViewController.swift */; };
 		01A0EB8B2AE071A1004310FC /* CartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01A0EB892AE071A1004310FC /* CartViewController.xib */; };
 		01A0EB932AE075CB004310FC /* ProductLandscapeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0EB912AE075CB004310FC /* ProductLandscapeTVCell.swift */; };
@@ -205,6 +210,16 @@
 		E3E639FD2AE82D89002A5617 /* BaseURl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E639FC2AE82D89002A5617 /* BaseURl.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		019C833C2AF31871003DB9EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E376879F2ADDFFB400DB09A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E37687A62ADDFFB400DB09A1;
+			remoteInfo = "Nexus-Store";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		010F60FD2AE491CB00DE7EB0 /* ContentEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentEmptyView.swift; sourceTree = "<group>"; };
 		010F60FF2AE4920500DE7EB0 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -236,6 +251,12 @@
 		0199C9962AEC0AD5007B3122 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		019C83302AF2ED0A003DB9EA /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		019C83322AF2ED57003DB9EA /* CustomerAddressResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAddressResponse.swift; sourceTree = "<group>"; };
+		019C83382AF31871003DB9EA /* Nexus-StoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nexus-StoreTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		019C833A2AF31871003DB9EA /* Nexus_StoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nexus_StoreTests.swift; sourceTree = "<group>"; };
+		019C83462AF318DE003DB9EA /* AhmedUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AhmedUnitTest.swift; sourceTree = "<group>"; };
+		019C83482AF318F1003DB9EA /* MustafaUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MustafaUnitTest.swift; sourceTree = "<group>"; };
+		019C834A2AF31900003DB9EA /* AymanUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AymanUnitTest.swift; sourceTree = "<group>"; };
+		019C834C2AF31910003DB9EA /* KhaterUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhaterUnitTest.swift; sourceTree = "<group>"; };
 		01A0EB882AE071A1004310FC /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		01A0EB892AE071A1004310FC /* CartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartViewController.xib; sourceTree = "<group>"; };
 		01A0EB912AE075CB004310FC /* ProductLandscapeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductLandscapeTVCell.swift; sourceTree = "<group>"; };
@@ -416,6 +437,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		019C83352AF31871003DB9EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E30A94472AE68A0800AB0F5F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -548,6 +576,50 @@
 			children = (
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		019C83392AF31871003DB9EA /* Nexus-StoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				019C83452AF318BB003DB9EA /* Ahmed */,
+				019C83442AF318B4003DB9EA /* Mustafa */,
+				019C83432AF318AB003DB9EA /* Aymen */,
+				019C83412AF3188C003DB9EA /* Khater */,
+				019C833A2AF31871003DB9EA /* Nexus_StoreTests.swift */,
+			);
+			path = "Nexus-StoreTests";
+			sourceTree = "<group>";
+		};
+		019C83412AF3188C003DB9EA /* Khater */ = {
+			isa = PBXGroup;
+			children = (
+				019C834C2AF31910003DB9EA /* KhaterUnitTest.swift */,
+			);
+			path = Khater;
+			sourceTree = "<group>";
+		};
+		019C83432AF318AB003DB9EA /* Aymen */ = {
+			isa = PBXGroup;
+			children = (
+				019C834A2AF31900003DB9EA /* AymanUnitTest.swift */,
+			);
+			path = Aymen;
+			sourceTree = "<group>";
+		};
+		019C83442AF318B4003DB9EA /* Mustafa */ = {
+			isa = PBXGroup;
+			children = (
+				019C83482AF318F1003DB9EA /* MustafaUnitTest.swift */,
+			);
+			path = Mustafa;
+			sourceTree = "<group>";
+		};
+		019C83452AF318BB003DB9EA /* Ahmed */ = {
+			isa = PBXGroup;
+			children = (
+				019C83462AF318DE003DB9EA /* AhmedUnitTest.swift */,
+			);
+			path = Ahmed;
 			sourceTree = "<group>";
 		};
 		01A0EB852AE0716E004310FC /* Cart */ = {
@@ -1511,6 +1583,7 @@
 			children = (
 				E37687A92ADDFFB500DB09A1 /* Nexus-Store */,
 				E30A944B2AE68A0800AB0F5F /* Nexus-Admin */,
+				019C83392AF31871003DB9EA /* Nexus-StoreTests */,
 				E37687A82ADDFFB500DB09A1 /* Products */,
 				835A8F3C12ED85B6C7C8C92A /* Pods */,
 				423F5CB5BDD8E70020970C78 /* Frameworks */,
@@ -1522,6 +1595,7 @@
 			children = (
 				E37687A72ADDFFB500DB09A1 /* Nexus-Store.app */,
 				E30A944A2AE68A0800AB0F5F /* Nexus-Admin.app */,
+				019C83382AF31871003DB9EA /* Nexus-StoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1790,6 +1864,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		019C83372AF31871003DB9EA /* Nexus-StoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 019C83402AF31871003DB9EA /* Build configuration list for PBXNativeTarget "Nexus-StoreTests" */;
+			buildPhases = (
+				019C83342AF31871003DB9EA /* Sources */,
+				019C83352AF31871003DB9EA /* Frameworks */,
+				019C83362AF31871003DB9EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				019C833D2AF31871003DB9EA /* PBXTargetDependency */,
+			);
+			name = "Nexus-StoreTests";
+			productName = "Nexus-StoreTests";
+			productReference = 019C83382AF31871003DB9EA /* Nexus-StoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		E30A94492AE68A0800AB0F5F /* Nexus-Admin */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E30A945B2AE68A0A00AB0F5F /* Build configuration list for PBXNativeTarget "Nexus-Admin" */;
@@ -1839,9 +1931,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					019C83372AF31871003DB9EA = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = E37687A62ADDFFB400DB09A1;
+					};
 					E30A94492AE68A0800AB0F5F = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -1868,11 +1964,19 @@
 			targets = (
 				E37687A62ADDFFB400DB09A1 /* Nexus-Store */,
 				E30A94492AE68A0800AB0F5F /* Nexus-Admin */,
+				019C83372AF31871003DB9EA /* Nexus-StoreTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		019C83362AF31871003DB9EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E30A94482AE68A0800AB0F5F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2027,6 +2131,18 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		019C83342AF31871003DB9EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				019C834D2AF31910003DB9EA /* KhaterUnitTest.swift in Sources */,
+				019C834B2AF31900003DB9EA /* AymanUnitTest.swift in Sources */,
+				019C833B2AF31871003DB9EA /* Nexus_StoreTests.swift in Sources */,
+				019C83472AF318DE003DB9EA /* AhmedUnitTest.swift in Sources */,
+				019C83492AF318F1003DB9EA /* MustafaUnitTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E30A94462AE68A0800AB0F5F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2179,6 +2295,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		019C833D2AF31871003DB9EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E37687A62ADDFFB400DB09A1 /* Nexus-Store */;
+			targetProxy = 019C833C2AF31871003DB9EA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		E30A94522AE68A0800AB0F5F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -2215,6 +2339,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		019C833E2AF31871003DB9EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R7KL845XH9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "mohamed.khater.Nexus-StoreTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nexus-Store.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Nexus-Store";
+			};
+			name = Debug;
+		};
+		019C833F2AF31871003DB9EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R7KL845XH9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "mohamed.khater.Nexus-StoreTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nexus-Store.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Nexus-Store";
+			};
+			name = Release;
+		};
 		E30A945C2AE68A0A00AB0F5F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 64BBDC51FBA6EE2E9F3009A4 /* Pods-Nexus-Store-Nexus-Admin.debug.xcconfig */;
@@ -2460,6 +2628,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		019C83402AF31871003DB9EA /* Build configuration list for PBXNativeTarget "Nexus-StoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				019C833E2AF31871003DB9EA /* Debug */,
+				019C833F2AF31871003DB9EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E30A945B2AE68A0A00AB0F5F /* Build configuration list for PBXNativeTarget "Nexus-Admin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
