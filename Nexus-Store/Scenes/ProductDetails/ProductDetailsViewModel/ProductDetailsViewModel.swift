@@ -104,3 +104,56 @@ class ProductDetailsViewModel:ProductDetailsDelegation{
     
     
 }
+
+
+
+
+class ProductDetailsViewModuleRefactor{
+    
+    
+    //MARK: - Properties
+    var productItemDetails:Product?
+    var numberOfAvalibleItems:Int?
+    let wishListServices = WishListService()
+    let custemerId:Int = 6899149865196
+    var constatPriceOfItem:Double?
+    
+    
+//    var favoriteProducts:[Product]?{
+//        didSet{
+//            if  let count = productItemDetails?.options?.first?.values?.count  {
+//                if count > 0{
+//                    let indexPath = IndexPath(item: 0, section: 0)
+//                    
+//                    sizeCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+//                    
+//                    
+//                }
+//            }
+//            
+//        }
+//    }
+//    
+//   
+//    
+//    var numberOfItemsUpdates:Int = 0 {
+//        didSet{
+//            numberOfItems.text = "\(numberOfItemsUpdates)"
+//            let price =  Double (numberOfItemsUpdates) * constatPriceOfItem!
+//            itemPrice.text = "$\(String(format: "%.2f", price))"
+//            if numberOfAvalibleItems != 0{
+//                
+//                avalibleQuantity.text = "\(numberOfAvalibleItems!  - ( numberOfItemsUpdates )) Item"
+//                
+//            }
+//        }
+//    }
+    let productRatting:Double = 5
+    var productDetailsViewModel:ProductDetailsDelegation?
+    var productSizeDelegation:ProductSizeDelegation?
+    var productColorDelegation:ProductColorDelegation?
+    var productImageDelegation: ProdutImageDelegation?
+    let productReviewDelegation = ProductReviewDelegation(numberOfReviews: 2)
+    
+    
+}

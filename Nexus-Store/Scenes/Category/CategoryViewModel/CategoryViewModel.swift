@@ -110,7 +110,8 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
                 }
                 self.loadingAnimation?(false)
             case .failure(let error):
-                print(error.localizedDescription)
+                print(String(describing: error))
+                self.errorOccurs?(String(describing: error))
             }
         }
     }
@@ -137,7 +138,10 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
                 }
                 self.loadingAnimation?(false)
             case .failure(let error):
-                self.errorOccurs?(error.localizedDescription)
+                print(String(describing: error))
+
+                self.errorOccurs?(String(describing: error))
+
               
             }
         }
@@ -155,6 +159,7 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
             //    self.reload?()
             case .failure(let error):
                 print(String(describing: error))
+                self.errorOccurs?(String(describing: error))
             }
         }
         
@@ -172,7 +177,7 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
                     self.loadingAnimation?(false)
                     self.reload?()
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    self.errorOccurs?(String(describing: error))
                 }
             }
         }
@@ -181,7 +186,11 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
     //MARK: - Check is the Content is Empty
     func bindNoProductFound()->Bool{
        
-        return filterProduct.count == 0 ? false : true
+        if allProduct.count == 0 && filterProduct.count == 0{
+            return true
+        }else{
+            return false
+        }
         
     }
     
