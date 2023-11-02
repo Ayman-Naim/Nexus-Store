@@ -177,8 +177,8 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
             cell.productImage.image = UIImage(named: "App-logo")?.withTintColor(.black, renderingMode: .alwaysOriginal)
         }
         
-        cell.rating.isHidden = true
-        cell.colorSize.isHidden = true
+       
+        cell.brandName.isHidden = true
         cell.favoriteIcon.isHidden = true
         return cell
     }

@@ -9,116 +9,31 @@ import Foundation
 import UIKit
 
 
-//protocol ProductDetailsDelegation{
-//
-//
-//
-//    var bindDataFromProductID:(()->Void)? {get set}
-//    func bindDataForProductDetails()->Product?
-//    func bindProductNameOfProduct()->String?
-//    func bindProductTypeOfProduct()->String?
-//    func bindProductDescriptionOfProduct()->String?
-//    func bindProductPriceOfProduct()->String?
-//    func bindAvaliableQuantityOfProduct()->String?
-//    func priceOfEveryProduct()
-//
-//
-//
-//
-//
-//}
-//
-//class ProductDetailsViewModel:ProductDetailsDelegation{
-//
-//    let apiNetworkManager = ApiManger.SharedApiManger
-//    var bindDataFromProductID: (() -> Void)?
-//    var ProductId:Int
-//
-//    var productItem:Product?  {
-//
-//        didSet{
-//            if let validretrivedDataProduct = bindDataFromProductID{
-//                validretrivedDataProduct()
-//            }
-//        }
-//
-//    }
-//
-//
-//
-//
-//        init(for productID: Int) {
-//            self.ProductId = productID
-//        }
-//
-//
-//
-//    func bindDataForProductDetails()->Product? {productItem}
-//    func bindProductNameOfProduct() -> String? {productItem?.title}
-//    func bindProductTypeOfProduct() -> String? {productItem?.vendor}
-//    func bindProductDescriptionOfProduct() -> String? {productItem?.bodyHtml}
-//
-//
-//
-//    func bindProductPriceOfProduct() -> String? {
-//        if let priceitem = productItem?.variants?.first?.price {
-//            return "$\(priceitem)"
-//        }
-//        return "$300"
-//    }
-//
-//    func bindAvaliableQuantityOfProduct() -> String? {
-//        let numberOfItemAvalabile = productItem?.variants?.filter({ $0.option1 == productItem?.options?.first?.values?[0] &&  $0.option2 == productItem?.options?[1].values?[0] })
-//        if let quantityAvalible = numberOfItemAvalabile?.first?.inventoryQuantity{
-//            return "\(quantityAvalible) item"
-//        }
-//        return nil
-//    }
-//
-//
-//    func priceOfEveryProduct() {
-//        BaseUrl.CategoryPriceID = ProductId
-//
-//        apiNetworkManager.fetchData(url: BaseUrl.CategoryProductPrice, decodingModel: SingleProduct.self) { result in
-//            switch result{
-//            case .success(let product):
-//                self.productItem = product.product
-//            case .failure(let error):
-//                print(String(describing: error))
-//            }
-//        }
-//    }
-//
-//
-//
-//
-//
-//    func addProductToCart(){
-//
-//
-////        let custemerId
-////        let varientID
-////        let Quatity
-////        let imageUrl
-//
-//
-//    }
-//
-//
-//
-//
-//
-//}
-
-
 class ProductDetailsViewModel{
     
     //MARK: - Properties
     let apiNetworkManager = ApiManger.SharedApiManger
     let custemerId = UserDefaults.standard.integer(forKey: K.customerIdKey)
     var ProductId:Int
-    var productItem:Product?
     let wishListServices = WishListService()
+    var availableQuatitySizeAndColor = 0
+    var variaintID:Int? = 0
+    static var indexOfColor:String? = ""
+    static var indexOfSize:String? = ""
+    
+    var productItem:Product?{
+        didSet{
+            ProductDetailsViewModel.indexOfSize = productItem?.options?.first?.values?[0]
+            ProductDetailsViewModel.indexOfColor = productItem?.options?[1].values?[0]
+            variaintID = productItem?.variants?.first?.id
+            
+            if let numberOfItemAvalabile = productItem?.variants?.first?.inventoryQuantity{
+                availableQuatitySizeAndColor = numberOfItemAvalabile
+            }
+        }
+    }
+   
+  
     var favoriteProducts:[Product] = [] {
         didSet{
             for favoriteProduct in favoriteProducts {
@@ -221,7 +136,13 @@ class ProductDetailsViewModel{
             let number = fullText[0]
             
             if let actualNumber = Int (number){
-                if numberOfItemsUpdates < (actualNumber/3){
+                print("DArta \(numberOfItemsUpdates) \(actualNumber/2) ")
+                if ((actualNumber == 1) && (numberOfItemsUpdates <= 1))
+                {
+                    numberOfItemsUpdates += 1
+
+                }
+                else if ((numberOfItemsUpdates <= (actualNumber/2)) && (actualNumber != 0)){
                     numberOfItemsUpdates += 1
                 }else{
                     if actualNumber ==  0 {
@@ -295,7 +216,15 @@ class ProductDetailsViewModel{
         return  Double (numberOfItemsUpdates) * (priceOfSingleItem ?? 0.0)
     }
     
-    
+    func checkoutOrder()->(CustomrtId:Int,Quantity:Int,VariantId:Int?,productImage:String?){
+          
+    //        let custemerId
+    //        let varientID
+    //        let Quatity
+    //        let imageUrl
+        return(CustomrtId:custemerId,Quantity:numberOfItemsUpdates,VariantId:variaintID,productImage:productItem?.image?.src) 
+     
+    }
     
     
 }

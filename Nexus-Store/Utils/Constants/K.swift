@@ -31,7 +31,10 @@ struct K{
     static let shoes = "SHOES"
     static let accessories = "ACCESSORIES"
     static let all = "All"
+    
+    //Icons
     static let darkModeLogo = "DarkMode-AppIcon"
+    static let backButtonIcon = "chevron.left"
     
     
     //Favorite icon image system

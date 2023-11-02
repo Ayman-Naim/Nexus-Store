@@ -14,9 +14,9 @@ protocol CustomNibCellProtocol:AnyObject{
 }
 class productDetailsCell: UICollectionViewCell {
     
-    @IBOutlet weak var colorSize: UILabel!
+    @IBOutlet weak var brandName: UILabel!
     @IBOutlet weak var favoriteIcon: UIButton!
-    @IBOutlet weak var rating: CosmosView!
+
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productPrice: UILabel!

@@ -98,6 +98,8 @@
 		459916B92AEC6024005F3C31 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459916B82AEC6024005F3C31 /* Double+Extension.swift */; };
 		459916BC2AEC683B005F3C31 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459916BB2AEC683B005F3C31 /* Review.swift */; };
 		459A214E2AE5DC770040977F /* ProductImageDelegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459A214D2AE5DC770040977F /* ProductImageDelegation.swift */; };
+		459B48B82AF3C9AE0049F1FC /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459B48B62AF3C9AD0049F1FC /* ColorCell.swift */; };
+		459B48B92AF3C9AE0049F1FC /* ColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 459B48B72AF3C9AE0049F1FC /* ColorCell.xib */; };
 		459D7B0C2AE2B84400AD8CC8 /* UICollectionVIew+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459D7B0B2AE2B84400AD8CC8 /* UICollectionVIew+Extension.swift */; };
 		459D7B0E2AE2B8A100AD8CC8 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459D7B0D2AE2B8A100AD8CC8 /* UIView+Extension.swift */; };
 		45A3D9702AF1B4900015EF5E /* NexusShoping.json in Resources */ = {isa = PBXBuildFile; fileRef = 45A3D96F2AF1B4900015EF5E /* NexusShoping.json */; };
@@ -292,6 +294,8 @@
 		459916B82AEC6024005F3C31 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		459916BB2AEC683B005F3C31 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		459A214D2AE5DC770040977F /* ProductImageDelegation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageDelegation.swift; sourceTree = "<group>"; };
+		459B48B62AF3C9AD0049F1FC /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
+		459B48B72AF3C9AE0049F1FC /* ColorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorCell.xib; sourceTree = "<group>"; };
 		459D7B0B2AE2B84400AD8CC8 /* UICollectionVIew+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionVIew+Extension.swift"; sourceTree = "<group>"; };
 		459D7B0D2AE2B8A100AD8CC8 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		45A3D96F2AF1B4900015EF5E /* NexusShoping.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NexusShoping.json; sourceTree = "<group>"; };
@@ -719,6 +723,7 @@
 			isa = PBXGroup;
 			children = (
 				45123A942AE2149E001B12B7 /* ProductImageCell */,
+				459B48B52AF3C9740049F1FC /* ColorCellCustom */,
 				45123A972AE2149E001B12B7 /* SizeAndColorCell */,
 				45123A9A2AE2149E001B12B7 /* ReviewProductCell */,
 			);
@@ -740,7 +745,7 @@
 			children = (
 				45123A982AE2149E001B12B7 /* SizeColorCell.xib */,
 				45123A992AE2149E001B12B7 /* SizeColorCell.swift */,
-				45123ABE2AE24A64001B12B7 /* SizeAndColorController */,
+				45123ABE2AE24A64001B12B7 /* SizeController */,
 			);
 			path = SizeAndColorCell;
 			sourceTree = "<group>";
@@ -802,13 +807,12 @@
 			path = CustomCategoryCell;
 			sourceTree = "<group>";
 		};
-		45123ABE2AE24A64001B12B7 /* SizeAndColorController */ = {
+		45123ABE2AE24A64001B12B7 /* SizeController */ = {
 			isa = PBXGroup;
 			children = (
-				4531FE4C2AE2EE3800F47528 /* productColorDelegation.swift */,
 				4531FE4D2AE2EE3800F47528 /* ProductSizeDelegation.swift */,
 			);
-			path = SizeAndColorController;
+			path = SizeController;
 			sourceTree = "<group>";
 		};
 		45123AC32AE2642D001B12B7 /* ReviewController */ = {
@@ -869,6 +873,24 @@
 				459A214D2AE5DC770040977F /* ProductImageDelegation.swift */,
 			);
 			path = ProductCellController;
+			sourceTree = "<group>";
+		};
+		459B48B52AF3C9740049F1FC /* ColorCellCustom */ = {
+			isa = PBXGroup;
+			children = (
+				459B48B62AF3C9AD0049F1FC /* ColorCell.swift */,
+				459B48B72AF3C9AE0049F1FC /* ColorCell.xib */,
+				459B48BA2AF3C9E20049F1FC /* ColorController */,
+			);
+			path = ColorCellCustom;
+			sourceTree = "<group>";
+		};
+		459B48BA2AF3C9E20049F1FC /* ColorController */ = {
+			isa = PBXGroup;
+			children = (
+				4531FE4C2AE2EE3800F47528 /* productColorDelegation.swift */,
+			);
+			path = ColorController;
 			sourceTree = "<group>";
 		};
 		45A3D9712AF1B7A30015EF5E /* SplashScreen */ = {
@@ -1900,6 +1922,7 @@
 				010F61082AE49F2000DE7EB0 /* loading_3.json in Resources */,
 				010F610D2AE4A0B300DE7EB0 /* loading_4.json in Resources */,
 				5BFDC64D2AEE69C900C2F6C7 /* ContactTableViewCell.xib in Resources */,
+				459B48B92AF3C9AE0049F1FC /* ColorCell.xib in Resources */,
 				011281AA2AE18D7B00844137 /* ShippingViewController.xib in Resources */,
 				5BC20AD52AE1D0170071925A /* SocialTableViewCell.xib in Resources */,
 				457276B42AEED3A700EE759D /* SaveMoney.json in Resources */,
@@ -2113,6 +2136,7 @@
 				459D7B0E2AE2B8A100AD8CC8 /* UIView+Extension.swift in Sources */,
 				45A3D9732AF1B8C60015EF5E /* SplashNexusScreen.swift in Sources */,
 				E3BB437C2AEEA33B00A0341F /* AdressModel.swift in Sources */,
+				459B48B82AF3C9AE0049F1FC /* ColorCell.swift in Sources */,
 				5BC20AD42AE1D0170071925A /* SocialTableViewCell.swift in Sources */,
 				45123AB52AE2149E001B12B7 /* productDetailsCell.swift in Sources */,
 				459916B92AEC6024005F3C31 /* Double+Extension.swift in Sources */,

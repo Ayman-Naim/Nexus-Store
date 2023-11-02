@@ -71,8 +71,8 @@ class ProductDetailsViewController: UIViewController {
         
         productDetailsViewModel?.reload = {[weak self] in
             
-            self?.productSizeDelegation = ProductSizeDelegation(itemDetails: (self?.productDetailsViewModel?.productItemDetails)! , with:(self?.avalibleQuantity)!)
-            self?.productColorDelegation = ProductColorDelegation(itemDetails: (self?.productDetailsViewModel?.productItemDetails)!)
+            self?.productSizeDelegation = ProductSizeDelegation(viewModel: (self?.productDetailsViewModel)!)
+            self?.productColorDelegation = ProductColorDelegation(viewModel: (self?.productDetailsViewModel)!)
             self?.productImageDelegation = ProdutImageDelegation(collectionView: (self?.productImageCollection)!, with: self!.imageIndicator,itemDetails: (self?.productDetailsViewModel?.productItemDetails)!)
             self?.productImageDelegation?.layoutSetup()
             self?.configureDetailsOfProduct()
@@ -89,6 +89,8 @@ class ProductDetailsViewController: UIViewController {
                 
                 let indexPath = IndexPath(item: 0, section: 0)
                 self?.sizeCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+                let indexPath2 = IndexPath(item: 0, section: 0)
+                self?.colorCollectionView.selectItem(at: indexPath2, animated: false, scrollPosition: [])
                 
             }
             
@@ -134,7 +136,7 @@ class ProductDetailsViewController: UIViewController {
                 if let stockAvalibity = self?.productDetailsViewModel?.numberOfItemsUpdates {
                     self?.numberOfItems.text = "\(stockAvalibity)"
                     self?.itemPrice.text = "$\(String(format: "%.2f", self?.productDetailsViewModel?.updateAvalibleQuantity() ?? "0.0"))"
-                        self?.avalibleQuantity.text = "\((self?.productDetailsViewModel?.avalibleQuantity ?? 0)  - (self?.productDetailsViewModel?.numberOfItemsUpdates ?? 0) ) item"
+                        self?.avalibleQuantity.text = "\((self?.productDetailsViewModel?.availableQuatitySizeAndColor ?? 0)  - (self?.productDetailsViewModel?.numberOfItemsUpdates ?? 0) ) item"
                         
                    
                     
@@ -213,8 +215,9 @@ extension ProductDetailsViewController{
         reviewCollectionView.delegate = productReviewDelegation
         self.productImageCollection.register(ProductImageCell.nib(), forCellWithReuseIdentifier: ProductImageCell.identifier)
         self.sizeCollectionView.register(SizeColorCell.nib(), forCellWithReuseIdentifier: SizeColorCell.identifier)
-        self.colorCollectionView.register(SizeColorCell.nib(), forCellWithReuseIdentifier: SizeColorCell.identifier)
+        self.colorCollectionView.register(ColorCell.nib(), forCellWithReuseIdentifier: ColorCell.identifier)
         self.reviewCollectionView.register(ReviewProductCell.nib(), forCellWithReuseIdentifier: ReviewProductCell.identifier)
+      
 
         
     }
@@ -237,6 +240,9 @@ extension ProductDetailsViewController{
         rating.rating = productRatting.randomValue
     }
     
+    
+    
+  
 
     
     
