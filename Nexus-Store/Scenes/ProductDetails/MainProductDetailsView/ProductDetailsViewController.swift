@@ -111,7 +111,7 @@ class ProductDetailsViewController: UIViewController {
         productDetailsViewModel?.errorOccurs = { [weak self] error in
             guard let self = self else{return}
             isLoadingIndicatorAnimating = false
-            Alert.show(on: self, title: "error", message: "error")
+            Alert.show(on: self, title: "error", message: error)
         }
         
         
