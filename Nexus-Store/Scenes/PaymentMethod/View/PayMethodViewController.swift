@@ -7,17 +7,23 @@
 
 import UIKit
 import PassKit
+import BraintreePayPal
 
 class PayMethodViewController: UIViewController {
 
     @IBOutlet weak var PaymentTable: UITableView!
     @IBOutlet weak var TotalAmountLabel: UILabel!
     var selectedPayment:IndexPath?
+    
+    // for testing
+    var totalAmount: Double = 250.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         TableViewSetup()
         self.PaymentTable.separatorColor = UIColor.clear
         // Do any additional setup after loading the view.
+        TotalAmountLabel.text = "\(totalAmount) $"
     }
 
 
@@ -30,6 +36,7 @@ class PayMethodViewController: UIViewController {
 
     @IBAction func PayButtonClicked(_ sender: Any) {
         //
+        presentPaymentController()
     }
 }
 
@@ -95,10 +102,6 @@ extension PayMethodViewController:UITableViewDelegate,UITableViewDataSource, PKP
             cell.checkedBox.image = UIImage(named: "checked")
             
         }
-         
-           
-        
-            
     }
     
     private var paymentRequest: PKPaymentRequest {
@@ -111,11 +114,11 @@ extension PayMethodViewController:UITableViewDelegate,UITableViewDataSource, PKP
             request.countryCode = "EG"
             request.currencyCode = "EGP"
             
-     //       finalTotalCost = UserDefaultsHelper.shared.getFinalTotalCost()
-     //       let roundedCost = Double(String(format:"%.2f", finalTotalCost)) ?? 1.00
-   //         let _ = (finalTotalCost * 100).rounded() / 100
-   //         let amount = NSDecimalNumber(value: roundedCost)
-   //         request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Order Cost", amount: amount)]
+     //       totalAmount = UserDefaultsHelper.shared.getFinalTotalCost()
+            let roundedCost = Double(String(format:"%.2f", totalAmount)) ?? 1.00
+            let _ = (totalAmount * 100).rounded() / 100
+            let amount = NSDecimalNumber(value: roundedCost)
+            request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Order Cost", amount: amount)]
             
             return request
         }
@@ -133,12 +136,12 @@ extension PayMethodViewController:UITableViewDelegate,UITableViewDataSource, PKP
     func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
         controller.dismiss(animated: true) { [weak self] in
             guard let self = self else { return }
-    //        self.finalTotalCost = 0.0
+            self.totalAmount = 0.0
             // TODO: - Get currency Symbol and add it after final cost on label
-   //         self.totalLabel.text = "\(0.0) EGP"
-            //viewModel.decreaseVariantCountByOrderAmount()
-   //         self.viewModel.postOrder()
-    //        self.playAnimation()
+            self.TotalAmountLabel.text = "\(0.0) EGP"
+    //        viewModel.decreaseVariantCountByOrderAmount()
+     //       self.viewModel.postOrder()
+     //       self.playAnimation()
         }
     }
     
