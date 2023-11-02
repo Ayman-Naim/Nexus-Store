@@ -9,7 +9,7 @@ import UIKit
 
 class WishListViewController: UIViewController {
     
-    private let viewModel: WishListViewModel = WishListViewModel()
+    private let viewModel: WishListViewModel = WishListViewModel(customerID: K.customerID)
     
     private let tableView: UITableView = {
         let tableView = UITableView()

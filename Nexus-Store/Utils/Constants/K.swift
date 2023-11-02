@@ -41,5 +41,6 @@ struct K{
  
     
     
+    static var customerID: Int { UserDefaults.standard.integer(forKey: "customerID") }
     
 }

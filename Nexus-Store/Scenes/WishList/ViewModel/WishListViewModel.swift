@@ -11,9 +11,14 @@ import Foundation
 class WishListViewModel {
     
     // MARK: - Properties
-    private let userID = 6899149865196
+    private let customerID: Int
     private let service: WishListService = WishListService()
     private var wishList: [Product] = []
+    
+    
+    init(customerID: Int) {
+        self.customerID = customerID
+    }
     
     
     // MARK: - Computed Properties
@@ -41,7 +46,7 @@ class WishListViewModel {
     
     func fetchProducts() {
         loadingIndicator?(true)
-        service.getWishlist(forCustom: userID) { [weak self] result in
+        service.getWishlist(forCustom: customerID) { [weak self] result in
             guard let self = self else { return }
             self.loadingIndicator?(false)
             switch result {
@@ -65,7 +70,7 @@ class WishListViewModel {
     }
     
     private func removeProduct(_ id: Int) {
-        service.removeWishList(productID: id, fromCustomer: userID) { [weak self] error in
+        service.removeWishList(productID: id, fromCustomer: customerID) { [weak self] error in
             self?.loadingIndicator?(false)
             if let error = error {
                 self?.errorOccure?(error.localizedDescription)
