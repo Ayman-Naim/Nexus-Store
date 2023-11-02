@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        BTAppContextSwitcher.sharedInstance.returnURLScheme = "EOA-industry.Nexus-Store.payments"
   /*      BTAppContextSwitcher.sharedInstance
 
         // Configure Braintree with your client token
