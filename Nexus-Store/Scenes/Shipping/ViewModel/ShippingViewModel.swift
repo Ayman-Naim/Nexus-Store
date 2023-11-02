@@ -101,7 +101,10 @@ class ShippingViewModel {
     }
     
     func setAddressForOrder(navigate: @escaping () -> Void) {
-        guard let selectedAddress = customerAdresses.first(where: { $0.isDefault }) else { return }
+        guard let selectedAddress = customerAdresses.first(where: { $0.isDefault }) else {
+            errorOccure?("No Address is selected, Please select an address")
+            return
+        }
         
         let draftOrderService = DraftOrderService()
         

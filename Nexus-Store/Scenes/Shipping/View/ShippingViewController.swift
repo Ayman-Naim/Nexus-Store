@@ -43,18 +43,30 @@ class ShippingViewController: UIViewController {
     }
     
     @IBAction func continueToPaymentButtonPressed(_ sender: UIButton) {
-        viewModel.setAddressForOrder {
-            self.navigationController?.pushViewController(PayMethodViewController(), animated: true)
+        confirmAlert { [weak self] in
+            self?.viewModel.setAddressForOrder {
+                self?.navigationController?.pushViewController(PayMethodViewController(), animated: true)
+            }
         }
     }
     
     
     @IBAction func addPromoCodeButtonPressed(_ sender: UIButton) {
-        viewModel.setAddressForOrder {
-            self.navigationController?.pushViewController(AddPromoCodeViewController(), animated: true)
+        confirmAlert { [weak self] in
+            self?.viewModel.setAddressForOrder {
+                self?.navigationController?.pushViewController(AddPromoCodeViewController(), animated: true)
+            }
         }
     }
     
+    
+    private func confirmAlert(completion: @escaping () -> Void) {
+        let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
+            completion()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
+        Alert.show(on: self, title: "Shipping Address", message: "Are you sure of selectiong this address.", actions: [cancelAction, yesAction])
+    }
     
     
     private func bindViewModel() {
