@@ -11,13 +11,12 @@ class ShippingViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    private let viewModel = ShippingViewModel()
+    private let viewModel = ShippingViewModel(customerID: K.customerID)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         setupTableView()
-        viewModel.setCustomerID(6921948365036)
         bindViewModel()
         viewModel.getCustomerAddresses()
     }

@@ -11,7 +11,7 @@ import UIKit
 class CartViewController: UIViewController {
     
     // MARK: - Properties
-    private let viewModel: CartViewModel = CartViewModel()
+    private let viewModel: CartViewModel = CartViewModel(customerID: K.customerID)
     
     
     // MARK: - IBOutlets

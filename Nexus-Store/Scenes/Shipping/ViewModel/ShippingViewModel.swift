@@ -15,8 +15,8 @@ class ShippingViewModel {
     private let baseURL = "https://ios-q1-new-capital-admin1-2023.myshopify.com/admin/api/2023-01"
     private let header: HTTPHeaders = ["X-Shopify-Access-Token": "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"]
     
-    // 6921948365036
-    private var customerID: Int?
+    
+    private var customerID: Int
     private var customerAdresses: [Address] = [] {
         didSet {
             if let defaultIndex = customerAdresses.firstIndex(where: { $0.isDefault }) {
@@ -27,6 +27,10 @@ class ShippingViewModel {
                 self.reload?()
             }
         }
+    }
+    
+    init(customerID: Int) {
+        self.customerID = customerID
     }
     
     
@@ -55,12 +59,7 @@ class ShippingViewModel {
     
     
     // MARK: - Functions
-    func setCustomerID(_ id: Int) {
-        self.customerID = id
-    }
-    
     func getCustomerAddresses() {
-        guard let customerID = customerID else { return }
         let url = baseURL + "/customers/\(customerID)/addresses.json"
         
         loadingIndicator?(true)
@@ -82,7 +81,6 @@ class ShippingViewModel {
     }
     
     private func updateCustomerDefaultAddress(withAddressID addressID: Int) {
-        guard let customerID = customerID else { return }
         let url = baseURL + "/customers/\(customerID)/addresses/\(addressID)/default.json"
         
         loadingIndicator?(true)
@@ -103,7 +101,6 @@ class ShippingViewModel {
     }
     
     func setAddressForOrder(navigate: @escaping () -> Void) {
-        guard let customerID = customerID else { return }
         guard let selectedAddress = customerAdresses.first(where: { $0.isDefault }) else { return }
         
         let draftOrderService = DraftOrderService()
