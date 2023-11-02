@@ -84,7 +84,14 @@ extension PayMethodViewController:UITableViewDelegate,UITableViewDataSource, PKP
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        switch indexPath.row {
+        case 0,2:
+            print("0, 2")
+        case 1:
+            print("1")
+        default:
+            print("Thanks")
+        }
         if selectedPayment != nil {
             guard let previusSelectedcell  = tableView.cellForRow(at: selectedPayment!) as? PaymentTableViewCell else{return}
             
@@ -106,48 +113,44 @@ extension PayMethodViewController:UITableViewDelegate,UITableViewDataSource, PKP
     
     private var paymentRequest: PKPaymentRequest {
             let request = PKPaymentRequest()
-            request.merchantIdentifier = "merchant.com.shopifyApp.ITI"
-            request.supportedNetworks = [.visa, .masterCard, .quicPay]
-            request.supportedCountries = ["US", "EG", "QA", "AE", "SA"]
+            request.merchantIdentifier = "merchant.Nexus-Store"
+            request.supportedNetworks = [.visa, .masterCard, .amex] // Include the supported card networks
+            request.supportedCountries = ["US"] // Include supported countries
             request.merchantCapabilities = .capability3DS
-            
-            request.countryCode = "EG"
-            request.currencyCode = "EGP"
-            
-     //       totalAmount = UserDefaultsHelper.shared.getFinalTotalCost()
-            let roundedCost = Double(String(format:"%.2f", totalAmount)) ?? 1.00
-            let _ = (totalAmount * 100).rounded() / 100
-            let amount = NSDecimalNumber(value: roundedCost)
-            request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Order Cost", amount: amount)]
-            
+            request.countryCode = "US" // Set the country code
+            request.currencyCode = "USD" // Set the currency code
+            let amount = NSDecimalNumber(value: totalAmount)
+            request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Total", amount: amount)]
             return request
         }
-    
-    private func presentPaymentController() {
+
+        private func presentPaymentController() {
             let controller = PKPaymentAuthorizationViewController(paymentRequest: paymentRequest)
-            if controller != nil {
-                controller!.delegate = self
-                self.present(controller!, animated: true) {
-                    print("Completed Order")
-                }
+            if let controller = controller {
+                controller.delegate = self
+                self.present(controller, animated: true, completion: nil)
             }
         }
-    
-    func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
-        controller.dismiss(animated: true) { [weak self] in
-            guard let self = self else { return }
-            self.totalAmount = 0.0
-            // TODO: - Get currency Symbol and add it after final cost on label
-            self.TotalAmountLabel.text = "\(0.0) EGP"
-    //        viewModel.decreaseVariantCountByOrderAmount()
-     //       self.viewModel.postOrder()
-     //       self.playAnimation()
+
+        func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
+
+            let alert = UIAlertController(title: "Payment Successful", message: "Thank you for your purchase.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
+            }))
+            controller.present(alert, animated: true, completion: nil)
         }
+
+        func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
+            controller.dismiss(animated: true) {
+            //    self.showAlert(title: "Payment Successful", message: "Thank you for your purchase.")
+                
+            }
+        }
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
-    
-    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
-        completion(PKPaymentAuthorizationResult.init(status: .success, errors: nil))
-    }
-    
 }
 

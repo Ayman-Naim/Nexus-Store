@@ -11,6 +11,9 @@ import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
 import GoogleSignInSwift
+import BraintreeCore
+import BraintreePayPal
+import BraintreePayPalNativeCheckout
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +27,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+  /*      BTAppContextSwitcher.sharedInstance
+
+        // Configure Braintree with your client token
+        BTAppContextSwitcher.setReturnURLScheme("com.yourapp.payments") // Use your own app's URL scheme
+        BTAppContextSwitcher.setHandleAllURLSchemes()
+
+        BTAppContextSwitcher.enable()*/
   //      Auth.auth().useEmulator(withHost: "localhost", port: 9099)
         
         //UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -1000.0, vertical: 0.0), for: .default)
