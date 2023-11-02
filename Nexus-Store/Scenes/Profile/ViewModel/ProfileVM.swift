@@ -34,7 +34,7 @@ class ProfileVM{
     
     private func fetchAllMetafields(forCustom customerID: Int, completion: @escaping (Result<[Metafield], Error>) -> Void) {
         let url = customersEndpoint + "/\(customerID)/metafields.json"
-        AF.request(url, method: .get, headers: header).responseDecodable(of: Metafields.self) { response in
+        AF.request(url, method: .get, headers: header).responseDecodable(of: MetafieldResponse.self) { response in
             switch response.result {
             case .success(let data):
                 guard let metafields = data.metafields else {
