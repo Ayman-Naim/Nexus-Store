@@ -45,7 +45,7 @@ class AddPromoCodeViewModel:AddPromoCodeProtocaol{
     
     
     
-    
+    //MARK: Fetch Data Of price Rule ID
     func fetchDataOfPriceRule(priceRuleID:Int) {
         BaseUrl.priceRuleID = "\(priceRuleID)"
         print(BaseUrl.PriceRule.enpoint)
@@ -63,10 +63,13 @@ class AddPromoCodeViewModel:AddPromoCodeProtocaol{
     }
     
     
+    //MARK: - Retrive Price Rule
     func retrivePriceRule() ->PriceRule?{priceRule}
     
     
     
+    
+    //MARK: - Check Copoun COde is Avalible or not
     func checkUsageOfCoponusAvaliable(Handel: @escaping (Bool) -> Void) {
         
         if let productRule = self.priceRule {
@@ -87,6 +90,7 @@ class AddPromoCodeViewModel:AddPromoCodeProtocaol{
     }
     
     
+    //MARK: - The Discount amount of Coupon
     func discountAmount() -> String? {
         if let dicountAmount = priceRule?.value{
             if let numberAmount = Double(dicountAmount){
@@ -96,6 +100,9 @@ class AddPromoCodeViewModel:AddPromoCodeProtocaol{
         return nil
     }
     
+    
+    
+    //MARK: - Amount After APplying The Coupons
     func returnAmountAfterDiscount(orderPrice: String?, dicountPrice: String?) -> String? {
         if let orderPrice = orderPrice?.components(separatedBy: "$") , let dicountPrice = dicountPrice?.components(separatedBy: "$"){
             if let actualOrderPrice = Double(orderPrice[1]) , let actualDiscountPrice = Double(dicountPrice[1]){
@@ -112,6 +119,7 @@ class AddPromoCodeViewModel:AddPromoCodeProtocaol{
     
     
     
+   //MARK: - update the Usage of the Copouns
     func updatePriceRuleLimit(priceRuleID:Int) {
         if let id = priceRule?.id ,var usageLimit = priceRule?.usageLimit {
             BaseUrl.priceRuleID  = "\(priceRuleID)"

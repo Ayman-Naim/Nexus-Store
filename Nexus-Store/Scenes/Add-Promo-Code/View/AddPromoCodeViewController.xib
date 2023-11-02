@@ -31,7 +31,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="0fE-ts-YN1">
                     <rect key="frame" x="39.333333333333343" y="95" width="314.33333333333326" height="55"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1525907194092" borderStyle="roundedRect" placeholder="Promo Code.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oxr-7y-Dfj" customClass="CustomTextField" customModule="Nexus_Store" customModuleProvider="target">
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Promo Code.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oxr-7y-Dfj" customClass="CustomTextField" customModule="Nexus_Store" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="241.33333333333334" height="55"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="55" id="9b2-VB-lej"/>
@@ -212,7 +212,7 @@
     </objects>
     <designables>
         <designable name="oxr-7y-Dfj">
-            <size key="intrinsicContentSize" width="135" height="34"/>
+            <size key="intrinsicContentSize" width="116.33333333333333" height="34"/>
         </designable>
     </designables>
     <resources>
