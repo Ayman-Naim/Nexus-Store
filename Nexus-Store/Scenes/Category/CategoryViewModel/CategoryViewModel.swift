@@ -18,7 +18,7 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
     private let apiNetworkManager = ApiManger.SharedApiManger
     private(set) var mainCategory = ["MEN","KIDS","SALE","WOMEN"]
     private(set) var subCategory = ["ALL","SHOES","T-SHIRT","ACCESSORIES"]
-    let custemerId:Int = 6899149865196
+    let custemerId = UserDefaults.standard.integer(forKey: K.customerIdKey)
     static var selectedMainCategory = 0
     static var selectedSubCategory = 0
     var fromBrand = false
@@ -96,6 +96,8 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
         cell.productName.text = filterProduct[indexPath.row].title
         cell.productPrice.text = "$\(filterProduct[indexPath.row].variants?.first?.price ?? "300")"
         cell.productId = filterProduct[indexPath.row].id
+        cell.brandName.text = filterProduct[indexPath.row].vendor
+        cell.setNotFavorites()
         for favoriteProduct in favoriteProducts {
             if favoriteProduct.id == filterProduct[indexPath.row].id{
                 cell.setFavorite()

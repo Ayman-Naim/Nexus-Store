@@ -25,8 +25,8 @@ class AddPromoCodeViewController: UIViewController {
     var orderPrice = 200.00
     var usesCoupon = false
 
-    
-    var discountCode = DiscountCode(id: 17020534882540, priceRuleID: 1525907194092, code: "SUMMERSALE10OFF", usageCount: 0, createdAt: "2023-10-29T04:54:32-04:00", updatedAt: "2023-10-29T04:54:32-04:00")
+    //MARK: - Discount Code Dummy
+    var discountCode = DiscountCode(id: 17022107484396, priceRuleID: 1525907194092, code: "SUMMERSALE10OFF", usageCount: 0, createdAt: "2023-10-30T03:56:31-04:00", updatedAt: "2023-10-30T03:56:31-04:00")
     
     
     var addPromoCodeViewModel:AddPromoCodeViewModel?
@@ -40,7 +40,7 @@ class AddPromoCodeViewController: UIViewController {
     
     
     
-    
+   //MARK: - Fire TO Use Copouns
     @IBAction func plusButtonPressed(_ sender: UIButton) {
         
         if usesCoupon == false{
@@ -55,8 +55,11 @@ class AddPromoCodeViewController: UIViewController {
     }
     
     
+    
+    //MARK: - Reset Amount For Total Amount
     func resetAmountData(){
         
+        promoCodeTextField.text = ""
         amountLabel.text = "$\(orderPrice)"
         promoDiscountLabel.text = "$0"
         totalPriceLabel.text =  "$\(orderPrice)"
@@ -64,28 +67,31 @@ class AddPromoCodeViewController: UIViewController {
     }
     
     
+    
+    
+    //MARK: - Fire To Use Copuns
     func usesDiscountOFCoupons(){
         stateOfButton(isEnable: false)
         
         //Take theis Paramter From Ayman
-        addPromoCodeViewModel?.fetchDataOfPriceRule(priceRuleID: Int(promoCodeTextField.text!)!)
+   
+        addPromoCodeViewModel?.fetchDataOfPriceRule(priceRuleID: discountCode.priceRuleID)
         addPromoCodeViewModel?.bindPriceRuleFromApi = { [weak self] in
             
             DispatchQueue.main.async {
                 //Change it To Coupoun
-                self?.addCopouns.titleLabel?.text = self?.discountCode.code
+             //   self?.addCopouns.titleLabel?.text = self?.discountCode.code
+                self?.promoCodeTextField.text = self?.discountCode.code
 
             }
-            self?.addCopouns.titleLabel?.text  = self?.discountCode.code
+          //  self?.addCopouns.titleLabel?.text  = self?.discountCode.code
             self?.priceRule = self?.addPromoCodeViewModel?.retrivePriceRule()
             self?.addPromoCodeViewModel?.checkUsageOfCoponusAvaliable(Handel: { checkAvalibality in
                 if checkAvalibality{
-                  
                     DispatchQueue.main.async {
-        
                         self?.promoDiscountLabel.text = "$\(self?.addPromoCodeViewModel?.discountAmount() ?? "-0.0")"
-                        self?.luanchSavingAnimation()
                         self?.totalPriceLabel.text = "$\(self?.addPromoCodeViewModel?.returnAmountAfterDiscount(orderPrice: self?.amountLabel.text, dicountPrice:self?.promoDiscountLabel.text) ?? "-0.0")"
+                        self?.luanchSavingAnimation()
                     }
                 }else{
                     Alert.show(on: self!, title: "Coupon Invalid", message: "Coupon usage limit has been reached")
@@ -97,14 +103,18 @@ class AddPromoCodeViewController: UIViewController {
         }
     }
     
+    
+    //MARK: - Show all Orders to purchase
     @IBAction func showOrdersButtonPressed(_ sender: UIButton) {
         self.present(ProductsOrderSheetTVC.sheet(), animated: true)
        
     }
     
+    
+    //MARK: - Go To Payment after user Decreament usage Copouns
     @IBAction func continueToPaymentButtonPressed(_ sender: UIButton) {
         //Take Data From Ayman Not Dummy from Text
-        if usesCoupon{ self.addPromoCodeViewModel?.updatePriceRuleLimit(priceRuleID: Int(promoCodeTextField.text!)!)}
+        if usesCoupon{ self.addPromoCodeViewModel?.updatePriceRuleLimit(priceRuleID:discountCode.priceRuleID)}
         self.navigationController?.pushViewController(PayMethodViewController(), animated: true)
     }
     
@@ -114,9 +124,9 @@ class AddPromoCodeViewController: UIViewController {
 
 // MARK: - UITextField Delegate
 extension AddPromoCodeViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.endEditing(true)
-    }
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.endEditing(true)
+//    }
     
     func stateOfButton(isEnable:Bool){
         addCopouns.isEnabled = isEnable
@@ -142,6 +152,8 @@ extension AddPromoCodeViewController{
         myView.play()
         Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(setSavingAnimation), userInfo: nil, repeats: false)
     }
+    
+    
     @objc func setSavingAnimation(){
         myView.removeFromSuperview()
     }
