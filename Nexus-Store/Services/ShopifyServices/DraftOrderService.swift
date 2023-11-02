@@ -48,7 +48,7 @@ class DraftOrderService {
         }
     }
     
-    func createDraftOrder(forCustomer customerID: Int, variantID: Int, imageURLString: String, completion: @escaping (Result<DraftOrder, Error>) -> Void) {
+    func createDraftOrder(forCustomer customerID: Int, variantID: Int, quantity: Int, imageURLString: String, completion: @escaping (Result<DraftOrder, Error>) -> Void) {
         let urlString = baseURLString + ".json"
         
         let params = [
@@ -56,7 +56,7 @@ class DraftOrderService {
                 "line_items": [
                     [
                         "variant_id": variantID,
-                        "quantity": 1,  // TODO: Get quantity from the user
+                        "quantity": quantity,
                         "properties": [
                               [
                                 "name": "imageSrc",

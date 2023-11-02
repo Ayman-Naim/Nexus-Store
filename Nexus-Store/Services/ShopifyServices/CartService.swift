@@ -36,7 +36,7 @@ class CartService {
         }
     }
     
-    func addProductToCart(forCustomerID customerID: Int, variantID: Int, imageURLString: String, completion: @escaping (Error?) -> Void) {
+    func addProductToCart(forCustomerID customerID: Int, variantID: Int, quantity: Int, imageURLString: String, completion: @escaping (Error?) -> Void) {
         draftOrderSerivce.customerDraftOrders(customerID: customerID) { result in
             switch result {
             case .success(let draftOrders):
@@ -44,7 +44,7 @@ class CartService {
                 if draftOrders.contains(where: { $0.lineItems.contains(where: { $0.variantID == variantID }) }) {
                     completion(K.customError(message: "The product is already in the cart"))
                 } else {
-                    self.draftOrderSerivce.createDraftOrder(forCustomer: customerID, variantID: variantID, imageURLString: imageURLString) { result in
+                    self.draftOrderSerivce.createDraftOrder(forCustomer: customerID, variantID: variantID, quantity: quantity, imageURLString: imageURLString) { result in
                         switch result {
                         case .success(_):
                             completion(nil)
