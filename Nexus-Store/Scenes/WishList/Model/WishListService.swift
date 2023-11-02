@@ -8,27 +8,6 @@
 import Foundation
 import Alamofire
 
-struct ProductTest: Codable {
-    
-}
-
-struct Metafields: Codable {
-    let metafield: Metafield? // Single
-    let metafields: [Metafield]? // All
-}
-
-struct Metafield: Codable {
-    let id: Int
-    let key, value: String
-    let ownerID: Int
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case key
-        case value
-        case ownerID = "owner_id"
-    }
-}
 
 
 class WishListService {
@@ -54,7 +33,7 @@ class WishListService {
             case .success(let data):
                 guard let data = data else { return }
                 do {
-                    let _ = try JSONDecoder().decode(Metafields.self, from: data)
+                    let _ = try JSONDecoder().decode(MetafieldResponse.self, from: data)
                     completion(nil)
 
                 } catch {
@@ -118,7 +97,7 @@ class WishListService {
     // MARK: - Helpers
     private func getMetaField(forProduct productID: Int, andCustomer customerID: Int, completion: @escaping (Result<Metafield, Error>) -> Void){
         let url = customersEndpoint + "/\(customerID)/metafields.json?key=\(productID)"
-        AF.request(url, method: .get, headers: header).responseDecodable(of: Metafields.self) { response in
+        AF.request(url, method: .get, headers: header).responseDecodable(of: MetafieldResponse.self) { response in
             switch response.result {
             case .success(let data):
                 guard let metafield = data.metafields?.first else { return }
@@ -132,7 +111,7 @@ class WishListService {
     
     private func fetchAllMetafields(forCustom customerID: Int, completion: @escaping (Result<[Metafield], Error>) -> Void) {
         let url = customersEndpoint + "/\(customerID)/metafields.json"
-        AF.request(url, method: .get, headers: header).responseDecodable(of: Metafields.self) { response in
+        AF.request(url, method: .get, headers: header).responseDecodable(of: MetafieldResponse.self) { response in
             switch response.result {
             case .success(let data):
                 guard let metafields = data.metafields else {
