@@ -76,14 +76,7 @@ class CategoryViewController: UIViewController {
         let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonPressed))
         navigationItem.leftBarButtonItem = backButton
         
-//        if self.fromBrand == true {
-//
-//            self.categoryViewModuleRefactor.filteraccodingToBrand(brandName: self.vendor)
-//            self.CategoryCollectionView.reloadSections(IndexSet(integer: 2))
-//        }
-      
-        
-        // Do any additional setup after loading the view.
+
     }
     
     
