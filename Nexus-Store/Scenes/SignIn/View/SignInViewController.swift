@@ -7,11 +7,13 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseCore
 import GoogleSignIn
 import GoogleSignInSwift
 
 class SignInViewController: UIViewController {
 
+    @IBOutlet weak var googleImage: UIImageView!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var toggleImage: UIImageView!
@@ -26,9 +28,14 @@ class SignInViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         // Add a tap gesture recognizer to the toggleImage
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(togglePasswordVisibility))
+        let tapGestureRecognizerToggleEye = UITapGestureRecognizer(target: self, action: #selector(togglePasswordVisibility))
         toggleImage.isUserInteractionEnabled = true
-        toggleImage.addGestureRecognizer(tapGestureRecognizer)
+        toggleImage.addGestureRecognizer(tapGestureRecognizerToggleEye)
+        
+        //Add a tap gesture recognizer to google image
+        let tapGestureRecognizerGoogle = UITapGestureRecognizer(target: self, action: #selector(signInWithGoogle))
+        googleImage.isUserInteractionEnabled = true
+        googleImage.addGestureRecognizer(tapGestureRecognizerGoogle)
         
  /*       // Load the "Remember Me" preference from UserDefaults
         isRememberMeSelected = UserDefaults.standard.bool(forKey: "RememberMe")
@@ -75,6 +82,7 @@ class SignInViewController: UIViewController {
           //      let userId = user.uid
           //      UserDefaults.standard.set(userId, forKey: "customerID")
          //       print("User ID: \(userId)")
+                print(user)
                 let userEmail = user.email
                 UserDefaults.standard.set(userEmail, forKey: "customerEmail")
                 print("User Email: \(userEmail!)")
@@ -161,4 +169,84 @@ class SignInViewController: UIViewController {
         }
     }
     */
+    
+    @objc func signInWithGoogle(){
+        print("Qzqz")
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
+
+        // Start the sign in flow!
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { [unowned self] result, error in
+          guard error == nil else {
+            return
+          }
+
+          guard let user = result?.user,
+            let idToken = user.idToken?.tokenString
+          else {
+            return
+          }
+
+          let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                         accessToken: user.accessToken.tokenString)
+
+            Auth.auth().signIn(with: credential) { result, error in
+
+              // At this point, our user is signed in
+                if let result = result {
+                    if let user = Auth.auth().currentUser {
+                        let userEmail = user.email
+                        UserDefaults.standard.set(userEmail, forKey: "customerEmail")
+                        print("User Email: \(userEmail!)")
+                        self.signInVM.create(email: userEmail ?? "") { result in
+                            switch result {
+                            case .success(let customer):
+                                print("debug1 \(customer)")
+                                // Account created successfully, show a success alert
+                           //     self.showSuccessAlert()
+                                
+                            case .failure(let error):
+                                print(error)
+                            }
+                        }
+                        
+                         self.signInVM.getCustomerId(email: userEmail ?? "") { result in
+                             switch result {
+                             case .success(let customerId):
+                                 let customerrId = customerId
+                                 
+                                 print("Customer ID: \(customerrId)")
+
+                                 if let customerID = UserDefaults.standard.value(forKey: "customerID") {
+                                     // Use the customerID
+                                     print("Customer ID: \(customerID)")
+                                 } else {
+                                     // Customer ID is not available in UserDefaults
+                                     print("Customer ID is not available")
+                                 }
+
+                             case .failure(let error):
+                                 print("Failed to retrieve customer ID: \(error)")
+                                 // Handle the error as needed
+                             }
+                         }
+                         
+                    }
+                    if let sceneDelegate = UIApplication.shared.connectedScenes
+                        .first!.delegate as? SceneDelegate {
+                        let tabBar = NexusTabBarController()
+                        tabBar.navigationController?.isNavigationBarHidden = true
+                        sceneDelegate.window!.rootViewController = tabBar
+                        
+                    }
+                }
+                if let error = error {
+                    print("Error Qzqoz")
+                }
+            }
+        }
+    }
 }
