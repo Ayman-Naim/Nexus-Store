@@ -110,6 +110,7 @@
 		45BED45F2AEDC31000795D8A /* productDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BED45B2AEDC31000795D8A /* productDetailsCell.swift */; };
 		45BED4612AEDCA9100795D8A /* BrandProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BED4602AEDCA9100795D8A /* BrandProductViewModel.swift */; };
 		45D0E8912AE0A04800A07332 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D0E8902AE0A04800A07332 /* K.swift */; };
+		5B2CE85B2AF21DD50008DC5B /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B2CE85A2AF21DD50008DC5B /* credentials.plist */; };
 		5B312CD32AEBD64E00394BDF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B312CD22AEBD64E00394BDF /* GoogleService-Info.plist */; };
 		5B94B7C82AF0C2B10010071D /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B94B7C72AF0C2B10010071D /* SignIn.swift */; };
 		5B9A02732AEC23E3007DC704 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A02722AEC23E3007DC704 /* CreateAccount.swift */; };
@@ -296,6 +297,7 @@
 		45BED45B2AEDC31000795D8A /* productDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = productDetailsCell.swift; sourceTree = "<group>"; };
 		45BED4602AEDCA9100795D8A /* BrandProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandProductViewModel.swift; sourceTree = "<group>"; };
 		45D0E8902AE0A04800A07332 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		5B2CE85A2AF21DD50008DC5B /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		5B312CD22AEBD64E00394BDF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B94B7C72AF0C2B10010071D /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		5B9A02722AEC23E3007DC704 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 		5BC20ACF2AE1C71D0071925A /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		5BC20AD22AE1D0170071925A /* SocialTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialTableViewCell.swift; sourceTree = "<group>"; };
 		5BC20AD32AE1D0170071925A /* SocialTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialTableViewCell.xib; sourceTree = "<group>"; };
+		5BC56C4D2AF2B970002B6B26 /* Nexus-Store.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Nexus-Store.entitlements"; sourceTree = "<group>"; };
 		5BFDC6452AEE683B00C2F6C7 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		5BFDC6462AEE683B00C2F6C7 /* ContactUsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactUsViewController.xib; sourceTree = "<group>"; };
 		5BFDC64A2AEE69C900C2F6C7 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
@@ -1493,6 +1496,7 @@
 		E37687A92ADDFFB500DB09A1 /* Nexus-Store */ = {
 			isa = PBXGroup;
 			children = (
+				5BC56C4D2AF2B970002B6B26 /* Nexus-Store.entitlements */,
 				E37687E82ADE054900DB09A1 /* Config */,
 				E37687DE2ADE000400DB09A1 /* Core */,
 				E37687E72ADE047300DB09A1 /* Resources */,
@@ -1604,6 +1608,7 @@
 		E37687E82ADE054900DB09A1 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				5B2CE85A2AF21DD50008DC5B /* credentials.plist */,
 				5B312CD22AEBD64E00394BDF /* GoogleService-Info.plist */,
 				E37687BB2ADDFFB800DB09A1 /* Info.plist */,
 			);
@@ -1860,6 +1865,7 @@
 				E37B4DE62AE301B80051EB89 /* PayMethodViewController.xib in Resources */,
 				45123AB92AE2149E001B12B7 /* MainCategoryCell.xib in Resources */,
 				E35BC5812AE08D3000742654 /* OffersCell.xib in Resources */,
+				5B2CE85B2AF21DD50008DC5B /* credentials.plist in Resources */,
 				E35BC57C2AE0724F00742654 /* HomeViewController.xib in Resources */,
 				E37687B72ADDFFB800DB09A1 /* Assets.xcassets in Resources */,
 				45123AAE2AE2149E001B12B7 /* SizeColorCell.xib in Resources */,
@@ -2333,9 +2339,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Nexus-Store/Nexus-Store.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3697FQMS8B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Nexus-Store/Config/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2366,9 +2373,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Nexus-Store/Nexus-Store.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3697FQMS8B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Nexus-Store/Config/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
