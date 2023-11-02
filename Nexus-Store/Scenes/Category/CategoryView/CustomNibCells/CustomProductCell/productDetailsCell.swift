@@ -54,6 +54,11 @@ class productDetailsCell: UICollectionViewCell {
     func setFavorite(){
         favoriteIcon.setImage(UIImage(systemName: K.favoriteIconSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
     }
+    func setNotFavorites(){
+        
+        favoriteIcon.setImage(UIImage(systemName: K.favoriteIconNotSave,withConfiguration: UIImage.SymbolConfiguration(scale: .medium)), for: .normal)
+        
+    }
     
     
 

@@ -79,13 +79,19 @@ class ProductDetailsViewController: UIViewController {
             self?.avalibleQuantity.text = self?.productDetailsViewModel?.numeberOfAvalibleQuantity
             self?.setRattingToProduct()
             self?.configureDataSourceofImageCollection()
+          
             DispatchQueue.main.async {
+               
                 self?.productImageCollection.reloadData()
                 self?.sizeCollectionView.reloadData()
                 self?.colorCollectionView.reloadData()
                 self?.reviewCollectionView.reloadData()
                 
+                let indexPath = IndexPath(item: 0, section: 0)
+                self?.sizeCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+                
             }
+            
            
             
         }

@@ -20,6 +20,7 @@ class CategoryViewController: UIViewController {
     var fromBrand = false
     var vendor:String = ""
     var backButton : UIBarButtonItem?
+    let custmerID = UserDefaults.standard.integer(forKey: K.customerIdKey)
    
    
     
@@ -27,10 +28,8 @@ class CategoryViewController: UIViewController {
     //MARK: - Set All Data when Will Appear
     override func viewWillAppear(_ animated: Bool) {
         
-            startShowProducts()
-        if checkApperane != 1{
-            categoryViewModuleRefactor.CheckIsAllProductMainCategoryForAllProduct(for: forMainCategory, with: forSubCategory)
-        }
+       startShowProducts()
+       categoryViewModuleRefactor.checkCustomerFavoriteProduct(for: custmerID)
        
         
     }
