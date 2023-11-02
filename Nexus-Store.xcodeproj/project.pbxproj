@@ -633,14 +633,6 @@
 			path = Ahmed;
 			sourceTree = "<group>";
 		};
-		019C834E2AF326A3003DB9EA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				01E9BB712AE96D8500FE881E /* WishListService.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		01A0EB852AE0716E004310FC /* Cart */ = {
 			isa = PBXGroup;
 			children = (
@@ -689,7 +681,6 @@
 			isa = PBXGroup;
 			children = (
 				01AA3A2F2AEB276A00552386 /* CartProduct.swift */,
-				01AA3A2D2AEB0AD400552386 /* CartService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -729,10 +720,19 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		01DA90652AF3EA6600B735B7 /* ShopifyServices */ = {
+			isa = PBXGroup;
+			children = (
+				01CAA0722AF05F3E005A29FD /* DraftOrderService.swift */,
+				01AA3A2D2AEB0AD400552386 /* CartService.swift */,
+				01E9BB712AE96D8500FE881E /* WishListService.swift */,
+			);
+			path = ShopifyServices;
+			sourceTree = "<group>";
+		};
 		01E9BB6A2AE9521000FE881E /* WishList */ = {
 			isa = PBXGroup;
 			children = (
-				019C834E2AF326A3003DB9EA /* Model */,
 				01E9BB6B2AE9522900FE881E /* View */,
 				01E9BB6E2AE9586A00FE881E /* ViewModel */,
 			);
@@ -1707,7 +1707,6 @@
 				01CAA0702AF05D73005A29FD /* DraftOrderResponse.swift */,
 				01CAA06C2AF05CE3005A29FD /* DraftOrder.swift */,
 				01CAA06E2AF05D21005A29FD /* LineItem.swift */,
-				01CAA0722AF05F3E005A29FD /* DraftOrderService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1715,6 +1714,7 @@
 		E37687E12ADE003600DB09A1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				01DA90652AF3EA6600B735B7 /* ShopifyServices */,
 				E37687EA2ADE059D00DB09A1 /* Network */,
 				E37687E92ADE057A00DB09A1 /* CoreData */,
 			);

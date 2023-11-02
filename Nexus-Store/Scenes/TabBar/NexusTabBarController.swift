@@ -37,10 +37,10 @@ class NexusTabBarController: UITabBarController,UITabBarControllerDelegate {
     private func setupNavigationAppearance() {
         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -1000.0, vertical: 0.0), for: .default)
         UINavigationBar.appearance().tintColor = .label
-        UINavigationBar.appearance().titleTextAttributes = [
-            .foregroundColor: UIColor.label, // Set the text color to white
-            .font: UIFont.systemFont(ofSize: 32, weight: .regular) // Set the font and size
-        ]
+//        UINavigationBar.appearance().titleTextAttributes = [
+//            .foregroundColor: UIColor.label, // Set the text color to white
+//            .font: UIFont.systemFont(ofSize: 32, weight: .regular) // Set the font and size
+//        ]
     }
     
     private func setupTabBarAppearance() {
