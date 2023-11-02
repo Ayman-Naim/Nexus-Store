@@ -7,6 +7,7 @@
 
 import UIKit
 import PassKit
+import BraintreeCore
 import BraintreePayPal
 
 class PayMethodViewController: UIViewController {
@@ -17,6 +18,8 @@ class PayMethodViewController: UIViewController {
     
     // for testing
     var totalAmount: Double = 250.0
+    let authorization = "sandbox_8h3qzxnj_76tbywh3qkq2yw2k"
+    var braintreeAPIClient:BTAPIClient!
     
     override func viewDidLoad() {
         super.viewDidLoad()
