@@ -11,13 +11,12 @@ class ShippingViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    private let viewModel = ShippingViewModel()
+    private let viewModel = ShippingViewModel(customerID: K.customerID)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         setupTableView()
-        viewModel.setCustomerID(6921948365036)
         bindViewModel()
         viewModel.getCustomerAddresses()
     }
@@ -44,20 +43,45 @@ class ShippingViewController: UIViewController {
     }
     
     @IBAction func continueToPaymentButtonPressed(_ sender: UIButton) {
-//        self.navigationController?.pushViewController(PayMethodViewController(), animated: true)
-        viewModel.setDraftOrderAddress()
+        confirmAlert { [weak self] in
+            self?.viewModel.setAddressForOrder {
+                self?.navigationController?.pushViewController(PayMethodViewController(), animated: true)
+            }
+        }
     }
     
     
     @IBAction func addPromoCodeButtonPressed(_ sender: UIButton) {
-        self.navigationController?.pushViewController(AddPromoCodeViewController(), animated: true)
+        confirmAlert { [weak self] in
+            self?.viewModel.setAddressForOrder {
+                self?.navigationController?.pushViewController(AddPromoCodeViewController(), animated: true)
+            }
+        }
     }
     
+    
+    private func confirmAlert(completion: @escaping () -> Void) {
+        let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
+            completion()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
+        Alert.show(on: self, title: "Shipping Address", message: "Are you sure of selectiong this address.", actions: [cancelAction, yesAction])
+    }
     
     
     private func bindViewModel() {
         viewModel.reload = { [weak self] in
             self?.tableView.reloadData()
+        }
+        
+        viewModel.loadingIndicator = { [weak self] isLoading in
+            self?.isLoadingIndicatorAnimating = isLoading
+            self?.tableView.isUserInteractionEnabled = !isLoading
+        }
+        
+        viewModel.errorOccure = { [weak self] error in
+            guard let self = self else { return }
+            Alert.show(on: self, title: "Error", message: error)
         }
     }
 }
@@ -76,9 +100,6 @@ extension ShippingViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        addresses.indices.forEach({ addresses[$0].isSelected = false })
-//        addresses[indexPath.row].isSelected = true
-//        tableView.reloadData()
         viewModel.didSelectCell(at: indexPath.row)
     }
 }
@@ -88,12 +109,6 @@ extension ShippingViewController: UITableViewDataSource, UITableViewDelegate {
 // MARK: - AddAddressDelegate
 extension ShippingViewController: AddAddressDelegate {
     func didAddNewAddress() {
-//        addresses.indices.forEach({ addresses[$0].isSelected = false })
-//        addresses.insert((name: address.name,
-//                          city: address.city,
-//                          address: address.address,
-//                          isSelected: true), at: 0)
-//        tableView.reloadData()
         viewModel.getCustomerAddresses()
     }
 }

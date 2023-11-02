@@ -7,11 +7,13 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseCore
 import GoogleSignIn
 import GoogleSignInSwift
 
 class SignInViewController: UIViewController {
 
+    @IBOutlet weak var googleImage: UIImageView!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var toggleImage: UIImageView!
@@ -26,9 +28,14 @@ class SignInViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         // Add a tap gesture recognizer to the toggleImage
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(togglePasswordVisibility))
+        let tapGestureRecognizerToggleEye = UITapGestureRecognizer(target: self, action: #selector(togglePasswordVisibility))
         toggleImage.isUserInteractionEnabled = true
-        toggleImage.addGestureRecognizer(tapGestureRecognizer)
+        toggleImage.addGestureRecognizer(tapGestureRecognizerToggleEye)
+        
+        //Add a tap gesture recognizer to google image
+        let tapGestureRecognizerGoogle = UITapGestureRecognizer(target: self, action: #selector(signInWithGoogle))
+        googleImage.isUserInteractionEnabled = true
+        googleImage.addGestureRecognizer(tapGestureRecognizerGoogle)
         
  /*       // Load the "Remember Me" preference from UserDefaults
         isRememberMeSelected = UserDefaults.standard.bool(forKey: "RememberMe")
@@ -75,6 +82,7 @@ class SignInViewController: UIViewController {
           //      let userId = user.uid
           //      UserDefaults.standard.set(userId, forKey: "customerID")
          //       print("User ID: \(userId)")
+                print(user)
                 let userEmail = user.email
                 UserDefaults.standard.set(userEmail, forKey: "customerEmail")
                 print("User Email: \(userEmail!)")
@@ -161,4 +169,99 @@ class SignInViewController: UIViewController {
         }
     }
     */
+    
+    @objc func signInWithGoogle(){
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
+
+        // Start the sign in flow!
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { [unowned self] result, error in
+          guard error == nil else {
+            return
+          }
+
+          guard let user = result?.user,
+            let idToken = user.idToken?.tokenString
+          else {
+            return
+          }
+
+          let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                         accessToken: user.accessToken.tokenString)
+
+            Auth.auth().signIn(with: credential) { result, error in
+
+                if let error = error {
+                    let alert = UIAlertController(title: "Error Trial To Sign In", message: "\(error.localizedDescription)", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Create Account", style: .default, handler: { action in
+                        let signupVC = SignUpViewController()
+                        self.navigationController?.pushViewController(signupVC, animated: true)
+                    }))
+                    alert.addAction(UIAlertAction(title: "Try Again", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    return
+                }
+                
+              // At this point, our user is signed in
+                if let result = result {
+                    if let user = Auth.auth().currentUser {
+                        let userEmail = user.email
+                        UserDefaults.standard.set(userEmail, forKey: "customerEmail")
+                        print("User Email: \(userEmail!)")
+                        self.getCustomerIDFromAPI(userEmail: userEmail ?? ""){
+                            if let sceneDelegate = UIApplication.shared.connectedScenes
+                                .first!.delegate as? SceneDelegate {
+                                let tabBar = NexusTabBarController()
+                                tabBar.navigationController?.isNavigationBarHidden = true
+                                sceneDelegate.window!.rootViewController = tabBar
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func createGoogleAccount(userEmail: String, completion: @escaping () -> Void){
+        self.signInVM.create(email: userEmail) { result in
+            completion()
+            switch result {
+            case .success(let customer):
+                print("debug1 \(customer)")
+                
+            case .failure(let error):
+                print("Create Google Account \(error)")
+            }
+        }
+    }
+    
+    func getCustomerIDFromAPI(userEmail: String, completion: @escaping () -> Void){
+        self.signInVM.getCustomerId(email: userEmail) { result in
+            switch result {
+            case .success(let customerId):
+                let customerrId = customerId
+                if customerId.customers.contains(where: { $0.email == userEmail
+                }){
+                    completion()
+                    print("Customer ID: \(customerrId)")
+
+                    if let customerID = UserDefaults.standard.value(forKey: "customerID") {
+                        // Use the customerID
+                        print("Customer ID: \(customerID)")
+                    } else {
+                        // Customer ID is not available in UserDefaults
+                        print("Customer ID is not available")
+                    }
+                }else{
+                    self.createGoogleAccount(userEmail: userEmail, completion: completion)
+                }
+
+            case .failure(let error):
+                print("Failed to retrieve customer ID: \(error)")
+            }
+        }
+    }
 }

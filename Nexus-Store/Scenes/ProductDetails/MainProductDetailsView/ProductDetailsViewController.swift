@@ -191,7 +191,6 @@ class ProductDetailsViewController: UIViewController {
             }
             Alert.show(on: self, title: "Congratulation", message: "You scussfully added the quatity to the Cart",actions: [okAction])
 
-
         }else{
 
             Alert.show(on: self, title: "No Quantity", message: "Please Select Qunatity From The Available Stock.")

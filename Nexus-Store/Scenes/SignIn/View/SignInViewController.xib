@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="checkboxImage" destination="myI-f6-Brg" id="gME-W7-Hxi"/>
                 <outlet property="emailField" destination="y8J-Xs-pzI" id="kqi-fK-GAm"/>
+                <outlet property="googleImage" destination="o4V-ei-686" id="pzG-J8-Uey"/>
                 <outlet property="passwordField" destination="LzU-en-yQr" id="8cq-3p-Lkp"/>
                 <outlet property="toggleImage" destination="Hu4-YE-OGs" id="oNR-T3-hml"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -124,24 +125,24 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="iTV-zg-Pad">
-                                    <rect key="frame" x="74.666666666666686" y="478" width="244" height="60"/>
+                                    <rect key="frame" x="166.66666666666666" y="478" width="60" height="60"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook1" translatesAutoresizingMaskIntoConstraints="NO" id="vJe-KQ-9oW">
-                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook1" translatesAutoresizingMaskIntoConstraints="NO" id="vJe-KQ-9oW">
+                                            <rect key="frame" x="0.0" y="0.0" width="59.999999999999993" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="60" id="FtP-UE-35p"/>
                                                 <constraint firstAttribute="height" constant="60" id="Zte-xw-W1k"/>
                                             </constraints>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="googleP" translatesAutoresizingMaskIntoConstraints="NO" id="o4V-ei-686">
-                                            <rect key="frame" x="91.999999999999986" y="0.0" width="60.000000000000014" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="0Db-9H-LvV"/>
                                                 <constraint firstAttribute="width" constant="60" id="Ifj-Av-4RC"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple-logo-transparent" translatesAutoresizingMaskIntoConstraints="NO" id="sRt-YD-mZd">
-                                            <rect key="frame" x="184" y="0.0" width="60" height="60"/>
+                                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple-logo-transparent" translatesAutoresizingMaskIntoConstraints="NO" id="sRt-YD-mZd">
+                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="60" id="7cM-OL-cgz"/>
                                                 <constraint firstAttribute="height" constant="60" id="mZh-1O-ADJ"/>
@@ -264,13 +265,13 @@
     <resources>
         <image name="apple-logo-transparent" width="2400" height="2398"/>
         <image name="checkbox-1" width="512" height="512"/>
-        <image name="envelope.fill" catalog="system" width="128" height="93"/>
+        <image name="envelope.fill" catalog="system" width="128" height="85"/>
         <image name="exclamationmark.lock.fill" catalog="system" width="125" height="128"/>
         <image name="eye" width="800" height="800"/>
         <image name="facebook1" width="75" height="75"/>
         <image name="googleP" width="768" height="768"/>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

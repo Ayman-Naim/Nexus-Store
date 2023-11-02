@@ -11,7 +11,7 @@ import Foundation
 class CartViewModel {
     
     // MARK: - Properties
-    private let userID = 6899149865196
+    private let customerID: Int
     private let service: CartService = CartService()
     private var cartProducts: [CartProduct] = [] {
         didSet {
@@ -19,6 +19,11 @@ class CartViewModel {
                 self.reload?()
             }
         }
+    }
+    
+    
+    init(customerID: Int) {
+        self.customerID = customerID
     }
     
     
@@ -42,7 +47,7 @@ class CartViewModel {
     
     func fetchCartProducts() {
         loadingIndicator?(true)
-        service.getCartProducts(forCustomerID: userID) { [weak self] result in
+        service.getCartProducts(forCustomerID: customerID) { [weak self] result in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.loadingIndicator?(false)
@@ -66,7 +71,7 @@ class CartViewModel {
         if let cartProduct = cartProducts.first(where: { $0.variantID == variantID }) {
             print("\(quantity)")
             loadingIndicator?(true)
-            service.updateQuantity(ofProduct: cartProduct, withQuantity: quantity, toCustomer: userID) { [weak self] error in
+            service.updateQuantity(ofProduct: cartProduct, withQuantity: quantity, toCustomer: customerID) { [weak self] error in
                 guard let self = self else { return }
                 DispatchQueue.main.async {
                     self.loadingIndicator?(false)
@@ -93,7 +98,7 @@ class CartViewModel {
     
     private func deleteCartProduct(_ cartProduct: CartProduct){
         loadingIndicator?(true)
-        service.removeProductFromCart(cartProduct, customerID: userID) { [weak self] error in
+        service.removeProductFromCart(cartProduct, customerID: customerID) { [weak self] error in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.loadingIndicator?(false)

@@ -10,7 +10,9 @@ import Alamofire
 class ProfileVM{
     
     func getOrders(completion:@escaping (Result<[Order], Error>) -> Void){
-        BaseUrl.userID = 6899149603052
+        
+        //BaseUrl.userID = 6899149603052
+        BaseUrl.userID = 6921948365036
         ApiManger.SharedApiManger.fetchData(url: .usersOrder, decodingModel: profileOrder.self) { result in
             switch result{
             case .success(let data):
@@ -32,7 +34,7 @@ class ProfileVM{
     
     private func fetchAllMetafields(forCustom customerID: Int, completion: @escaping (Result<[Metafield], Error>) -> Void) {
         let url = customersEndpoint + "/\(customerID)/metafields.json"
-        AF.request(url, method: .get, headers: header).responseDecodable(of: Metafields.self) { response in
+        AF.request(url, method: .get, headers: header).responseDecodable(of: MetafieldResponse.self) { response in
             switch response.result {
             case .success(let data):
                 guard let metafields = data.metafields else {

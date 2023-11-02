@@ -68,7 +68,7 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
             if (orders.count == 0) {
                 return 0;
             } else if (expandItemsSec1 == false) {
-                return 2;
+                return orders.count==1 ? 1 : 2
             } else {
                 return orders.count;
             }
@@ -77,7 +77,7 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
             if (wishList.count == 0) {
                 return 0;
             } else if (expandItemsSec2 == false) {
-                return 2;
+                return orders.count==1 ? 1 : 2
             } else {
                 return wishList.count;
             }
@@ -202,7 +202,7 @@ extension ProfileViewController:ProfileDelegete{
             switch result{
             case .success(let orders):
                 print(orders)
-                self.orders = orders.filter({ $0.customer?.id == 6899149603052 })
+                self.orders = orders.filter({ $0.customer?.id == 6921948365036 })
                 self.isLoadingIndicatorAnimating = !self.isLoadingIndicatorAnimating
               
                 self.TableView.reloadSections(IndexSet(integer: 0), with: .fade)
@@ -218,7 +218,7 @@ extension ProfileViewController:ProfileDelegete{
     
     func getwishlist(){
         self.isLoadingIndicatorAnimating = true
-        ViewModel.getWishlist(forCustom: 6899149865196) { result in
+        ViewModel.getWishlist(forCustom: 6921948365036) { result in
             switch result{
             case .success(let wishLists):
                 print(wishLists)

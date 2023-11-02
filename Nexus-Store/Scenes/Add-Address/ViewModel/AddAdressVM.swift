@@ -10,7 +10,7 @@ import Foundation
 class AddAddressVM{
     
     
-    func addAdress(name:String ,city:String ,adddress:String,Phone:String,completion:@escaping (Result<CustomerAddresses,Error>)->Void){
+    func addAdress(name:String ,city:String ,adddress:String,Phone:String,completion:@escaping (Result<CustomerAddressResponse,Error>)->Void){
         BaseUrl.userID = 6921948365036
         let AdressParameter:[String:Any] = [
             "customer_address":[
@@ -23,7 +23,7 @@ class AddAddressVM{
                 
         ]
         
-        ApiManger.SharedApiManger.postData(url: .AddAdress, parameters: AdressParameter, decodingModel: CustomerAddresses.self) { result in
+        ApiManger.SharedApiManger.postData(url: .AddAdress, parameters: AdressParameter, decodingModel: CustomerAddressResponse.self) { result in
             switch result{
             case.success(let address):
                 //print(address)

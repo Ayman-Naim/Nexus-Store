@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PassKit
 
 class PayMethodViewController: UIViewController {
 
@@ -31,7 +32,8 @@ class PayMethodViewController: UIViewController {
         //
     }
 }
-extension PayMethodViewController:UITableViewDelegate,UITableViewDataSource{
+
+extension PayMethodViewController:UITableViewDelegate,UITableViewDataSource, PKPaymentAuthorizationViewControllerDelegate{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -99,6 +101,50 @@ extension PayMethodViewController:UITableViewDelegate,UITableViewDataSource{
             
     }
     
+    private var paymentRequest: PKPaymentRequest {
+            let request = PKPaymentRequest()
+            request.merchantIdentifier = "merchant.com.shopifyApp.ITI"
+            request.supportedNetworks = [.visa, .masterCard, .quicPay]
+            request.supportedCountries = ["US", "EG", "QA", "AE", "SA"]
+            request.merchantCapabilities = .capability3DS
+            
+            request.countryCode = "EG"
+            request.currencyCode = "EGP"
+            
+     //       finalTotalCost = UserDefaultsHelper.shared.getFinalTotalCost()
+     //       let roundedCost = Double(String(format:"%.2f", finalTotalCost)) ?? 1.00
+   //         let _ = (finalTotalCost * 100).rounded() / 100
+   //         let amount = NSDecimalNumber(value: roundedCost)
+   //         request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Order Cost", amount: amount)]
+            
+            return request
+        }
     
+    private func presentPaymentController() {
+            let controller = PKPaymentAuthorizationViewController(paymentRequest: paymentRequest)
+            if controller != nil {
+                controller!.delegate = self
+                self.present(controller!, animated: true) {
+                    print("Completed Order")
+                }
+            }
+        }
+    
+    func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
+        controller.dismiss(animated: true) { [weak self] in
+            guard let self = self else { return }
+    //        self.finalTotalCost = 0.0
+            // TODO: - Get currency Symbol and add it after final cost on label
+   //         self.totalLabel.text = "\(0.0) EGP"
+            //viewModel.decreaseVariantCountByOrderAmount()
+   //         self.viewModel.postOrder()
+    //        self.playAnimation()
+        }
+    }
+    
+    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
+        completion(PKPaymentAuthorizationResult.init(status: .success, errors: nil))
+    }
     
 }
+

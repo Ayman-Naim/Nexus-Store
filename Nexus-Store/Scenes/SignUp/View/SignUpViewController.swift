@@ -7,9 +7,12 @@
 
 import UIKit
 import FirebaseAuth
+import GoogleSignIn
+import GoogleSignInSwift
 
 class SignUpViewController: UIViewController {
 
+    @IBOutlet weak var googleImage: UIImageView!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var toggleImage: UIImageView!
@@ -25,6 +28,10 @@ class SignUpViewController: UIViewController {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(togglePasswordVisibility))
         toggleImage.isUserInteractionEnabled = true
         toggleImage.addGestureRecognizer(tapGestureRecognizer)
+        
+  //      let tapGestureRecognizerGoogle = UITapGestureRecognizer(target: self, action: #selector(signInWithGoogle))
+        googleImage.isUserInteractionEnabled = true
+  //      googleImage.addGestureRecognizer(tapGestureRecognizerGoogle)
     }
 
     @IBAction func signUpButton(_ sender: Any) {
