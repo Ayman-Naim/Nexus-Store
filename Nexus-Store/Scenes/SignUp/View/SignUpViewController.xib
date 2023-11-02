@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController" customModule="Nexus_Store" customModuleProvider="target">
             <connections>
                 <outlet property="emailField" destination="27q-Of-SAA" id="7mn-lp-tgl"/>
+                <outlet property="googleImage" destination="5P0-Kc-e35" id="o2s-ha-hBV"/>
                 <outlet property="passwordField" destination="8L1-pb-zYl" id="Epf-C7-Ucb"/>
                 <outlet property="toggleImage" destination="hHn-Ne-hya" id="Ub8-b9-aZC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -119,7 +120,7 @@
                                     <rect key="frame" x="166.66666666666666" y="476.66666666666669" width="60" height="60.000000000000057"/>
                                     <subviews>
                                         <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook1" translatesAutoresizingMaskIntoConstraints="NO" id="dCi-Pb-3t9">
-                                            <rect key="frame" x="0.0" y="0.0" width="59.999999999999993" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="83L-OP-1od"/>
                                                 <constraint firstAttribute="width" constant="60" id="lfE-B3-wuV"/>

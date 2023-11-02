@@ -171,7 +171,6 @@ class SignInViewController: UIViewController {
     */
     
     @objc func signInWithGoogle(){
-        print("Qzqz")
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
 
         // Create Google Sign In configuration object.
@@ -195,57 +194,73 @@ class SignInViewController: UIViewController {
 
             Auth.auth().signIn(with: credential) { result, error in
 
+                if let error = error {
+                    let alert = UIAlertController(title: "Error Trial To Sign In", message: "\(error.localizedDescription)", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Create Account", style: .default, handler: { action in
+                        let signupVC = SignUpViewController()
+                        self.navigationController?.pushViewController(signupVC, animated: true)
+                    }))
+                    alert.addAction(UIAlertAction(title: "Try Again", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    return
+                }
+                
               // At this point, our user is signed in
                 if let result = result {
                     if let user = Auth.auth().currentUser {
                         let userEmail = user.email
                         UserDefaults.standard.set(userEmail, forKey: "customerEmail")
                         print("User Email: \(userEmail!)")
-                        self.signInVM.create(email: userEmail ?? "") { result in
-                            switch result {
-                            case .success(let customer):
-                                print("debug1 \(customer)")
-                                // Account created successfully, show a success alert
-                           //     self.showSuccessAlert()
-                                
-                            case .failure(let error):
-                                print(error)
+                        self.getCustomerIDFromAPI(userEmail: userEmail ?? ""){
+                            if let sceneDelegate = UIApplication.shared.connectedScenes
+                                .first!.delegate as? SceneDelegate {
+                                let tabBar = NexusTabBarController()
+                                tabBar.navigationController?.isNavigationBarHidden = true
+                                sceneDelegate.window!.rootViewController = tabBar
                             }
                         }
-                        
-                         self.signInVM.getCustomerId(email: userEmail ?? "") { result in
-                             switch result {
-                             case .success(let customerId):
-                                 let customerrId = customerId
-                                 
-                                 print("Customer ID: \(customerrId)")
-
-                                 if let customerID = UserDefaults.standard.value(forKey: "customerID") {
-                                     // Use the customerID
-                                     print("Customer ID: \(customerID)")
-                                 } else {
-                                     // Customer ID is not available in UserDefaults
-                                     print("Customer ID is not available")
-                                 }
-
-                             case .failure(let error):
-                                 print("Failed to retrieve customer ID: \(error)")
-                                 // Handle the error as needed
-                             }
-                         }
-                         
-                    }
-                    if let sceneDelegate = UIApplication.shared.connectedScenes
-                        .first!.delegate as? SceneDelegate {
-                        let tabBar = NexusTabBarController()
-                        tabBar.navigationController?.isNavigationBarHidden = true
-                        sceneDelegate.window!.rootViewController = tabBar
-                        
                     }
                 }
-                if let error = error {
-                    print("Error Qzqoz")
+            }
+        }
+    }
+    
+    func createGoogleAccount(userEmail: String, completion: @escaping () -> Void){
+        self.signInVM.create(email: userEmail) { result in
+            completion()
+            switch result {
+            case .success(let customer):
+                print("debug1 \(customer)")
+                
+            case .failure(let error):
+                print("Create Google Account \(error)")
+            }
+        }
+    }
+    
+    func getCustomerIDFromAPI(userEmail: String, completion: @escaping () -> Void){
+        self.signInVM.getCustomerId(email: userEmail) { result in
+            switch result {
+            case .success(let customerId):
+                let customerrId = customerId
+                if customerId.customers.contains(where: { $0.email == userEmail
+                }){
+                    completion()
+                    print("Customer ID: \(customerrId)")
+
+                    if let customerID = UserDefaults.standard.value(forKey: "customerID") {
+                        // Use the customerID
+                        print("Customer ID: \(customerID)")
+                    } else {
+                        // Customer ID is not available in UserDefaults
+                        print("Customer ID is not available")
+                    }
+                }else{
+                    self.createGoogleAccount(userEmail: userEmail, completion: completion)
                 }
+
+            case .failure(let error):
+                print("Failed to retrieve customer ID: \(error)")
             }
         }
     }
