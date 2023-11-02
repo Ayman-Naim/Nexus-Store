@@ -18,6 +18,7 @@ struct DraftOrder: Codable {
 //    let shippingLine: String?
     let totalPrice: String
     let customer: Customer
+    let note: String?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -25,5 +26,6 @@ struct DraftOrder: Codable {
         case lineItems = "line_items"
         case totalPrice = "total_price"
         case customer
+        case note
     }
 }

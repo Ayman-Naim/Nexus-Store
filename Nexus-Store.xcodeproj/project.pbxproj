@@ -1685,7 +1685,6 @@
 				01CAA0702AF05D73005A29FD /* DraftOrderResponse.swift */,
 				01CAA06C2AF05CE3005A29FD /* DraftOrder.swift */,
 				01CAA06E2AF05D21005A29FD /* LineItem.swift */,
-				01CAA0722AF05F3E005A29FD /* DraftOrderService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1752,6 +1751,7 @@
 		E37687EA2ADE059D00DB09A1 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				01CAA0722AF05F3E005A29FD /* DraftOrderService.swift */,
 				E340D1E92AE79A2500E2E017 /* NetworkManger.swift */,
 				E3E639FC2AE82D89002A5617 /* BaseURl.swift */,
 			);

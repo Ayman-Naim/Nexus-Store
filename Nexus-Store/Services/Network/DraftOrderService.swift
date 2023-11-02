@@ -92,4 +92,59 @@ class DraftOrderService {
             }
         }
     }
+    
+    func convertToOrder(customerID: Int, completion: @escaping (Result<DraftOrder, Error>) -> Void) {
+        customerDraftOrders(customerID: customerID) { result in
+            switch result {
+            case .success(let draftOrders):
+                let lineItems = draftOrders.compactMap({ $0.lineItems.first })
+                guard let lineItemsData = try? JSONEncoder().encode(lineItems) else { return }
+                guard let lineItemsJSON = try? JSONSerialization.jsonObject(with: lineItemsData, options: [.fragmentsAllowed]) else { return }
+                
+                let urlString = self.baseURLString + ".json"
+                let params = [
+                    "draft_order": [
+                        "note": "FullOrder",
+                        "line_items": lineItemsJSON,
+                        "customer": [
+                            "id": customerID
+                        ]
+                    ]
+                ]
+                
+                AF.request(urlString, method: .post, parameters: params, encoding: JSONEncoding.default, headers: self.header).responseDecodable(of: DraftOrderResponse.self) { response in
+                    switch response.result {
+                    case .success(let draftOrderResponse):
+                        guard let draftOrder = draftOrderResponse.singleResult else { return }
+                        completion(.success(draftOrder))
+                        self.deleteNotFullDraftOrder(customerID: customerID, failure: { completion(.failure($0) )})
+                    case .failure(let error):
+                        completion(.failure(error))
+                    }
+                }
+                
+                
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func deleteNotFullDraftOrder(customerID: Int, failure: @escaping (Error) -> Void) {
+        customerDraftOrders(customerID: customerID) { result in
+            switch result {
+            case .success(let draftOrders):
+                let notFullDraftOrders = draftOrders.filter{ $0.note == nil }
+                
+                let url = "https://ios-q1-new-capital-admin1-2023.myshopify.com/admin/api/2023-01/draft_orders"
+                for index in notFullDraftOrders.indices {
+                    let orderID = notFullDraftOrders[index].id
+                    AF.request(url + "/\(orderID).json", method: .delete, headers: self.header).response { _ in }
+                }
+                
+            case .failure(let error):
+                failure(error)
+            }
+        }
+    }
 }
