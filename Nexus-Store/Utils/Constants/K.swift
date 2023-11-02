@@ -43,4 +43,8 @@ struct K{
     
     static var customerID: Int { UserDefaults.standard.integer(forKey: "customerID") }
     
+    
+    static func customError(title: String? = nil, message: String) -> Error {
+        return NSError(domain: title ?? "Error", code: 400, userInfo: [NSLocalizedDescriptionKey: message])
+    }
 }

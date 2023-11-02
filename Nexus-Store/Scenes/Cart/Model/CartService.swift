@@ -42,7 +42,7 @@ class CartService {
             case .success(let draftOrders):
                  // Check if there is draft order contain the same variant ID in it's line items
                 if draftOrders.contains(where: { $0.lineItems.contains(where: { $0.variantID == variantID }) }) {
-                    //completion(self.customError(message: "The product is already in the cart"))
+                    completion(K.customError(message: "The product is already in the cart"))
                 } else {
                     self.draftOrderSerivce.createDraftOrder(forCustomer: customerID, variantID: variantID, imageURLString: imageURLString) { result in
                         switch result {

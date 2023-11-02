@@ -15,18 +15,13 @@ class DraftOrderService {
     private let header: HTTPHeaders = ["X-Shopify-Access-Token": "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"]
     
     
-    // MARK: - Helpers
-    private func customError(message: String) -> Error {
-        return NSError(domain: "Error", code: 400, userInfo: [NSLocalizedDescriptionKey: message])
-    }
-    
     func fetchDraftOrders(completion: @escaping (Result<[DraftOrder], Error>) -> Void) {
         let urlString = baseURLString + ".json"
         AF.request(urlString, method: .get, encoding: JSONEncoding.default, headers: header).responseDecodable(of: DraftOrderResponse.self) { response in
             switch response.result {
             case .success(let draftOrders):
                 guard let draftOrdersResult = draftOrders.result else {
-                    completion(.failure(self.customError(message: "No result for draft orders")))
+                    completion(.failure(K.customError(message: "No result for draft orders")))
                     return
                 }
                 completion(.success(draftOrdersResult))
@@ -81,7 +76,7 @@ class DraftOrderService {
             case .success(let newDraftOrder):
                 print("Create Draft Order of Customer with ID: \(customerID)")
                 guard let customerNewDraftOrder = newDraftOrder.singleResult else {
-                    completion(.failure(self.customError(message: "Created a draft order for the user but single result is nil")))
+                    completion(.failure(K.customError(message: "Created a draft order for the user but single result is nil")))
                     return
                 }
                 
