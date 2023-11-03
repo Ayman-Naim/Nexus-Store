@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="239" height="105"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uik-P6-DBO">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="offergeneral" translatesAutoresizingMaskIntoConstraints="NO" id="uik-P6-DBO">
                         <rect key="frame" x="0.0" y="0.0" width="239" height="105"/>
                     </imageView>
                 </subviews>
@@ -26,13 +26,17 @@
                 <constraint firstAttribute="bottom" secondItem="uik-P6-DBO" secondAttribute="bottom" id="JOH-2E-glH"/>
                 <constraint firstAttribute="trailing" secondItem="uik-P6-DBO" secondAttribute="trailing" id="fOr-NC-2Tf"/>
                 <constraint firstItem="uik-P6-DBO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="k0c-N3-h7A"/>
+                <constraint firstItem="uik-P6-DBO" firstAttribute="trailing" secondItem="gTV-IL-0wX" secondAttribute="trailing" id="sHg-5D-bEt"/>
                 <constraint firstItem="uik-P6-DBO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="yr2-9p-414"/>
             </constraints>
             <size key="customSize" width="239" height="105"/>
             <connections>
                 <outlet property="OfferImage" destination="uik-P6-DBO" id="LA3-Fq-n4c"/>
             </connections>
-            <point key="canvasLocation" x="145.80152671755724" y="39.7887323943662"/>
+            <point key="canvasLocation" x="145.80152671755724" y="36.971830985915496"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="offergeneral" width="3601" height="3601"/>
+    </resources>
 </document>

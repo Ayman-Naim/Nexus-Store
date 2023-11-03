@@ -28,7 +28,10 @@ class ProfileViewController: UIViewController {
        
         // Do any additional setup after loading the view.
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        getOrders()
+        getwishlist()
+    }
 
     func setupTabelView(){
         TableView.delegate = self
@@ -77,7 +80,7 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
             if (wishList.count == 0) {
                 return 0;
             } else if (expandItemsSec2 == false) {
-                return orders.count==1 ? 1 : 2
+                return wishList.count==1 ? 1 : 2
             } else {
                 return wishList.count;
             }

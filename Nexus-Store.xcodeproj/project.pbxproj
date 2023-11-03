@@ -156,6 +156,8 @@
 		E30A94542AE68A0800AB0F5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E30A94522AE68A0800AB0F5F /* Main.storyboard */; };
 		E30A94562AE68A0A00AB0F5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E30A94552AE68A0A00AB0F5F /* Assets.xcassets */; };
 		E30A94592AE68A0A00AB0F5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E30A94572AE68A0A00AB0F5F /* LaunchScreen.storyboard */; };
+		E3324FC32AF448F0008C6B89 /* PriceRuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3324FC22AF448F0008C6B89 /* PriceRuleModel.swift */; };
+		E3324FC62AF44B5E008C6B89 /* CoupounsCodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3324FC52AF44B5E008C6B89 /* CoupounsCodesModel.swift */; };
 		E340D1EA2AE79A2500E2E017 /* NetworkManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E340D1E92AE79A2500E2E017 /* NetworkManger.swift */; };
 		E34556662AE1AD9400312C6C /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34556642AE1AD9400312C6C /* OrderTableViewCell.swift */; };
 		E34556672AE1AD9400312C6C /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34556652AE1AD9400312C6C /* OrderTableViewCell.xib */; };
@@ -385,6 +387,8 @@
 		E30A948C2AE690AC00AB0F5F /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E30A948D2AE690AC00AB0F5F /* Lottie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Lottie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E30A948E2AE690AC00AB0F5F /* Pods_Nexus_Store.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Nexus_Store.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3324FC22AF448F0008C6B89 /* PriceRuleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRuleModel.swift; sourceTree = "<group>"; };
+		E3324FC52AF44B5E008C6B89 /* CoupounsCodesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoupounsCodesModel.swift; sourceTree = "<group>"; };
 		E340D1E92AE79A2500E2E017 /* NetworkManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManger.swift; sourceTree = "<group>"; };
 		E34556642AE1AD9400312C6C /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		E34556652AE1AD9400312C6C /* OrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
@@ -1512,6 +1516,8 @@
 			isa = PBXGroup;
 			children = (
 				E34FE62A2AE921BC006602A5 /* BrandsModel.swift */,
+				E3324FC22AF448F0008C6B89 /* PriceRuleModel.swift */,
+				E3324FC52AF44B5E008C6B89 /* CoupounsCodesModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2219,6 +2225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				457276B22AEE7B3200EE759D /* DiscountCode.swift in Sources */,
+				E3324FC32AF448F0008C6B89 /* PriceRuleModel.swift in Sources */,
 				5BFDC64C2AEE69C900C2F6C7 /* ContactTableViewCell.swift in Sources */,
 				E340D1EA2AE79A2500E2E017 /* NetworkManger.swift in Sources */,
 				E34556722AE1D18200312C6C /* SectionHeaderTableViewCell.swift in Sources */,
@@ -2231,6 +2238,7 @@
 				01AA3A2E2AEB0AD400552386 /* CartService.swift in Sources */,
 				E35BC5802AE08D3000742654 /* OffersCell.swift in Sources */,
 				E35BC57B2AE0724F00742654 /* HomeViewController.swift in Sources */,
+				E3324FC62AF44B5E008C6B89 /* CoupounsCodesModel.swift in Sources */,
 				45123AB72AE2149E001B12B7 /* CustomFooterSepertator.swift in Sources */,
 				459A214E2AE5DC770040977F /* ProductImageDelegation.swift in Sources */,
 				019C83522AF32709003DB9EA /* Metafield.swift in Sources */,
@@ -2590,7 +2598,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Nexus-Store/Nexus-Store.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3697FQMS8B;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Nexus-Store/Config/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2624,7 +2632,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Nexus-Store/Nexus-Store.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3697FQMS8B;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Nexus-Store/Config/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
