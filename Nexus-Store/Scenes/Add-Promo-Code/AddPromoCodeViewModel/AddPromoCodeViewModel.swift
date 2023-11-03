@@ -190,7 +190,7 @@ class AddPromoCodeViewModel:AddPromoCodeProtocaol{
     
     func fetchOrderFromDraftOrder(){
            
-        draftOrderservices.convertToOrder(customerID: custemerID) { result in
+        draftOrderservices.customerDraftOrder(customerID: custemerID) { result in
             switch result{
                 
             case .success(let draftOrder):
