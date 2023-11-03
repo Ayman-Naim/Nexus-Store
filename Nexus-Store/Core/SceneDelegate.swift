@@ -32,7 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             // let nav = UINavigationController(rootViewController: SignInViewController())
        //     let nav = UINavigationController(rootViewController: NexusTabBarController())
-            window.rootViewController = PayMethodViewController()
+            window.rootViewController = NexusTabBarController()
             window.makeKeyAndVisible()
             self.window = window
         }else{

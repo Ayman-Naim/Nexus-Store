@@ -120,6 +120,7 @@
 		45BED45F2AEDC31000795D8A /* productDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BED45B2AEDC31000795D8A /* productDetailsCell.swift */; };
 		45BED4612AEDCA9100795D8A /* BrandProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BED4602AEDCA9100795D8A /* BrandProductViewModel.swift */; };
 		45D0E8912AE0A04800A07332 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D0E8902AE0A04800A07332 /* K.swift */; };
+		5B0BC7B92AF49EFB00A25CC5 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0BC7B82AF49EFB00A25CC5 /* PaymentViewModel.swift */; };
 		5B2CE85B2AF21DD50008DC5B /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B2CE85A2AF21DD50008DC5B /* credentials.plist */; };
 		5B312CD32AEBD64E00394BDF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B312CD22AEBD64E00394BDF /* GoogleService-Info.plist */; };
 		5B94B7C82AF0C2B10010071D /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B94B7C72AF0C2B10010071D /* SignIn.swift */; };
@@ -344,6 +345,7 @@
 		45BED45B2AEDC31000795D8A /* productDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = productDetailsCell.swift; sourceTree = "<group>"; };
 		45BED4602AEDCA9100795D8A /* BrandProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandProductViewModel.swift; sourceTree = "<group>"; };
 		45D0E8902AE0A04800A07332 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		5B0BC7B82AF49EFB00A25CC5 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
 		5B2CE85A2AF21DD50008DC5B /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		5B312CD22AEBD64E00394BDF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B94B7C72AF0C2B10010071D /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
@@ -1030,6 +1032,21 @@
 				45BED45B2AEDC31000795D8A /* productDetailsCell.swift */,
 			);
 			path = CustomProductCell;
+			sourceTree = "<group>";
+		};
+		5B0BC7B62AF49ECF00A25CC5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5B0BC7B72AF49ED900A25CC5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5B0BC7B82AF49EFB00A25CC5 /* PaymentViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		5B94B7C62AF0C29D0010071D /* Model */ = {
@@ -1769,6 +1786,8 @@
 		E37B4DE22AE3011A0051EB89 /* PaymentMethod */ = {
 			isa = PBXGroup;
 			children = (
+				5B0BC7B72AF49ED900A25CC5 /* ViewModel */,
+				5B0BC7B62AF49ECF00A25CC5 /* Model */,
 				E37B4DE82AE307990051EB89 /* Component */,
 				E37B4DE72AE3078F0051EB89 /* View */,
 			);
@@ -2317,6 +2336,7 @@
 				0199C9972AEC0AD5007B3122 /* CartViewModel.swift in Sources */,
 				457276B02AEE7AC100EE759D /* PriceRule.swift in Sources */,
 				E34556662AE1AD9400312C6C /* OrderTableViewCell.swift in Sources */,
+				5B0BC7B92AF49EFB00A25CC5 /* PaymentViewModel.swift in Sources */,
 				5BFDC6472AEE683B00C2F6C7 /* ContactUsViewController.swift in Sources */,
 				01A0EB932AE075CB004310FC /* ProductLandscapeTVCell.swift in Sources */,
 				5B94B7C82AF0C2B10010071D /* SignIn.swift in Sources */,
