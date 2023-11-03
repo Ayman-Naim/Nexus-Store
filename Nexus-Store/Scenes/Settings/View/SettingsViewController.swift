@@ -82,7 +82,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             let currencyVC = SignInViewController()
             self.navigationController?.pushViewController(currencyVC, animated: true)
         case 3:
-            let addressVC = AddAddressViewController()
+            let addressVC = AdressSettingViewController()
             self.navigationController?.pushViewController(addressVC, animated: true)
         case 4:
        //     let signinVC = SignInViewController()

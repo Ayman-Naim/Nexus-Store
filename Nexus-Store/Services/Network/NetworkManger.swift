@@ -52,4 +52,15 @@ class ApiManger {
                 }
             }
     }
+    func Delete(url: BaseUrl,completion: @escaping (Result<Bool,Error>) -> Void) {
+        AF.request(url.enpoint, method: .delete, headers: headerApi).validate(statusCode: 200 ..< 299).responseData { response in
+                switch response.result {
+                case .success(_):
+                    completion(.success(true))
+                    
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+    }
 }

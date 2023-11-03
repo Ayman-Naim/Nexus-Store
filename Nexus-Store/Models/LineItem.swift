@@ -11,9 +11,10 @@ import Foundation
 struct LineItem: Codable {
     let id: Int
     let variantID: Int?
-    let quantity: Int
+    var quantity: Int
     
-    let properties: [Property]
+//    let properties: [Property]
+    let properties: [[String: String]]
     
     let productID: Int?
     let productTitle: String
@@ -36,5 +37,10 @@ struct LineItem: Codable {
     struct Property: Codable {
         let name: String
         let value: String
+        
+        enum CodingKeys: String, CodingKey {
+            case name = "name"
+            case value = "value"
+        }
     }
 }
