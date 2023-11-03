@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import BraintreeCore
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
