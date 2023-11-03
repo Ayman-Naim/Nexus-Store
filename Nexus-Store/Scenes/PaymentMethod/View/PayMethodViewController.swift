@@ -7,29 +7,21 @@
 
 import UIKit
 import PassKit
-import BraintreeCore
-import BraintreePayPal
-import BraintreePayPalNativeCheckout
-import BraintreeDataCollector
-import BraintreeLocalPayment
-import BraintreeThreeDSecure
-import BraintreeCard
-import BraintreeVenmo
-import BraintreeAmericanExpress
-import BraintreeApplePay
-import BraintreeSEPADirectDebit
 
 class PayMethodViewController: UIViewController {
 
     @IBOutlet weak var PaymentTable: UITableView!
     @IBOutlet weak var TotalAmountLabel: UILabel!
     var selectedPayment:IndexPath?
-    
+    var id: Int? = 0
+    let paymentVM = PaymentViewModel()
+    let customerID = UserDefaults.standard.value(forKey: "customerID")
+
     // for testing
     var totalAmount: Double = 250.0
-    let authorization = "sandbox_8h3qzxnj_76tbywh3qkq2yw2k"
-    var braintreeAPIClient:BTAPIClient!
-    var payPalNativeCheckoutClient: BTPayPalNativeCheckoutClient!
+//    let authorization = "sandbox_8h3qzxnj_76tbywh3qkq2yw2k"
+//    var braintreeAPIClient:BTAPIClient!
+//    var payPalNativeCheckoutClient: BTPayPalNativeCheckoutClient!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,13 +40,30 @@ class PayMethodViewController: UIViewController {
     }
 
     @IBAction func PayButtonClicked(_ sender: Any) {
-        //
+        paymentVM.draftOrder.convertToOrder(customerID: customerID as! Int) { result in
+            switch result{
+            case .success(let order):
+                self.id = order.id
+                print("order id is : \(self.id ?? 0)")
+            case .failure(_):
+                print("Error")
+            }
+        }
    //     presentPaymentController()
         if selectedPayment?.row == 0{
             let alert = UIAlertController(title: "Cash On Delivery", message: "Are You Sure You Want To Pay Cash On Delivery?", preferredStyle: .actionSheet)
             alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { action in
                 let alert = UIAlertController(title: "Successful Process!", message: "The Order Will Be Sent To Your Address, Thanks For Dealing With Us!", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+                alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { action in
+                    self.paymentVM.updatePaymentOfDraftOrder(draft_order_id: self.id ?? 0, paymentPending: true) { result in
+                        if let result = result {
+                            self.paymentVM.deleteFullDraftOrder(customerID: self.customerID as! Int) { error in
+                                print(error.localizedDescription)
+                            }
+                        }
+                    }
+                    self.navigateToRoot()
+                }))
                 self.present(alert, animated: true, completion: nil)
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -168,7 +177,16 @@ extension PayMethodViewController:UITableViewDelegate,UITableViewDataSource, PKP
             controller.dismiss(animated: true) {
             //    self.showAlert(title: "Payment Successful", message: "Thank you for your purchase.")
                 let alert = UIAlertController(title: "Payment Successful", message: "Thank you for your purchase.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                    self.paymentVM.updatePaymentOfDraftOrder(draft_order_id: self.id ?? 0, paymentPending: false) { result in
+                        if let result = result {
+                            self.paymentVM.deleteFullDraftOrder(customerID: self.customerID as! Int) { error in
+                                print(error.localizedDescription)
+                            }
+                        }
+                    }
+                    self.navigateToRoot()
+                }))
                 self.present(alert, animated: true, completion: nil)
             }
         }
@@ -176,6 +194,22 @@ extension PayMethodViewController:UITableViewDelegate,UITableViewDataSource, PKP
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+    
+    func navigateToRoot(){
+   /*     if let sceneDelegate = UIApplication.shared.connectedScenes
+            .first!.delegate as? SceneDelegate {
+       //     let nav = UINavigationController(rootViewController: NexusTabBarController())
+            self.navigationController?.popToRootViewController(animated: true)
+       //     sceneDelegate.window!.rootViewController = nav
+        }*/
+        if let tabBarController = self.tabBarController {
+            // 2. Get the navigation controller associated with the specific tab.
+            if let nav = tabBarController.viewControllers?[0] as? UINavigationController {
+                // 3. Pop to the root view controller of the specific tab.
+                nav.popToRootViewController(animated: true)
+            }
+        }
     }
     
     /*
