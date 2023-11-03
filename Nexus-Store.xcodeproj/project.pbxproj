@@ -77,6 +77,7 @@
 		01E9BB6D2AE9525900FE881E /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9BB6C2AE9525900FE881E /* WishListViewController.swift */; };
 		01E9BB702AE9587C00FE881E /* WishListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9BB6F2AE9587C00FE881E /* WishListViewModel.swift */; };
 		01E9BB722AE96D8500FE881E /* WishListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9BB712AE96D8500FE881E /* WishListService.swift */; };
+		01EF91BA2AF5424B006F6854 /* ProductsOrderSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF91B92AF5424B006F6854 /* ProductsOrderSheetViewModel.swift */; };
 		169DA9E07FECA4DC4D9C97CF /* Pods_Nexus_Store_Nexus_Admin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B19B9281328FE18BFC74F8AF /* Pods_Nexus_Store_Nexus_Admin.framework */; };
 		45123AAB2AE2149E001B12B7 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45123A922AE2149E001B12B7 /* ProductDetailsViewController.swift */; };
 		45123AAC2AE2149E001B12B7 /* ProductImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45123A952AE2149E001B12B7 /* ProductImageCell.xib */; };
@@ -295,6 +296,7 @@
 		01E9BB6C2AE9525900FE881E /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		01E9BB6F2AE9587C00FE881E /* WishListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewModel.swift; sourceTree = "<group>"; };
 		01E9BB712AE96D8500FE881E /* WishListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListService.swift; sourceTree = "<group>"; };
+		01EF91B92AF5424B006F6854 /* ProductsOrderSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsOrderSheetViewModel.swift; sourceTree = "<group>"; };
 		0EE52BF3C2B1CE37BD0BE425 /* Pods_Nexus_Store.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nexus_Store.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D0897498D8507D3F7C4DEF /* Pods-Nexus-Store.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nexus-Store.release.xcconfig"; path = "Target Support Files/Pods-Nexus-Store/Pods-Nexus-Store.release.xcconfig"; sourceTree = "<group>"; };
 		294B772207E75B1ADC58E6CF /* Pods-Nexus-Store-Nexus-StoreUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nexus-Store-Nexus-StoreUITests.debug.xcconfig"; path = "Target Support Files/Pods-Nexus-Store-Nexus-StoreUITests/Pods-Nexus-Store-Nexus-StoreUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -718,6 +720,7 @@
 			isa = PBXGroup;
 			children = (
 				01D776C62AE3162E0079F2B5 /* View */,
+				01EF91B82AF54230006F6854 /* ViewModel */,
 			);
 			path = ProductsOrderSheet;
 			sourceTree = "<group>";
@@ -761,6 +764,14 @@
 			isa = PBXGroup;
 			children = (
 				01E9BB6F2AE9587C00FE881E /* WishListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		01EF91B82AF54230006F6854 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				01EF91B92AF5424B006F6854 /* ProductsOrderSheetViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2392,6 +2403,7 @@
 				011281AC2AE18D7B00844137 /* ShippingViewController.swift in Sources */,
 				01E9BB6D2AE9525900FE881E /* WishListViewController.swift in Sources */,
 				459916BC2AEC683B005F3C31 /* Review.swift in Sources */,
+				01EF91BA2AF5424B006F6854 /* ProductsOrderSheetViewModel.swift in Sources */,
 				E345566C2AE1B51C00312C6C /* FavouriteTableViewCell.swift in Sources */,
 				011281B02AE1A4F900844137 /* CustomTextField.swift in Sources */,
 				459916B72AEC4195005F3C31 /* UIColor+Extension.swift in Sources */,

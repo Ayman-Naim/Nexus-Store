@@ -110,10 +110,10 @@ class ShippingViewModel {
         
         loadingIndicator?(true)
         
-        draftOrderService.customerDraftOrders(customerID: customerID) { [weak self] result in
+        draftOrderService.customerDraftOrder(customerID: customerID) { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success(let draftOrders):
+            case .success(let draftOrder):
                 guard let encodedAddress = try? JSONEncoder().encode(selectedAddress) else { return }
                 guard let dicAddress = try? JSONSerialization.jsonObject(with: encodedAddress, options: [.fragmentsAllowed]) as? [String:Any] else { return }
                 let params = [
@@ -122,28 +122,22 @@ class ShippingViewModel {
                     ]
                 ]
                 
-                
-                for orderIndex in draftOrders.indices {
-                    AF.request("https://ios-q1-new-capital-admin1-2023.myshopify.com/admin/api/2023-01/draft_orders/\(draftOrders[orderIndex].id).json", method: .put, parameters: params, headers: self.header).response { response in
-                        switch response.result {
-                        case .success(_):
-//                            guard let data = data else { return }
-//                            print(String(data: data, encoding: .utf8) ?? "No Data")
-                            if orderIndex == draftOrders.count - 1 {
-                                DispatchQueue.main.async {
-                                    self.loadingIndicator?(false)
-                                    navigate()
-                                }
-                            }
-                            
-                        case .failure(let error):
-                            DispatchQueue.main.async {
-                                self.loadingIndicator?(false)
-                            }
-                            self.errorOccure?(error.localizedDescription)
+                AF.request("https://ios-q1-new-capital-admin1-2023.myshopify.com/admin/api/2023-01/draft_orders/\(draftOrder.id).json", method: .put, parameters: params, headers: self.header).response { response in
+                    switch response.result {
+                    case .success(_):
+                        DispatchQueue.main.async {
+                            self.loadingIndicator?(false)
+                            navigate()
                         }
+                        
+                    case .failure(let error):
+                        DispatchQueue.main.async {
+                            self.loadingIndicator?(false)
+                        }
+                        self.errorOccure?(error.localizedDescription)
                     }
                 }
+                
                 
                 
             case .failure(let error):

@@ -78,7 +78,6 @@ class CartViewModel {
                 }
                 if let error = error {
                     self.errorOccure?(error.localizedDescription)
-                    return
                 }
                 self.fetchCartProducts()
             }
