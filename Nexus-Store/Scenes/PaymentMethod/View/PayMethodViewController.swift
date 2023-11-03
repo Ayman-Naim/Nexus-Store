@@ -40,7 +40,7 @@ class PayMethodViewController: UIViewController {
     }
 
     @IBAction func PayButtonClicked(_ sender: Any) {
-        paymentVM.draftOrder.convertToOrder(customerID: customerID as! Int) { result in
+        paymentVM.draftOrder.customerDraftOrder(customerID: customerID as! Int) { result in
             switch result{
             case .success(let order):
                 self.id = order.id
