@@ -205,7 +205,7 @@ extension ProfileViewController:ProfileDelegete{
             switch result{
             case .success(let orders):
                 print(orders)
-                self.orders = orders.filter({ $0.customer?.id == 6921948365036 })
+                self.orders = orders.filter({ $0.customer?.id == K.customerID })
                 self.isLoadingIndicatorAnimating = !self.isLoadingIndicatorAnimating
               
                 self.TableView.reloadSections(IndexSet(integer: 0), with: .fade)
@@ -221,7 +221,7 @@ extension ProfileViewController:ProfileDelegete{
     
     func getwishlist(){
         self.isLoadingIndicatorAnimating = true
-        ViewModel.getWishlist(forCustom: 6921948365036) { result in
+        ViewModel.getWishlist(forCustom: K.customerID) { result in
             switch result{
             case .success(let wishLists):
                 print(wishLists)

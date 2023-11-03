@@ -7,7 +7,9 @@
 
 import Foundation
 
-
+struct userAdresses:Codable{
+    let addresses:[Address]
+}
 struct Address: Codable{
     let  id: Int
     let  customerID: Int
