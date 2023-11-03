@@ -20,9 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         if url.scheme?.localizedCaseInsensitiveCompare("EOA-industry.Nexus-Store.payments") == .orderedSame {
-            // Handle PayPal URL scheme
-            // Add your PayPal handling logic here
-            return true
+            return BTAppContextSwitcher.sharedInstance.handleOpen(url)
         } else if GIDSignIn.sharedInstance.handle(url) {
             // Handle Google Sign-In URL scheme
             return true

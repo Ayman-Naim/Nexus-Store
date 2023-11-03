@@ -9,6 +9,15 @@ import UIKit
 import PassKit
 import BraintreeCore
 import BraintreePayPal
+import BraintreePayPalNativeCheckout
+import BraintreeDataCollector
+import BraintreeLocalPayment
+import BraintreeThreeDSecure
+import BraintreeCard
+import BraintreeVenmo
+import BraintreeAmericanExpress
+import BraintreeApplePay
+import BraintreeSEPADirectDebit
 
 class PayMethodViewController: UIViewController {
 
@@ -20,6 +29,7 @@ class PayMethodViewController: UIViewController {
     var totalAmount: Double = 250.0
     let authorization = "sandbox_8h3qzxnj_76tbywh3qkq2yw2k"
     var braintreeAPIClient:BTAPIClient!
+    var payPalNativeCheckoutClient: BTPayPalNativeCheckoutClient!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +49,21 @@ class PayMethodViewController: UIViewController {
 
     @IBAction func PayButtonClicked(_ sender: Any) {
         //
-        presentPaymentController()
+   //     presentPaymentController()
+        if selectedPayment?.row == 0{
+            let alert = UIAlertController(title: "Cash On Delivery", message: "Are You Sure You Want To Pay Cash On Delivery?", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { action in
+                let alert = UIAlertController(title: "Successful Process!", message: "The Order Will Be Sent To Your Address, Thanks For Dealing With Us!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }else if selectedPayment?.row == 1{
+      //      self.paypalCheckout(amount: totalAmount)
+        }else if selectedPayment?.row == 2{
+            self.presentPaymentController()
+        }
     }
 }
 
@@ -137,17 +161,15 @@ extension PayMethodViewController:UITableViewDelegate,UITableViewDataSource, PKP
 
         func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
 
-            let alert = UIAlertController(title: "Payment Successful", message: "Thank you for your purchase.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-                completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
-            }))
-            controller.present(alert, animated: true, completion: nil)
+            completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
         }
 
         func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
             controller.dismiss(animated: true) {
             //    self.showAlert(title: "Payment Successful", message: "Thank you for your purchase.")
-                
+                let alert = UIAlertController(title: "Payment Successful", message: "Thank you for your purchase.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
         }
     func showAlert(title: String, message: String) {
@@ -155,5 +177,71 @@ extension PayMethodViewController:UITableViewDelegate,UITableViewDataSource, PKP
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
+    
+    /*
+    func paypalCheckout(amount: Double) {
+        self.braintreeAPIClient = BTAPIClient(authorization: authorization)
+        let payPalDriver = BTPayPalClient(apiClient: braintreeAPIClient!)
+ /*       let request = BTPayPalNativeCheckoutRequest(amount: "\(amount)")
+        request.currencyCode = "USD"
+        payPalNativeCheckoutClient.tokenize(request) { payPalNativeCheckoutNonce, error in
+            if let payPalNativeCheckoutNonce = payPalNativeCheckoutNonce {
+                // send payPalNativeCheckoutNonce.nonce to server
+                print("Ashraf")
+            } else {
+                // handle error
+                print("Ayman")
+            }
+        }*/
+        let request = BTPayPalCheckoutRequest(amount: "\(amount)")
+        request.currencyCode = "USD"
+        let payPalClient = BTPayPalClient(apiClient: self.braintreeAPIClient)
+        let vaultRequest = BTPayPalVaultRequest()
+        payPalClient.tokenize(request) { (tokenizedPayPalAccount, error) in
+            print(tokenizedPayPalAccount ?? "nil")
+        }
+   /*     if ApplicationUserManger.shared.getSelectedCurrency(){
+            request.currencyCode = "USD"
+        }else{
+            request.currencyCode = "EGP"
+        }*/
+        var err:Error?
+        payPalDriver.tokenize(request) { [weak self] (tokenizedPayPalAccount, error) in
+            if tokenizedPayPalAccount != nil {
+                print("log el mon")
+            } else if let error = error {
+                err = error
+                print(String(describing: error))
+            }
+            if err == nil{
+          //      let orders = CoreDataManager.shared.fetchDataFromCart()
+          //      self!.ViewModel.postOrdersToApi(cartArray: orders)
+                let alert = UIAlertController(title: "Successfull Payment!", message: "Thanks For Dealing With Us", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Go Shopping", style: .default) { _ in
+                    // Navigate to the Home view controller
+                    let home = NexusTabBarController()
+                    self?.navigationController?.pushViewController(home, animated: true)
+                })
+                self?.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func presentDropInUI() {
+        let request =  BTDropInRequest()
+        let dropIn = BTDropInController(authorization: authorization, request: request) { (controller, result, error) in
+            if let error = error {
+                // Handle error
+                print("Braintree error: \(error.localizedDescription)")
+            } else if result?.isCancelled == true {
+                // Handle user cancellation
+            } else if let nonce = result?.paymentMethod?.nonce {
+                // Nonce is available, send it to your server for further processing
+                self.sendPaymentNonceToServer(nonce)
+            }
+            controller.dismiss(animated: true, completion: nil)
+        }
+        self.present(dropIn!, animated: true, completion: nil)
+    }*/
 }
 
