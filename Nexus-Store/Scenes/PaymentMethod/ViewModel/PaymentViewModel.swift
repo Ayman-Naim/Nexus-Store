@@ -38,16 +38,11 @@ class PaymentViewModel{
     
     
     func deleteFullDraftOrder(customerID: Int, failure: @escaping (Error) -> Void) {
-        draftOrder.customerDraftOrders(customerID: customerID) { result in
+        draftOrder.customerDraftOrder(customerID: customerID) { result in
             switch result {
-            case .success(let draftOrders):
-                let notFullDraftOrders = draftOrders.filter{ $0.note == "FullOrder"}
-                
+            case .success(let draftOrder):
                 let url = "https://ios-q1-new-capital-admin1-2023.myshopify.com/admin/api/2023-01/draft_orders"
-                for index in notFullDraftOrders.indices {
-                    let orderID = notFullDraftOrders[index].id
-                    AF.request(url + "/\(orderID).json", method: .delete, headers: self.header).response { _ in }
-                }
+                AF.request(url + "/\(draftOrder.id).json", method: .delete, headers: self.header).response { _ in }
                 
             case .failure(let error):
                 failure(error)
