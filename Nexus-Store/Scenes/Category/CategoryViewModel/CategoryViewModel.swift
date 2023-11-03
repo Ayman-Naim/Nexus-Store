@@ -46,7 +46,9 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
             else {
                 print("Product Brand Count \(productForBrand.count) || FilterProduct Count \(filterProduct.count)")
                 if ((allProduct.count == filterProduct.count))  {
-                    self.filteraccodingToBrand(brandName: self.brandName)
+                    if self.fromBrand == true {
+                        self.filteraccodingToBrand(brandName: self.brandName)
+                    }
                     filterProduct = productForBrand
                     productForBrand.removeAll()
                     self.reload?()

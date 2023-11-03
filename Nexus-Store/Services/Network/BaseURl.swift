@@ -49,7 +49,7 @@ enum BaseUrl:String{
         case .allpriceRole: return "\(BaseUrl.baseURL)price_rules.json"
         case .copounsOfPrieRule: return "\(BaseUrl.baseURL)price_rules/\(BaseUrl.CoupunsPriceRuleID)/discount_codes.json"
             
-        case .draftOrder : return "\(BaseUrl.draftOrder)draft_orders/\(BaseUrl.draftOrderID)"
+        case .draftOrder : return "\(BaseUrl.baseURL)draft_orders/\(BaseUrl.draftOrderID).json"
 
         }
     }

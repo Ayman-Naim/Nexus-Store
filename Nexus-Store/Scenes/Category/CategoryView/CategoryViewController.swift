@@ -266,6 +266,8 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
     private func bindViewModel() {
         categoryViewModuleRefactor.loadingAnimation = { [weak self] isLoading in
             DispatchQueue.main.async {
+                    self?.CategoryCollectionView.isUserInteractionEnabled = !isLoading
+                
                 self?.isLoadingIndicatorAnimating = isLoading
             }
         }
@@ -275,13 +277,15 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
                 
                 self?.CategoryCollectionView.reloadSections(IndexSet(integer: 2))
 
+
             }
         }
         
         categoryViewModuleRefactor.errorOccurs = { [weak self] error in
             guard let self = self else { return }
             self.isLoadingIndicatorAnimating = false
-           // Alert.show(on: self, title: "Error", message: error)
+//            categoryViewModuleRefactor.CheckIsAllProductMainCategoryForAllProduct(for: forMainCategory, with: forSubCategory)
+            Alert.show(on: self, title: "Error", message: error)
         }
     }
     

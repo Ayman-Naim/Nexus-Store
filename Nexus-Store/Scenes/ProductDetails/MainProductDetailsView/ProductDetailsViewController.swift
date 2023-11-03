@@ -189,7 +189,7 @@ class ProductDetailsViewController: UIViewController {
             let okAction = UIAlertAction(title: "OK", style: .default) { action in
                 self.navigationController?.pushViewController(vc, animated: true)
             }
-            Alert.show(on: self, title: "Congratulation", message: "You scussfully added the quatity to the Cart",actions: [okAction])
+            Alert.show(on: self, title: "Congratulation", message: "You Successfully added the quatity to the Cart",actions: [okAction])
             productDetailsViewModel?.addProductToCart()
         }else{
 
