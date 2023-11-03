@@ -13,6 +13,7 @@ class BrandsCollectionCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
         self.BrandLogo.backgroundColor = .gray
         self.BrandLogo.layer.cornerRadius = self.BrandLogo.frame.size.width/2;
         self.BrandLogo.layer.masksToBounds = true
