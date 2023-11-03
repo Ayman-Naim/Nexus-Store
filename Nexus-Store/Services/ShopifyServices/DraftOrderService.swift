@@ -259,6 +259,10 @@ class DraftOrderService {
                         guard let lineItemsData = try? JSONEncoder().encode(lineItems) else { return }
                         guard let lineItemsJSON = try? JSONSerialization.jsonObject(with: lineItemsData, options: [.fragmentsAllowed]) as? [[String: Any]] else { return }
                         
+                        print("any value", terminator: Array(repeating: "\n", count: 100).joined())
+                        print(draftOrder.lineItems)
+                        print("========================================")
+                        print(lineItemsJSON)
                         
                         let params = [
                             "draft_order": [
