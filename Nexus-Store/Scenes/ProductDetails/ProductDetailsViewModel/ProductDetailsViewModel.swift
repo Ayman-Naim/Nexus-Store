@@ -216,14 +216,31 @@ class ProductDetailsViewModel{
         return  Double (numberOfItemsUpdates) * (priceOfSingleItem ?? 0.0)
     }
     
-    func checkoutOrder()->(CustomrtId:Int,Quantity:Int,VariantId:Int?,productImage:String?){
-          
-    //        let custemerId
-    //        let varientID
-    //        let Quatity
-    //        let imageUrl
-        return(CustomrtId:custemerId,Quantity:numberOfItemsUpdates,VariantId:variaintID,productImage:productItem?.image?.src) 
-     
+    func addProductToCart(){
+        guard let variaintID = variaintID else {
+            self.errorOccurs?("Please select size and color for the product to add to the cart")
+            return
+        }
+        
+        guard let quantity = numberOfQuantityUpdates else {
+            self.errorOccurs?("Please choose quantity for the product!")
+            return
+        }
+        
+        let cartService = CartService()
+        
+        self.isLoadingAnimation?(true)
+        
+        cartService.addProductToCart(forCustomerID: custemerId, variantID: variaintID, quantity: quantity, imageURLString: productItem?.image?.src ?? "") { [weak self] error in
+            DispatchQueue.main.async {
+                self?.isLoadingAnimation?(false)
+            }
+            if let error = error {
+                self?.errorOccurs?(error.localizedDescription)
+                return
+            }
+            self?.alertNotification?("Success", "Product added to the cart successfully!")
+        }
     }
     
     
