@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import GoogleSignIn
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -89,6 +90,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             alert.addAction(UIAlertAction(title: "Sign Out", style: .default, handler: { action in
                 do{
                     try Auth.auth().signOut()
+         //           self.signOutGoogle()
                     UserDefaults.standard.removeObject(forKey: "customerID")
                     UserDefaults.standard.removeObject(forKey: "customerEmail")
                     UserDefaults.standard.synchronize()
@@ -108,5 +110,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             print("Default")
         }
     }
-
+    /*
+    func signOutGoogle(){
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+            GIDSignIn.sharedInstance.signOut()
+        } catch{
+            print("Logout Error: \(error.localizedDescription)")
+        }
+    }*/
 }

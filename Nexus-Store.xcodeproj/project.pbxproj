@@ -124,6 +124,7 @@
 		45BED45F2AEDC31000795D8A /* productDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BED45B2AEDC31000795D8A /* productDetailsCell.swift */; };
 		45BED4612AEDCA9100795D8A /* BrandProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BED4602AEDCA9100795D8A /* BrandProductViewModel.swift */; };
 		45D0E8912AE0A04800A07332 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D0E8902AE0A04800A07332 /* K.swift */; };
+		5B0BC7B92AF49EFB00A25CC5 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0BC7B82AF49EFB00A25CC5 /* PaymentViewModel.swift */; };
 		5B2CE85B2AF21DD50008DC5B /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B2CE85A2AF21DD50008DC5B /* credentials.plist */; };
 		5B312CD32AEBD64E00394BDF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B312CD22AEBD64E00394BDF /* GoogleService-Info.plist */; };
 		5B94B7C82AF0C2B10010071D /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B94B7C72AF0C2B10010071D /* SignIn.swift */; };
@@ -136,6 +137,17 @@
 		5B9A02832AECBC79007DC704 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9A02812AECBC79007DC704 /* SettingsViewController.xib */; };
 		5B9A02882AECD1BB007DC704 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A02862AECD1BB007DC704 /* AboutUsViewController.swift */; };
 		5B9A02892AECD1BB007DC704 /* AboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9A02872AECD1BB007DC704 /* AboutUsViewController.xib */; };
+		5BBD93BC2AF38DED00E5356D /* BraintreeAmericanExpress in Frameworks */ = {isa = PBXBuildFile; productRef = 5BBD93BB2AF38DED00E5356D /* BraintreeAmericanExpress */; };
+		5BBD93BE2AF38DED00E5356D /* BraintreeApplePay in Frameworks */ = {isa = PBXBuildFile; productRef = 5BBD93BD2AF38DED00E5356D /* BraintreeApplePay */; };
+		5BBD93C02AF38DED00E5356D /* BraintreeCard in Frameworks */ = {isa = PBXBuildFile; productRef = 5BBD93BF2AF38DED00E5356D /* BraintreeCard */; };
+		5BBD93C22AF38DED00E5356D /* BraintreeCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5BBD93C12AF38DED00E5356D /* BraintreeCore */; };
+		5BBD93C42AF38DED00E5356D /* BraintreeDataCollector in Frameworks */ = {isa = PBXBuildFile; productRef = 5BBD93C32AF38DED00E5356D /* BraintreeDataCollector */; };
+		5BBD93C62AF38DED00E5356D /* BraintreeLocalPayment in Frameworks */ = {isa = PBXBuildFile; productRef = 5BBD93C52AF38DED00E5356D /* BraintreeLocalPayment */; };
+		5BBD93C82AF38DED00E5356D /* BraintreePayPal in Frameworks */ = {isa = PBXBuildFile; productRef = 5BBD93C72AF38DED00E5356D /* BraintreePayPal */; };
+		5BBD93CA2AF38DED00E5356D /* BraintreePayPalNativeCheckout in Frameworks */ = {isa = PBXBuildFile; productRef = 5BBD93C92AF38DED00E5356D /* BraintreePayPalNativeCheckout */; };
+		5BBD93CC2AF38DED00E5356D /* BraintreeSEPADirectDebit in Frameworks */ = {isa = PBXBuildFile; productRef = 5BBD93CB2AF38DED00E5356D /* BraintreeSEPADirectDebit */; };
+		5BBD93CE2AF38DED00E5356D /* BraintreeThreeDSecure in Frameworks */ = {isa = PBXBuildFile; productRef = 5BBD93CD2AF38DED00E5356D /* BraintreeThreeDSecure */; };
+		5BBD93D02AF38DED00E5356D /* BraintreeVenmo in Frameworks */ = {isa = PBXBuildFile; productRef = 5BBD93CF2AF38DED00E5356D /* BraintreeVenmo */; };
 		5BC20AC52AE190CA0071925A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20AC32AE190C90071925A /* SignUpViewController.swift */; };
 		5BC20AC62AE190CA0071925A /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC20AC42AE190C90071925A /* SignUpViewController.xib */; };
 		5BC20AC92AE1911F0071925A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC20AC72AE1911F0071925A /* SignInViewController.swift */; };
@@ -341,6 +353,7 @@
 		45BED45B2AEDC31000795D8A /* productDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = productDetailsCell.swift; sourceTree = "<group>"; };
 		45BED4602AEDCA9100795D8A /* BrandProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandProductViewModel.swift; sourceTree = "<group>"; };
 		45D0E8902AE0A04800A07332 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		5B0BC7B82AF49EFB00A25CC5 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
 		5B2CE85A2AF21DD50008DC5B /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		5B312CD22AEBD64E00394BDF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B94B7C72AF0C2B10010071D /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
@@ -467,10 +480,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BBD93BC2AF38DED00E5356D /* BraintreeAmericanExpress in Frameworks */,
+				5BBD93CA2AF38DED00E5356D /* BraintreePayPalNativeCheckout in Frameworks */,
 				D14182C7B08E56039861E606 /* Pods_Nexus_Store.framework in Frameworks */,
+				5BBD93D02AF38DED00E5356D /* BraintreeVenmo in Frameworks */,
+				5BBD93C62AF38DED00E5356D /* BraintreeLocalPayment in Frameworks */,
+				5BBD93C82AF38DED00E5356D /* BraintreePayPal in Frameworks */,
+				5BBD93C42AF38DED00E5356D /* BraintreeDataCollector in Frameworks */,
+				5BBD93CE2AF38DED00E5356D /* BraintreeThreeDSecure in Frameworks */,
+				5BBD93C22AF38DED00E5356D /* BraintreeCore in Frameworks */,
 				935B628CC7302E8E15C239CD /* Pods_Nexus_Store.framework in Frameworks */,
 				5BEEA9A82AF0340A007169D6 /* GoogleSignIn in Frameworks */,
+				5BBD93CC2AF38DED00E5356D /* BraintreeSEPADirectDebit in Frameworks */,
 				5BEEA9AA2AF0340A007169D6 /* GoogleSignInSwift in Frameworks */,
+				5BBD93BE2AF38DED00E5356D /* BraintreeApplePay in Frameworks */,
+				5BBD93C02AF38DED00E5356D /* BraintreeCard in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1038,6 +1062,21 @@
 				45BED45B2AEDC31000795D8A /* productDetailsCell.swift */,
 			);
 			path = CustomProductCell;
+			sourceTree = "<group>";
+		};
+		5B0BC7B62AF49ECF00A25CC5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5B0BC7B72AF49ED900A25CC5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5B0BC7B82AF49EFB00A25CC5 /* PaymentViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		5B94B7C62AF0C29D0010071D /* Model */ = {
@@ -1783,6 +1822,8 @@
 		E37B4DE22AE3011A0051EB89 /* PaymentMethod */ = {
 			isa = PBXGroup;
 			children = (
+				5B0BC7B72AF49ED900A25CC5 /* ViewModel */,
+				5B0BC7B62AF49ECF00A25CC5 /* Model */,
 				E37B4DE82AE307990051EB89 /* Component */,
 				E37B4DE72AE3078F0051EB89 /* View */,
 			);
@@ -1960,6 +2001,17 @@
 			packageProductDependencies = (
 				5BEEA9A72AF0340A007169D6 /* GoogleSignIn */,
 				5BEEA9A92AF0340A007169D6 /* GoogleSignInSwift */,
+				5BBD93BB2AF38DED00E5356D /* BraintreeAmericanExpress */,
+				5BBD93BD2AF38DED00E5356D /* BraintreeApplePay */,
+				5BBD93BF2AF38DED00E5356D /* BraintreeCard */,
+				5BBD93C12AF38DED00E5356D /* BraintreeCore */,
+				5BBD93C32AF38DED00E5356D /* BraintreeDataCollector */,
+				5BBD93C52AF38DED00E5356D /* BraintreeLocalPayment */,
+				5BBD93C72AF38DED00E5356D /* BraintreePayPal */,
+				5BBD93C92AF38DED00E5356D /* BraintreePayPalNativeCheckout */,
+				5BBD93CB2AF38DED00E5356D /* BraintreeSEPADirectDebit */,
+				5BBD93CD2AF38DED00E5356D /* BraintreeThreeDSecure */,
+				5BBD93CF2AF38DED00E5356D /* BraintreeVenmo */,
 			);
 			productName = "Nexus-Store";
 			productReference = E37687A72ADDFFB500DB09A1 /* Nexus-Store.app */;
@@ -1998,6 +2050,7 @@
 			mainGroup = E376879E2ADDFFB400DB09A1;
 			packageReferences = (
 				5BEEA9A62AF0340A007169D6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				5BBD93BA2AF38DED00E5356D /* XCRemoteSwiftPackageReference "braintree_ios" */,
 			);
 			productRefGroup = E37687A82ADDFFB500DB09A1 /* Products */;
 			projectDirPath = "";
@@ -2323,6 +2376,7 @@
 				0199C9972AEC0AD5007B3122 /* CartViewModel.swift in Sources */,
 				457276B02AEE7AC100EE759D /* PriceRule.swift in Sources */,
 				E34556662AE1AD9400312C6C /* OrderTableViewCell.swift in Sources */,
+				5B0BC7B92AF49EFB00A25CC5 /* PaymentViewModel.swift in Sources */,
 				5BFDC6472AEE683B00C2F6C7 /* ContactUsViewController.swift in Sources */,
 				01A0EB932AE075CB004310FC /* ProductLandscapeTVCell.swift in Sources */,
 				5B94B7C82AF0C2B10010071D /* SignIn.swift in Sources */,
@@ -2715,6 +2769,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5BBD93BA2AF38DED00E5356D /* XCRemoteSwiftPackageReference "braintree_ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/braintree/braintree_ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.8.0;
+			};
+		};
 		5BEEA9A62AF0340A007169D6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
@@ -2726,6 +2788,61 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5BBD93BB2AF38DED00E5356D /* BraintreeAmericanExpress */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BBD93BA2AF38DED00E5356D /* XCRemoteSwiftPackageReference "braintree_ios" */;
+			productName = BraintreeAmericanExpress;
+		};
+		5BBD93BD2AF38DED00E5356D /* BraintreeApplePay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BBD93BA2AF38DED00E5356D /* XCRemoteSwiftPackageReference "braintree_ios" */;
+			productName = BraintreeApplePay;
+		};
+		5BBD93BF2AF38DED00E5356D /* BraintreeCard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BBD93BA2AF38DED00E5356D /* XCRemoteSwiftPackageReference "braintree_ios" */;
+			productName = BraintreeCard;
+		};
+		5BBD93C12AF38DED00E5356D /* BraintreeCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BBD93BA2AF38DED00E5356D /* XCRemoteSwiftPackageReference "braintree_ios" */;
+			productName = BraintreeCore;
+		};
+		5BBD93C32AF38DED00E5356D /* BraintreeDataCollector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BBD93BA2AF38DED00E5356D /* XCRemoteSwiftPackageReference "braintree_ios" */;
+			productName = BraintreeDataCollector;
+		};
+		5BBD93C52AF38DED00E5356D /* BraintreeLocalPayment */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BBD93BA2AF38DED00E5356D /* XCRemoteSwiftPackageReference "braintree_ios" */;
+			productName = BraintreeLocalPayment;
+		};
+		5BBD93C72AF38DED00E5356D /* BraintreePayPal */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BBD93BA2AF38DED00E5356D /* XCRemoteSwiftPackageReference "braintree_ios" */;
+			productName = BraintreePayPal;
+		};
+		5BBD93C92AF38DED00E5356D /* BraintreePayPalNativeCheckout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BBD93BA2AF38DED00E5356D /* XCRemoteSwiftPackageReference "braintree_ios" */;
+			productName = BraintreePayPalNativeCheckout;
+		};
+		5BBD93CB2AF38DED00E5356D /* BraintreeSEPADirectDebit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BBD93BA2AF38DED00E5356D /* XCRemoteSwiftPackageReference "braintree_ios" */;
+			productName = BraintreeSEPADirectDebit;
+		};
+		5BBD93CD2AF38DED00E5356D /* BraintreeThreeDSecure */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BBD93BA2AF38DED00E5356D /* XCRemoteSwiftPackageReference "braintree_ios" */;
+			productName = BraintreeThreeDSecure;
+		};
+		5BBD93CF2AF38DED00E5356D /* BraintreeVenmo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BBD93BA2AF38DED00E5356D /* XCRemoteSwiftPackageReference "braintree_ios" */;
+			productName = BraintreeVenmo;
+		};
 		5BEEA9A72AF0340A007169D6 /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5BEEA9A62AF0340A007169D6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;

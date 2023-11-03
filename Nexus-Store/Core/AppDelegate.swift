@@ -11,19 +11,35 @@ import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
 import GoogleSignInSwift
+import BraintreeCore
+import BraintreePayPal
+import BraintreePayPalNativeCheckout
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    func application(_ app: UIApplication,
-                     open url: URL,
-                     options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    /*    if url.scheme?.localizedCaseInsensitiveCompare("EOA-industry.Nexus-Store.payments") == .orderedSame {
+            return BTAppContextSwitcher.sharedInstance.handleOpen(url)
+        } else if GIDSignIn.sharedInstance.handle(url) {
+            // Handle Google Sign-In URL scheme
+            return true
+        }
+        return false */
         return GIDSignIn.sharedInstance.handle(url)
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        BTAppContextSwitcher.sharedInstance.returnURLScheme = "EOA-industry.Nexus-Store.payments"
+  /*      BTAppContextSwitcher.sharedInstance
+
+        // Configure Braintree with your client token
+        BTAppContextSwitcher.setReturnURLScheme("com.yourapp.payments") // Use your own app's URL scheme
+        BTAppContextSwitcher.setHandleAllURLSchemes()
+
+        BTAppContextSwitcher.enable()*/
   //      Auth.auth().useEmulator(withHost: "localhost", port: 9099)
         
         //UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -1000.0, vertical: 0.0), for: .default)
@@ -88,6 +104,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    /*
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        if url.scheme?.localizedCaseInsensitiveCompare("EOA-industry.Nexus-Store.payments") == .orderedSame {
+                return BTAppContextSwitcher.sharedInstance.handleOpen(url)
+            }
+            return false
+    }*/
 
 }
 
