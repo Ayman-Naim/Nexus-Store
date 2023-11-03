@@ -17,11 +17,35 @@ class AddProductVM{
                 "body_html": "\(Descriotion)",//product descrioption
                 "vendor": "\(vendor)", // vendor name
                 "product_type": "\(type)", // product type
-                "variants": []
+                "variants": [
+                            [
+                                "option1":"1",
+                                "option2":"red"
+                            ]
+                            ],
+                
+                            "options": [
+                           [
+                             
+                               "name": "Size",
+                               "position": 1,
+                               "values": [
+                                   "1"
+                               ]
+                           ],
+                           [
+                             
+                               "name": "Color",
+                               "position": 2,
+                               "values": [
+                                   "red"
+                               ]
+                           ]
+                       ]
+               
                 
             ] as [String : Any]
         ]
-        
         AdminNetManger.SharedApiManger.postData(url: .AddProduct, parameters:parameter , decodingModel: SingleProductResponse.self ){result in
             switch result{
             case.success(let product):

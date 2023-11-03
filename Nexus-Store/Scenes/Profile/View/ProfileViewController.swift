@@ -24,10 +24,14 @@ class ProfileViewController: UIViewController {
         circleImage()
         getOrders()
         getwishlist()
+        setUserName()
        
         // Do any additional setup after loading the view.
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        getOrders()
+        getwishlist()
+    }
 
     func setupTabelView(){
         TableView.delegate = self
@@ -67,7 +71,7 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
             if (orders.count == 0) {
                 return 0;
             } else if (expandItemsSec1 == false) {
-                return 2;
+                return orders.count==1 ? 1 : 2
             } else {
                 return orders.count;
             }
@@ -76,7 +80,7 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
             if (wishList.count == 0) {
                 return 0;
             } else if (expandItemsSec2 == false) {
-                return 2;
+                return wishList.count==1 ? 1 : 2
             } else {
                 return wishList.count;
             }
@@ -90,7 +94,9 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section{
         case  0 :
+            
             let cell  = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for: indexPath) as!  OrderTableViewCell
+            //cell.selectionStyle = .none
             if  orders.count>0{
                 //if(orders[indexPath.row].customer?.id == 6899149603052){
                 cell.orderNo.text = "\(orders[indexPath.row].order_number!)"
@@ -106,8 +112,10 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
         case  1 :
             let cell  = tableView.dequeueReusableCell(withIdentifier: "FavouriteTableViewCell", for: indexPath) as!  FavouriteTableViewCell
             cell.productImage.setImage(withURLString: wishList[indexPath.row].image?.src ?? "")
-            cell.productName.text = wishList[indexPath.row].title
-            cell.ProductPrice.text = "\(wishList[indexPath.row].variants!.first?.price) $"
+            let title = wishList[indexPath.row].title
+            cell.productName.text = title
+            guard let price = wishList[indexPath.row].variants!.first?.price else{return cell}
+            cell.ProductPrice.text = "\(price) $"
             
             return cell
         default:
@@ -151,6 +159,7 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section{
+            
         case 0 :
             guard let url = URL(string: orders[indexPath.row].order_status_url ?? "") else { return }
             UIApplication.shared.open(url)
@@ -196,7 +205,7 @@ extension ProfileViewController:ProfileDelegete{
             switch result{
             case .success(let orders):
                 print(orders)
-                self.orders = orders.filter({ $0.customer?.id == 6899149603052 })
+                self.orders = orders.filter({ $0.customer?.id == K.customerID })
                 self.isLoadingIndicatorAnimating = !self.isLoadingIndicatorAnimating
               
                 self.TableView.reloadSections(IndexSet(integer: 0), with: .fade)
@@ -212,7 +221,7 @@ extension ProfileViewController:ProfileDelegete{
     
     func getwishlist(){
         self.isLoadingIndicatorAnimating = true
-        ViewModel.getWishlist(forCustom: 6899149865196) { result in
+        ViewModel.getWishlist(forCustom: K.customerID) { result in
             switch result{
             case .success(let wishLists):
                 print(wishLists)
@@ -223,12 +232,21 @@ extension ProfileViewController:ProfileDelegete{
                 
             case .failure(let error):
                 print(error)
-                
-                
             }
         }
-        
-        
+       
+    }
+    //get user name
+    func setUserName(){
+        let user = ViewModel.getUserData()
+        switch user{
+        case.success(let userEmail):
+            UserName.text = userEmail
+        case.failure(let error ):
+            UserName.text = error.localizedDescription
+            
+        }
         
     }
+    
 }

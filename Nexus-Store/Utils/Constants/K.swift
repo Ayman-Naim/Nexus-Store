@@ -30,14 +30,26 @@ struct K{
     static let tShirt = "T-SHIRTS"
     static let shoes = "SHOES"
     static let accessories = "ACCESSORIES"
+    static let all = "All"
+    
+    //Icons
     static let darkModeLogo = "DarkMode-AppIcon"
+    static let backButtonIcon = "chevron.left"
+    
     
     //Favorite icon image system
     static let favoriteIconNotSave = "heart"
     static let favoriteIconSave = "heart.fill"
     
+    static let customerIdKey = "customerID"
+    
  
     
     
+    static var customerID: Int { UserDefaults.standard.integer(forKey: "customerID") }
     
+    
+    static func customError(title: String? = nil, message: String) -> Error {
+        return NSError(domain: title ?? "Error", code: 400, userInfo: [NSLocalizedDescriptionKey: message])
+    }
 }

@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func ayman(_ sender: Any) {
-        let vc = SignInViewController()
+        let vc = allBrandsViewController()
         
         
         self.navigationController?.pushViewController(vc, animated: true)

@@ -11,14 +11,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+/*    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        URLContexts.forEach { context in
+            if context.url.scheme?.localizedCaseInsensitiveCompare("EOA-industry.Nexus-Store.payments") == .orderedSame {
+                BTAppContextSwitcher.handleOpenURL(BTAppContextSwitcher.sharedInstance.handleOpenURL(context: context))
+            }
+        }
+    }*/
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+      
         if UserDefaults.standard.object(forKey: "customerID") != nil {
             //Key exists
-            
+
             guard let windowScene = (scene as? UIWindowScene) else { return }
             let window = UIWindow(windowScene: windowScene)
             // let nav = UINavigationController(rootViewController: SignInViewController())
@@ -35,6 +43,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.makeKeyAndVisible()
             self.window = window
         }
+//        guard let scene = (scene as? UIWindowScene) else { return }
+//        window = UIWindow(windowScene: scene)
+//        let rootViewController = SplashNexusScreen()
+//        window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+//        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -11,18 +11,14 @@ class ShippingViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    private var addresses: [(name: String, city: String, address: String, isSelected: Bool)] = [
-        ("Home 1", "Test 1", "Test", false),
-        ("Home 2", "Test 2", "Test", false),
-        ("Home 3", "Test 3", "Test", false),
-        ("Home 4", "Test 4", "Test", false),
-    ]
-    
+    private let viewModel = ShippingViewModel(customerID: K.customerID)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         setupTableView()
+        bindViewModel()
+        viewModel.getCustomerAddresses()
     }
     
     private func setupNavigationBar() {
@@ -47,12 +43,46 @@ class ShippingViewController: UIViewController {
     }
     
     @IBAction func continueToPaymentButtonPressed(_ sender: UIButton) {
-        self.navigationController?.pushViewController(PayMethodViewController(), animated: true)
+        confirmAlert { [weak self] in
+            self?.viewModel.setAddressForOrder {
+                self?.navigationController?.pushViewController(PayMethodViewController(), animated: true)
+            }
+        }
     }
     
     
     @IBAction func addPromoCodeButtonPressed(_ sender: UIButton) {
-        self.navigationController?.pushViewController(AddPromoCodeViewController(), animated: true)
+        confirmAlert { [weak self] in
+            self?.viewModel.setAddressForOrder {
+                self?.navigationController?.pushViewController(AddPromoCodeViewController(), animated: true)
+            }
+        }
+    }
+    
+    
+    private func confirmAlert(completion: @escaping () -> Void) {
+        let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
+            completion()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
+        Alert.show(on: self, title: "Shipping Address", message: "Are you sure of selectiong this address.", actions: [cancelAction, yesAction])
+    }
+    
+    
+    private func bindViewModel() {
+        viewModel.reload = { [weak self] in
+            self?.tableView.reloadData()
+        }
+        
+        viewModel.loadingIndicator = { [weak self] isLoading in
+            self?.isLoadingIndicatorAnimating = isLoading
+            self?.tableView.isUserInteractionEnabled = !isLoading
+        }
+        
+        viewModel.errorOccure = { [weak self] error in
+            guard let self = self else { return }
+            Alert.show(on: self, title: "Error", message: error)
+        }
     }
 }
 
@@ -60,21 +90,17 @@ class ShippingViewController: UIViewController {
 // MARK: - UITableView DataSource & Delegate
 extension ShippingViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return addresses.count
+        return viewModel.numberOfRow
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AddressTableViewCell.identifier, for: indexPath) as! AddressTableViewCell
-        let address = addresses[indexPath.row]
-        cell.setAddress(address)
-        cell.selecteAddress(address.isSelected)
+        viewModel.config(cell: cell, at: indexPath.row)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        addresses.indices.forEach({ addresses[$0].isSelected = false })
-        addresses[indexPath.row].isSelected = true
-        tableView.reloadData()
+        viewModel.didSelectCell(at: indexPath.row)
     }
 }
 
@@ -82,12 +108,7 @@ extension ShippingViewController: UITableViewDataSource, UITableViewDelegate {
 
 // MARK: - AddAddressDelegate
 extension ShippingViewController: AddAddressDelegate {
-    func didAddNewAddress(_ address: (name: String, city: String, address: String)) {
-        addresses.indices.forEach({ addresses[$0].isSelected = false })
-        addresses.insert((name: address.name,
-                          city: address.city,
-                          address: address.address,
-                          isSelected: true), at: 0)
-        tableView.reloadData()
+    func didAddNewAddress() {
+        viewModel.getCustomerAddresses()
     }
 }

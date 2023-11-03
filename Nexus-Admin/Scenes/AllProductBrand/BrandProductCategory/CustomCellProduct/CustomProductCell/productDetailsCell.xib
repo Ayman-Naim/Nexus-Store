@@ -70,7 +70,7 @@
                                 <rect key="frame" x="0.0" y="150" width="150" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blouse" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKb-dm-FTl">
-                                        <rect key="frame" x="0.0" y="2" width="150" height="60"/>
+                                        <rect key="frame" x="0.0" y="2" width="150" height="59.666666666666664"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" name="Title"/>
                                         <nil key="highlightedColor"/>
@@ -84,41 +84,8 @@
                                         <color key="textColor" name="Title"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dn6-No-oJ6" customClass="CosmosView" customModule="Cosmos">
-                                        <rect key="frame" x="0.0" y="66" width="20" height="14"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="14" id="diT-AN-S6g"/>
-                                            <constraint firstAttribute="width" constant="20" id="zSp-fN-wKH"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="rating">
-                                                <real key="value" value="0.5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
-                                                <color key="value" systemColor="systemYellowColor"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="emptyColor">
-                                                <color key="value" name="SubTitle"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="starSize">
-                                                <real key="value" value="16"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
-                                                <color key="value" systemColor="systemYellowColor"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
-                                                <color key="value" name="SubTitle"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="filledBorderWidth">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color | Size" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNR-r9-m2m">
-                                        <rect key="frame" x="40" y="64" width="110" height="18"/>
+                                        <rect key="frame" x="86" y="63.666666666666657" width="64" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="ZUG-3f-k0B"/>
                                         </constraints>
@@ -126,19 +93,28 @@
                                         <color key="textColor" name="SubTitle"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YqC-93-bsw">
+                                        <rect key="frame" x="0.0" y="65" width="70" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="8zI-p6-1YR"/>
+                                            <constraint firstAttribute="height" constant="15" id="H5w-t3-PTx"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="wNR-r9-m2m" secondAttribute="trailing" id="3LE-eX-IFd"/>
-                                    <constraint firstItem="wNR-r9-m2m" firstAttribute="leading" secondItem="Dn6-No-oJ6" secondAttribute="trailing" constant="20" id="3la-am-pqJ"/>
+                                    <constraint firstItem="wNR-r9-m2m" firstAttribute="centerY" secondItem="YqC-93-bsw" secondAttribute="centerY" id="4db-Wo-mqu"/>
                                     <constraint firstAttribute="bottom" secondItem="8pE-nV-hfI" secondAttribute="bottom" id="DiF-s4-cvT"/>
                                     <constraint firstAttribute="trailing" secondItem="EKb-dm-FTl" secondAttribute="trailing" id="GBN-pp-FNC"/>
                                     <constraint firstItem="EKb-dm-FTl" firstAttribute="top" secondItem="5SL-CR-ht4" secondAttribute="top" constant="2" id="Oxq-b5-UYl"/>
                                     <constraint firstItem="8pE-nV-hfI" firstAttribute="leading" secondItem="5SL-CR-ht4" secondAttribute="leading" id="T3a-vf-ft9"/>
+                                    <constraint firstItem="YqC-93-bsw" firstAttribute="leading" secondItem="5SL-CR-ht4" secondAttribute="leading" id="XsY-eh-7Jl"/>
                                     <constraint firstAttribute="trailing" secondItem="8pE-nV-hfI" secondAttribute="trailing" id="bgB-D8-jrG"/>
-                                    <constraint firstItem="8pE-nV-hfI" firstAttribute="top" secondItem="Dn6-No-oJ6" secondAttribute="bottom" constant="4" id="j3E-GE-8Sf"/>
-                                    <constraint firstItem="wNR-r9-m2m" firstAttribute="centerY" secondItem="Dn6-No-oJ6" secondAttribute="centerY" id="npj-TC-lFe"/>
+                                    <constraint firstItem="8pE-nV-hfI" firstAttribute="top" secondItem="YqC-93-bsw" secondAttribute="bottom" constant="4" id="qft-VA-pe8"/>
                                     <constraint firstItem="wNR-r9-m2m" firstAttribute="top" secondItem="EKb-dm-FTl" secondAttribute="bottom" constant="2" id="r7t-8J-K6L"/>
-                                    <constraint firstItem="Dn6-No-oJ6" firstAttribute="leading" secondItem="5SL-CR-ht4" secondAttribute="leading" id="v6o-mn-goT"/>
                                     <constraint firstItem="EKb-dm-FTl" firstAttribute="leading" secondItem="5SL-CR-ht4" secondAttribute="leading" id="vpB-Rj-2G6"/>
                                 </constraints>
                             </view>
@@ -171,7 +147,6 @@
                 <outlet property="productImage" destination="cgE-eB-Exx" id="dsh-AU-oIS"/>
                 <outlet property="productName" destination="EKb-dm-FTl" id="KlS-5e-8ph"/>
                 <outlet property="productPrice" destination="8pE-nV-hfI" id="dGe-HA-Hhp"/>
-                <outlet property="rating" destination="Dn6-No-oJ6" id="CZg-Ge-5Ng"/>
             </connections>
             <point key="canvasLocation" x="129.7709923664122" y="64.788732394366207"/>
         </collectionViewCell>
@@ -187,9 +162,6 @@
         </namedColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

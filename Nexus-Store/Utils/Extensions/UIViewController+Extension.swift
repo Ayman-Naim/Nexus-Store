@@ -6,11 +6,12 @@
 //
 
 import UIKit
-
+import Lottie
 
 
 extension UIViewController {
     
+
     var isContentEmptyViewHidden: Bool {
         set {
             // Check if there is subview that is of type ContentEmptyView Class
@@ -79,6 +80,8 @@ extension UIViewController {
         get { view.subviews.contains(where: { $0 is CustomLoadingIndicator }) }
     }
     
+    
+    //MARK: -  ADding Logo to Navigation Bar
     func addLogoToNavigationBarItem(logoImage:String) {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -91,5 +94,11 @@ extension UIViewController {
         imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
     }
+    
+    
+    
+
+   
+    
 }
 

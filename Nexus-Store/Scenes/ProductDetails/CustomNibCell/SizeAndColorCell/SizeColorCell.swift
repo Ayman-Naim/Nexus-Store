@@ -24,6 +24,15 @@ class SizeColorCell: UICollectionViewCell {
         // Initialization code
     }
     
+    override var isSelected: Bool {
+        didSet{
+            if isSelected {
+                backGroundView.configureDesignOfcellSelected(label: sizeColorLabel)
+            }else {
+                backGroundView.configureDesignOfCellNotSelected(label: sizeColorLabel)
+            }
+        }
+    }
  
     
 }

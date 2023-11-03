@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController" customModule="Nexus_Store" customModuleProvider="target">
             <connections>
                 <outlet property="emailField" destination="27q-Of-SAA" id="7mn-lp-tgl"/>
+                <outlet property="googleImage" destination="5P0-Kc-e35" id="o2s-ha-hBV"/>
                 <outlet property="passwordField" destination="8L1-pb-zYl" id="Epf-C7-Ucb"/>
                 <outlet property="toggleImage" destination="hHn-Ne-hya" id="Ub8-b9-aZC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -116,9 +117,9 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="qfV-Sx-zJM">
-                                    <rect key="frame" x="74.666666666666686" y="476.66666666666669" width="244" height="60.000000000000057"/>
+                                    <rect key="frame" x="166.66666666666666" y="476.66666666666669" width="60" height="60.000000000000057"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook1" translatesAutoresizingMaskIntoConstraints="NO" id="dCi-Pb-3t9">
+                                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook1" translatesAutoresizingMaskIntoConstraints="NO" id="dCi-Pb-3t9">
                                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="83L-OP-1od"/>
@@ -126,14 +127,14 @@
                                             </constraints>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="googleP" translatesAutoresizingMaskIntoConstraints="NO" id="5P0-Kc-e35">
-                                            <rect key="frame" x="91.999999999999986" y="0.0" width="60.000000000000014" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="60" id="Ta7-dV-jLy"/>
                                                 <constraint firstAttribute="height" constant="60" id="cGM-BF-fkE"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple-logo-transparent" translatesAutoresizingMaskIntoConstraints="NO" id="9OG-0a-ZPg">
-                                            <rect key="frame" x="184" y="0.0" width="60" height="60"/>
+                                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple-logo-transparent" translatesAutoresizingMaskIntoConstraints="NO" id="9OG-0a-ZPg">
+                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="MKV-bv-jbu"/>
                                                 <constraint firstAttribute="width" constant="60" id="mZ7-DA-9Jm"/>

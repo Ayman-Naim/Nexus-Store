@@ -38,8 +38,8 @@ class ContactUsViewController: UIViewController, UITableViewDelegate, UITableVie
         case 1:
             let cell =  tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as! ContactTableViewCell
             cell.nameLabel.text = "Ayman Mohamed"
-            cell.emailLabel.text = "ahmed.ashraf.aa.as@gmail.com"
-            cell.phoneLabel.text = "01002200959"
+            cell.emailLabel.text = "ayman_mohamed.naim@yahoo.com"
+            cell.phoneLabel.text = "01228424243"
             cell.imgView.image = UIImage(named: "Ayman")
             return cell
         case 2:

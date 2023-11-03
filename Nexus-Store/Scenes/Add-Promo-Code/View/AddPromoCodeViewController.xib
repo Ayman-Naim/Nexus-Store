@@ -12,10 +12,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddPromoCodeViewController" customModule="Nexus_Store" customModuleProvider="target">
             <connections>
+                <outlet property="ContinuePayment" destination="3Fa-R4-xYb" id="Gwi-uv-95U"/>
+                <outlet property="addCopouns" destination="cqA-rm-1Ek" id="1ZW-Zf-Zn4"/>
                 <outlet property="amountLabel" destination="EiT-NU-bFY" id="0FL-Zw-ysi"/>
                 <outlet property="promoCodeLabel" destination="thj-2U-Bzk" id="GZW-hX-RLo"/>
                 <outlet property="promoCodeTextField" destination="oxr-7y-Dfj" id="rs5-25-qeV"/>
                 <outlet property="promoDiscountLabel" destination="RCq-zb-VPl" id="3Z0-7j-lCd"/>
+                <outlet property="showOrders" destination="0hd-RW-Hlr" id="SQx-qj-JWi"/>
                 <outlet property="totalPriceLabel" destination="Bbg-Dj-q0h" id="UMr-fr-bhI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -28,7 +31,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="0fE-ts-YN1">
                     <rect key="frame" x="39.333333333333343" y="95" width="314.33333333333326" height="55"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Promo Code.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oxr-7y-Dfj" customClass="CustomTextField" customModule="Nexus_Store" customModuleProvider="target">
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Promo Code.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oxr-7y-Dfj" customClass="CustomTextField" customModule="Nexus_Store" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="241.33333333333334" height="55"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="55" id="9b2-VB-lej"/>
@@ -80,7 +83,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EiT-NU-bFY">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$200" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EiT-NU-bFY">
                                     <rect key="frame" x="137.66666666666663" y="0.0" width="129.33333333333337" height="20.333333333333332"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
@@ -97,7 +100,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-$0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCq-zb-VPl">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCq-zb-VPl">
                                     <rect key="frame" x="137.66666666666663" y="0.0" width="129.33333333333337" height="20.333333333333332"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
@@ -118,7 +121,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bbg-Dj-q0h">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$200" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bbg-Dj-q0h">
                                     <rect key="frame" x="137.66666666666663" y="0.0" width="129.33333333333337" height="20.333333333333332"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
@@ -209,7 +212,7 @@
     </objects>
     <designables>
         <designable name="oxr-7y-Dfj">
-            <size key="intrinsicContentSize" width="140.33333333333334" height="34"/>
+            <size key="intrinsicContentSize" width="116.33333333333333" height="34"/>
         </designable>
     </designables>
     <resources>

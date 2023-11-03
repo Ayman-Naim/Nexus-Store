@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="slZ-1O-5xJ" userLabel="MainView">
                         <rect key="frame" x="0.0" y="0.0" width="547" height="340"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mus\ProductImage" translatesAutoresizingMaskIntoConstraints="NO" id="kjC-np-DZH">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="che" translatesAutoresizingMaskIntoConstraints="NO" id="kjC-np-DZH">
                                 <rect key="frame" x="0.0" y="0.0" width="547" height="340"/>
                             </imageView>
                         </subviews>
@@ -48,6 +48,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="mus\ProductImage" width="150" height="150"/>
+        <image name="che" width="128" height="128"/>
     </resources>
 </document>

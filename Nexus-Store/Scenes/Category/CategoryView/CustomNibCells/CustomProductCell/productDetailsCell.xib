@@ -7,6 +7,7 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,7 +23,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KSm-eT-9ko">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="250"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mus\ProductImage" translatesAutoresizingMaskIntoConstraints="NO" id="cgE-eB-Exx">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceHolderImage" translatesAutoresizingMaskIntoConstraints="NO" id="cgE-eB-Exx">
                                 <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="z24-D8-sM6"/>
@@ -69,75 +70,40 @@
                                 <rect key="frame" x="0.0" y="150" width="150" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blouse" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKb-dm-FTl">
-                                        <rect key="frame" x="0.0" y="2" width="150" height="60"/>
+                                        <rect key="frame" x="0.0" y="2" width="150" height="52"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" name="Title"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$308.90" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8pE-nV-hfI">
-                                        <rect key="frame" x="0.0" y="84" width="150" height="16"/>
+                                        <rect key="frame" x="0.0" y="80" width="150" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="wKV-4k-sP6"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" name="Title"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dn6-No-oJ6" customClass="CosmosView" customModule="Cosmos">
-                                        <rect key="frame" x="0.0" y="66" width="20" height="14"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="14" id="diT-AN-S6g"/>
-                                            <constraint firstAttribute="width" constant="20" id="zSp-fN-wKH"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="rating">
-                                                <real key="value" value="0.5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
-                                                <color key="value" name="Title"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="emptyColor">
-                                                <color key="value" name="SubTitle"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="starSize">
-                                                <real key="value" value="16"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
-                                                <color key="value" name="Title"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
-                                                <color key="value" name="SubTitle"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="filledBorderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color | Size" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNR-r9-m2m">
-                                        <rect key="frame" x="40" y="64" width="110" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BrandName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNR-r9-m2m">
+                                        <rect key="frame" x="0.0" y="56" width="150" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="ZUG-3f-k0B"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" name="SearchPlaceholderColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="wNR-r9-m2m" secondAttribute="trailing" id="3LE-eX-IFd"/>
-                                    <constraint firstItem="wNR-r9-m2m" firstAttribute="leading" secondItem="Dn6-No-oJ6" secondAttribute="trailing" constant="20" id="3la-am-pqJ"/>
-                                    <constraint firstAttribute="bottom" secondItem="8pE-nV-hfI" secondAttribute="bottom" id="DiF-s4-cvT"/>
+                                    <constraint firstAttribute="bottom" secondItem="8pE-nV-hfI" secondAttribute="bottom" constant="4" id="DiF-s4-cvT"/>
                                     <constraint firstAttribute="trailing" secondItem="EKb-dm-FTl" secondAttribute="trailing" id="GBN-pp-FNC"/>
                                     <constraint firstItem="EKb-dm-FTl" firstAttribute="top" secondItem="5SL-CR-ht4" secondAttribute="top" constant="2" id="Oxq-b5-UYl"/>
+                                    <constraint firstItem="wNR-r9-m2m" firstAttribute="leading" secondItem="5SL-CR-ht4" secondAttribute="leading" id="PJx-qi-ZdS"/>
                                     <constraint firstItem="8pE-nV-hfI" firstAttribute="leading" secondItem="5SL-CR-ht4" secondAttribute="leading" id="T3a-vf-ft9"/>
                                     <constraint firstAttribute="trailing" secondItem="8pE-nV-hfI" secondAttribute="trailing" id="bgB-D8-jrG"/>
-                                    <constraint firstItem="8pE-nV-hfI" firstAttribute="top" secondItem="Dn6-No-oJ6" secondAttribute="bottom" constant="4" id="j3E-GE-8Sf"/>
-                                    <constraint firstItem="wNR-r9-m2m" firstAttribute="centerY" secondItem="Dn6-No-oJ6" secondAttribute="centerY" id="npj-TC-lFe"/>
+                                    <constraint firstItem="8pE-nV-hfI" firstAttribute="top" secondItem="wNR-r9-m2m" secondAttribute="bottom" constant="6" id="diF-Me-uOC"/>
                                     <constraint firstItem="wNR-r9-m2m" firstAttribute="top" secondItem="EKb-dm-FTl" secondAttribute="bottom" constant="2" id="r7t-8J-K6L"/>
-                                    <constraint firstItem="Dn6-No-oJ6" firstAttribute="leading" secondItem="5SL-CR-ht4" secondAttribute="leading" id="v6o-mn-goT"/>
                                     <constraint firstItem="EKb-dm-FTl" firstAttribute="leading" secondItem="5SL-CR-ht4" secondAttribute="leading" id="vpB-Rj-2G6"/>
                                 </constraints>
                             </view>
@@ -165,23 +131,20 @@
             </constraints>
             <size key="customSize" width="97" height="181"/>
             <connections>
+                <outlet property="brandName" destination="wNR-r9-m2m" id="Rnv-PY-esj"/>
                 <outlet property="favoriteIcon" destination="xg6-bS-TPd" id="tGa-Et-r76"/>
                 <outlet property="productImage" destination="cgE-eB-Exx" id="dsh-AU-oIS"/>
                 <outlet property="productName" destination="EKb-dm-FTl" id="KlS-5e-8ph"/>
                 <outlet property="productPrice" destination="8pE-nV-hfI" id="dGe-HA-Hhp"/>
-                <outlet property="rating" destination="Dn6-No-oJ6" id="CZg-Ge-5Ng"/>
             </connections>
             <point key="canvasLocation" x="129.7709923664122" y="64.788732394366207"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="PlaceHolderImage" width="700" height="700"/>
         <image name="heart" catalog="system" width="128" height="107"/>
-        <image name="mus\ProductImage" width="150" height="150"/>
         <namedColor name="SearchPlaceholderColor">
             <color red="0.60799998044967651" green="0.60799998044967651" blue="0.60799998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="SubTitle">
-            <color red="0.57999998331069946" green="0.57999998331069946" blue="0.57999998331069946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Title">
             <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

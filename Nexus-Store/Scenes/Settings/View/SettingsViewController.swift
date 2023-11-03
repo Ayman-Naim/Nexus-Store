@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import GoogleSignIn
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -53,7 +54,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             return cell
         case 4:
             let cell =  tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsTableViewCell
-            cell.settingsLabel.text = "Logout"
+            cell.settingsLabel.text = "Sign Out"
             cell.imgView.image = UIImage(named: "logoutt")
             return cell
         default:
@@ -81,28 +82,42 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             let currencyVC = SignInViewController()
             self.navigationController?.pushViewController(currencyVC, animated: true)
         case 3:
-            let addressVC = AddAddressViewController()
+            let addressVC = AdressSettingViewController()
             self.navigationController?.pushViewController(addressVC, animated: true)
         case 4:
-            let signinVC = SignInViewController()
-      //      self.navigationController?.pushViewController(signinVC, animated: true)
-            do{
-                try Auth.auth().signOut()
-                UserDefaults.standard.removeObject(forKey: "customerID")
-                UserDefaults.standard.removeObject(forKey: "customerEmail")
-                UserDefaults.standard.synchronize()
-        //        self.navigationController?.setViewControllers([signinVC], animated: true)
-                if let sceneDelegate = UIApplication.shared.connectedScenes
-                    .first!.delegate as? SceneDelegate {
-                    let nav = UINavigationController(rootViewController: SignInViewController())
-                    sceneDelegate.window!.rootViewController = nav
+       //     let signinVC = SignInViewController()
+            let alert = UIAlertController(title: "Sign Out", message: "Are you sure you want to sign out?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Sign Out", style: .default, handler: { action in
+                do{
+                    try Auth.auth().signOut()
+         //           self.signOutGoogle()
+                    UserDefaults.standard.removeObject(forKey: "customerID")
+                    UserDefaults.standard.removeObject(forKey: "customerEmail")
+                    UserDefaults.standard.synchronize()
+            //        self.navigationController?.setViewControllers([signinVC], animated: true)
+                    if let sceneDelegate = UIApplication.shared.connectedScenes
+                        .first!.delegate as? SceneDelegate {
+                        let nav = UINavigationController(rootViewController: SignInViewController())
+                        sceneDelegate.window!.rootViewController = nav
+                    }
+                } catch{
+                    print("Logout Error: \(error.localizedDescription)")
                 }
-            } catch{
-                print("Logout Error: \(error.localizedDescription)")
-            }
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         default:
             print("Default")
         }
     }
-
+    /*
+    func signOutGoogle(){
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+            GIDSignIn.sharedInstance.signOut()
+        } catch{
+            print("Logout Error: \(error.localizedDescription)")
+        }
+    }*/
 }

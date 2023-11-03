@@ -25,20 +25,19 @@
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="oeY-8M-6tB">
-                        <rect key="frame" x="120" y="15" width="200" height="71"/>
+                        <rect key="frame" x="120" y="5" width="200" height="90"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fastan" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQ2-u5-cO7">
-                                <rect key="frame" x="0.0" y="0.0" width="199" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fastan" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQ2-u5-cO7">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="199" id="NHI-4m-bnY"/>
-                                    <constraint firstAttribute="height" constant="50" id="pvZ-JB-58n"/>
+                                    <constraint firstAttribute="height" constant="70" id="pvZ-JB-58n"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$308.90" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2C2-Xp-8i3">
-                                <rect key="frame" x="0.0" y="38" width="199" height="33"/>
+                                <rect key="frame" x="0.0" y="57" width="199" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="VWq-IG-SCd"/>
                                     <constraint firstAttribute="width" constant="199" id="jhg-RO-Jke"/>
@@ -49,19 +48,20 @@
                             </label>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="height" constant="71" id="TS3-cN-Cdb"/>
+                            <constraint firstAttribute="height" constant="90" id="TS3-cN-Cdb"/>
+                            <constraint firstItem="iQ2-u5-cO7" firstAttribute="width" secondItem="oeY-8M-6tB" secondAttribute="width" id="VBR-Pa-Nsr"/>
                             <constraint firstAttribute="width" constant="200" id="fa5-3a-roC"/>
                         </constraints>
                     </stackView>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="oeY-8M-6tB" secondAttribute="bottom" constant="21" id="4aE-ig-ccS"/>
-                    <constraint firstItem="oeY-8M-6tB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Clr-Wo-Yp6"/>
+                    <constraint firstAttribute="bottom" secondItem="oeY-8M-6tB" secondAttribute="bottom" constant="5" id="4aE-ig-ccS"/>
+                    <constraint firstItem="oeY-8M-6tB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Clr-Wo-Yp6"/>
                     <constraint firstItem="oeY-8M-6tB" firstAttribute="leading" secondItem="QI2-3Y-hBU" secondAttribute="trailing" constant="8" id="Rxg-8N-4jA"/>
                     <constraint firstItem="QI2-3Y-hBU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ThN-rv-9hH"/>
                     <constraint firstAttribute="bottom" secondItem="QI2-3Y-hBU" secondAttribute="bottom" id="Z0Y-8s-exy"/>
-                    <constraint firstAttribute="trailing" secondItem="oeY-8M-6tB" secondAttribute="trailing" constant="123" id="ku5-bf-HXu"/>
+                    <constraint firstItem="oeY-8M-6tB" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.58309" id="nMB-dP-ab4"/>
                     <constraint firstItem="QI2-3Y-hBU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="t7j-Lf-heo"/>
                 </constraints>
             </tableViewCellContentView>

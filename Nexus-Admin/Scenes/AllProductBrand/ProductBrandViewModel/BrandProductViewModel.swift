@@ -12,11 +12,11 @@ protocol BrandProductProtocol{
     
     var bindDataofBrandProduct:(()->Void)? {set get}
     func fetchAllProductForBrand()
-    func retriveProductBrandDetails()->[Product]?
+    func retriveProductBrandDetails()->[ProductMustafa]?
     func retrivedBumberOfBrandProduct()->Int?
-    func bindAvalibleQuatitiyOfProduct(singleProduct:Product?)->Int?
-    func bindPriceOfProdunctId(productId:Product)
-    func retriveProductDetails()->Product?
+    func bindAvalibleQuatitiyOfProduct(singleProduct:ProductMustafa?)->Int?
+    func bindPriceOfProdunctId(productId:ProductMustafa)
+    func retriveProductDetails()->ProductMustafa?
     var bindDataofBrandProductDetails:(()->Void)? {set get}
     
     
@@ -43,14 +43,14 @@ class BrandProductViewModel:BrandProductProtocol{
     let apiManager = AdminNetManger.SharedApiManger
     
     private(set) var brandId:Int
-    private(set) var product:Product? {
+    private(set) var product:ProductMustafa? {
         didSet{
             if let validBindBrandProduct = bindDataofBrandProductDetails{
                validBindBrandProduct()
             }
         }
     }
-    private(set) var brandProduct:[Product]?{
+    private(set) var brandProduct:[ProductMustafa]?{
         didSet{
             if let validBindBrandProduct = bindDataofBrandProduct{
                validBindBrandProduct()
@@ -67,18 +67,19 @@ class BrandProductViewModel:BrandProductProtocol{
     
     func fetchAllProductForBrand() {
         BaseUrl.brandId = "\(self.brandId)"
-        apiManager.fetchDataaa(url: BaseUrl.BrandProduct, decodingModel: AllProductsResponse.self) { result in
+        print("EndPoint \(BaseUrl.BrandProduct.enpoint)")
+        apiManager.fetchDataaa(url: BaseUrl.BrandProduct, decodingModel: AllProductsResponseMustafa.self) { result in
             
             switch result{
             case .success(let brandProduct):
                 self.brandProduct = brandProduct.result
             case.failure(let error):
-                print(error.localizedDescription)
+                print(String(describing: error))
             }
         }
     }
     
-    func retriveProductBrandDetails() -> [Product]? {
+    func retriveProductBrandDetails() -> [ProductMustafa]? {
         return brandProduct
     }
     
@@ -87,11 +88,11 @@ class BrandProductViewModel:BrandProductProtocol{
     }
     
     
-    func bindAvalibleQuatitiyOfProduct(singleProduct:Product?) -> Int? {
+    func bindAvalibleQuatitiyOfProduct(singleProduct:ProductMustafa?) -> Int? {
         var quantity = 0
         if let variants = singleProduct?.variants{
             for variant in variants {
-                quantity = quantity + variant.inventoryQuantity
+                quantity = quantity + (variant.inventoryQuantity ?? 0 )
             }
             // You Can add this line is the same as the above
             // compactMap -> Return Array of Int Which containts quntity for each variant
@@ -102,21 +103,24 @@ class BrandProductViewModel:BrandProductProtocol{
     }
     
     
-    func bindPriceOfProdunctId(productId:Product) {
+    func bindPriceOfProdunctId(productId:ProductMustafa) {
         BaseUrl.productId = "\(productId.id)"
-        apiManager.fetchDataaa(url: BaseUrl.productDetails, decodingModel: SingleProductResponse.self) { result in
+        print("EndPoint \(BaseUrl.productDetails.enpoint)")
+
+        apiManager.fetchDataaa(url: BaseUrl.productDetails, decodingModel: SingleProductResponseMustafa.self) { result in
             switch result{
             case .success(let product):
                 self.product = product.result
             case .failure(let error):
-                print(error.localizedDescription)
+                print(String(describing: error))
+
                 
             }
         }
     }
     
     
-    func retriveProductDetails() -> Product? {
+    func retriveProductDetails() -> ProductMustafa? {
         return product
     }
     
