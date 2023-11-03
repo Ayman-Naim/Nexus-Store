@@ -15,7 +15,7 @@ class CategoryViewController: UIViewController {
     private let categoryViewModuleRefactor = CategoryViewModuleRefactor()
     var forMainCategory:Int = K.menID
     var forSubCategory:String = K.all
-   // var checkApperane = 0
+    var checkApperane = 0
     var flagShowFilter = false
     var fromBrand = false
     var vendor:String = ""
@@ -31,7 +31,10 @@ class CategoryViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         startShowProducts()
         self.addLogoToNavigationBarItem(logoImage: K.darkModeLogo)
+         
+        
         categoryViewModuleRefactor.checkCustomerFavoriteProduct(for: custmerID)
+        
         if fromBrand == true {
             tabBarController?.tabBar.isHidden = true
             navigationItem.leftBarButtonItems?[1].isHidden = true
@@ -62,7 +65,7 @@ class CategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-     
+        checkApperane = 1
         categoryViewModuleRefactor.brandName = vendor
         categoryViewModuleRefactor.fromBrand = fromBrand
         configureCollectionView()
@@ -263,6 +266,8 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
     private func bindViewModel() {
         categoryViewModuleRefactor.loadingAnimation = { [weak self] isLoading in
             DispatchQueue.main.async {
+                    self?.CategoryCollectionView.isUserInteractionEnabled = !isLoading
+                
                 self?.isLoadingIndicatorAnimating = isLoading
             }
         }
@@ -272,12 +277,14 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
                 
                 self?.CategoryCollectionView.reloadSections(IndexSet(integer: 2))
 
+
             }
         }
         
         categoryViewModuleRefactor.errorOccurs = { [weak self] error in
             guard let self = self else { return }
             self.isLoadingIndicatorAnimating = false
+//            categoryViewModuleRefactor.CheckIsAllProductMainCategoryForAllProduct(for: forMainCategory, with: forSubCategory)
             Alert.show(on: self, title: "Error", message: error)
         }
     }

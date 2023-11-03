@@ -33,7 +33,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E37687BF2ADDFFB800DB09A1"
+               BlueprintIdentifier = "019C83372AF31871003DB9EA"
                BuildableName = "Nexus-StoreTests.xctest"
                BlueprintName = "Nexus-StoreTests"
                ReferencedContainer = "container:Nexus-Store.xcodeproj">

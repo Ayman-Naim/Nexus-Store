@@ -42,7 +42,8 @@ struct K{
     static let favoriteIconSave = "heart.fill"
     
     static let customerIdKey = "customerID"
-    
+
+    static let dicountCopounKey = "Copone"
  
     
     
