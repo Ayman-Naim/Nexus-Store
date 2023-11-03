@@ -19,13 +19,14 @@ import BraintreePayPalNativeCheckout
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        if url.scheme?.localizedCaseInsensitiveCompare("EOA-industry.Nexus-Store.payments") == .orderedSame {
+    /*    if url.scheme?.localizedCaseInsensitiveCompare("EOA-industry.Nexus-Store.payments") == .orderedSame {
             return BTAppContextSwitcher.sharedInstance.handleOpen(url)
         } else if GIDSignIn.sharedInstance.handle(url) {
             // Handle Google Sign-In URL scheme
             return true
         }
-        return false
+        return false */
+        return GIDSignIn.sharedInstance.handle(url)
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
