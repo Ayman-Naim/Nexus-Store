@@ -16,6 +16,7 @@ enum BaseUrl:String{
     static var priceRuleID = ""
     static var CoupunsPriceRuleID:Int = 0
     static var userID = 0
+    static var draftOrderID = 0
     case product
     case category
     case CategoryProduct
@@ -29,6 +30,7 @@ enum BaseUrl:String{
     case AddAdress
     case allpriceRole
     case copounsOfPrieRule
+    case draftOrder
     var enpoint :String {
         switch self {
         case .product: return "\(BaseUrl.baseURL)products.json"
@@ -46,6 +48,8 @@ enum BaseUrl:String{
         case .AddAdress: return"\(BaseUrl.baseURL)customers/\(BaseUrl.userID)/addresses.json"
         case .allpriceRole: return "\(BaseUrl.baseURL)price_rules.json"
         case .copounsOfPrieRule: return "\(BaseUrl.baseURL)price_rules/\(BaseUrl.CoupunsPriceRuleID)/discount_codes.json"
+            
+        case .draftOrder : return "\(BaseUrl.draftOrder)draft_orders/\(BaseUrl.draftOrderID)"
 
         }
     }

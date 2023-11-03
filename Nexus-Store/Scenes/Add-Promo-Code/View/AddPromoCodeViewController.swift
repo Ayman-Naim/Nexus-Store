@@ -44,6 +44,7 @@ class AddPromoCodeViewController: UIViewController {
     @IBAction func plusButtonPressed(_ sender: UIButton) {
         
         if usesCoupon == false{
+            
             usesDiscountOFCoupons()
             usesCoupon = true
         }else{
@@ -114,7 +115,11 @@ class AddPromoCodeViewController: UIViewController {
     //MARK: - Go To Payment after user Decreament usage Copouns
     @IBAction func continueToPaymentButtonPressed(_ sender: UIButton) {
         //Take Data From Ayman Not Dummy from Text
-        if usesCoupon{ self.addPromoCodeViewModel?.updatePriceRuleLimit(priceRuleID:discountCode.priceRuleID)}
+        if usesCoupon{ self.addPromoCodeViewModel?.updatePriceRuleLimit(priceRuleID:discountCode.priceRuleID)
+            
+            
+            
+        }
         self.navigationController?.pushViewController(PayMethodViewController(), animated: true)
     }
     
