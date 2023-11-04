@@ -336,7 +336,7 @@ extension HomeViewController{
         case.success(let userEmail):
             UserName.text = userEmail
         case.failure(let error ):
-            UserName.text = error.localizedDescription
+            UserName.text = "User Guest"
             
         }
         
