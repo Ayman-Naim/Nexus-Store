@@ -16,14 +16,14 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let contentData = UserDefaults.standard.object(forKey: "Admin") as? Data,
-           let content = try? JSONDecoder().decode(adminModel.self, from: contentData) {
-            print(content)
-            var vcc = AddProductViewController()
-            vcc.title = "new"
-            self.navigationController?.pushViewController(vcc, animated: true)
+//        if let contentData = UserDefaults.standard.object(forKey: "Admin") as? Data,
+//           let content = try? JSONDecoder().decode(adminModel.self, from: contentData) {
+//            print(content)
+//            var vcc = AddProductViewController()
+//            vcc.title = "new"
+//            self.navigationController?.pushViewController(vcc, animated: true)
             
-        }
+       // }
     
        
     }
@@ -42,7 +42,11 @@ class SignInViewController: UIViewController {
         viewModel.LoginAuth(userEmail: email, pass: password) { result in
             switch result{
             case .success(let result):
-                print("login is ok ")
+                guard let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate else { return }
+               
+
+                    sceneDelegate.window?.rootViewController = NexusAdminTabBarController()
+                    sceneDelegate.window?.makeKeyAndVisible()
             case .failure(_):
                 let alert = UIAlertController(title: "the user or password is incorrect", message: "no user with this data", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Try Again", style: .cancel, handler: nil))

@@ -35,13 +35,27 @@ class PromoCodesTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Promo Codes"
-        
+        self.addProductButton()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(PromoCodeTableViewCell.nib(), forCellReuseIdentifier: PromoCodeTableViewCell.idenifier)
         
         bindViewModel()
+       
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         viewModel.fetchPriceRules()
+    }
+    @objc func addProductToBrand(){
+        self.navigationController?.pushViewController(AddPromoCodeViewController(), animated: true)
+    }
+    func addProductButton(){
+        
+        let addProduct = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addProductToBrand))
+        
+        navigationItem.rightBarButtonItem = addProduct
+        
     }
     
     

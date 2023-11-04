@@ -17,6 +17,7 @@ class allBrandsViewController: UIViewController {
         title = "All Brands"
         SetupTableview()
         getbrands()
+        logoutButoonconfig()
         // Do any additional setup after loading the view.
     }
 
@@ -46,6 +47,21 @@ class allBrandsViewController: UIViewController {
         cell.brandName.text = self.brands[IndexPath.row].title
     }
    
+    @objc func Logoutpressed(){
+        guard let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate else { return }
+        let nav =  UINavigationController(rootViewController: SignInViewController())
+
+            sceneDelegate.window?.rootViewController = nav
+            sceneDelegate.window?.makeKeyAndVisible()
+        UserDefaults.standard.removeObject(forKey: "Admin")
+    }
+    func logoutButoonconfig(){
+        
+        let logout = UIBarButtonItem(title:"Log out", style: .plain, target: self, action: #selector(Logoutpressed))
+        
+        navigationItem.leftBarButtonItem = logout
+        
+    }
 
 }
 

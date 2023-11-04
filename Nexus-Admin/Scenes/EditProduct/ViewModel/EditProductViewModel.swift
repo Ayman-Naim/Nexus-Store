@@ -35,14 +35,15 @@ class EditProductViewModel {
             guard let description = value.first else { return }
             sendUpdateProductRequest(with: urlString + ".json", method: .put, params: ["product": ["body_html": description]])
         case .addImage:
-            guard let urlString = value.first else { return }
+            guard let imageurl = value.first else { return }
             // Check if URL is Valid
-            let urlRegEx = "((?:http|https)://)?(?:www\\.)?[\\w\\d\\-_]+\\.\\w{2,3}(\\.\\w{2})?(/(?<=/)(?:[\\w\\d\\-./_]+)?)?"
-            if NSPredicate(format: "SELF MATCHES %@", urlRegEx).evaluate(with: urlString) {
-                sendUpdateProductRequest(with: urlString + "/images.json", method: .post, params: ["image": ["src": urlString]])
-            } else {
-                self.error?("The URL you added is not valid!")
-            }
+            sendUpdateProductRequest(with: urlString + "/images.json", method: .post, params: ["image": ["src": imageurl]])
+//            let urlRegEx = "((?:http|https)://)?(?:www\\.)?[\\w\\d\\-_]+\\.\\w{2,3}(\\.\\w{2})?(/(?<=/)(?:[\\w\\d\\-./_]+)?)?"
+//            if NSPredicate(format: "SELF MATCHES %@", urlRegEx).evaluate(with: urlString) {
+//                sendUpdateProductRequest(with: urlString + "/images.json", method: .post, params: ["image": ["src": urlString]])
+//            } else {
+//                self.error?("The URL you added is not valid!")
+//            }
             
         case .addSizeColor:
             guard value.count > 0 else { return }
@@ -60,7 +61,8 @@ class EditProductViewModel {
             }
             switch response.result {
             case .success(let data):
-                print(String(data: data!, encoding: .utf8) ?? "")
+                print("The image data \(String(data: data!, encoding: .utf8))")
+                print(String(data: data!, encoding: .utf8) ?? "test case of image ")
                 self.saved?(data != nil)
                 
             case .failure(let error):
