@@ -9,9 +9,11 @@ import Foundation
 
 
 struct DiscountCodeResponse: Codable {
-    let results: [DiscountCode]
+    let singleResult: DiscountCode?
+    let results: [DiscountCode]?
     
     enum CodingKeys: String, CodingKey {
+        case singleResult = "discount_code"
         case results = "discount_codes"
     }
 }

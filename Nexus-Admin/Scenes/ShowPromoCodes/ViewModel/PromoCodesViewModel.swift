@@ -50,10 +50,11 @@ class PromoCodesViewModel {
         let url = "https://ios-q1-new-capital-admin1-2023.myshopify.com/admin/api/2023-01/price_rules.json"
         AF.request(url, method: .get, headers: header).responseDecodable(of: PriceRuleResponse.self) { response in
             switch response.result {
-            case .success(let priceRules):
-                self.priceRules = priceRules.results
+            case .success(let priceRuleResponse):
+                guard let priceRules = priceRuleResponse.results else { return }
+                self.priceRules = priceRules
                 self.discountCodes = []
-                for priceRule in priceRules.results {
+                for priceRule in priceRules {
                     self.fetchDiscoundCodeForPriceRule(id: priceRule.id)
                 }
             case .failure(let error):
@@ -67,7 +68,7 @@ class PromoCodesViewModel {
         AF.request(url, method: .get, headers: header).responseDecodable(of: DiscountCodeResponse.self) { response in
             switch response.result {
             case .success(let discountCodes):
-                if let discountCode = discountCodes.results.first {
+                if let discountCode = discountCodes.results?.first {
                     self.discountCodes.append(discountCode)
                 }
             case .failure(let error):

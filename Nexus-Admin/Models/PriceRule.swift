@@ -9,9 +9,11 @@ import Foundation
 
 
 struct PriceRuleResponse: Codable {
-    let results: [PriceRule]
+    let singleResult: PriceRule?
+    let results: [PriceRule]?
     
     enum CodingKeys: String, CodingKey {
+        case singleResult = "price_rule"
         case results = "price_rules"
     }
 }
@@ -35,9 +37,4 @@ struct PriceRule: Codable {
         case startAt = "starts_at"
         case endAt = "ends_at"
     }
-}
-
-enum DiscountType: String, Codable {
-    case percentage = "percentage"
-    case fixed = "fixed_amount"
 }

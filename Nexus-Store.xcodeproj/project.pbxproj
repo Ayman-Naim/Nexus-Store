@@ -29,6 +29,10 @@
 		0117D2B02AED7058005D339B /* loading_4.json in Resources */ = {isa = PBXBuildFile; fileRef = 010F610C2AE4A0B300DE7EB0 /* loading_4.json */; };
 		0156250D2AF6895300427CB6 /* PriceRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0156250C2AF6895300427CB6 /* PriceRule.swift */; };
 		0156250F2AF68BCF00427CB6 /* DiscountCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0156250E2AF68BCF00427CB6 /* DiscountCode.swift */; };
+		015625152AF695D500427CB6 /* AddPromoCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015625132AF695D500427CB6 /* AddPromoCodeViewController.swift */; };
+		015625162AF695D500427CB6 /* AddPromoCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 015625142AF695D500427CB6 /* AddPromoCodeViewController.xib */; };
+		015625192AF69ED000427CB6 /* AddPromoCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015625182AF69ED000427CB6 /* AddPromoCodeViewModel.swift */; };
+		0156251B2AF6A3CD00427CB6 /* DiscountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0156251A2AF6A3CD00427CB6 /* DiscountType.swift */; };
 		01694EDE2AE4FF36009FC373 /* NexusTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01694EDD2AE4FF36009FC373 /* NexusTabBarController.swift */; };
 		01694EE22AE53128009FC373 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01694EE12AE53128009FC373 /* SearchViewController.swift */; };
 		0179F4BD2AEC439400114BD7 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0179F4BB2AEC439400114BD7 /* ProductDetailsViewController.swift */; };
@@ -260,6 +264,10 @@
 		0117D2AE2AED63D4005D339B /* EditProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProductViewModel.swift; sourceTree = "<group>"; };
 		0156250C2AF6895300427CB6 /* PriceRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRule.swift; sourceTree = "<group>"; };
 		0156250E2AF68BCF00427CB6 /* DiscountCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCode.swift; sourceTree = "<group>"; };
+		015625132AF695D500427CB6 /* AddPromoCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPromoCodeViewController.swift; sourceTree = "<group>"; };
+		015625142AF695D500427CB6 /* AddPromoCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPromoCodeViewController.xib; sourceTree = "<group>"; };
+		015625182AF69ED000427CB6 /* AddPromoCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPromoCodeViewModel.swift; sourceTree = "<group>"; };
+		0156251A2AF6A3CD00427CB6 /* DiscountType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountType.swift; sourceTree = "<group>"; };
 		01694EDD2AE4FF36009FC373 /* NexusTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NexusTabBarController.swift; sourceTree = "<group>"; };
 		01694EE12AE53128009FC373 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		0179F4BB2AEC439400114BD7 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
@@ -579,6 +587,32 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		015625112AF6959900427CB6 /* ShowPromoCodes */ = {
+			isa = PBXGroup;
+			children = (
+				E30A946D2AE68CB000AB0F5F /* View */,
+				E30A946E2AE68CE300AB0F5F /* ViewModel */,
+			);
+			path = ShowPromoCodes;
+			sourceTree = "<group>";
+		};
+		015625122AF695B400427CB6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				015625132AF695D500427CB6 /* AddPromoCodeViewController.swift */,
+				015625142AF695D500427CB6 /* AddPromoCodeViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		015625172AF69EAE00427CB6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				015625182AF69ED000427CB6 /* AddPromoCodeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		01694EDC2AE4FEE7009FC373 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -786,15 +820,6 @@
 				01EF91B92AF5424B006F6854 /* OrderDetailsSheetViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		01EF91C12AF5F4F4006F6854 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				0156250C2AF6895300427CB6 /* PriceRule.swift */,
-				0156250E2AF68BCF00427CB6 /* DiscountCode.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		01EF91C22AF5F563006F6854 /* PromoCodeCell */ = {
@@ -1360,6 +1385,9 @@
 				01C42FA42AEF20E2000FFFE2 /* Option.swift */,
 				01C42FA62AEF20F0000FFFE2 /* Image.swift */,
 				0194C58B2AEE7FA500465B5F /* ShopifyError.swift */,
+				0156250C2AF6895300427CB6 /* PriceRule.swift */,
+				0156250E2AF68BCF00427CB6 /* DiscountCode.swift */,
+				0156251A2AF6A3CD00427CB6 /* DiscountType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1388,6 +1416,7 @@
 				E30A946A2AE68C1F00AB0F5F /* AddProduct */,
 				E30A94692AE68C1700AB0F5F /* ProductDetails */,
 				E30A946B2AE68C2800AB0F5F /* EditProduct */,
+				015625112AF6959900427CB6 /* ShowPromoCodes */,
 				E30A946C2AE68C8200AB0F5F /* AddPromoCode */,
 			);
 			path = Scenes;
@@ -1445,9 +1474,8 @@
 		E30A946C2AE68C8200AB0F5F /* AddPromoCode */ = {
 			isa = PBXGroup;
 			children = (
-				01EF91C12AF5F4F4006F6854 /* Model */,
-				E30A946D2AE68CB000AB0F5F /* View */,
-				E30A946E2AE68CE300AB0F5F /* ViewModel */,
+				015625122AF695B400427CB6 /* View */,
+				015625172AF69EAE00427CB6 /* ViewModel */,
 			);
 			path = AddPromoCode;
 			sourceTree = "<group>";
@@ -2149,6 +2177,7 @@
 				0179F4BE2AEC439400114BD7 /* ProductDetailsViewController.xib in Resources */,
 				E3C64A472AF2C88800083137 /* allBrandsViewController.xib in Resources */,
 				E3C64A432AF2C77A00083137 /* BrandTableViewCell.xib in Resources */,
+				015625162AF695D500427CB6 /* AddPromoCodeViewController.xib in Resources */,
 				0117D2AD2AED5E2A005D339B /* EditProductViewController.xib in Resources */,
 				E3E10C152AED7C7300567D8B /* AddProductViewController.xib in Resources */,
 				E3A60E8C2AECB044008FEDB5 /* GoogleService-Info.plist in Resources */,
@@ -2315,17 +2344,20 @@
 				E3BB43802AEEDDD800A0341F /* Brands.swift in Sources */,
 				0117D2AF2AED63D4005D339B /* EditProductViewModel.swift in Sources */,
 				0179F4CE2AEC688E00114BD7 /* CustomTextField.swift in Sources */,
+				0156251B2AF6A3CD00427CB6 /* DiscountType.swift in Sources */,
 				0179F4CD2AEC688600114BD7 /* UIViewController+Extension.swift in Sources */,
 				0156250D2AF6895300427CB6 /* PriceRule.swift in Sources */,
 				0179F4CC2AEC688000114BD7 /* UIView+Extension.swift in Sources */,
 				0179F4CB2AEC687000114BD7 /* UIImageView+Extension.swift in Sources */,
 				01C42FA72AEF20F0000FFFE2 /* Image.swift in Sources */,
 				E3C64A462AF2C88800083137 /* allBrandsViewController.swift in Sources */,
+				015625152AF695D500427CB6 /* AddPromoCodeViewController.swift in Sources */,
 				E30A94512AE68A0800AB0F5F /* ViewController.swift in Sources */,
 				0179F4C42AEC5DC300114BD7 /* K.swift in Sources */,
 				01EF91C52AF5F58C006F6854 /* PromoCodeTableViewCell.swift in Sources */,
 				E3C64A4B2AF2CC2A00083137 /* AllBrandsVM.swift in Sources */,
 				0117D2AC2AED5E2A005D339B /* EditProductViewController.swift in Sources */,
+				015625192AF69ED000427CB6 /* AddPromoCodeViewModel.swift in Sources */,
 				0156250F2AF68BCF00427CB6 /* DiscountCode.swift in Sources */,
 				0179F4CF2AEC689100114BD7 /* ContentEmptyView.swift in Sources */,
 				0179F4C62AEC61CF00114BD7 /* ProductImageCollectionViewCell.swift in Sources */,
