@@ -123,7 +123,7 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
         case  0 :
             
             let cell  = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for: indexPath) as!  OrderTableViewCell
-            //cell.selectionStyle = .none
+            cell.selectionStyle = .none
             if  orders.count>0{
                 //if(orders[indexPath.row].customer?.id == 6899149603052){
                 cell.orderNo.text = "\(orders[indexPath.row].order_number!)"
@@ -137,7 +137,9 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
                 return cell
             }
         case  1 :
+          
             let cell  = tableView.dequeueReusableCell(withIdentifier: "FavouriteTableViewCell", for: indexPath) as!  FavouriteTableViewCell
+            cell.selectionStyle = .none
             cell.productImage.setImage(withURLString: wishList[indexPath.row].image?.src ?? "")
             let title = wishList[indexPath.row].title
             cell.productName.text = title
