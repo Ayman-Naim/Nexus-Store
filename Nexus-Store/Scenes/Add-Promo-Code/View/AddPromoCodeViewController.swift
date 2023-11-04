@@ -130,7 +130,7 @@ class AddPromoCodeViewController: UIViewController {
     
     //MARK: - Show all Orders to purchase
     @IBAction func showOrdersButtonPressed(_ sender: UIButton) {
-        self.present(ProductsOrderSheetTVC.sheet(), animated: true)
+        self.present(OrderDetailsSheetTVC.sheet(), animated: true)
        
     }
     
