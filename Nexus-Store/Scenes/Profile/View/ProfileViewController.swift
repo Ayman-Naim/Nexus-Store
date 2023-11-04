@@ -31,6 +31,8 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         getOrders()
         getwishlist()
+         expandItemsSec1 = false
+         expandItemsSec2 = false
     }
 
     func setupTabelView(){
