@@ -12,6 +12,7 @@ struct CartProduct {
 //    let id: Int
     let draftOrderID: Int
     let variantID: Int
+    let productID: Int
     let title: String
     let price: Double
     let image: String

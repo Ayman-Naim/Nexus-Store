@@ -421,7 +421,7 @@
                                                     <constraint firstAttribute="height" constant="260" id="yIS-cu-qO9"/>
                                                 </constraints>
                                             </view>
-                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="12" translatesAutoresizingMaskIntoConstraints="NO" id="x6d-fB-0vM" userLabel="ImageIndicator">
+                                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="12" translatesAutoresizingMaskIntoConstraints="NO" id="x6d-fB-0vM" userLabel="ImageIndicator">
                                                 <rect key="frame" x="111" y="310" width="206.5" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="26" id="5K5-g8-67F"/>
@@ -584,6 +584,11 @@
             <point key="canvasLocation" x="-101.44927536231884" y="92.410714285714278"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="9Co-Us-UEs">
+            <size key="intrinsicContentSize" width="100" height="16"/>
+        </designable>
+    </designables>
     <resources>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="minus" catalog="system" width="128" height="26"/>

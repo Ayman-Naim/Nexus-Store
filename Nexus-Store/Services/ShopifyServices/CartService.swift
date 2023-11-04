@@ -25,6 +25,7 @@ class CartService {
             case .success(let draftOrder):
                 let cartProducts = draftOrder.lineItems.filter({ $0.variantID != nil }).map({ CartProduct(draftOrderID: draftOrder.id,
                                                                                                           variantID: $0.variantID!,
+                                                                                                          productID: $0.productID!,
                                                                                                           title: $0.productTitle,
                                                                                                           price: Double($0.productPrice) ?? 0,
                                                                                                           image: $0.properties.first?["value"] ?? "",
@@ -50,6 +51,30 @@ class CartService {
         draftOrderSerivce.deleteLineItem(customerID: customerID, variantID: cartProduct.variantID, completion: completion)
     }
     
+    
+    func imageForProduct(withProductID productID: Int, completion: @escaping (String) -> Void) {
+        let url = "https://ios-q1-new-capital-admin1-2023.myshopify.com/admin/api/2023-01/products/\(productID).json"
+        AF.request(url, method: .get, headers: header).response { response in
+            switch response.result {
+            case .success(let data):
+                guard let data = data else { return }
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        if let product = json["product"] as? [String: Any], let image = product["image"] as? [String: Any] {
+                            if let src = image["src"] as? String {
+                                completion(src)
+                            }
+                        }
+                    }
+                } catch let error as NSError {
+                    print("Failed to load: \(error)")
+                }
+                
+            case .failure(let error):
+                print("Failed to load: \(error)")
+            }
+        }
+    }
     
     
     init() {
