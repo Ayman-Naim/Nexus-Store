@@ -41,12 +41,22 @@ class HomeViewController: UIViewController {
     
     //MARK: CartButtonClicked
     @IBAction func CartButtonClicked(_ sender: Any) {
-        self.tabBarController?.tabBar.isHidden = true
-        self.navigationController?.pushViewController(CartViewController(), animated: true)
+        if K.customerID == -1 {
+            Alert.loginAlert(on: self)
+        }
+        else{
+            self.tabBarController?.tabBar.isHidden = true
+            self.navigationController?.pushViewController(CartViewController(), animated: true)
+        }
     }
     //MARK: favouriteButtonClicked
     @IBAction func favouriteButtonClicked(_ sender: Any) {
-        self.navigationController?.pushViewController(WishListViewController(), animated: true)
+        if K.customerID == -1 {
+            Alert.loginAlert(on: self)
+        }
+        else{
+            self.navigationController?.pushViewController(WishListViewController(), animated: true)
+        }
     }
     
     

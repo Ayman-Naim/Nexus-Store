@@ -14,6 +14,8 @@ protocol ProfileDelegete
 class SectionHeaderTableViewCell: UITableViewHeaderFooterView {
     var Delegate:ProfileDelegete?
     var section:Int?
+   
+    @IBOutlet weak var SeeAll: UIButton!
     @IBOutlet weak var HeaderTitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,11 +29,15 @@ class SectionHeaderTableViewCell: UITableViewHeaderFooterView {
     
     @IBAction func SeeAllClicked(_ sender: Any) {
         if(self.section == 0){
+           
             Delegate?.Seeallpressed(section: self.section)
+           
         }
         if(self.section == 1){
+         
             Delegate?.Seeallpressed(section: self.section)
         }
         //Delegate.
     }
+   
 }
