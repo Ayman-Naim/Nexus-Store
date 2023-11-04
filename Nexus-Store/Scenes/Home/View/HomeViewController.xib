@@ -106,7 +106,7 @@
                         <outlet property="delegate" destination="-1" id="b6A-v8-IdI"/>
                     </connections>
                 </searchBar>
-                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="lE0-Cz-ZHz">
+                <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="lE0-Cz-ZHz">
                     <rect key="frame" x="157.33333333333334" y="406" width="115.66666666666666" height="26"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="26" id="F13-eT-n8l"/>

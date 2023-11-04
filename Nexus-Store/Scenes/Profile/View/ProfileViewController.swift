@@ -22,15 +22,24 @@ class ProfileViewController: UIViewController {
         self.TableView.separatorColor = UIColor.clear
         setupTabelView()
         circleImage()
-        getOrders()
-        getwishlist()
         setUserName()
-        
+        CheckLogIn()
+     
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        getOrders()
-        getwishlist()
+        expandItemsSec1 = false
+        expandItemsSec2 = false
+        self.TableView.reloadData()
+        CheckLogIn()
+         
+        
+    }
+    func CheckLogIn(){
+        if K.customerID != -1{
+            getOrders()
+            getwishlist()
+        }
     }
 
     func setupTabelView(){
@@ -39,8 +48,8 @@ class ProfileViewController: UIViewController {
         TableView.register(UINib(nibName: "FavouriteTableViewCell", bundle: nil), forCellReuseIdentifier: "FavouriteTableViewCell")
         TableView.register(UINib(nibName: "OrderTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderTableViewCell")
         TableView.register(UINib(nibName: "SectionHeaderTableViewCell", bundle: nil), forHeaderFooterViewReuseIdentifier: "SectionHeaderTableViewCell")
-        self.setContentEmptyTitle("No products in the Cart! 🧐")
-        self.setContentEmptyImage(UIImage(named: "empty_2"))
+        
+        
     }
     
     func circleImage(){
@@ -53,11 +62,21 @@ class ProfileViewController: UIViewController {
     
     
     @IBAction func CartButtonClicked(_ sender: Any) {
-        self.navigationController?.pushViewController(CartViewController(), animated: true)
+        if K.customerID == -1 {
+            Alert.loginAlert(on: self)
+        }
+        else{
+            self.navigationController?.pushViewController(CartViewController(), animated: true)
+        }
     }
     
     @IBAction func WishListClicked(_ sender: Any) {
-        self.navigationController?.pushViewController(SettingsViewController(), animated: true)
+        if K.customerID == -1 {
+            Alert.loginAlert(on: self)
+        }
+        else{
+            self.navigationController?.pushViewController(SettingsViewController(), animated: true)
+        }
     }
 }
 
@@ -66,28 +85,36 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
         return 2
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section{
-        case 0 :
-            if (orders.count == 0) {
-                return 0;
-            } else if (expandItemsSec1 == false) {
-                return orders.count==1 ? 1 : 2
-            } else {
-                return orders.count;
-            }
-            
-        case 1 :
-            if (wishList.count == 0) {
-                return 0;
-            } else if (expandItemsSec2 == false) {
-                return wishList.count==1 ? 1 : 2
-            } else {
-                return wishList.count;
-            }
-            
-            
-        default:
+        if K.customerID == -1 {
+            Alert.loginAlert(on: self)
+            let emptyView = emptyView()
+            tableView.backgroundView = emptyView
+          
             return 0
+        }else{
+            switch section{
+            case 0 :
+                if (orders.count == 0) {
+                    return 0;
+                } else if (expandItemsSec1 == false) {
+                    return orders.count==1 ? 1 : 2
+                } else {
+                    return orders.count;
+                }
+                
+            case 1 :
+                if (wishList.count == 0) {
+                    return 0;
+                } else if (expandItemsSec2 == false) {
+                    return wishList.count==1 ? 1 : 2
+                } else {
+                    return wishList.count;
+                }
+                
+                
+            default:
+                return 0
+            }
         }
     }
     
@@ -96,7 +123,7 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
         case  0 :
             
             let cell  = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for: indexPath) as!  OrderTableViewCell
-            //cell.selectionStyle = .none
+            cell.selectionStyle = .none
             if  orders.count>0{
                 //if(orders[indexPath.row].customer?.id == 6899149603052){
                 cell.orderNo.text = "\(orders[indexPath.row].order_number!)"
@@ -110,7 +137,9 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
                 return cell
             }
         case  1 :
+          
             let cell  = tableView.dequeueReusableCell(withIdentifier: "FavouriteTableViewCell", for: indexPath) as!  FavouriteTableViewCell
+            cell.selectionStyle = .none
             cell.productImage.setImage(withURLString: wishList[indexPath.row].image?.src ?? "")
             let title = wishList[indexPath.row].title
             cell.productName.text = title
@@ -131,28 +160,35 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        switch section{
-        case 0:
-            let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderTableViewCell") as! SectionHeaderTableViewCell
-            headerView.HeaderTitle.text = "My Orders"
-            headerView.Delegate = self
-            headerView.section = 0
-            return headerView
+        if K.customerID == -1  {
+           return nil
+        }else {
             
             
-            
-            
-        case 1:
-            let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderTableViewCell") as! SectionHeaderTableViewCell
-            headerView.HeaderTitle.text = "Wish List"
-            headerView.Delegate = self
-            headerView.section = 1
-            
-            return headerView
-            
-        default:
-            return UIView()
-            
+            switch section{
+            case 0:
+                let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderTableViewCell") as! SectionHeaderTableViewCell
+                headerView.HeaderTitle.text = "My Orders"
+                headerView.Delegate = self
+                headerView.section = 0
+                self.expandItemsSec1 == true ? headerView.SeeAll.setTitle("See less", for: .normal):headerView.SeeAll.setTitle("See More", for: .normal)
+                return headerView
+                
+                
+                
+                
+            case 1:
+                let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderTableViewCell") as! SectionHeaderTableViewCell
+                headerView.HeaderTitle.text = "Wish List"
+                headerView.Delegate = self
+                headerView.section = 1
+                self.expandItemsSec2 == true ? headerView.SeeAll.setTitle("See less", for: .normal):headerView.SeeAll.setTitle("See More", for: .normal)
+                return headerView
+                
+            default:
+                return nil //UIView()
+                
+            }
         }
     }
     
@@ -243,10 +279,31 @@ extension ProfileViewController:ProfileDelegete{
         case.success(let userEmail):
             UserName.text = userEmail
         case.failure(let error ):
-            UserName.text = error.localizedDescription
+            UserName.text = "User Guest"
             
         }
         
     }
     
+    
+    func emptyView()-> UIView {
+        let emptyTableViewBackgroundView = UIView(frame: self.TableView.bounds)
+
+        let backgroundImageView = UIImageView(image: UIImage(named: "empty_1"))
+        backgroundImageView.contentMode = .scaleAspectFit
+        backgroundImageView.frame = emptyTableViewBackgroundView.bounds
+        emptyTableViewBackgroundView.addSubview(backgroundImageView)
+        
+
+        let messageLabel = UILabel()
+        messageLabel.text = "Histoy is Empty in Guest Mode \n You have to log in "
+        messageLabel.numberOfLines = 0
+        messageLabel.textAlignment = .center
+        messageLabel.textColor = UIColor.black
+        messageLabel.sizeToFit()
+        messageLabel.frame = CGRect(x: 0, y: (backgroundImageView.frame.size.height/2 )-165, width: emptyTableViewBackgroundView.bounds.width - 40, height: 80)
+      //  messageLabel.center = emptyTableViewBackgroundView.center
+        emptyTableViewBackgroundView.addSubview(messageLabel)
+       return  emptyTableViewBackgroundView
+    }
 }
