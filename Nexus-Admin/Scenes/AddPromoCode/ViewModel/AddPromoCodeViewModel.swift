@@ -26,14 +26,32 @@ class AddPromoCodeViewModel {
                 "ends_at": endAtString,
                 "value": "-" + amount,
                 "usage_limit": usageLimit,
-                
+//                //"allocation_limit": usageLimit,
+//
                 "target_type": "line_item",
                 "target_selection": "all",
                 "allocation_method": "across",
                 "customer_selection": "all",
-                "once_per_customer": true
+//                "once_per_customer": true
             ] as [String : Any]
         ]
+        
+        /*
+         {
+             "price_rule":{
+             "title": "Aymans Offer",
+             "target_type": "line_item",
+             "target_selection": "all",
+             "allocation_method": "across",
+             "value_type": "fixed_amount",
+             "value": "-100.0",
+             "customer_selection": "all",
+             "starts_at": "2023-11-10T12:59:10-05:00",
+
+             "usage_limit": 20
+             }
+         }
+         */
         
         let url = "https://ios-q1-new-capital-admin1-2023.myshopify.com/admin/api/2023-01/price_rules.json"
         AF.request(url, method: .post, parameters: params, headers: header).responseDecodable(of: PriceRuleResponse.self) { response in
