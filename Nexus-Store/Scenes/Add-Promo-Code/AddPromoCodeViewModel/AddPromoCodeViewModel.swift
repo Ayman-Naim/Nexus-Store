@@ -21,11 +21,15 @@ protocol AddPromoCodeProtocaol{
     var bindDaftOrderFromApi:(()->Void)?{get}
     func retriveDiscountCopounsFromUserDefualt()->DiscountCode?
     func retrivePriceRule()->PriceRule?
-    func retriveDraftOrder()->DraftOrder?
+    var retriveDraftOrder: DraftOrder? {get }
 
 }
 
 class AddPromoCodeViewModel:AddPromoCodeProtocaol{
+
+    
+  
+    
     
     
     var bindDaftOrderFromApi: (() -> Void)?
@@ -51,6 +55,7 @@ class AddPromoCodeViewModel:AddPromoCodeProtocaol{
             bindDaftOrderFromApi?()
         }
     }
+    var retriveDraftOrder: DraftOrder? { draftOrder}
     
     
     
@@ -70,9 +75,9 @@ class AddPromoCodeViewModel:AddPromoCodeProtocaol{
     
     //MARK: - Retrive Data About Draft Order
     
-    func retriveDraftOrder() -> DraftOrder? {
-       return draftOrder
-    }
+//    func retriveDraftOrder() -> DraftOrder? {
+//       return draftOrder
+//    }
     
     //MARK: - Return Discount Code
     func retriveDiscountCopounsFromUserDefualt()->DiscountCode?{
