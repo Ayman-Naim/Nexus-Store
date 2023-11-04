@@ -1,5 +1,5 @@
 //
-//  ProductsOrderSheetTVC.swift
+//  OrderDetailsSheetTVC.swift
 //  Nexus-Store
 //
 //  Created by Khater on 20/10/2023.
@@ -7,10 +7,10 @@
 
 import UIKit
 
-class ProductsOrderSheetTVC: UITableViewController {
+class OrderDetailsSheetTVC: UITableViewController {
     
     static func sheet() -> UINavigationController {
-        let nav = UINavigationController(rootViewController: ProductsOrderSheetTVC())
+        let nav = UINavigationController(rootViewController: OrderDetailsSheetTVC())
         //nav.navigationBar.prefersLargeTitles = true
         if let sheet = nav.presentationController as? UISheetPresentationController {
             sheet.detents = [.medium(), .large()]
@@ -19,6 +19,10 @@ class ProductsOrderSheetTVC: UITableViewController {
         }
         return nav
     }
+    
+    
+    private let viewModel = OrderDetailsSheetViewModel()
+    
     
     private init() {
         super.init(style: .grouped)
@@ -31,39 +35,56 @@ class ProductsOrderSheetTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Order Details"
-        
+        setupTableView()
+        bindViewModel()
+        viewModel.fetchDefaultAddress()
+        viewModel.fetchOrders()
+    }
+    
+    private func setupTableView() {
         tableView.separatorStyle = .none
         tableView.register(AddressTableViewCell.nib(), forCellReuseIdentifier: AddressTableViewCell.identifier)
         tableView.register(ProductLandscapeTVCell.nib(), forCellReuseIdentifier: ProductLandscapeTVCell.identifier)
         tableView.allowsSelection = false
     }
+    
+    private func bindViewModel() {
+        viewModel.reload = { [weak self] in
+            self?.tableView.reloadData()
+        }
+        
+        viewModel.loadingIndicator = { [weak self] isLoading in
+            self?.isLoadingIndicatorAnimating = isLoading
+        }
+        
+        viewModel.errorOccure = { [weak self] title, message in
+            guard let self = self else { return }
+            Alert.show(on: self, title: title, message: message)
+        }
+    }
 }
 
 
 // MARK: - UITableView DataSource & Delegate
-extension ProductsOrderSheetTVC {
+extension OrderDetailsSheetTVC {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0: return 1
-        case 1: return 5
-        default: return 0
-        }
+        return viewModel.numberOfRow(in: section)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: AddressTableViewCell.identifier, for: indexPath) as! AddressTableViewCell
-            cell.selecteAddress(true)
+            viewModel.configAddress(cell)
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductLandscapeTVCell.identifier, for: indexPath) as! ProductLandscapeTVCell
-            cell.hideButtons()
+            viewModel.configProduct(cell, at: indexPath.row)
             return cell
         default:
             return UITableViewCell()
