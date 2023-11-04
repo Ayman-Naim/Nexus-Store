@@ -43,6 +43,9 @@ class CartViewModel {
         let product = cartProducts[index]
         cell.setProduct(product)
         cell.setCell(id: product.variantID)
+        service.imageForProduct(withProductID: product.productID) { imageURL in
+            cell.setImage(with: imageURL)
+        }
     }
     
     func fetchCartProducts() {

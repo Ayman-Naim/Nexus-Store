@@ -12,6 +12,7 @@ protocol ProductLandscapeCell: AnyObject {
     func setProduct(_ product: CartProduct)
     func hideButtons()
     func hideQuantity()
+    func setImage(with imageURLString: String)
 }
 
 protocol ProductLandscapeCellDelegate: AnyObject {
@@ -112,5 +113,9 @@ extension ProductLandscapeTVCell: ProductLandscapeCell {
     
     func hideQuantity() {
         minusButton.superview?.isHidden = true
+    }
+    
+    func setImage(with imageURLString: String) {
+        productImageView.setImage(withURLString: imageURLString)
     }
 }

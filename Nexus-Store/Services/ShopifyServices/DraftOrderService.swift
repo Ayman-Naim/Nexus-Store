@@ -259,7 +259,6 @@ class DraftOrderService {
                         guard let lineItemsData = try? JSONEncoder().encode(lineItems) else { return }
                         guard let lineItemsJSON = try? JSONSerialization.jsonObject(with: lineItemsData, options: [.fragmentsAllowed]) as? [[String: Any]] else { return }
                         
-                        
                         let params = [
                             "draft_order": [
                                 "line_items": lineItemsJSON,
@@ -310,7 +309,7 @@ class DraftOrderService {
                 do {
                     if let responseJSON = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed]) as? [String: Any] {
                         if let variant = responseJSON["variant"] as? [String: Any], let inventoryQuantity = variant["inventory_quantity"] as? Int  {
-                            if quantity <= Int(Double(inventoryQuantity) * 0.5) {
+                            if quantity <= (inventoryQuantity / 2) {
                                 completion(true)
                             } else {
                                 completion(false)
