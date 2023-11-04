@@ -799,7 +799,6 @@
 		45123A8E2AE2149E001B12B7 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				45A3D9712AF1B7A30015EF5E /* SplashScreen */,
 				451E238E2AE9A6A1005AB8F1 /* Model */,
 				45B1EC8C2AE905D500E690F9 /* CategoryViewModel */,
 				45123A9D2AE2149E001B12B7 /* CategoryView */,
@@ -1690,6 +1689,7 @@
 		E37687DD2ADDFFFF00DB09A1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				45A3D9712AF1B7A30015EF5E /* SplashScreen */,
 				5BFDC6432AEE680900C2F6C7 /* ContactUs */,
 				5B9A02842AECD036007DC704 /* AboutUs */,
 				5B9A02792AECBBD4007DC704 /* Settings */,
@@ -2706,7 +2706,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Nexus-Store/Nexus-Store.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = R7KL845XH9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Nexus-Store/Config/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2740,7 +2740,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Nexus-Store/Nexus-Store.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = R7KL845XH9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Nexus-Store/Config/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

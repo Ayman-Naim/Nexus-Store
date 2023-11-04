@@ -26,12 +26,24 @@ class CartViewController: UIViewController {
         setupTableView()
         bindViewModel()
         viewModel.fetchCartProducts()
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: nil, style: .done, target: self, action: #selector(backButtonPressed))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     
     // MARK: - IBActions
     @IBAction func checkoutButtonPressed(_ sender: UIButton) {
         self.navigationController?.pushViewController(ShippingViewController(), animated: true)
+    }
+    
+    
+    @objc private func backButtonPressed() {
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     

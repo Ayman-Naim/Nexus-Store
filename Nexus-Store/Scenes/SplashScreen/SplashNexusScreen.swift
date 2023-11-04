@@ -83,7 +83,18 @@ class SplashNexusScreen: UIViewController {
 //        sceneDelegate?.window?.makeKeyAndVisible()
 //       
 //        
-//        
+//
+        
+        guard let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate else { return }
+        
+        if UserDefaults.standard.object(forKey: "customerID") != nil {
+            sceneDelegate.window?.rootViewController = NexusTabBarController()
+            sceneDelegate.window?.makeKeyAndVisible()
+        }else{
+            let nav = UINavigationController(rootViewController: SignInViewController())
+            sceneDelegate.window?.rootViewController = nav
+            sceneDelegate.window?.makeKeyAndVisible()
+        }
     }
     
 }
