@@ -54,7 +54,9 @@ class ShippingViewController: UIViewController {
     @IBAction func addPromoCodeButtonPressed(_ sender: UIButton) {
         confirmAlert { [weak self] in
             self?.viewModel.setAddressForOrder {
-                self?.navigationController?.pushViewController(AddPromoCodeViewController(), animated: true)
+                let addPromoCodeVC = AddPromoCodeViewController()
+                addPromoCodeVC.addPromoCodeViewModel = AddPromoCodeViewModel()
+                self?.navigationController?.pushViewController(addPromoCodeVC, animated: true)
             }
         }
     }

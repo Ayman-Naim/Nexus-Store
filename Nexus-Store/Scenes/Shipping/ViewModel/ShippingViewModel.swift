@@ -60,6 +60,7 @@ class ShippingViewModel {
     
     // MARK: - Functions
     func getCustomerAddresses() {
+        print(customerID)
         let url = baseURL + "/customers/\(customerID)/addresses.json"
         
         loadingIndicator?(true)

@@ -25,7 +25,7 @@ class ProfileViewController: UIViewController {
         getOrders()
         getwishlist()
         setUserName()
-       
+        
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {

@@ -189,13 +189,13 @@ class AddPromoCodeViewModel:AddPromoCodeProtocaol{
     //MARK: -  APPLy Amount of Discount to total amount
     
     func fetchOrderFromDraftOrder(){
-           
+        
         draftOrderservices.customerDraftOrder(customerID: custemerID) { result in
             switch result{
                 
             case .success(let draftOrder):
                 self.draftOrder = draftOrder
-                
+                print(draftOrder)
             case.failure(let error):
                 print(error.localizedDescription)
                 
@@ -220,8 +220,8 @@ class AddPromoCodeViewModel:AddPromoCodeProtocaol{
                     [
                         "applied_discount":
                             [
-                                "value_type":  String(actualnumber),
-                                "value":     percentDiscount
+                                "value_type": valueTypeOfDiscount,
+                                "value": String(actualnumber)
                             ] as [String : Any]
                     ]
             ]

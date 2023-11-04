@@ -24,25 +24,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
       
-        if UserDefaults.standard.object(forKey: "customerID") != nil {
-            //Key exists
-
-            guard let windowScene = (scene as? UIWindowScene) else { return }
-            let window = UIWindow(windowScene: windowScene)
-            // let nav = UINavigationController(rootViewController: SignInViewController())
-       //     let nav = UINavigationController(rootViewController: NexusTabBarController())
-            window.rootViewController = NexusTabBarController()
-            window.makeKeyAndVisible()
-            self.window = window
-        }else{
-            guard let windowScene = (scene as? UIWindowScene) else { return }
-            let window = UIWindow(windowScene: windowScene)
-            let nav = UINavigationController(rootViewController: SignInViewController())
-     //       let nav = UINavigationController(rootViewController: NexusTabBarController())
-            window.rootViewController = nav
-            window.makeKeyAndVisible()
-            self.window = window
-        }
+        
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        let window = UIWindow(windowScene: windowScene)
+        window.rootViewController = SplashNexusScreen()
+        window.makeKeyAndVisible()
+        self.window = window
+        
+//        if UserDefaults.standard.object(forKey: "customerID") != nil {
+//            //Key exists
+//
+//            guard let windowScene = (scene as? UIWindowScene) else { return }
+//            let window = UIWindow(windowScene: windowScene)
+//            // let nav = UINavigationController(rootViewController: SignInViewController())
+//       //     let nav = UINavigationController(rootViewController: NexusTabBarController())
+//            window.rootViewController = NexusTabBarController()
+//            window.makeKeyAndVisible()
+//            self.window = window
+//        }else{
+//            guard let windowScene = (scene as? UIWindowScene) else { return }
+//            let window = UIWindow(windowScene: windowScene)
+//            let nav = UINavigationController(rootViewController: SignInViewController())
+//     //       let nav = UINavigationController(rootViewController: NexusTabBarController())
+//            window.rootViewController = nav
+//            window.makeKeyAndVisible()
+//            self.window = window
+//        }
 //        guard let scene = (scene as? UIWindowScene) else { return }
 //        window = UIWindow(windowScene: scene)
 //        let rootViewController = SplashNexusScreen()
