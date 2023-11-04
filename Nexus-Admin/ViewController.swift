@@ -23,7 +23,8 @@ class ViewController: UIViewController {
         
     }
     @IBAction func khater(_ sender: Any) {
-        ProductDetailsViewController.show(on: self, productID: 8031031165164)
+//        ProductDetailsViewController.show(on: self, productID: 8031031165164)
+        self.navigationController?.pushViewController(PromoCodesTableViewController(), animated: true)
     }
     
     @IBAction func mostafa(_ sender: Any) {
