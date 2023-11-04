@@ -7,15 +7,37 @@
 
 import UIKit
 
-class PromoCodesTableViewController: UITableViewController {
+class PromoCodesTableViewController: UIViewController {
     
     private let viewModel = PromoCodesViewModel()
+    
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
+    
+    
+    override func loadView() {
+        super.loadView()
+        view.backgroundColor = .systemBackground
+        view.addSubview(tableView)
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+        ])
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        title = "Promo Codes"
         
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.register(PromoCodeTableViewCell.nib(), forCellReuseIdentifier: PromoCodeTableViewCell.idenifier)
         
         bindViewModel()
@@ -38,12 +60,13 @@ class PromoCodesTableViewController: UITableViewController {
 
 
 // MARK: - UITableView DataSource
-extension PromoCodesTableViewController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension PromoCodesTableViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.isContentEmptyViewHidden = viewModel.numberOfRows > 0
         return viewModel.numberOfRows
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PromoCodeTableViewCell.idenifier, for: indexPath) as! PromoCodeTableViewCell
         viewModel.configPromoCode(cell, at: indexPath.row)
         return cell
@@ -53,5 +76,14 @@ extension PromoCodesTableViewController {
 
 
 // MARK: - UITableView Delegate
-extension PromoCodesTableViewController {
+extension PromoCodesTableViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+            self.viewModel.deletePriceRule(at: indexPath.row)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        Alert.show(on: self, title: "Delete Copon", message: "Are you sure, you want to delete copon!", actions: [cancelAction, deleteAction])
+    }
 }

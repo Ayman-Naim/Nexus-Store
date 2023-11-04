@@ -69,7 +69,7 @@ class ContentEmptyView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         superView.insertSubview(self, at: superView.subviews.count)
         NSLayoutConstraint.activate([
-            topAnchor.constraint(equalTo: superView.topAnchor , constant: 200),
+            topAnchor.constraint(equalTo: superView.topAnchor),
             leadingAnchor.constraint(equalTo: superView.leadingAnchor),
             trailingAnchor.constraint(equalTo: superView.trailingAnchor),
             bottomAnchor.constraint(equalTo: superView.bottomAnchor)

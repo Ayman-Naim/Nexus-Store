@@ -76,4 +76,19 @@ class PromoCodesViewModel {
             }
         }
     }
+    
+    func deletePriceRule(at index: Int) {
+        let id = priceRules[index].id
+        let url = "https://ios-q1-new-capital-admin1-2023.myshopify.com/admin/api/2023-01/price_rules/\(id).json"
+        AF.request(url, method: .delete, headers: header).response { response in
+            switch response.result {
+            case .success(let data):
+                guard let data = data else { return }
+                print(String(data: data, encoding: .utf8) ?? "Nil")
+                self.fetchPriceRules()
+            case .failure(let error):
+                self.errorAlert?("Delete Price Rule", error.localizedDescription)
+            }
+        }
+    }
 }
