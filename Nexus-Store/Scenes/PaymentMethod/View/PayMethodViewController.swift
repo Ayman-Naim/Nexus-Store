@@ -18,7 +18,7 @@ class PayMethodViewController: UIViewController {
     let customerID = UserDefaults.standard.value(forKey: "customerID")
 
     // for testing
-    var totalAmount: Double = 250.0
+    var totalAmount: Double = 0.0
 //    let authorization = "sandbox_8h3qzxnj_76tbywh3qkq2yw2k"
 //    var braintreeAPIClient:BTAPIClient!
 //    var payPalNativeCheckoutClient: BTPayPalNativeCheckoutClient!
@@ -28,9 +28,28 @@ class PayMethodViewController: UIViewController {
         TableViewSetup()
         self.PaymentTable.separatorColor = UIColor.clear
         // Do any additional setup after loading the view.
-        TotalAmountLabel.text = "\(totalAmount) $"
+        self.totalPriceAmount()
     }
 
+    func totalPriceAmount() {
+        guard let customerID = customerID as? Int else {
+            return
+        }
+
+        paymentVM.draftOrder.customerDraftOrder(customerID: customerID) { result in
+            switch result {
+            case .success(let draftOrder):
+                if let totalPrice = Double(draftOrder.totalPrice) {
+                    self.totalAmount = totalPrice
+                    DispatchQueue.main.async {
+                        self.TotalAmountLabel.text = "\(totalPrice) $"
+                    }
+                }
+            case .failure(let error):
+                print("Error fetching draft order: \(error)")
+            }
+        }
+    }
 
     func TableViewSetup(){
         //
