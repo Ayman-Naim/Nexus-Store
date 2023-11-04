@@ -22,12 +22,14 @@ class AddPromoCodeViewController: UIViewController {
     let myView : LottieAnimationView = .init()
     
     //MARK: - Take form Last Screen
-     var amountPrice = "0.00"
     var usesCoupon = false
 
     //MARK: - Discount Code Dummy
-    var discountCode = DiscountCode(id: 17022107484396, priceRuleID: 1525907194092, code: "SUMMERSALE10OFF", usageCount: 0, createdAt: "2023-10-30T03:56:31-04:00", updatedAt: "2023-10-30T03:56:31-04:00")
+//    var discountCode = DiscountCode(id: 17022107484396, priceRuleID: 1525907194092, code: "SUMMERSALE10OFF", usageCount: 0, createdAt: "2023-10-30T03:56:31-04:00", updatedAt: "2023-10-30T03:56:31-04:00")
     
+    override func viewWillAppear(_ animated: Bool) {
+        addPromoCodeViewModel?.fetchOrderFromDraftOrder()
+    }
     
     var addPromoCodeViewModel:AddPromoCodeViewModel?
     var priceRule:PriceRule?
@@ -38,10 +40,9 @@ class AddPromoCodeViewController: UIViewController {
         isLoadingIndicatorAnimating = true
         addPromoCodeViewModel?.fetchOrderFromDraftOrder()
         addPromoCodeViewModel?.bindDaftOrderFromApi = { [weak self] in
-            if let totalPrice = self?.addPromoCodeViewModel?.retriveDraftOrder()?.totalPrice{
+            if let totalPrice = self?.addPromoCodeViewModel?.retriveDraftOrder?.totalPrice{
                 self?.amountLabel.text = "$\(totalPrice)"
                 self?.totalPriceLabel.text = "$\(totalPrice)"
-                self?.amountPrice = totalPrice
             }
             self?.isLoadingIndicatorAnimating = false
             
@@ -55,21 +56,26 @@ class AddPromoCodeViewController: UIViewController {
     
    //MARK: - Fire TO Use Copouns
     @IBAction func plusButtonPressed(_ sender: UIButton) {
-        
-        if usesCoupon == false{
-            addPromoCodeViewModel?.getDiscountCopoune(Handel: { copounExist, error in
-                if copounExist == true{
-                    self.usesDiscountOFCoupons()
-                    self.usesCoupon = true
-                }
-                else{
-                    Alert.show(on: self, title: "Alert!", message: "There is No Copouns To Apply Discount ?!.")
-                }
-            })
-          
+        if addPromoCodeViewModel?.retriveDraftOrder?.applied_discount == nil {
+            if usesCoupon == false{
+                addPromoCodeViewModel?.getDiscountCopoune(Handel: { copounExist, error in
+                    if copounExist == true{
+                        self.usesDiscountOFCoupons()
+                        self.usesCoupon = true
+                    }
+                    else{
+                        Alert.show(on: self, title: "Alert!", message: "There is No Copouns To Apply Discount ?!.")
+                    }
+                })
+                
+            }else{
+                resetAmountData()
+                usesCoupon = false
+            }
         }else{
-            resetAmountData()
-            usesCoupon = false
+            
+            Alert.show(on: self, title: "Not Allowed 🤡", message: "You Can't Uses More Than One Coupons For The Order !")
+            
         }
         
 
@@ -81,9 +87,9 @@ class AddPromoCodeViewController: UIViewController {
     func resetAmountData(){
         
         promoCodeTextField.text = ""
-        amountLabel.text = "$\(amountPrice)"
+        amountLabel.text = "$\((self.addPromoCodeViewModel?.retriveDraftOrder!.totalPrice)!)"
         promoDiscountLabel.text = "$0"
-        totalPriceLabel.text =  "$\(amountPrice)"
+        totalPriceLabel.text =  "$\((self.addPromoCodeViewModel?.retriveDraftOrder!.totalPrice)!)"
         
     }
     
@@ -96,13 +102,13 @@ class AddPromoCodeViewController: UIViewController {
         isLoadingIndicatorAnimating = true
         //Take theis Paramter From Ayman
    
-        addPromoCodeViewModel?.fetchDataOfPriceRule(priceRuleID: discountCode.priceRuleID)
+        addPromoCodeViewModel?.fetchDataOfPriceRule(priceRuleID: (addPromoCodeViewModel?.retriveDiscountCopounsFromUserDefualt()?.priceRuleID)!)
         addPromoCodeViewModel?.bindPriceRuleFromApi = { [weak self] in
             
             DispatchQueue.main.async {
                 //Change it To Coupoun
              //   self?.addCopouns.titleLabel?.text = self?.discountCode.code
-                self?.promoCodeTextField.text = self?.discountCode.code
+                self?.promoCodeTextField.text = (self?.addPromoCodeViewModel?.retriveDiscountCopounsFromUserDefualt()?.code)!
 
             }
           //  self?.addCopouns.titleLabel?.text  = self?.discountCode.code
@@ -163,7 +169,7 @@ class AddPromoCodeViewController: UIViewController {
                     if checkUpdate == true{
                         print("Data put Successfully")
                         self.addPromoCodeViewModel?.removeCopounsFromUserDefaults()
-                        self.addPromoCodeViewModel?.updatePriceRuleLimit(priceRuleID: self.discountCode.priceRuleID)
+                        self.addPromoCodeViewModel?.updatePriceRuleLimit(priceRuleID: (self.addPromoCodeViewModel?.retriveDiscountCopounsFromUserDefualt()?.priceRuleID)!)
                         self.navigationController?.pushViewController(PayMethodViewController(), animated: true)
                     }else{
                         print("There is an error in put Response")

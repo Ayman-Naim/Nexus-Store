@@ -33,7 +33,19 @@ struct Alert {
             
             let closeAction = UIAlertAction(title: "Close", style: .destructive)
             let signInAction = UIAlertAction(title: "Sign In", style: .default) { _ in
-                vc.navigationController?.pushViewController(SignInViewController(), animated: true)
+                
+                UserDefaults.standard.removeObject(forKey: "customerID")
+                UserDefaults.standard.removeObject(forKey: "customerEmail")
+                UserDefaults.standard.synchronize()
+
+                
+                if let sceneDelegate = UIApplication.shared.connectedScenes
+                    .first!.delegate as? SceneDelegate {
+                    let nav = UINavigationController(rootViewController: SignInViewController())
+                    sceneDelegate.window!.rootViewController = nav
+                }
+
+               // vc.navigationController?.pushViewController(SignInViewController(), animated: true)
             }
             
             alert.addAction(closeAction)
