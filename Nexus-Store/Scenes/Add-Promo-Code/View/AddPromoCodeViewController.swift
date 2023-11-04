@@ -169,7 +169,7 @@ class AddPromoCodeViewController: UIViewController {
                     if checkUpdate == true{
                         print("Data put Successfully")
                         self.addPromoCodeViewModel?.removeCopounsFromUserDefaults()
-                       // self.addPromoCodeViewModel?.updatePriceRuleLimit(priceRuleID: (self.addPromoCodeViewModel?.retriveDiscountCopounsFromUserDefualt()?.priceRuleID)!)
+                        self.addPromoCodeViewModel?.updatePriceRuleLimit(priceRuleID: (self.addPromoCodeViewModel?.retriveDiscountCopounsFromUserDefualt()?.priceRuleID)!)
                         self.navigationController?.pushViewController(PayMethodViewController(), animated: true)
                     }else{
                         print("There is an error in put Response")
