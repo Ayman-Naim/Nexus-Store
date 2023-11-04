@@ -34,6 +34,7 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet weak var avalibleQuantity: UILabel!
 
     let productRatting:Double = 5
+    let customerID = K.customerID
     var productSizeDelegation:ProductSizeDelegation?
     var productColorDelegation:ProductColorDelegation?
     var productImageDelegation: ProdutImageDelegation?
@@ -56,6 +57,9 @@ class ProductDetailsViewController: UIViewController {
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        if customerID == -1{
+            showFavoriteOrNot.isHidden = true
+        }
         productDetailsViewModel?.priceOfSingleProduct()
         bindProductDetailsViewModule()
         productImageCollection.contentInsetAdjustmentBehavior = .never
@@ -179,21 +183,25 @@ class ProductDetailsViewController: UIViewController {
     
     //MARK: - Test Add Promo Code To Product
     @IBAction func AddToCartButton(_ sender: UIButton) {
-        
-        if productDetailsViewModel?.numberOfItemsUpdates != 0 {
-
-//            let vc = AddPromoCodeViewController()
-//            let addPromoViewModel = AddPromoCodeViewModel()
-//            vc.addPromoCodeViewModel = addPromoViewModel
-//           // vc.addPromoCodeViewModel = AddPromoCodeViewModel()
-//            let okAction = UIAlertAction(title: "OK", style: .default) { action in
-//                self.navigationController?.pushViewController(vc, animated: true)
-//            }
-//            Alert.show(on: self, title: "Congratulation", message: "You Successfully added the quatity to the Cart",actions: [okAction])
-            productDetailsViewModel?.addProductToCart()
+        if customerID == -1 {
+            Alert.loginAlert(on: self)
         }else{
-
-            Alert.show(on: self, title: "No Quantity", message: "Please Select Qunatity From The Available Stock.")
+            if productDetailsViewModel?.numberOfItemsUpdates != 0 {
+                
+                //            let vc = AddPromoCodeViewController()
+                //            let addPromoViewModel = AddPromoCodeViewModel()
+                //            vc.addPromoCodeViewModel = addPromoViewModel
+                //           // vc.addPromoCodeViewModel = AddPromoCodeViewModel()
+                //            let okAction = UIAlertAction(title: "OK", style: .default) { action in
+                //                self.navigationController?.pushViewController(vc, animated: true)
+                //            }
+                //            Alert.show(on: self, title: "Congratulation", message: "You Successfully added the quatity to the Cart",actions: [okAction])
+                productDetailsViewModel?.addProductToCart()
+            }else{
+                
+                Alert.show(on: self, title: "No Quantity", message: "Please Select Qunatity From The Available Stock.")
+            }
+            
         }
     }
     

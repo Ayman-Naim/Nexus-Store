@@ -18,7 +18,7 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
     private let apiNetworkManager = ApiManger.SharedApiManger
     private(set) var mainCategory = ["MEN","KIDS","SALE","WOMEN"]
     private(set) var subCategory = ["ALL","SHOES","T-SHIRT","ACCESSORIES"]
-    let custemerId = UserDefaults.standard.integer(forKey: K.customerIdKey)
+    let custemerId = K.customerID
     static var selectedMainCategory = 0
     static var selectedSubCategory = 0
     var fromBrand = false

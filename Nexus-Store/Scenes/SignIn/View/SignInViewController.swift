@@ -59,8 +59,14 @@ class SignInViewController: UIViewController {
                     print("Sign-in error: \(error.localizedDescription)")
                     let alert = UIAlertController(title: "Error Trial To Sign In", message: "Please Enter valid email and password or Create a new account!", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Create Account", style: .default, handler: { action in
-                        let signupVC = SignUpViewController()
-                        self.navigationController?.pushViewController(signupVC, animated: true)
+//                        let signupVC = SignUpViewController()
+//                        self.navigationController?.pushViewController(signupVC, animated: true)
+                        if let sceneDelegate = UIApplication.shared.connectedScenes
+                            .first!.delegate as? SceneDelegate {
+                            let tabBar = NexusTabBarController()
+                            tabBar.navigationController?.isNavigationBarHidden = true
+                            sceneDelegate.window!.rootViewController = tabBar
+                        }
                     }))
                     alert.addAction(UIAlertAction(title: "Try Again", style: .cancel, handler: nil))
                     self.present(alert, animated: true, completion: nil)

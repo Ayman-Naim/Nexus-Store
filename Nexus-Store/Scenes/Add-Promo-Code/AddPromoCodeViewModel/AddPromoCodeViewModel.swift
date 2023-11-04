@@ -8,22 +8,26 @@
 import Foundation
 import Alamofire
 protocol AddPromoCodeProtocaol{
+    
     var bindPriceRuleFromApi:(()->Void)? {get set}
     func fetchDataOfPriceRule(priceRuleID:Int)
-    func retrivePriceRule()->PriceRule?
     func checkUsageOfCoponusAvaliable(Handel:@escaping (Bool)->Void)
     func discountAmount()->String?
     func returnAmountAfterDiscount(orderPrice:String?,dicountPrice:String?)->String?
     func updatePriceRuleLimit(priceRuleID:Int)
     func getDiscountCopoune(Handel:@escaping((Bool?,Error?) -> Void))
     func fetchOrderFromDraftOrder()
-    func retriveDraftOrder()->DraftOrder?
     func applyDiscountToOrder(Handel:@escaping(Bool)->Void)
     var bindDaftOrderFromApi:(()->Void)?{get}
-    
+    func retriveDiscountCopounsFromUserDefualt()->DiscountCode?
+    func retrivePriceRule()->PriceRule?
+    func retriveDraftOrder()->DraftOrder?
+
 }
 
 class AddPromoCodeViewModel:AddPromoCodeProtocaol{
+    
+    
     var bindDaftOrderFromApi: (() -> Void)?
     
    
@@ -64,13 +68,18 @@ class AddPromoCodeViewModel:AddPromoCodeProtocaol{
     //MARK: - Retrive Price Rule
     func retrivePriceRule() ->PriceRule?{priceRule}
     
+    //MARK: - Retrive Data About Draft Order
     
-    //MARK: - Retirve the Dfrat Order
     func retriveDraftOrder() -> DraftOrder? {
-        return draftOrder
+       return draftOrder
     }
     
+    //MARK: - Return Discount Code
+    func retriveDiscountCopounsFromUserDefualt()->DiscountCode?{
+        return discountCode
+    }
     
+        
     //MARK: Fetch Data Of price Rule ID
     func fetchDataOfPriceRule(priceRuleID:Int) {
         BaseUrl.priceRuleID = "\(priceRuleID)"
@@ -195,7 +204,7 @@ class AddPromoCodeViewModel:AddPromoCodeProtocaol{
                 
             case .success(let draftOrder):
                 self.draftOrder = draftOrder
-                print(draftOrder)
+                print("Draft Order \(draftOrder.applied_discount)")
             case.failure(let error):
                 print(error.localizedDescription)
                 
