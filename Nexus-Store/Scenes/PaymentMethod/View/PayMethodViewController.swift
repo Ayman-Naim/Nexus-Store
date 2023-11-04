@@ -28,23 +28,28 @@ class PayMethodViewController: UIViewController {
         TableViewSetup()
         self.PaymentTable.separatorColor = UIColor.clear
         // Do any additional setup after loading the view.
-  //      TotalAmountLabel.text = "\(totalAmount) $"
-        if let customerID = customerID as? Int {
-            paymentVM.draftOrder.customerDraftOrder(customerID: customerID) { result in
-                switch result {
-                case .success(let draftOrder):
-                    if let totalPrice = Double(draftOrder.totalPrice) {
-                 //       DispatchQueue.main.async {
-                            self.TotalAmountLabel.text = "\(totalPrice) $"
-                //        }
+        self.totalPriceAmount()
+    }
+
+    func totalPriceAmount() {
+        guard let customerID = customerID as? Int else {
+            return
+        }
+
+        paymentVM.draftOrder.customerDraftOrder(customerID: customerID) { result in
+            switch result {
+            case .success(let draftOrder):
+                if let totalPrice = Double(draftOrder.totalPrice) {
+                    self.totalAmount = totalPrice
+                    DispatchQueue.main.async {
+                        self.TotalAmountLabel.text = "\(totalPrice) $"
                     }
-                case .failure(let error):
-                    print("Error fetching draft order: \(error)")
                 }
+            case .failure(let error):
+                print("Error fetching draft order: \(error)")
             }
         }
     }
-
 
     func TableViewSetup(){
         //
