@@ -62,7 +62,11 @@ class ProductColorDelegation: NSObject, UICollectionViewDelegate, UICollectionVi
          if let validQuatity = numberOfItemAvalabile?.first?.inventoryQuantity{
              self.productViewModel.availableQuatitySizeAndColor = validQuatity
              productViewModel.updateQuatitySelect!()
+         } else {
+             self.productViewModel.availableQuatitySizeAndColor = productViewModel.numberOfItemsUpdates
+             productViewModel.updateQuatitySelect!()
          }
+
     }
    
 }
