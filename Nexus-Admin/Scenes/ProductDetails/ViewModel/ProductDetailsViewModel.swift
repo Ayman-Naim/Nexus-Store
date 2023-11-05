@@ -272,7 +272,7 @@ class ProductDetailsViewModel {
                 DispatchQueue.main.async {
                     if variantIndex == variants.count - 1 {
                         self.loading?(false)
-                    }q
+                    }
                 }
                 switch response.result {
                 case .success(let data):

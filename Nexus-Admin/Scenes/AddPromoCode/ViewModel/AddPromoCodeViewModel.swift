@@ -12,6 +12,9 @@ import Alamofire
 class AddPromoCodeViewModel {
     let header: HTTPHeaders = ["X-Shopify-Access-Token": "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"]
     
+    var navigate: (() -> Void)?
+    var errorAlert: ((_ title: String, _ message: String) -> Void)?
+    
     func addPromoCode(discountTitle: String, promoCode: String, amount: String, type: Int, usageLimit: String, startAt: Date, endAt: Date) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd’T’HH:mm:ssZ"
@@ -26,32 +29,13 @@ class AddPromoCodeViewModel {
                 "ends_at": endAtString,
                 "value": "-" + amount,
                 "usage_limit": usageLimit,
-//                //"allocation_limit": usageLimit,
-//
+                
                 "target_type": "line_item",
                 "target_selection": "all",
                 "allocation_method": "across",
                 "customer_selection": "all",
-//                "once_per_customer": true
             ] as [String : Any]
         ]
-        
-        /*
-         {
-             "price_rule":{
-             "title": "Aymans Offer",
-             "target_type": "line_item",
-             "target_selection": "all",
-             "allocation_method": "across",
-             "value_type": "fixed_amount",
-             "value": "-100.0",
-             "customer_selection": "all",
-             "starts_at": "2023-11-10T12:59:10-05:00",
-
-             "usage_limit": 20
-             }
-         }
-         */
         
         let url = "https://ios-q1-new-capital-admin1-2023.myshopify.com/admin/api/2023-01/price_rules.json"
         AF.request(url, method: .post, parameters: params, headers: header).responseDecodable(of: PriceRuleResponse.self) { response in
@@ -61,7 +45,7 @@ class AddPromoCodeViewModel {
                 guard let priceRule = priceRuleResponse.singleResult else { return }
                 self.addDiscountCodeToPriceRule(priceRuleID: priceRule.id, code: promoCode)
             case .failure(let error):
-                print(error)
+                self.errorAlert?("Price Rule", error.localizedDescription)
             }
         }
     }
@@ -74,9 +58,12 @@ class AddPromoCodeViewModel {
             case .success(let discountResponse):
                 guard let discountCod = discountResponse.singleResult else { return }
                 print(discountCod)
+                DispatchQueue.main.async {
+                    self.navigate?()
+                }
                 
             case .failure(let error):
-                print(error)
+                self.errorAlert?("Discount Code", error.localizedDescription)
             }
         }
     }
