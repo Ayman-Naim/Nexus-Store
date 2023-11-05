@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -23,26 +23,37 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yNm-N0-9sg">
-                    <rect key="frame" x="16" y="142" width="398" height="570"/>
+                    <rect key="frame" x="16" y="142" width="398" height="529.66666666666663"/>
                     <color key="backgroundColor" name="Background"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mgr-Kj-w6J">
-                    <rect key="frame" x="0.0" y="720" width="430" height="178"/>
+                    <rect key="frame" x="0.0" y="679.66666666666663" width="430" height="218.33333333333337"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xos-CD-q5L">
-                            <rect key="frame" x="111.66666666666669" y="24" width="207" height="130"/>
+                            <rect key="frame" x="111.66666666666669" y="24" width="207" height="170.33333333333334"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="BgB-1W-DAo">
-                                    <rect key="frame" x="29.666666666666671" y="0.0" width="147.66666666666663" height="70"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BgB-1W-DAo">
+                                    <rect key="frame" x="27.666666666666671" y="0.0" width="151.33333333333331" height="110.33333333333333"/>
                                     <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8yf-aI-wdd">
+                                            <rect key="frame" x="0.0" y="0.0" width="151.33333333333334" height="34.333333333333336"/>
+                                            <color key="tintColor" systemColor="labelColor"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="return.right" catalog="system" title="  Show Order">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" weight="medium"/>
+                                            </buttonConfiguration>
+                                            <connections>
+                                                <action selector="showOrdersButtonPressed:" destination="-1" eventType="touchUpInside" id="0J9-nj-HXe"/>
+                                            </connections>
+                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Totoal Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mb9-CV-d7i">
-                                            <rect key="frame" x="0.0" y="0.0" width="147.66666666666666" height="33"/>
+                                            <rect key="frame" x="0.0" y="42.333333333333371" width="151.33333333333334" height="20.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" name="SubTitle"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1950.80" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5s-4K-jyn">
-                                            <rect key="frame" x="0.0" y="37" width="147.66666666666666" height="33"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1950.80" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5s-4K-jyn">
+                                            <rect key="frame" x="0.0" y="70.666666666666742" width="151.33333333333334" height="39.666666666666657"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="33"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -50,7 +61,7 @@
                                     </subviews>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1X-hc-TMZ">
-                                    <rect key="frame" x="0.0" y="86" width="207" height="44"/>
+                                    <rect key="frame" x="0.0" y="126.33333333333337" width="207" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="207" id="Kck-Nt-7gL"/>
                                         <constraint firstAttribute="height" constant="44" id="YVW-gp-FwD"/>
@@ -64,17 +75,15 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="207" id="9bW-cs-b2a"/>
-                                <constraint firstAttribute="height" constant="130" id="OBR-yY-lgg"/>
-                            </constraints>
                         </stackView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstItem="xos-CD-q5L" firstAttribute="top" secondItem="mgr-Kj-w6J" secondAttribute="top" constant="24" id="2Hd-w2-6OZ"/>
                         <constraint firstItem="xos-CD-q5L" firstAttribute="top" secondItem="mgr-Kj-w6J" secondAttribute="top" constant="24" id="7BN-2Y-qK8"/>
                         <constraint firstItem="xos-CD-q5L" firstAttribute="centerY" secondItem="mgr-Kj-w6J" secondAttribute="centerY" id="G4G-R9-cRj"/>
                         <constraint firstItem="xos-CD-q5L" firstAttribute="centerX" secondItem="mgr-Kj-w6J" secondAttribute="centerX" id="fsF-jC-YpR"/>
+                        <constraint firstAttribute="bottom" secondItem="xos-CD-q5L" secondAttribute="bottom" constant="24" id="yz4-VI-21r"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7oN-D2-far">
@@ -106,6 +115,7 @@
         </view>
     </objects>
     <resources>
+        <image name="return.right" catalog="system" width="128" height="102"/>
         <namedColor name="Background">
             <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -115,6 +125,9 @@
         <namedColor name="Title">
             <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

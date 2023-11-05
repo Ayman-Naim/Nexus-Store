@@ -100,6 +100,10 @@ class PayMethodViewController: UIViewController {
             self.presentPaymentController()
         }
     }
+    
+    @IBAction func showOrdersButtonPressed(_ sender: UIButton) {
+        self.present(OrderDetailsSheetTVC.sheet(), animated: true)
+    }
 }
 
 extension PayMethodViewController:UITableViewDelegate,UITableViewDataSource, PKPaymentAuthorizationViewControllerDelegate{
