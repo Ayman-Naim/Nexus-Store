@@ -38,7 +38,24 @@ class CartService {
     }
     
     func addProductToCart(forCustomerID customerID: Int, variantID: Int, quantity: Int, imageURLString: String, completion: @escaping (Error?) -> Void) {
-        draftOrderSerivce.addNewLineItem(customerID: customerID, variantID: variantID, quantity: quantity, imageURLString: imageURLString, completion: completion)
+        draftOrderSerivce.addNewLineItem(customerID: customerID, variantID: variantID, quantity: quantity, imageURLString: imageURLString) { error in
+            if let error = error {
+                completion(error)
+                return
+            }
+            self.draftOrderSerivce.customerDraftOrder(customerID: customerID) { result in
+                switch result {
+                case .success(let draftOrder):
+                    if draftOrder.lineItems.contains(where: { $0.variantID == variantID }) {
+                        completion(nil)
+                    } else {
+                        self.draftOrderSerivce.addNewLineItem(customerID: customerID, variantID: variantID, quantity: quantity, imageURLString: imageURLString, completion: completion)
+                    }
+                case .failure(let error):
+                    completion(error)
+                }
+            }
+        }
     }
     
     func updateQuantity(ofProduct cartProduct: CartProduct, withQuantity quantity: Int, toCustomer customerID: Int, completion: @escaping (Error?) -> Void){
