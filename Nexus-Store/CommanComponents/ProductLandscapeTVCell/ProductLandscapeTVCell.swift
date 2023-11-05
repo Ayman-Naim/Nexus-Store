@@ -100,7 +100,8 @@ extension ProductLandscapeTVCell: ProductLandscapeCell {
     func setProduct(_ product: CartProduct) {
         productImageView.setImage(withURLString: product.image)
         productTitleLabel.text = product.title
-        priceLabel.text = "$\(product.price)"
+//        priceLabel.text = "$\(product.price)"
+        priceLabel.text = ConvertPrice.share.changePrice(price: String(product.price))
         quantityLabel.text = "\(product.quantity)"
         quantity = product.quantity
     }
