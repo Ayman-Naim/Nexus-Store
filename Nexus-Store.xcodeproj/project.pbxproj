@@ -202,6 +202,7 @@
 		E37B4DEB2AE307BE0051EB89 /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37B4DE92AE307BE0051EB89 /* PaymentTableViewCell.swift */; };
 		E37B4DEC2AE307BE0051EB89 /* PaymentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E37B4DEA2AE307BE0051EB89 /* PaymentTableViewCell.xib */; };
 		E382B31B2AF016730004110D /* SearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382B31A2AF016730004110D /* SearchVM.swift */; };
+		E39B45332AF6F229008C6CC8 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B45322AF6F229008C6CC8 /* TabBarViewController.swift */; };
 		E3A3ED662AEC51FC00E44737 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A3ED642AEC51FB00E44737 /* SignInViewController.swift */; };
 		E3A3ED672AEC51FC00E44737 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3A3ED652AEC51FC00E44737 /* SignInViewController.xib */; };
 		E3A60E7D2AEC87BA008FEDB5 /* BaseUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A60E7C2AEC87BA008FEDB5 /* BaseUrl.swift */; };
@@ -452,6 +453,7 @@
 		E37B4DE92AE307BE0051EB89 /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
 		E37B4DEA2AE307BE0051EB89 /* PaymentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentTableViewCell.xib; sourceTree = "<group>"; };
 		E382B31A2AF016730004110D /* SearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVM.swift; sourceTree = "<group>"; };
+		E39B45322AF6F229008C6CC8 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		E3A3ED642AEC51FB00E44737 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		E3A3ED652AEC51FC00E44737 /* SignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		E3A60E7C2AEC87BA008FEDB5 /* BaseUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrl.swift; sourceTree = "<group>"; };
@@ -1410,6 +1412,7 @@
 		E30A94652AE68AA500AB0F5F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E39B45312AF6F207008C6CC8 /* TabBar */,
 				E30A94662AE68B2200AB0F5F /* Login */,
 				E30A94672AE68C0300AB0F5F /* AllBrands */,
 				45BED4452AEDC15000795D8A /* AllProductBrand */,
@@ -1933,6 +1936,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E39B45312AF6F207008C6CC8 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				E39B45322AF6F229008C6CC8 /* TabBarViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		E3A60E762AEC867C008FEDB5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -2356,6 +2367,7 @@
 				0179F4C42AEC5DC300114BD7 /* K.swift in Sources */,
 				01EF91C52AF5F58C006F6854 /* PromoCodeTableViewCell.swift in Sources */,
 				E3C64A4B2AF2CC2A00083137 /* AllBrandsVM.swift in Sources */,
+				E39B45332AF6F229008C6CC8 /* TabBarViewController.swift in Sources */,
 				0117D2AC2AED5E2A005D339B /* EditProductViewController.swift in Sources */,
 				015625192AF69ED000427CB6 /* AddPromoCodeViewModel.swift in Sources */,
 				0156250F2AF68BCF00427CB6 /* DiscountCode.swift in Sources */,
@@ -2557,7 +2569,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R7KL845XH9;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "mohamed.khater.Nexus-StoreTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2579,7 +2591,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R7KL845XH9;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "mohamed.khater.Nexus-StoreTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2608,6 +2620,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2639,6 +2652,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

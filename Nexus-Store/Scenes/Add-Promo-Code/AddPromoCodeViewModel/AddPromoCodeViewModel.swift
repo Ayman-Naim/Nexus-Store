@@ -108,7 +108,7 @@ class AddPromoCodeViewModel:AddPromoCodeProtocaol{
         
         if let productRule = self.priceRule {
             
-            if productRule.usageLimit < productRule.allocationLimit{
+            if productRule.usageLimit > 0 {
                 
                 Handel(true)
             }
@@ -158,8 +158,8 @@ class AddPromoCodeViewModel:AddPromoCodeProtocaol{
     func updatePriceRuleLimit(priceRuleID:Int) {
         if let id = priceRule?.id ,var usageLimit = priceRule?.usageLimit {
             BaseUrl.priceRuleID  = "\(priceRuleID)"
-            usageLimit = usageLimit + 1
-            priceRule?.usageLimit = usageLimit
+            usageLimit = usageLimit - 1
+           
             
             let json: [String: Any] = [
                 "price_rule": [

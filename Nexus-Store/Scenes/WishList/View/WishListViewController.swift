@@ -40,11 +40,7 @@ class WishListViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.tabBarController?.tabBar.isHidden = false
-    }
-    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +50,10 @@ class WishListViewController: UIViewController {
         viewModel.fetchProducts()
         
         self.setContentEmptyTitle("No products in Wish list")
+        navigationItem.backAction  = UIAction(handler: { _ in
+            self.tabBarController?.tabBar.isHidden = false
+            self.navigationController?.popViewController(animated: true)
+        })
     }
     
     // MARK: - Helpers

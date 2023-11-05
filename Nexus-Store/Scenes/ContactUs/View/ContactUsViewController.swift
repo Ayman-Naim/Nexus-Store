@@ -45,14 +45,14 @@ class ContactUsViewController: UIViewController, UITableViewDelegate, UITableVie
         case 2:
             let cell =  tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as! ContactTableViewCell
             cell.nameLabel.text = "Mohamed Khater"
-            cell.emailLabel.text = "ahmed.ashraf.aa.as@gmail.com"
+            cell.emailLabel.text = "mohamed.khateerr@gmail.com"
             cell.phoneLabel.text = "01206338750"
             cell.imgView.image = UIImage(named: "khater")
             return cell
         case 3:
             let cell =  tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as! ContactTableViewCell
             cell.nameLabel.text = "Mustafa Adel"
-            cell.emailLabel.text = "ahmed.ashraf.aa.as@gmail.com"
+            cell.emailLabel.text = "Mustafaadell9777@gmail.com"
             cell.phoneLabel.text = "01018710388"
             cell.imgView.image = UIImage(named: "Mustafa")
             return cell

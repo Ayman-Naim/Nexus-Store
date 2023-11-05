@@ -26,8 +26,11 @@ class CartViewController: UIViewController {
         setupTableView()
         bindViewModel()
         viewModel.fetchCartProducts()
-        
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: nil, style: .done, target: self, action: #selector(backButtonPressed))
+      
+        navigationItem.backAction  = UIAction(handler: { _ in
+            self.tabBarController?.tabBar.isHidden = false
+            self.navigationController?.popViewController(animated: true)
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,9 +45,6 @@ class CartViewController: UIViewController {
     }
     
     
-    @objc private func backButtonPressed() {
-        self.tabBarController?.tabBar.isHidden = false
-    }
     
     
     

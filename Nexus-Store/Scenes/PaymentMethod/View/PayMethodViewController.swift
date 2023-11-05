@@ -108,22 +108,27 @@ extension PayMethodViewController:UITableViewDelegate,UITableViewDataSource, PKP
        
         switch indexPath.row{
         case 0:
+            
             let cell =  tableView.dequeueReusableCell(withIdentifier: "PaymentTableViewCell", for: indexPath) as! PaymentTableViewCell
+            cell.selectionStyle = .none
             cell.PayMethodName.text = "Cash on Delivey"
             cell.PaymMethodLogo.image = UIImage(named: "Wallet")
             return cell
         case 1:
             let cell =  tableView.dequeueReusableCell(withIdentifier: "PaymentTableViewCell", for: indexPath) as! PaymentTableViewCell
+            cell.selectionStyle = .none
             cell.PayMethodName.text = "PayPal"
             cell.PaymMethodLogo.image = UIImage(named: "Paypal-Logo")
             return cell
         case 2 :
             let cell =  tableView.dequeueReusableCell(withIdentifier: "PaymentTableViewCell", for: indexPath) as! PaymentTableViewCell
+            cell.selectionStyle = .none
             cell.PayMethodName.text = "Apple Pay"
             cell.PaymMethodLogo.image = UIImage(named: "ApplePay")
             return cell
         default:
             let cell =  tableView.dequeueReusableCell(withIdentifier: "PaymentTableViewCell", for: indexPath) as! PaymentTableViewCell
+            cell.selectionStyle = .none
             cell.PayMethodName.text = "Cash on Delivey"
             cell.PaymMethodLogo.image = UIImage(named: "Paypal-Logo")
             return cell

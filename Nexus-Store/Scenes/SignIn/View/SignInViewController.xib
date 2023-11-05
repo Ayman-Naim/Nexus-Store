@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -52,7 +51,7 @@
                                         <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </buttonConfiguration>
                                 </button>
-                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456789" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LzU-en-yQr">
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LzU-en-yQr">
                                     <rect key="frame" x="37" y="130" width="341" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="3u1-69-1e0"/>
@@ -83,7 +82,7 @@
                                         </label>
                                     </subviews>
                                 </stackView>
-                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="mustafa@gmail.com" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y8J-Xs-pzI">
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y8J-Xs-pzI">
                                     <rect key="frame" x="39.333333333333343" y="70" width="338.66666666666663" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="zLZ-to-CMi"/>
@@ -179,6 +178,15 @@
                                         </button>
                                     </subviews>
                                 </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p81-QY-Ci3">
+                                    <rect key="frame" x="119.66666666666667" y="641" width="153.66666666666663" height="34.333333333333371"/>
+                                    <color key="tintColor" systemColor="labelColor"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="return.right" catalog="system" title=" Guest Mode "/>
+                                    <connections>
+                                        <action selector="GuestModePressed:" destination="-1" eventType="touchUpInside" id="D8C-H5-Cn5"/>
+                                    </connections>
+                                </button>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.lock.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3ah-DS-iLs">
                                     <rect key="frame" x="12" y="139" width="20" height="18"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -214,6 +222,7 @@
                                 <constraint firstItem="ubO-g9-4Qy" firstAttribute="centerX" secondItem="Nea-t0-eZ9" secondAttribute="centerX" id="9mI-Fw-F2k"/>
                                 <constraint firstAttribute="trailing" secondItem="LzU-en-yQr" secondAttribute="trailing" constant="15" id="ATU-OI-oKx"/>
                                 <constraint firstItem="uQr-nw-gAI" firstAttribute="leading" secondItem="Nea-t0-eZ9" secondAttribute="leading" constant="15" id="Aja-fI-DRO"/>
+                                <constraint firstItem="p81-QY-Ci3" firstAttribute="top" secondItem="ubO-g9-4Qy" secondAttribute="bottom" constant="18" id="Cch-44-Po2"/>
                                 <constraint firstItem="iTV-zg-Pad" firstAttribute="top" secondItem="cor-ZH-mXH" secondAttribute="bottom" constant="50" id="FB4-oI-PNF"/>
                                 <constraint firstItem="BV1-hl-xc1" firstAttribute="top" secondItem="3c4-6K-Epz" secondAttribute="bottom" constant="25.670000000000002" id="Lpj-nf-2XB"/>
                                 <constraint firstItem="G9b-Ij-Pjj" firstAttribute="leading" secondItem="Nea-t0-eZ9" secondAttribute="leading" constant="50" id="OCj-9J-mMp"/>
@@ -221,6 +230,7 @@
                                 <constraint firstItem="ZC6-cQ-cpP" firstAttribute="leading" secondItem="Nea-t0-eZ9" secondAttribute="leading" constant="10" id="Ptq-fN-qwt"/>
                                 <constraint firstItem="iTV-zg-Pad" firstAttribute="centerX" secondItem="Nea-t0-eZ9" secondAttribute="centerX" id="TK0-9g-OMY"/>
                                 <constraint firstItem="G9b-Ij-Pjj" firstAttribute="centerX" secondItem="Nea-t0-eZ9" secondAttribute="centerX" id="UOb-5W-QNB"/>
+                                <constraint firstItem="p81-QY-Ci3" firstAttribute="centerX" secondItem="ubO-g9-4Qy" secondAttribute="centerX" id="UxP-B7-dfW"/>
                                 <constraint firstItem="LzU-en-yQr" firstAttribute="top" secondItem="y8J-Xs-pzI" secondAttribute="bottom" constant="20" id="V2v-YI-SKm"/>
                                 <constraint firstItem="Y6F-qd-sRS" firstAttribute="centerX" secondItem="Nea-t0-eZ9" secondAttribute="centerX" id="WOq-b5-Yzq"/>
                                 <constraint firstItem="3ah-DS-iLs" firstAttribute="top" secondItem="y8J-Xs-pzI" secondAttribute="bottom" constant="28" id="WTo-Wv-Feb"/>
@@ -265,13 +275,14 @@
     <resources>
         <image name="apple-logo-transparent" width="2400" height="2398"/>
         <image name="checkbox-1" width="512" height="512"/>
-        <image name="envelope.fill" catalog="system" width="128" height="85"/>
+        <image name="envelope.fill" catalog="system" width="128" height="93"/>
         <image name="exclamationmark.lock.fill" catalog="system" width="125" height="128"/>
         <image name="eye" width="800" height="800"/>
         <image name="facebook1" width="75" height="75"/>
         <image name="googleP" width="768" height="768"/>
+        <image name="return.right" catalog="system" width="128" height="102"/>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

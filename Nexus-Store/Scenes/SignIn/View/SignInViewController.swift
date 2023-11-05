@@ -42,6 +42,16 @@ class SignInViewController: UIViewController {
         updateRememberMeUI()*/
     }
 
+    @IBAction func GuestModePressed(_ sender: Any) {
+        if let sceneDelegate = UIApplication.shared.connectedScenes
+            .first!.delegate as? SceneDelegate {
+            let tabBar = NexusTabBarController()
+            tabBar.navigationController?.isNavigationBarHidden = true
+            sceneDelegate.window!.rootViewController = tabBar
+            
+        }
+        
+    }
     @IBAction func singInButtonPressed(_ sender: Any) {
         guard let email = emailField.text, !email.isEmpty,
               let password = passwordField.text, !password.isEmpty else{
@@ -51,6 +61,7 @@ class SignInViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
             return
         }
+        
         
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                 // Check for errors during sign-in
