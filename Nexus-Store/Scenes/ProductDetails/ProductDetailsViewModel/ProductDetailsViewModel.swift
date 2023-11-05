@@ -90,12 +90,12 @@ class ProductDetailsViewModel{
         return nil
         
     }
-    var priceOfsingleProduct:String? {
+    var priceOfsingleProduct: String {
         if let priceitem = productItem?.variants?.first?.price {
-                    return "$\(priceitem)"
-                }
-                return "$300"
-       }
+            return "\(priceitem)"
+        }
+        return ""
+    }
     var numeberOfAvalibleQuantity:String?{
         if let numberOfItemAvalabile = productItem?.variants?.first?.inventoryQuantity{
             return "\(numberOfItemAvalabile) item"

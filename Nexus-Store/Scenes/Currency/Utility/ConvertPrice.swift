@@ -8,6 +8,8 @@
 import Foundation
 
 class ConvertPrice{
+    
+    static let share = ConvertPrice()
 
     func getPrice(price: Double) -> String{
       
