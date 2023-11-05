@@ -19,6 +19,7 @@ class PayMethodViewController: UIViewController {
 
     // for testing
     var totalAmount: Double = 0.0
+    var convertPrice = ConvertPrice()
 //    let authorization = "sandbox_8h3qzxnj_76tbywh3qkq2yw2k"
 //    var braintreeAPIClient:BTAPIClient!
 //    var payPalNativeCheckoutClient: BTPayPalNativeCheckoutClient!
@@ -41,8 +42,14 @@ class PayMethodViewController: UIViewController {
             case .success(let draftOrder):
                 if let totalPrice = Double(draftOrder.totalPrice) {
                     self.totalAmount = totalPrice
+           //         print(self.totalAmount)
                     DispatchQueue.main.async {
-                        self.TotalAmountLabel.text = "\(totalPrice) $"
+                        let price = self.convertPrice.convertPrice(price: self.totalAmount)
+                        if self.convertPrice.getSelectedCurrency() == true {
+                            self.TotalAmountLabel.text = "\(price) $"
+                        }else{
+                            self.TotalAmountLabel.text = "\(price) EGP"
+                        }
                     }
                 }
             case .failure(let error):

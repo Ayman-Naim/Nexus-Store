@@ -138,6 +138,9 @@
 		5B0BC7B92AF49EFB00A25CC5 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0BC7B82AF49EFB00A25CC5 /* PaymentViewModel.swift */; };
 		5B2CE85B2AF21DD50008DC5B /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B2CE85A2AF21DD50008DC5B /* credentials.plist */; };
 		5B312CD32AEBD64E00394BDF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B312CD22AEBD64E00394BDF /* GoogleService-Info.plist */; };
+		5B4D72062AF71BF70017FD7F /* ConvertPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4D72052AF71BF60017FD7F /* ConvertPrice.swift */; };
+		5B4D72082AF71D3E0017FD7F /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4D72072AF71D3E0017FD7F /* Currency.swift */; };
+		5B4D720C2AF71E230017FD7F /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4D720B2AF71E230017FD7F /* CurrencyModel.swift */; };
 		5B94B7C82AF0C2B10010071D /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B94B7C72AF0C2B10010071D /* SignIn.swift */; };
 		5B9A02732AEC23E3007DC704 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A02722AEC23E3007DC704 /* CreateAccount.swift */; };
 		5B9A02752AEC24DC007DC704 /* SignInWithAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A02742AEC24DC007DC704 /* SignInWithAccount.swift */; };
@@ -373,6 +376,9 @@
 		5B0BC7B82AF49EFB00A25CC5 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
 		5B2CE85A2AF21DD50008DC5B /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		5B312CD22AEBD64E00394BDF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5B4D72052AF71BF60017FD7F /* ConvertPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertPrice.swift; sourceTree = "<group>"; };
+		5B4D72072AF71D3E0017FD7F /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		5B4D720B2AF71E230017FD7F /* CurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
 		5B94B7C72AF0C2B10010071D /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		5B9A02722AEC23E3007DC704 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
 		5B9A02742AEC24DC007DC704 /* SignInWithAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAccount.swift; sourceTree = "<group>"; };
@@ -1132,6 +1138,32 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		5B4D72042AF71BDB0017FD7F /* Currency */ = {
+			isa = PBXGroup;
+			children = (
+				5B4D720A2AF71E000017FD7F /* Utility */,
+				5B4D72092AF71DF70017FD7F /* Model */,
+			);
+			path = Currency;
+			sourceTree = "<group>";
+		};
+		5B4D72092AF71DF70017FD7F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5B4D720B2AF71E230017FD7F /* CurrencyModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5B4D720A2AF71E000017FD7F /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				5B4D72052AF71BF60017FD7F /* ConvertPrice.swift */,
+				5B4D72072AF71D3E0017FD7F /* Currency.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		5B94B7C62AF0C29D0010071D /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1754,6 +1786,7 @@
 		E37687DD2ADDFFFF00DB09A1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				5B4D72042AF71BDB0017FD7F /* Currency */,
 				45A3D9712AF1B7A30015EF5E /* SplashScreen */,
 				5BFDC6432AEE680900C2F6C7 /* ContactUs */,
 				5B9A02842AECD036007DC704 /* AboutUs */,
@@ -2414,6 +2447,7 @@
 				457276B22AEE7B3200EE759D /* DiscountCode.swift in Sources */,
 				E3324FC32AF448F0008C6B89 /* PriceRuleModel.swift in Sources */,
 				5BFDC64C2AEE69C900C2F6C7 /* ContactTableViewCell.swift in Sources */,
+				5B4D72082AF71D3E0017FD7F /* Currency.swift in Sources */,
 				E340D1EA2AE79A2500E2E017 /* NetworkManger.swift in Sources */,
 				E34556722AE1D18200312C6C /* SectionHeaderTableViewCell.swift in Sources */,
 				E382B31B2AF016730004110D /* SearchVM.swift in Sources */,
@@ -2444,10 +2478,12 @@
 				45123AAB2AE2149E001B12B7 /* ProductDetailsViewController.swift in Sources */,
 				5BC20AD02AE1C71D0071925A /* WelcomeViewController.swift in Sources */,
 				019C83332AF2ED57003DB9EA /* CustomerAddressResponse.swift in Sources */,
+				5B4D720C2AF71E230017FD7F /* CurrencyModel.swift in Sources */,
 				E35BC5862AE0A8B900742654 /* SectionHeaderReusableView.swift in Sources */,
 				45D0E8912AE0A04800A07332 /* K.swift in Sources */,
 				5BC20AC52AE190CA0071925A /* SignUpViewController.swift in Sources */,
 				457276AD2AEE729800EE759D /* AddPromoCodeViewModel.swift in Sources */,
+				5B4D72062AF71BF70017FD7F /* ConvertPrice.swift in Sources */,
 				E37B4DE52AE301B80051EB89 /* PayMethodViewController.swift in Sources */,
 				E34FE6302AE954D9006602A5 /* ProfileVM.swift in Sources */,
 				5B9A02782AEC29F3007DC704 /* SignUp.swift in Sources */,

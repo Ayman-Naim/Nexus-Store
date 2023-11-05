@@ -63,4 +63,35 @@ class ApiManger {
                 }
             }
     }
+    
+    func getCurrency() {
+            guard let url = getCurrencyURL() else {return}
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data{
+                    do{
+                        let json = try JSONDecoder().decode(CurrencyModel.self, from: data)
+                        DispatchQueue.main.async{
+    //                        complition(json, nil)
+                            print("success to get all brands")
+                            self.setCurrency(currency: json.data.egp.value)
+                        }
+                    }catch let error{
+                        DispatchQueue.main.async{
+                            print(error)
+    //                        complition(nil, error)
+                        }
+                    }
+                }
+                if let error = error{
+                    print(error.localizedDescription)
+                }
+            }.resume()
+        }
+    
+    func getCurrencyURL() -> URL?{
+        return URL(string: "https://api.currencyapi.com/v3/latest?apikey=cur_live_7gaNSIC8bfKdN5yLRmUOgua1DkSXOGLgV71R6i83&currencies=EGP")
+    }
+    func setCurrency(currency: Double?){
+        UserDefaults.standard.set(currency, forKey: "Currency")
+    }
 }
