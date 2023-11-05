@@ -19,8 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window   = UIWindow(windowScene: windowScene)
-        if let contentData = UserDefaults.standard.object(forKey: "Admin") as? Data,
-           let content = try? JSONDecoder().decode(adminModel.self, from: contentData) {
+        if  UserDefaults.standard.object(forKey: "Admin") != nil
+        {
+           
             window?.rootViewController = NexusAdminTabBarController()
            window?.makeKeyAndVisible()
         }else{
