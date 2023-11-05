@@ -63,6 +63,7 @@ class ProductDetailsViewModel {
     var saved: ((Bool) -> Void)?
     var hideSaveQuantityButton: ((Bool) -> Void)?
     var hideSavePriceButton: ((Bool) -> Void)?
+    var goBack: (() -> Void)?
     
     
     // MARK: - DataSource
@@ -183,9 +184,18 @@ class ProductDetailsViewModel {
     
     func saveNewQuantity() {
         guard let currentVariant = currentVariant else { return }
-        let url = K.baseURL + "/products/\(productID)/variants/\(currentVariant.id).json"
+        let url = K.baseURL + "/inventory_levels/set.json"
+        
+        
+        let params = [
+            "location_id": 72119550188,
+            "inventory_item_id": currentVariant.inventoryID,
+            "available": currentQuantity
+            //            "available_adjustment": currentQuantity
+        ]
+        
         loading?(true)
-        AF.request(url, method: .put, parameters: ["variant": ["inventory_quantity": currentQuantity]], headers: K.APIHeader).response { response in
+        AF.request(url, method: .post, parameters: params, headers: K.APIHeader).response { response in
             DispatchQueue.main.async {
                 self.loading?(false)
             }
@@ -193,12 +203,14 @@ class ProductDetailsViewModel {
             case .success(let data):
                 print(String(data: data!, encoding: .utf8) ?? "")
                 self.saved?(data != nil)
-
+                self.fetchProduct()
+                
             case .failure(let error):
                 self.error?(error.localizedDescription)
             }
         }
     }
+    
     
     func priceDidChange(_ price: String?) {
         guard let currentVariant = currentVariant else { return }
@@ -239,9 +251,10 @@ class ProductDetailsViewModel {
                 self.loading?(false)
             }
             switch response.result {
-            case .success(let data):
-                self.saved?(data != nil)
-                self.fetchProduct()
+            case .success(_):
+                DispatchQueue.main.async {
+                    self.goBack?()
+                }
                 
             case .failure(let error):
                 self.error?(error.localizedDescription)

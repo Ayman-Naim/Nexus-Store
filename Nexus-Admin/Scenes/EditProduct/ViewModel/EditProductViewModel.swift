@@ -80,16 +80,40 @@ class EditProductViewModel {
             ] as [String : Any]
         ]
         
-        AF.request(urlString, method: .post, parameters: params, headers: K.APIHeader).response { response in
+        AF.request(urlString, method: .post, parameters: params, headers: K.APIHeader).responseDecodable(of: VariantResponse.self) { response in
             switch response.result {
-            case .success(let data):
-                guard let data = data, let dataString = String(data: data, encoding: .utf8) else { return }
-                if dataString.contains("error") {
-                    print(dataString)
-                } else {
+            case .success(let variantResponse):
+                self.enabelInventroyItemTracking(inventroyID: variantResponse.variant.inventoryID) {
                     self.saved?(true)
                 }
+//                guard let data = data, let dataString = String(data: data, encoding: .utf8) else { return }
+//                if dataString.contains("error") {
+//                    print(dataString)
+//                } else {
+//                    self.saved?(true)
+//                }
                 
+            case .failure(let error):
+                self.error?(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func enabelInventroyItemTracking(inventroyID: Int, completion: @escaping () -> Void) {
+        let url = K.baseURL + "/inventory_items/\(inventroyID).json"
+        
+        let params = [
+            "inventory_item": [
+                "id": inventroyID,
+                "tracked": true
+            ] as [String : Any]
+        ]
+        
+        AF.request(url, method: .put, parameters: params, headers: K.APIHeader).response { response in
+            switch response.result {
+            case .success(let data):
+                print(String(data: data!, encoding: .utf8) ?? "")
+                completion()
             case .failure(let error):
                 self.error?(error.localizedDescription)
             }

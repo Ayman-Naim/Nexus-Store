@@ -212,6 +212,10 @@ class ProductDetailsViewController: UIViewController {
         viewModel.hideSavePriceButton = { [weak self] isHidden in
             self?.savePriceButton.isHidden = isHidden
         }
+        
+        viewModel.goBack = { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
     }
     
     private func updatePageControl() {
