@@ -123,8 +123,14 @@ class ProductDetailsViewController: UIViewController {
         
         productDetailsViewModel?.alertNotification = { [weak self] (titleAlert , messageAlert) in
             guard let self = self else{return}
-          //  Alert.show(on: self, title: titleAlert , message: messageAlert)
-            self.luanchSavingAnimation()
+            Alert.show(on: self, title: titleAlert , message: messageAlert)
+           
+            
+        }
+        
+        productDetailsViewModel?.notifyAddedToCart = { [weak self]  in
+            self?.luanchSavingAnimation()
+
             
         }
         

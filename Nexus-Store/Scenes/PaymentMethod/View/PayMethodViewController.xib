@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -30,19 +30,19 @@
                     <rect key="frame" x="0.0" y="720" width="430" height="178"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xos-CD-q5L">
-                            <rect key="frame" x="111.66666666666669" y="24" width="207" height="130"/>
+                            <rect key="frame" x="90" y="24" width="250" height="130"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="BgB-1W-DAo">
-                                    <rect key="frame" x="29.666666666666671" y="0.0" width="147.66666666666663" height="70"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="BgB-1W-DAo">
+                                    <rect key="frame" x="51.333333333333343" y="0.0" width="147.66666666666666" height="70"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Totoal Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mb9-CV-d7i">
-                                            <rect key="frame" x="0.0" y="0.0" width="147.66666666666666" height="33"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Totoal Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mb9-CV-d7i">
+                                            <rect key="frame" x="0.0" y="0.0" width="147.66666666666666" height="26.333333333333332"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" name="SubTitle"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1950.80" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5s-4K-jyn">
-                                            <rect key="frame" x="0.0" y="37" width="147.66666666666666" height="33"/>
+                                            <rect key="frame" x="0.0" y="30.333333333333368" width="147.66666666666666" height="39.666666666666657"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="33"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -50,7 +50,7 @@
                                     </subviews>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1X-hc-TMZ">
-                                    <rect key="frame" x="0.0" y="86" width="207" height="44"/>
+                                    <rect key="frame" x="21.666666666666671" y="86" width="207" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="207" id="Kck-Nt-7gL"/>
                                         <constraint firstAttribute="height" constant="44" id="YVW-gp-FwD"/>
@@ -65,7 +65,7 @@
                                 </button>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="width" constant="207" id="9bW-cs-b2a"/>
+                                <constraint firstAttribute="width" constant="250" id="9bW-cs-b2a"/>
                                 <constraint firstAttribute="height" constant="130" id="OBR-yY-lgg"/>
                             </constraints>
                         </stackView>
