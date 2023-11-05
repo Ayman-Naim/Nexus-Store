@@ -48,12 +48,15 @@
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Totoal Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mb9-CV-d7i">
                                             <rect key="frame" x="0.0" y="42.333333333333371" width="151.33333333333334" height="20.333333333333329"/>
+
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" name="SubTitle"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1950.80" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5s-4K-jyn">
                                             <rect key="frame" x="0.0" y="70.666666666666742" width="151.33333333333334" height="39.666666666666657"/>
+
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="33"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -61,7 +64,9 @@
                                     </subviews>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1X-hc-TMZ">
+
                                     <rect key="frame" x="0.0" y="126.33333333333337" width="207" height="44"/>
+
                                     <constraints>
                                         <constraint firstAttribute="width" constant="207" id="Kck-Nt-7gL"/>
                                         <constraint firstAttribute="height" constant="44" id="YVW-gp-FwD"/>
@@ -75,6 +80,7 @@
                                     </connections>
                                 </button>
                             </subviews>
+
                         </stackView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>

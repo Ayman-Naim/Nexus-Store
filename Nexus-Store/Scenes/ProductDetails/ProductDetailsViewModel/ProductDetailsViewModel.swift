@@ -67,6 +67,7 @@ class ProductDetailsViewModel{
     var isLoadingAnimation:((Bool)->Void)?
     var errorOccurs:((String)->Void)?
     var alertNotification:((_ title:String,_ message:String)->Void)?
+    var notifyAddedToCart:(()->Void)?
     var setProductAsFavorites:(()->Void)?
     var updateQuatitySelect:(()->Void)?
     
@@ -239,7 +240,7 @@ class ProductDetailsViewModel{
                 self?.errorOccurs?(error.localizedDescription)
                 return
             }
-            self?.alertNotification?("Success", "Product added to the cart successfully!")
+            self?.notifyAddedToCart?()
         }
     }
     

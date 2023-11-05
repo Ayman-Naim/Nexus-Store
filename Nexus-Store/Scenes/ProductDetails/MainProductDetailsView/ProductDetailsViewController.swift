@@ -7,6 +7,7 @@
 
 import UIKit
 import Cosmos
+import Lottie
 
 class ProductDetailsViewController: UIViewController {
     
@@ -32,7 +33,8 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet weak var sizeCollectionView: UICollectionView!
     @IBOutlet weak var imageIndicator: UIPageControl!
     @IBOutlet weak var avalibleQuantity: UILabel!
-
+    
+    let myView : LottieAnimationView = .init()
     let productRatting:Double = 5
     let customerID = K.customerID
     var productSizeDelegation:ProductSizeDelegation?
@@ -122,6 +124,13 @@ class ProductDetailsViewController: UIViewController {
         productDetailsViewModel?.alertNotification = { [weak self] (titleAlert , messageAlert) in
             guard let self = self else{return}
             Alert.show(on: self, title: titleAlert , message: messageAlert)
+           
+            
+        }
+        
+        productDetailsViewModel?.notifyAddedToCart = { [weak self]  in
+            self?.luanchSavingAnimation()
+
             
         }
         
@@ -131,6 +140,7 @@ class ProductDetailsViewController: UIViewController {
                 self?.showFavoriteOrNot.setImage(UIImage(systemName: K.favoriteIconSave,withConfiguration: UIImage.SymbolConfiguration(scale: .large)), for: .normal)
                 }
             }
+        
         
         
         
@@ -261,3 +271,23 @@ extension ProductDetailsViewController{
 
 
 
+//MARK: - Animation
+extension ProductDetailsViewController{
+    func luanchSavingAnimation(){
+        myView.animation = .named("ConformAddtoCart")
+        myView.loopMode = .loop
+        myView.frame = CGRect(x: 0, y: 0, width: 600, height: 250)
+        myView.center = CGPointMake(myView.frame.maxX/1.25, myView.frame.height/0.16)
+        myView.center = view.center
+        view.addSubview(myView)
+        myView.contentMode = .scaleAspectFill
+        myView.backgroundColor = .clear
+        myView.play()
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(setSavingAnimation), userInfo: nil, repeats: false)
+    }
+    
+    
+    @objc func setSavingAnimation(){
+        myView.removeFromSuperview()
+    }
+}
