@@ -41,8 +41,11 @@ class AddPromoCodeViewController: UIViewController {
         addPromoCodeViewModel?.fetchOrderFromDraftOrder()
         addPromoCodeViewModel?.bindDaftOrderFromApi = { [weak self] in
             if let totalPrice = self?.addPromoCodeViewModel?.retriveDraftOrder?.totalPrice{
-                self?.amountLabel.text = "$\(totalPrice)"
-                self?.totalPriceLabel.text = "$\(totalPrice)"
+//                self?.amountLabel.text = "$\(totalPrice)"
+                self?.amountLabel.text = ConvertPrice.share.changePrice(price: totalPrice)
+//                self?.totalPriceLabel.text = "$\(totalPrice)"
+                self?.totalPriceLabel.text = ConvertPrice.share.changePrice(price: totalPrice)
+                self?.promoDiscountLabel.text = ConvertPrice.share.changePrice(price: "0.0")
             }
             self?.isLoadingIndicatorAnimating = false
             
@@ -87,9 +90,11 @@ class AddPromoCodeViewController: UIViewController {
     func resetAmountData(){
         
         promoCodeTextField.text = ""
-        amountLabel.text = "$\((self.addPromoCodeViewModel?.retriveDraftOrder!.totalPrice)!)"
-        promoDiscountLabel.text = "$0"
-        totalPriceLabel.text =  "$\((self.addPromoCodeViewModel?.retriveDraftOrder!.totalPrice)!)"
+//        amountLabel.text = "$\((self.addPromoCodeViewModel?.retriveDraftOrder!.totalPrice)!)"
+        amountLabel.text = ConvertPrice.share.changePrice(price: self.addPromoCodeViewModel?.retriveDraftOrder?.totalPrice ?? "")
+        promoDiscountLabel.text = ConvertPrice.share.changePrice(price: "0.0")
+//        totalPriceLabel.text =  "$\((self.addPromoCodeViewModel?.retriveDraftOrder!.totalPrice)!)"
+        totalPriceLabel.text = ConvertPrice.share.changePrice(price: self.addPromoCodeViewModel?.retriveDraftOrder?.totalPrice ?? "")
         
     }
     
@@ -117,8 +122,10 @@ class AddPromoCodeViewController: UIViewController {
                 if checkAvalibality{
                     DispatchQueue.main.async {
                         
-                        self?.promoDiscountLabel.text = "$\(self?.addPromoCodeViewModel?.discountAmount() ?? "-0.0")"
-                        self?.totalPriceLabel.text = "$\(self?.addPromoCodeViewModel?.returnAmountAfterDiscount(orderPrice: self?.amountLabel.text, dicountPrice:self?.promoDiscountLabel.text) ?? "-0.0")"
+//                        self?.promoDiscountLabel.text = "$\(self?.addPromoCodeViewModel?.discountAmount() ?? "-0.0")"
+                        self?.promoDiscountLabel.text = ConvertPrice.share.changePrice(price: self?.addPromoCodeViewModel?.discountAmount() ?? "-0.0")
+//                        self?.totalPriceLabel.text = "$\(self?.addPromoCodeViewModel?.returnAmountAfterDiscount(orderPrice: self?.amountLabel.text, dicountPrice:self?.promoDiscountLabel.text) ?? "-0.0")"
+                        self?.totalPriceLabel.text = ConvertPrice.share.changePrice(price: self?.addPromoCodeViewModel?.returnAmountAfterDiscount(orderPrice: self?.addPromoCodeViewModel?.retriveDraftOrder?.totalPrice, dicountPrice: self?.addPromoCodeViewModel?.discountAmount() ?? "-0.0") ?? "")
                         self?.luanchSavingAnimation()
                         self?.isLoadingIndicatorAnimating = false
                     }

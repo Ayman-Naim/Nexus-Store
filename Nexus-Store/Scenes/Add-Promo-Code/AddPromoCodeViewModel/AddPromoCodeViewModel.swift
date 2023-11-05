@@ -139,13 +139,10 @@ class AddPromoCodeViewModel:AddPromoCodeProtocaol{
     
     //MARK: - Amount After APplying The Coupons
     func returnAmountAfterDiscount(orderPrice: String?, dicountPrice: String?) -> String? {
-        if let orderPrice = orderPrice?.components(separatedBy: "$") , let dicountPrice = dicountPrice?.components(separatedBy: "$"){
-            if let actualOrderPrice = Double(orderPrice[1]) , let actualDiscountPrice = Double(dicountPrice[1]){
-                let amount = actualOrderPrice + actualDiscountPrice
-                
-                return String(format: "%.2f", amount)
-                
-            }
+        if let actualOrderPrice = Double(orderPrice ?? "0.0") , let actualDiscountPrice = Double(dicountPrice ?? "0.0"){
+            let amount = actualOrderPrice + actualDiscountPrice
+            
+            return String(format: "%.2f", amount)
             
         }
         return nil
