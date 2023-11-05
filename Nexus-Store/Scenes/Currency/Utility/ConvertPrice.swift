@@ -8,6 +8,7 @@
 import Foundation
 
 class ConvertPrice{
+
     func getPrice(price: Double) -> String{
       
         if getSelectedCurrency(){
@@ -22,13 +23,26 @@ class ConvertPrice{
 
     }
     
+    func changePrice(price: String) -> String?{
+        guard let oldPrice = Double(price) else { return ""}
+        if getSelectedCurrency(){
+            let newPrice = round(oldPrice * 100) / 100
+            print("converted total \(newPrice)")
+            return "\(newPrice) USD"
+        }
+
+        let newPrice = round((oldPrice * (Double(getCurrency() ?? "") ?? 0.0)) * 100) / 100.0
+        
+        return "\(newPrice) EGP"
+
+    }
+    
     func convertPrice(price: Double) -> Double{
         if getSelectedCurrency(){
             
             return round(price * 100) / 100
         }
         return round((price * (Double(getCurrency() ?? "") ?? 0.0)) * 100) / 100.0
-//        return (price * (Double(ApplicationUserManger.shared.getCurrency() ?? "") ?? 0.0))
     }
     
     func getSelectedCurrency()-> Bool{

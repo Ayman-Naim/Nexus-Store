@@ -16,8 +16,6 @@ import GoogleSignInSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var currency = Currency()
-
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
     /*    if url.scheme?.localizedCaseInsensitiveCompare("EOA-industry.Nexus-Store.payments") == .orderedSame {
             return BTAppContextSwitcher.sharedInstance.handleOpen(url)
@@ -32,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        currency.updateCurrency()
+        ApiManger.SharedApiManger.getCurrency()
  //       BTAppContextSwitcher.sharedInstance.returnURLScheme = "EOA-industry.Nexus-Store.payments"
   /*      BTAppContextSwitcher.sharedInstance
 
