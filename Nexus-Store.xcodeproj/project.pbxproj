@@ -134,6 +134,7 @@
 		45BED45E2AEDC31000795D8A /* productDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45BED45A2AEDC31000795D8A /* productDetailsCell.xib */; };
 		45BED45F2AEDC31000795D8A /* productDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BED45B2AEDC31000795D8A /* productDetailsCell.swift */; };
 		45BED4612AEDCA9100795D8A /* BrandProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BED4602AEDCA9100795D8A /* BrandProductViewModel.swift */; };
+		45CDCC852AF79F1C00FEAD50 /* ConformAddtoCart.json in Resources */ = {isa = PBXBuildFile; fileRef = 45CDCC842AF79F1C00FEAD50 /* ConformAddtoCart.json */; };
 		45D0E8912AE0A04800A07332 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D0E8902AE0A04800A07332 /* K.swift */; };
 		5B0BC7B92AF49EFB00A25CC5 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0BC7B82AF49EFB00A25CC5 /* PaymentViewModel.swift */; };
 		5B2CE85B2AF21DD50008DC5B /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B2CE85A2AF21DD50008DC5B /* credentials.plist */; };
@@ -372,6 +373,7 @@
 		45BED45A2AEDC31000795D8A /* productDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = productDetailsCell.xib; sourceTree = "<group>"; };
 		45BED45B2AEDC31000795D8A /* productDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = productDetailsCell.swift; sourceTree = "<group>"; };
 		45BED4602AEDCA9100795D8A /* BrandProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandProductViewModel.swift; sourceTree = "<group>"; };
+		45CDCC842AF79F1C00FEAD50 /* ConformAddtoCart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ConformAddtoCart.json; sourceTree = "<group>"; };
 		45D0E8902AE0A04800A07332 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		5B0BC7B82AF49EFB00A25CC5 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
 		5B2CE85A2AF21DD50008DC5B /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
@@ -527,6 +529,7 @@
 				010F61042AE49F2000DE7EB0 /* loading_3.json */,
 				010F610C2AE4A0B300DE7EB0 /* loading_4.json */,
 				457276B32AEED3A700EE759D /* SaveMoney.json */,
+				45CDCC842AF79F1C00FEAD50 /* ConformAddtoCart.json */,
 				45A3D96F2AF1B4900015EF5E /* NexusShoping.json */,
 				458B24222AF273FA00E40E8F /* NexusShopping.json */,
 			);
@@ -2253,6 +2256,7 @@
 				45123AB42AE2149E001B12B7 /* productDetailsCell.xib in Resources */,
 				E35BC5872AE0A8B900742654 /* SectionHeaderReusableView.xib in Resources */,
 				458B24232AF273FA00E40E8F /* NexusShopping.json in Resources */,
+				45CDCC852AF79F1C00FEAD50 /* ConformAddtoCart.json in Resources */,
 				5B9A02892AECD1BB007DC704 /* AboutUsViewController.xib in Resources */,
 				E37B4DE62AE301B80051EB89 /* PayMethodViewController.xib in Resources */,
 				45123AB92AE2149E001B12B7 /* MainCategoryCell.xib in Resources */,
