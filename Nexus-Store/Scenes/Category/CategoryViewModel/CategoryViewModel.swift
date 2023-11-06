@@ -31,7 +31,7 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
            
         }
     }
-    private var filterProduct :[Product] = [] {
+     var filterProduct :[Product] = [] {
         didSet{
            
             if (fromBrand == false){
