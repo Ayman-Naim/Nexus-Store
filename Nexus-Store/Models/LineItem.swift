@@ -20,6 +20,7 @@ struct LineItem: Codable {
     let productTitle: String
     let productVendor: String?
     let productPrice: String
+    let sizeColor: String?
     
     //    let appliedDiscount: AppliedDiscount?
     
@@ -32,6 +33,7 @@ struct LineItem: Codable {
         case productTitle = "title"
         case productVendor = "vendor"
         case productPrice = "price"
+        case sizeColor = "variant_title"
     }
     
     struct Property: Codable {

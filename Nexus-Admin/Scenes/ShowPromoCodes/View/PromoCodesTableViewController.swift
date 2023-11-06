@@ -34,8 +34,7 @@ class PromoCodesTableViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Promo Codes"
-        self.addProductButton()
+        setupNavigation()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(PromoCodeTableViewCell.nib(), forCellReuseIdentifier: PromoCodeTableViewCell.idenifier)
@@ -47,15 +46,15 @@ class PromoCodesTableViewController: UIViewController {
         super.viewWillAppear(animated)
         viewModel.fetchPriceRules()
     }
-    @objc func addProductToBrand(){
-        self.navigationController?.pushViewController(AddPromoCodeViewController(), animated: true)
-    }
-    func addProductButton(){
-        
-        let addProduct = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addProductToBrand))
-        
+    
+    func setupNavigation(){
+        title = "Promo Codes"
+        let addProduct = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addPromoCodeButtonPressed))
         navigationItem.rightBarButtonItem = addProduct
-        
+    }
+    
+    @objc func addPromoCodeButtonPressed(){
+        self.navigationController?.pushViewController(AddPromoCodeViewController(), animated: true)
     }
     
     

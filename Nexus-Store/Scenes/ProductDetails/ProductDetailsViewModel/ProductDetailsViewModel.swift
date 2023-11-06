@@ -17,6 +17,7 @@ class ProductDetailsViewModel{
     var ProductId:Int
     let wishListServices = WishListService()
     var availableQuatitySizeAndColor = 0
+    var priceOfItemIneachVariant:String?
     var variaintID:Int? = 0
     static var indexOfColor:String? = ""
     static var indexOfSize:String? = ""
@@ -80,23 +81,29 @@ class ProductDetailsViewModel{
     var descriptionOfProduct:String? {productItem?.bodyHtml}
     var avalibleQuantity:Int? {
         if let numberOfItemAvalabile = productItem?.variants?.first?.inventoryQuantity{
-            return numberOfItemAvalabile
+            
+                return numberOfItemAvalabile
+             
         }
         return 0
     }
     var priceOfSingleItem:Double? {
         if let priceOfSingleProduct =  Double(productItem?.variants?.first?.price ?? "0.0"){
-            return priceOfSingleProduct
+            if priceOfItemIneachVariant != nil{
+                return Double ( priceOfItemIneachVariant  ?? "0.0")
+            }else{
+                return priceOfSingleProduct
+            }
         }
         return nil
         
     }
-    var priceOfsingleProduct:String? {
+    var priceOfsingleProduct: String {
         if let priceitem = productItem?.variants?.first?.price {
-                    return "$\(priceitem)"
-                }
-                return "$300"
-       }
+            return "\(priceitem)"
+        }
+        return ""
+    }
     var numeberOfAvalibleQuantity:String?{
         if let numberOfItemAvalabile = productItem?.variants?.first?.inventoryQuantity{
             return "\(numberOfItemAvalabile) item"
@@ -213,6 +220,8 @@ class ProductDetailsViewModel{
     
     //MARK: - Decrease And Increase Quantity
     func updateAvalibleQuantity()->Double{
+        print("priceOfSingleItem \(priceOfSingleItem)")
+        print("numberOfItemsUpdates \(numberOfItemsUpdates)")
         print("Double price\(Double (numberOfItemsUpdates) * (priceOfSingleItem ?? 0.0))")
         return  Double (numberOfItemsUpdates) * (priceOfSingleItem ?? 0.0)
     }

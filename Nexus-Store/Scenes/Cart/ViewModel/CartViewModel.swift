@@ -59,9 +59,11 @@ class CartViewModel {
             case .success(let cartProducts):
                 self.cartProducts = cartProducts
                 let totalPrice = cartProducts.map { $0.price * Double($0.quantity) }.reduce(0, +)
-                let totalPricetext = "$" + String(format: "%.2f", totalPrice)
+//                let totalPricetext = "$" + String(format: "%.2f", totalPrice)
                 DispatchQueue.main.async {
-                    self.updateTotalPriceLabel?(totalPricetext)
+                    if let totalPricetext = ConvertPrice.share.changePrice(price: String(format: "%.2f", totalPrice)){
+                        self.updateTotalPriceLabel?(totalPricetext)
+                    }
                 }
             case .failure(let error):
                 self.errorOccure?(error.localizedDescription)

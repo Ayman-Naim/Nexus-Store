@@ -149,10 +149,11 @@ class ProductDetailsViewController: UIViewController {
             DispatchQueue.main.async {
                 if let stockAvalibity = self?.productDetailsViewModel?.numberOfItemsUpdates {
                     self?.numberOfItems.text = "\(stockAvalibity)"
-                    self?.itemPrice.text = "$\(String(format: "%.2f", self?.productDetailsViewModel?.updateAvalibleQuantity() ?? "0.0"))"
-                        self?.avalibleQuantity.text = "\((self?.productDetailsViewModel?.availableQuatitySizeAndColor ?? 0)  - (self?.productDetailsViewModel?.numberOfItemsUpdates ?? 0) ) item"
-                        
-                   
+//                    self?.itemPrice.text = "$\(String(format: "%.2f", self?.productDetailsViewModel?.updateAvalibleQuantity() ?? "0.0"))"
+                    self?.itemPrice.text = ConvertPrice.share.changePrice(price: String(format: "%.2f", self?.productDetailsViewModel?.updateAvalibleQuantity() ?? "0.0"))
+                    self?.avalibleQuantity.text = "\((self?.productDetailsViewModel?.availableQuatitySizeAndColor ?? 0)  - (self?.productDetailsViewModel?.numberOfItemsUpdates ?? 0) ) item"
+                    
+                    
                     
                 }
             }
@@ -249,8 +250,8 @@ extension ProductDetailsViewController{
         productName.text = productDetailsViewModel?.nameOfProduct
         productBrand.text = productDetailsViewModel?.nameProductBrand
         descriptionOfProduct.text = productDetailsViewModel?.descriptionOfProduct
-        itemPrice.text = productDetailsViewModel?.priceOfsingleProduct
-
+//        itemPrice.text = productDetailsViewModel?.priceOfsingleProduct
+        itemPrice.text = ConvertPrice.share.changePrice(price: productDetailsViewModel?.priceOfsingleProduct ?? "")
     }
     
 

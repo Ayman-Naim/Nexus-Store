@@ -33,7 +33,10 @@ class ProductDetailsViewModel {
     
     private var currentVariant: Variant? {
         didSet {
-            guard let currentVariant = currentVariant else { return }
+            guard let currentVariant = currentVariant else {
+                currentQuantity = 0
+                return
+            }
             currentQuantity = currentVariant.inventoryQuantity
             DispatchQueue.main.async {
                 self.updataPrice?(currentVariant.price)
@@ -47,6 +50,8 @@ class ProductDetailsViewModel {
                 self.updateQuantity?(String(self.currentQuantity))
                 if let currentVariant = self.currentVariant {
                     self.hideSaveQuantityButton?(currentVariant.inventoryQuantity == self.currentQuantity)
+                } else {
+                    self.hideSaveQuantityButton?(false)
                 }
             }
         }
@@ -183,7 +188,10 @@ class ProductDetailsViewModel {
     }
     
     func saveNewQuantity() {
-        guard let currentVariant = currentVariant else { return }
+        guard let currentVariant = currentVariant else {
+            createVariant(size: sizes[selectedSize], color: colors[selectedColor])
+            return
+        }
         let url = K.baseURL + "/inventory_levels/set.json"
         
         
@@ -220,7 +228,10 @@ class ProductDetailsViewModel {
     }
     
     func savePrice(_ price: String?) {
-        guard let currentVariant = currentVariant, let price = price else { return }
+        guard let currentVariant = currentVariant, let price = price else {
+            createVariant(size: sizes[selectedSize], color: colors[selectedColor])
+            return
+        }
         let url = K.baseURL + "/products/\(productID)/variants/\(currentVariant.id).json"
         loading?(true)
         AF.request(url, method: .put, parameters: ["variant": ["price": price]], headers: K.APIHeader).response { response in
@@ -283,6 +294,8 @@ class ProductDetailsViewModel {
 
                     if variantIndex == variants.count - 1 {
                         self.fetchProduct()
+                        self.selectedSize = 0
+                        self.selectedColor = 0
                     }
 
                 case .failure(let error):
@@ -305,5 +318,54 @@ class ProductDetailsViewModel {
         let color = colors[index]
         let variants = product.variants.filter({ $0.title.contains(color) })
         deleteVariants(variants)
+    }
+    
+    
+    
+    
+    // MARK: - Helpers
+    private func createVariant(size: String, color: String) {
+        let urlString = K.baseURL + "/products/\(productID)/variants.json"
+        let params = [
+            "variant": [
+                "option1": size,
+                "option2": color
+            ] as [String : Any]
+        ]
+        
+        AF.request(urlString, method: .post, parameters: params, headers: K.APIHeader).responseDecodable(of: VariantResponse.self) { response in
+            switch response.result {
+            case .success(let variantResponse):
+                let cashQuantity = self.currentQuantity
+                self.currentVariant = variantResponse.variant
+                self.enabelInventroyItemTracking(inventroyID: variantResponse.variant.inventoryID) {
+                    self.currentQuantity = cashQuantity
+                    self.saveNewQuantity()
+                }
+            case .failure(let error):
+                self.error?(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func enabelInventroyItemTracking(inventroyID: Int, completion: @escaping () -> Void) {
+        let url = K.baseURL + "/inventory_items/\(inventroyID).json"
+        
+        let params = [
+            "inventory_item": [
+                "id": inventroyID,
+                "tracked": true
+            ] as [String : Any]
+        ]
+        
+        AF.request(url, method: .put, parameters: params, headers: K.APIHeader).response { response in
+            switch response.result {
+            case .success(let data):
+                print(String(data: data!, encoding: .utf8) ?? "")
+                completion()
+            case .failure(let error):
+                self.error?(error.localizedDescription)
+            }
+        }
     }
 }

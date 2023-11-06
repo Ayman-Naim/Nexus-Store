@@ -34,7 +34,7 @@ class WishListViewModel {
     func configCell(_ cell: ProductLandscapeCell, at index: Int) {
         let product = wishList[index]
         let price = product.variants?.first?.price ?? "5.0"
-        let cartProduct = CartProduct(draftOrderID: 0, variantID: 0, productID: product.id, title: product.title ?? "Not Found", price: Double(price)!, image: product.image?.src ?? "", quantity: 0)
+        let cartProduct = CartProduct(draftOrderID: 0, variantID: 0, productID: product.id, title: product.title ?? "Not Found", price: Double(price)!, image: product.image?.src ?? "", quantity: 0, sizeColor: nil)
         cell.setProduct(cartProduct)
         cell.setCell(id: product.id)
         cell.hideQuantity()

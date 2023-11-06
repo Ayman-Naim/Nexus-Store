@@ -26,6 +26,8 @@ class AddPromoCodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Add Promo Code"
+        
+        bindViewModel()
     }
     
     
@@ -49,5 +51,18 @@ class AddPromoCodeViewController: UIViewController {
                                usageLimit: usageLimit,
                                startAt: startAtDatePicker.date,
                                endAt: endAtDatePicker.date)
+    }
+    
+    
+    // MARK: - Functions
+    private func bindViewModel() {
+        viewModel.navigate = { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
+        
+        viewModel.errorAlert = { [weak self] title, message in
+            guard let self = self else { return }
+            Alert.show(on: self, title: title, message: message)
+        }
     }
 }

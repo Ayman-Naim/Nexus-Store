@@ -17,4 +17,5 @@ struct CartProduct {
     let price: Double
     let image: String
     var quantity: Int
+    let sizeColor: String?
 }

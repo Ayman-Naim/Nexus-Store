@@ -29,7 +29,8 @@ class CartService {
                                                                                                           title: $0.productTitle,
                                                                                                           price: Double($0.productPrice) ?? 0,
                                                                                                           image: $0.properties.first?["value"] ?? "",
-                                                                                                          quantity: $0.quantity) })
+                                                                                                          quantity: $0.quantity,
+                                                                                                          sizeColor: $0.sizeColor) })
                 completion(.success(cartProducts))
             case .failure(let error):
                 completion(.failure(error))

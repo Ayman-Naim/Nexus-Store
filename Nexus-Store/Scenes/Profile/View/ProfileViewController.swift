@@ -128,7 +128,8 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
                 //if(orders[indexPath.row].customer?.id == 6899149603052){
                 cell.orderNo.text = "\(orders[indexPath.row].order_number!)"
                 cell.quantity.text = "\(orders[indexPath.row].line_items!.count)"
-                cell.totalAmount.text = "\(orders[indexPath.row].total_price!)\(orders[indexPath.row].currency=="EGP" ?" EGP":" $")"
+//                cell.totalAmount.text = "\(orders[indexPath.row].total_price!)\(orders[indexPath.row].currency=="EGP" ?" EGP":" $")"
+                cell.totalAmount.text = ConvertPrice.share.changePrice(price: orders[indexPath.row].total_price ?? "")
                 
                 return cell
                 // }
@@ -144,7 +145,8 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
             let title = wishList[indexPath.row].title
             cell.productName.text = title
             guard let price = wishList[indexPath.row].variants!.first?.price else{return cell}
-            cell.ProductPrice.text = "\(price) $"
+//            cell.ProductPrice.text = "\(price) $"
+            cell.ProductPrice.text = ConvertPrice.share.changePrice(price: price)
             
             return cell
         default:

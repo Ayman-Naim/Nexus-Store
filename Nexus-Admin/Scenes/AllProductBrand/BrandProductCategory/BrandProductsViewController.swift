@@ -64,6 +64,7 @@ class BrandProductsViewController: UIViewController {
     func configureNetwoorkCall(){
         
         brandProductDelegation?.fetchAllProductForBrand()
+        pricedProduct.removeAll()
         brandProductDelegation?.bindDataofBrandProduct = { [weak self] in
             self?.brandProducts = self?.brandProductDelegation?.retriveProductBrandDetails()
             if let products = self?.brandProducts {

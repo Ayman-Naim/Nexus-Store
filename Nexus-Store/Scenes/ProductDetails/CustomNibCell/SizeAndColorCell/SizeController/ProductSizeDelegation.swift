@@ -45,7 +45,6 @@ class ProductSizeDelegation: NSObject, UICollectionViewDelegate, UICollectionVie
         productViewModel.numberOfItemsUpdates = 0
         ProductDetailsViewModel.indexOfSize  = productViewModel.productItemDetails?.options?.first?.values?[indexPath.row]
         didSelectCertainSize()
-
     }
 
     
@@ -55,10 +54,16 @@ class ProductSizeDelegation: NSObject, UICollectionViewDelegate, UICollectionVie
         let numberOfItemAvalabile = productViewModel.productItemDetails?.variants?.filter({ $0.option1 == ProductDetailsViewModel.indexOfSize &&  $0.option2 == ProductDetailsViewModel.indexOfColor })
         
         productViewModel.variaintID = numberOfItemAvalabile?.first?.id
-        if let validQuatity = numberOfItemAvalabile?.first?.inventoryQuantity{
-            self.productViewModel.availableQuatitySizeAndColor = validQuatity
+        if let varaint = numberOfItemAvalabile?.first{
+            self.productViewModel.availableQuatitySizeAndColor = varaint.inventoryQuantity ?? 0
+            self.productViewModel.priceOfItemIneachVariant  = varaint.price
+            productViewModel.updateQuatitySelect!()
+        }else{
+            self.productViewModel.availableQuatitySizeAndColor = productViewModel.numberOfItemsUpdates
+            self.productViewModel.priceOfItemIneachVariant = "0.0"
             productViewModel.updateQuatitySelect!()
         }
+
         
         
     
