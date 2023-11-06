@@ -183,7 +183,7 @@ extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
                 let message = "You chose currency: \(selectedCurrency)"
                 let resultAlert = UIAlertController(title: "Change Currency", message: message, preferredStyle: .alert)
                 resultAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                    self?.navigateToRoot()
+//                    self?.navigateToRoot()
                 }))
                 self?.present(resultAlert, animated: true, completion: nil)
             }

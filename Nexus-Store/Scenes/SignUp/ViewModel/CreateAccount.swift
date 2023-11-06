@@ -115,6 +115,7 @@ class FireBaseSignUPViewModel{
                             let customerId = customer.id
                             // Save the ID to UserDefaults
                             UserDefaults.standard.set(customerId, forKey: "customerID")
+                            UserDefaults.standard.set(false, forKey: "USD")
                             print("\(customerId)")
                             break
                         }

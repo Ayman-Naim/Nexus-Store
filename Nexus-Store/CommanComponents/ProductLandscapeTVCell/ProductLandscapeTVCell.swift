@@ -45,6 +45,7 @@ class ProductLandscapeTVCell: UITableViewCell {
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var minusButton: UIButton!
+    @IBOutlet weak var sizeColorLabel: UILabel!
     
     
     // MARK: - Variables
@@ -104,6 +105,14 @@ extension ProductLandscapeTVCell: ProductLandscapeCell {
         priceLabel.text = ConvertPrice.share.changePrice(price: String(product.price))
         quantityLabel.text = "\(product.quantity)"
         quantity = product.quantity
+        
+        if let sizeColor = product.sizeColor {
+            sizeColorLabel.isHidden = false
+            sizeColorLabel.text = product.sizeColor
+
+        } else {
+            sizeColorLabel.isHidden = true
+        }
     }
     
     func hideButtons() {

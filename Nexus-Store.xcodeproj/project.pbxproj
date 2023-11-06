@@ -80,6 +80,7 @@
 		01D776C32AE3021C0079F2B5 /* AddPromoCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D776C12AE3021C0079F2B5 /* AddPromoCodeViewController.swift */; };
 		01D776C42AE3021C0079F2B5 /* AddPromoCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01D776C22AE3021C0079F2B5 /* AddPromoCodeViewController.xib */; };
 		01D776C82AE316770079F2B5 /* OrderDetailsSheetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D776C72AE316770079F2B5 /* OrderDetailsSheetTVC.swift */; };
+		01DB1CCE2AF85057000BCB2F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DB1CCD2AF85057000BCB2F /* Reachability.swift */; };
 		01E9BB6D2AE9525900FE881E /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9BB6C2AE9525900FE881E /* WishListViewController.swift */; };
 		01E9BB702AE9587C00FE881E /* WishListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9BB6F2AE9587C00FE881E /* WishListViewModel.swift */; };
 		01E9BB722AE96D8500FE881E /* WishListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9BB712AE96D8500FE881E /* WishListService.swift */; };
@@ -314,6 +315,7 @@
 		01D776C12AE3021C0079F2B5 /* AddPromoCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPromoCodeViewController.swift; sourceTree = "<group>"; };
 		01D776C22AE3021C0079F2B5 /* AddPromoCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPromoCodeViewController.xib; sourceTree = "<group>"; };
 		01D776C72AE316770079F2B5 /* OrderDetailsSheetTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsSheetTVC.swift; sourceTree = "<group>"; };
+		01DB1CCD2AF85057000BCB2F /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		01E9BB6C2AE9525900FE881E /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		01E9BB6F2AE9587C00FE881E /* WishListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewModel.swift; sourceTree = "<group>"; };
 		01E9BB712AE96D8500FE881E /* WishListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListService.swift; sourceTree = "<group>"; };
@@ -1916,6 +1918,7 @@
 			children = (
 				E340D1E92AE79A2500E2E017 /* NetworkManger.swift */,
 				E3E639FC2AE82D89002A5617 /* BaseURl.swift */,
+				01DB1CCD2AF85057000BCB2F /* Reachability.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -2546,6 +2549,7 @@
 				45B1EC982AE9250E00E690F9 /* Image.swift in Sources */,
 				E37687AD2ADDFFB500DB09A1 /* SceneDelegate.swift in Sources */,
 				E3E498FA2AE19F4E00ED2924 /* ProfileViewController.swift in Sources */,
+				01DB1CCE2AF85057000BCB2F /* Reachability.swift in Sources */,
 				45B1EC8E2AE905F400E690F9 /* CategoryViewModel.swift in Sources */,
 				5B9A02822AECBC79007DC704 /* SettingsViewController.swift in Sources */,
 				E34FE62B2AE921BC006602A5 /* BrandsModel.swift in Sources */,

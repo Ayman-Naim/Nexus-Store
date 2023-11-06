@@ -45,7 +45,6 @@ class ProductSizeDelegation: NSObject, UICollectionViewDelegate, UICollectionVie
         productViewModel.numberOfItemsUpdates = 0
         ProductDetailsViewModel.indexOfSize  = productViewModel.productItemDetails?.options?.first?.values?[indexPath.row]
         didSelectCertainSize()
-
     }
 
     

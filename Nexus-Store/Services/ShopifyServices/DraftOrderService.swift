@@ -189,7 +189,8 @@ class DraftOrderService {
                                        productID: nil,
                                        productTitle: "",
                                        productVendor: nil,
-                                       productPrice: ""))
+                                       productPrice: "",
+                                       sizeColor: nil))
                 
                 guard let lineItemsData = try? JSONEncoder().encode(lineItems) else { return }
                 guard let lineItemsJSON = try? JSONSerialization.jsonObject(with: lineItemsData, options: [.fragmentsAllowed]) as? [[String: Any]] else { return }
@@ -343,7 +344,7 @@ class DraftOrderService {
     private func createFirstDraftOrder(customerID: Int, completion: @escaping (Result<DraftOrder, Error>) -> Void) {
         let url = baseURLString + ".json"
         
-        let lineItem = [LineItem(id: 0, variantID: nil, quantity: 1, properties: [], productID: nil, productTitle: "FirstEver", productVendor: nil, productPrice: "0")]
+        let lineItem = [LineItem(id: 0, variantID: nil, quantity: 1, properties: [], productID: nil, productTitle: "FirstEver", productVendor: nil, productPrice: "0", sizeColor: nil)]
         guard let lineItemData = try? JSONEncoder().encode(lineItem) else { return }
         guard let lineItemJSON = try? JSONSerialization.jsonObject(with: lineItemData, options: [.fragmentsAllowed]) as? [[String: Any]] else { return }
         

@@ -56,6 +56,37 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let rootViewController = SplashNexusScreen()
 //        window?.rootViewController = UINavigationController(rootViewController: rootViewController)
 //        window?.makeKeyAndVisible()
+        
+        InternetMointor.shared.start { [weak self] isConnected in
+            guard let self = self else { return }
+            print("Internet Connections \(isConnected)")
+            if !isConnected {
+//                DispatchQueue.main.async {
+//                    print("adfadfasdfasdfasdfasdf")
+//                    print(self.window?.rootViewController?.presentedViewController)
+//                    if let viewController = self.window?.rootViewController?.presentedViewController {
+//                        print(viewController is HomeViewController)
+//                        let closeAction = UIAlertAction(title: "Close", style: .cancel)
+//                        let goToSettingsAction = UIAlertAction(title: "Go to Settings", style: .default) { _ in
+//                            let application = UIApplication.shared
+//                            if let url = URL(string: UIApplication.openSettingsURLString), application.canOpenURL(url)    {
+//                                application.open(url, options: [:], completionHandler: nil)
+//                            }
+//                        }
+//                        Alert.show(on: viewController,
+//                                   title: "Internet Connection",
+//                                   message: "You are currently not connected to the internet, Check connection!",
+//                                   actions: [closeAction, goToSettingsAction])
+//                    }
+//                }
+            } else {
+                //                DispatchQueue.main.async {
+                //                    if let viewController = self.window?.rootViewController?.presentedViewController {
+                //                        viewController.viewDidLoad()
+                //                    }
+                //                }
+            }
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
