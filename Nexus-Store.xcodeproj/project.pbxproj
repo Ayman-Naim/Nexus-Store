@@ -175,6 +175,8 @@
 		E30A94542AE68A0800AB0F5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E30A94522AE68A0800AB0F5F /* Main.storyboard */; };
 		E30A94562AE68A0A00AB0F5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E30A94552AE68A0A00AB0F5F /* Assets.xcassets */; };
 		E30A94592AE68A0A00AB0F5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E30A94572AE68A0A00AB0F5F /* LaunchScreen.storyboard */; };
+		E310E6DC2AF95C4200B7CEBC /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = E310E6DB2AF95C4200B7CEBC /* GoogleSignIn */; };
+		E310E6DE2AF95C5800B7CEBC /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E310E6DD2AF95C5800B7CEBC /* GoogleSignInSwift */; };
 		E3324FC32AF448F0008C6B89 /* PriceRuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3324FC22AF448F0008C6B89 /* PriceRuleModel.swift */; };
 		E3324FC62AF44B5E008C6B89 /* CoupounsCodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3324FC52AF44B5E008C6B89 /* CoupounsCodesModel.swift */; };
 		E340D1EA2AE79A2500E2E017 /* NetworkManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E340D1E92AE79A2500E2E017 /* NetworkManger.swift */; };
@@ -498,6 +500,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E310E6DC2AF95C4200B7CEBC /* GoogleSignIn in Frameworks */,
+				E310E6DE2AF95C5800B7CEBC /* GoogleSignInSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2116,6 +2120,10 @@
 				019C833D2AF31871003DB9EA /* PBXTargetDependency */,
 			);
 			name = "Nexus-StoreTests";
+			packageProductDependencies = (
+				E310E6DB2AF95C4200B7CEBC /* GoogleSignIn */,
+				E310E6DD2AF95C5800B7CEBC /* GoogleSignInSwift */,
+			);
 			productName = "Nexus-StoreTests";
 			productReference = 019C83382AF31871003DB9EA /* Nexus-StoreTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -2954,6 +2962,16 @@
 			productName = GoogleSignIn;
 		};
 		5BEEA9A92AF0340A007169D6 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BEEA9A62AF0340A007169D6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		E310E6DB2AF95C4200B7CEBC /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BEEA9A62AF0340A007169D6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		E310E6DD2AF95C5800B7CEBC /* GoogleSignInSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5BEEA9A62AF0340A007169D6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
