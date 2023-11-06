@@ -34,7 +34,7 @@ class ProfileVM{
     private lazy var customersEndpoint = baseURLString + "/customers"
     private let header: HTTPHeaders = ["X-Shopify-Access-Token": "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"]
     
-    private func fetchAllMetafields(forCustom customerID: Int, completion: @escaping (Result<[Metafield], Error>) -> Void) {
+     func fetchAllMetafields(forCustom customerID: Int, completion: @escaping (Result<[Metafield], Error>) -> Void) {
         let url = customersEndpoint + "/\(customerID)/metafields.json"
         AF.request(url, method: .get, headers: header).responseDecodable(of: MetafieldResponse.self) { response in
             switch response.result {

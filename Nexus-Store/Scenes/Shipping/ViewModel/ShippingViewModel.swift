@@ -40,6 +40,8 @@ class ShippingViewModel {
     var errorOccure: ((String) -> Void)?
     
     
+    var isAddressSelected: Bool { !customerAdresses.isEmpty }
+    
     
     // MARK: - DataSource
     var numberOfRow: Int { customerAdresses.count }
