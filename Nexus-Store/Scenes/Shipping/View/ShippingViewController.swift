@@ -43,6 +43,10 @@ class ShippingViewController: UIViewController {
     }
     
     @IBAction func continueToPaymentButtonPressed(_ sender: UIButton) {
+        if !viewModel.isAddressSelected {
+            Alert.show(on: self, title: "Shipping Address", message: "Please select address before continue!")
+            return
+        }
         confirmAlert { [weak self] in
             self?.viewModel.setAddressForOrder {
                 self?.navigationController?.pushViewController(PayMethodViewController(), animated: true)
@@ -52,6 +56,10 @@ class ShippingViewController: UIViewController {
     
     
     @IBAction func addPromoCodeButtonPressed(_ sender: UIButton) {
+        if !viewModel.isAddressSelected {
+            Alert.show(on: self, title: "Shipping Address", message: "Please select address before continue!")
+            return
+        }
         confirmAlert { [weak self] in
             self?.viewModel.setAddressForOrder {
                 let addPromoCodeVC = AddPromoCodeViewController()
