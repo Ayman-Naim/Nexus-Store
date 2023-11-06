@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="A9n-XC-IQJ">
-                    <rect key="frame" x="15" y="74" width="393" height="778"/>
+                    <rect key="frame" x="15" y="74" width="363" height="778"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
@@ -30,7 +31,7 @@
                 <constraint firstItem="A9n-XC-IQJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="15" id="04w-y5-ygi"/>
                 <constraint firstItem="A9n-XC-IQJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="SbU-TX-050"/>
                 <constraint firstAttribute="bottom" secondItem="A9n-XC-IQJ" secondAttribute="bottom" id="Yf3-6n-5eJ"/>
-                <constraint firstItem="A9n-XC-IQJ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="15" id="nEB-cO-7P5"/>
+                <constraint firstItem="A9n-XC-IQJ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-15" id="nEB-cO-7P5"/>
             </constraints>
             <point key="canvasLocation" x="93.89312977099236" y="20.422535211267608"/>
         </view>

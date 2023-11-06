@@ -421,7 +421,7 @@
                                                     <constraint firstAttribute="height" constant="260" id="yIS-cu-qO9"/>
                                                 </constraints>
                                             </view>
-                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="12" translatesAutoresizingMaskIntoConstraints="NO" id="x6d-fB-0vM" userLabel="ImageIndicator">
+                                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="12" translatesAutoresizingMaskIntoConstraints="NO" id="x6d-fB-0vM" userLabel="ImageIndicator">
                                                 <rect key="frame" x="111" y="310" width="206.5" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="26" id="5K5-g8-67F"/>
@@ -478,7 +478,7 @@
                                 <rect key="frame" x="0.0" y="1095" width="428" height="105"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2W-E2-cEK" userLabel="PriceView">
-                                        <rect key="frame" x="8" y="8" width="125" height="87"/>
+                                        <rect key="frame" x="22" y="8" width="125" height="87"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3w-rY-AjW">
                                                 <rect key="frame" x="24.5" y="10" width="76.5" height="20"/>
@@ -536,7 +536,7 @@
                                     <constraint firstAttribute="trailing" secondItem="BFG-di-BCe" secondAttribute="trailing" constant="20" id="f5x-dL-mLt"/>
                                     <constraint firstAttribute="bottom" secondItem="d2W-E2-cEK" secondAttribute="bottom" constant="10" id="hy2-ga-CpL"/>
                                     <constraint firstItem="d2W-E2-cEK" firstAttribute="top" secondItem="hVo-cb-8F1" secondAttribute="top" constant="8" id="pWQ-m6-eV3"/>
-                                    <constraint firstItem="d2W-E2-cEK" firstAttribute="leading" secondItem="hVo-cb-8F1" secondAttribute="leading" constant="8" id="vWg-eL-PnR"/>
+                                    <constraint firstItem="d2W-E2-cEK" firstAttribute="leading" secondItem="hVo-cb-8F1" secondAttribute="leading" constant="22" id="vWg-eL-PnR"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -584,6 +584,11 @@
             <point key="canvasLocation" x="-101.44927536231884" y="92.410714285714278"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="9Co-Us-UEs">
+            <size key="intrinsicContentSize" width="100" height="16"/>
+        </designable>
+    </designables>
     <resources>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="minus" catalog="system" width="128" height="26"/>

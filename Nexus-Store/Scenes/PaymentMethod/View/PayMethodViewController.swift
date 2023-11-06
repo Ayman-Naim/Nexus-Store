@@ -16,9 +16,11 @@ class PayMethodViewController: UIViewController {
     var id: Int? = 0
     let paymentVM = PaymentViewModel()
     let customerID = UserDefaults.standard.value(forKey: "customerID")
+    var paymentAuthorized = false
 
     // for testing
-    var totalAmount: Double = 250.0
+    var totalAmount: Double = 0.0
+    var convertPrice = ConvertPrice()
 //    let authorization = "sandbox_8h3qzxnj_76tbywh3qkq2yw2k"
 //    var braintreeAPIClient:BTAPIClient!
 //    var payPalNativeCheckoutClient: BTPayPalNativeCheckoutClient!
@@ -28,9 +30,34 @@ class PayMethodViewController: UIViewController {
         TableViewSetup()
         self.PaymentTable.separatorColor = UIColor.clear
         // Do any additional setup after loading the view.
-        TotalAmountLabel.text = "\(totalAmount) $"
+        self.totalPriceAmount()
     }
 
+    func totalPriceAmount() {
+        guard let customerID = customerID as? Int else {
+            return
+        }
+
+        paymentVM.draftOrder.customerDraftOrder(customerID: customerID) { result in
+            switch result {
+            case .success(let draftOrder):
+                if let totalPrice = Double(draftOrder.totalPrice) {
+                    self.totalAmount = totalPrice
+           //         print(self.totalAmount)
+                    DispatchQueue.main.async {
+                        let price = self.convertPrice.convertPrice(price: self.totalAmount)
+                        if self.convertPrice.getSelectedCurrency() == true {
+                            self.TotalAmountLabel.text = "\(price) $"
+                        }else{
+                            self.TotalAmountLabel.text = "\(price) EGP"
+                        }
+                    }
+                }
+            case .failure(let error):
+                print("Error fetching draft order: \(error)")
+            }
+        }
+    }
 
     func TableViewSetup(){
         //
@@ -40,7 +67,7 @@ class PayMethodViewController: UIViewController {
     }
 
     @IBAction func PayButtonClicked(_ sender: Any) {
-        paymentVM.draftOrder.convertToOrder(customerID: customerID as! Int) { result in
+        paymentVM.draftOrder.customerDraftOrder(customerID: customerID as! Int) { result in
             switch result{
             case .success(let order):
                 self.id = order.id
@@ -68,11 +95,15 @@ class PayMethodViewController: UIViewController {
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
-        }else if selectedPayment?.row == 1{
+//        }else if selectedPayment?.row == 1{
       //      self.paypalCheckout(amount: totalAmount)
-        }else if selectedPayment?.row == 2{
+        }else if selectedPayment?.row == 1{
             self.presentPaymentController()
         }
+    }
+    
+    @IBAction func showOrdersButtonPressed(_ sender: UIButton) {
+        self.present(OrderDetailsSheetTVC.sheet(), animated: true)
     }
 }
 
@@ -82,29 +113,34 @@ extension PayMethodViewController:UITableViewDelegate,UITableViewDataSource, PKP
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
         switch indexPath.row{
         case 0:
+            
             let cell =  tableView.dequeueReusableCell(withIdentifier: "PaymentTableViewCell", for: indexPath) as! PaymentTableViewCell
+            cell.selectionStyle = .none
             cell.PayMethodName.text = "Cash on Delivey"
             cell.PaymMethodLogo.image = UIImage(named: "Wallet")
             return cell
+//        case 1:
+//            let cell =  tableView.dequeueReusableCell(withIdentifier: "PaymentTableViewCell", for: indexPath) as! PaymentTableViewCell
+//            cell.selectionStyle = .none
+//            cell.PayMethodName.text = "PayPal"
+//            cell.PaymMethodLogo.image = UIImage(named: "Paypal-Logo")
+//            return cell
         case 1:
             let cell =  tableView.dequeueReusableCell(withIdentifier: "PaymentTableViewCell", for: indexPath) as! PaymentTableViewCell
-            cell.PayMethodName.text = "PayPal"
-            cell.PaymMethodLogo.image = UIImage(named: "Paypal-Logo")
-            return cell
-        case 2 :
-            let cell =  tableView.dequeueReusableCell(withIdentifier: "PaymentTableViewCell", for: indexPath) as! PaymentTableViewCell
+            cell.selectionStyle = .none
             cell.PayMethodName.text = "Apple Pay"
             cell.PaymMethodLogo.image = UIImage(named: "ApplePay")
             return cell
         default:
             let cell =  tableView.dequeueReusableCell(withIdentifier: "PaymentTableViewCell", for: indexPath) as! PaymentTableViewCell
+            cell.selectionStyle = .none
             cell.PayMethodName.text = "Cash on Delivey"
             cell.PaymMethodLogo.image = UIImage(named: "Paypal-Logo")
             return cell
@@ -120,14 +156,6 @@ extension PayMethodViewController:UITableViewDelegate,UITableViewDataSource, PKP
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.row {
-        case 0,2:
-            print("0, 2")
-        case 1:
-            print("1")
-        default:
-            print("Thanks")
-        }
         if selectedPayment != nil {
             guard let previusSelectedcell  = tableView.cellForRow(at: selectedPayment!) as? PaymentTableViewCell else{return}
             
@@ -148,17 +176,26 @@ extension PayMethodViewController:UITableViewDelegate,UITableViewDataSource, PKP
     }
     
     private var paymentRequest: PKPaymentRequest {
-            let request = PKPaymentRequest()
-            request.merchantIdentifier = "merchant.Nexus-Store"
-            request.supportedNetworks = [.visa, .masterCard, .amex] // Include the supported card networks
-            request.supportedCountries = ["US"] // Include supported countries
-            request.merchantCapabilities = .capability3DS
-            request.countryCode = "US" // Set the country code
-            request.currencyCode = "USD" // Set the currency code
-            let amount = NSDecimalNumber(value: totalAmount)
-            request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Total", amount: amount)]
-            return request
+        let request = PKPaymentRequest()
+        request.merchantIdentifier = "merchant.Nexus-Store"
+        request.supportedNetworks = [.visa, .masterCard, .amex] // Include the supported card networks
+        request.supportedCountries = ["US"] // Include supported countries
+        request.merchantCapabilities = .capability3DS
+        request.countryCode = "US" // Set the country code
+        //            request.currencyCode = "USD" // Set the currency code
+        //            let amount = NSDecimalNumber(value: totalAmount)
+        let price = self.convertPrice.convertPrice(price: self.totalAmount)
+        let amount : NSDecimalNumber
+        if self.convertPrice.getSelectedCurrency() == true {
+            request.currencyCode = "USD"
+            amount = NSDecimalNumber(value: price)
+        }else{
+            request.currencyCode = "EGP"
+            amount = NSDecimalNumber(value: price)
         }
+        request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Total", amount: amount)]
+        return request
+    }
 
         private func presentPaymentController() {
             let controller = PKPaymentAuthorizationViewController(paymentRequest: paymentRequest)
@@ -169,25 +206,27 @@ extension PayMethodViewController:UITableViewDelegate,UITableViewDataSource, PKP
         }
 
         func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
-
+            paymentAuthorized = true
             completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
         }
 
         func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
             controller.dismiss(animated: true) {
             //    self.showAlert(title: "Payment Successful", message: "Thank you for your purchase.")
-                let alert = UIAlertController(title: "Payment Successful", message: "Thank you for your purchase.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                    self.paymentVM.updatePaymentOfDraftOrder(draft_order_id: self.id ?? 0, paymentPending: false) { result in
-                        if let result = result {
-                            self.paymentVM.deleteFullDraftOrder(customerID: self.customerID as! Int) { error in
-                                print(error.localizedDescription)
+                if self.paymentAuthorized {
+                    let alert = UIAlertController(title: "Payment Successful", message: "Thank you for your purchase.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                        self.paymentVM.updatePaymentOfDraftOrder(draft_order_id: self.id ?? 0, paymentPending: false) { result in
+                            if let result = result {
+                                self.paymentVM.deleteFullDraftOrder(customerID: self.customerID as! Int) { error in
+                                    print(error.localizedDescription)
+                                }
                             }
                         }
-                    }
-                    self.navigateToRoot()
-                }))
-                self.present(alert, animated: true, completion: nil)
+                        self.navigateToRoot()
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
         }
     func showAlert(title: String, message: String) {
@@ -203,13 +242,18 @@ extension PayMethodViewController:UITableViewDelegate,UITableViewDataSource, PKP
             self.navigationController?.popToRootViewController(animated: true)
        //     sceneDelegate.window!.rootViewController = nav
         }*/
-        if let tabBarController = self.tabBarController {
-            // 2. Get the navigation controller associated with the specific tab.
-            if let nav = tabBarController.viewControllers?[0] as? UINavigationController {
-                // 3. Pop to the root view controller of the specific tab.
-                nav.popToRootViewController(animated: true)
-            }
-        }
+        
+        let vcs = navigationController?.viewControllers
+        vcs?.first?.tabBarController?.tabBar.isHidden = false
+        self.navigationController?.popToRootViewController(animated: true)
+        
+//        if let tabBarController = self.tabBarController {
+//            // 2. Get the navigation controller associated with the specific tab.
+//            if let nav = tabBarController.viewControllers?[0] as? UINavigationController {
+//                // 3. Pop to the root view controller of the specific tab.
+//                nav.popToRootViewController(animated: true)
+//            }
+//        }
     }
     
     /*

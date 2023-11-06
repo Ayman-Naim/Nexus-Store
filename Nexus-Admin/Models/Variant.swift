@@ -8,12 +8,18 @@
 import Foundation
 
 
+struct VariantResponse: Codable {
+    let variant: Variant
+}
+
+
 struct Variant: Codable {
     let id: Int
     let productID: Int
     let title: String
     let price: String
     let inventoryQuantity: Int
+    let inventoryID: Int
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -21,6 +27,7 @@ struct Variant: Codable {
         case title
         case price
         case inventoryQuantity = "inventory_quantity"
+        case inventoryID = "inventory_item_id"
     }
 }
 

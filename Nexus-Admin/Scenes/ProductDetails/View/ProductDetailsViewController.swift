@@ -50,12 +50,24 @@ class ProductDetailsViewController: UIViewController {
         setupSizeCollectionView()
         setupColorCollectionView()
         bindViewModel()
+        
+        
+        if #available(iOS 16.0, *) {
+            navigationItem.backAction  = UIAction(handler: { _ in
+                self.tabBarController?.tabBar.isHidden = false
+                self.navigationController?.popViewController(animated: true)
+            })
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // 8031031165164
         viewModel.fetchProduct()
+        
+        if #available(iOS 16.0, *) {
+            tabBarController?.tabBar.isHidden = true
+        }
     }
     
     
@@ -211,6 +223,10 @@ class ProductDetailsViewController: UIViewController {
         
         viewModel.hideSavePriceButton = { [weak self] isHidden in
             self?.savePriceButton.isHidden = isHidden
+        }
+        
+        viewModel.goBack = { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
         }
     }
     

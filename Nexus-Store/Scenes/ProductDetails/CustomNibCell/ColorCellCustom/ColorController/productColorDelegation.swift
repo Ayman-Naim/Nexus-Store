@@ -59,10 +59,16 @@ class ProductColorDelegation: NSObject, UICollectionViewDelegate, UICollectionVi
          
         productViewModel.variaintID = numberOfItemAvalabile?.first?.id
         
-         if let validQuatity = numberOfItemAvalabile?.first?.inventoryQuantity{
-             self.productViewModel.availableQuatitySizeAndColor = validQuatity
-             productViewModel.updateQuatitySelect!()
-         }
+        if let varaint = numberOfItemAvalabile?.first{
+            self.productViewModel.availableQuatitySizeAndColor = varaint.inventoryQuantity ?? 0
+            self.productViewModel.priceOfItemIneachVariant  = varaint.price
+            productViewModel.updateQuatitySelect!()
+        }else{
+            self.productViewModel.availableQuatitySizeAndColor = productViewModel.numberOfItemsUpdates
+            self.productViewModel.priceOfItemIneachVariant = "0.0"
+            productViewModel.updateQuatitySelect!()
+        }
+
     }
    
 }

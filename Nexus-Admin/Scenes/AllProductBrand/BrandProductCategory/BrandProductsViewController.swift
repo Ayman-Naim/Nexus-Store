@@ -18,11 +18,12 @@ class BrandProductsViewController: UIViewController {
     var brandProductDelegation:BrandProductProtocol?
     var pricedProduct = [ProductMustafa](){
         didSet{
-            if pricedProduct.count == brandProducts?.count {
+            
+           // if pricedProduct.count == brandProducts?.count {
                 self.brandProducts = self.pricedProduct
                 DispatchQueue.main.async {
                     self.brandProductCollection.reloadData()
-                }
+              //  }
             }
         }
     }
@@ -36,7 +37,7 @@ class BrandProductsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureDelegationAndDataSource()
-        configureNetwoorkCall()
+       
         addProductButton()
 
         // Do any additional setup after loading the view.
@@ -44,7 +45,10 @@ class BrandProductsViewController: UIViewController {
         
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureNetwoorkCall()
+    }
 
 
     
@@ -60,6 +64,7 @@ class BrandProductsViewController: UIViewController {
     func configureNetwoorkCall(){
         
         brandProductDelegation?.fetchAllProductForBrand()
+        pricedProduct.removeAll()
         brandProductDelegation?.bindDataofBrandProduct = { [weak self] in
             self?.brandProducts = self?.brandProductDelegation?.retriveProductBrandDetails()
             if let products = self?.brandProducts {
@@ -99,6 +104,9 @@ extension BrandProductsViewController:UICollectionViewDelegate,UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 25, bottom: 10, right: 25)
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        ProductDetailsViewController.show(on: self, productID: self.pricedProduct[indexPath.row].id )
+    }
     
 }
 
@@ -115,7 +123,7 @@ extension BrandProductsViewController {
     }
     
     @objc func addProductToBrand(){
-        
+        self.navigationController?.pushViewController(AddProductViewController(), animated: true)
     }
     
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 import Cosmos
+import Lottie
 
 class ProductDetailsViewController: UIViewController {
     
@@ -32,8 +33,10 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet weak var sizeCollectionView: UICollectionView!
     @IBOutlet weak var imageIndicator: UIPageControl!
     @IBOutlet weak var avalibleQuantity: UILabel!
-
+    
+    let myView : LottieAnimationView = .init()
     let productRatting:Double = 5
+    let customerID = K.customerID
     var productSizeDelegation:ProductSizeDelegation?
     var productColorDelegation:ProductColorDelegation?
     var productImageDelegation: ProdutImageDelegation?
@@ -56,6 +59,9 @@ class ProductDetailsViewController: UIViewController {
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        if customerID == -1{
+            showFavoriteOrNot.isHidden = true
+        }
         productDetailsViewModel?.priceOfSingleProduct()
         bindProductDetailsViewModule()
         productImageCollection.contentInsetAdjustmentBehavior = .never
@@ -118,6 +124,13 @@ class ProductDetailsViewController: UIViewController {
         productDetailsViewModel?.alertNotification = { [weak self] (titleAlert , messageAlert) in
             guard let self = self else{return}
             Alert.show(on: self, title: titleAlert , message: messageAlert)
+           
+            
+        }
+        
+        productDetailsViewModel?.notifyAddedToCart = { [weak self]  in
+            self?.luanchSavingAnimation()
+
             
         }
         
@@ -130,15 +143,17 @@ class ProductDetailsViewController: UIViewController {
         
         
         
+        
         productDetailsViewModel?.updateQuatitySelect = { [weak self] in
             
             DispatchQueue.main.async {
                 if let stockAvalibity = self?.productDetailsViewModel?.numberOfItemsUpdates {
                     self?.numberOfItems.text = "\(stockAvalibity)"
-                    self?.itemPrice.text = "$\(String(format: "%.2f", self?.productDetailsViewModel?.updateAvalibleQuantity() ?? "0.0"))"
-                        self?.avalibleQuantity.text = "\((self?.productDetailsViewModel?.availableQuatitySizeAndColor ?? 0)  - (self?.productDetailsViewModel?.numberOfItemsUpdates ?? 0) ) item"
-                        
-                   
+//                    self?.itemPrice.text = "$\(String(format: "%.2f", self?.productDetailsViewModel?.updateAvalibleQuantity() ?? "0.0"))"
+                    self?.itemPrice.text = ConvertPrice.share.changePrice(price: String(format: "%.2f", self?.productDetailsViewModel?.updateAvalibleQuantity() ?? "0.0"))
+                    self?.avalibleQuantity.text = "\((self?.productDetailsViewModel?.availableQuatitySizeAndColor ?? 0)  - (self?.productDetailsViewModel?.numberOfItemsUpdates ?? 0) ) item"
+                    
+                    
                     
                 }
             }
@@ -179,21 +194,25 @@ class ProductDetailsViewController: UIViewController {
     
     //MARK: - Test Add Promo Code To Product
     @IBAction func AddToCartButton(_ sender: UIButton) {
-        
-        if productDetailsViewModel?.numberOfItemsUpdates != 0 {
-
-//            let vc = AddPromoCodeViewController()
-//            let addPromoViewModel = AddPromoCodeViewModel()
-//            vc.addPromoCodeViewModel = addPromoViewModel
-//           // vc.addPromoCodeViewModel = AddPromoCodeViewModel()
-//            let okAction = UIAlertAction(title: "OK", style: .default) { action in
-//                self.navigationController?.pushViewController(vc, animated: true)
-//            }
-//            Alert.show(on: self, title: "Congratulation", message: "You scussfully added the quatity to the Cart",actions: [okAction])
-            productDetailsViewModel?.addProductToCart()
+        if customerID == -1 {
+            Alert.loginAlert(on: self)
         }else{
-
-            Alert.show(on: self, title: "No Quantity", message: "Please Select Qunatity From The Available Stock.")
+            if productDetailsViewModel?.numberOfItemsUpdates != 0 {
+                
+                //            let vc = AddPromoCodeViewController()
+                //            let addPromoViewModel = AddPromoCodeViewModel()
+                //            vc.addPromoCodeViewModel = addPromoViewModel
+                //           // vc.addPromoCodeViewModel = AddPromoCodeViewModel()
+                //            let okAction = UIAlertAction(title: "OK", style: .default) { action in
+                //                self.navigationController?.pushViewController(vc, animated: true)
+                //            }
+                //            Alert.show(on: self, title: "Congratulation", message: "You Successfully added the quatity to the Cart",actions: [okAction])
+                productDetailsViewModel?.addProductToCart()
+            }else{
+                
+                Alert.show(on: self, title: "No Quantity", message: "Please Select Qunatity From The Available Stock.")
+            }
+            
         }
     }
     
@@ -231,8 +250,8 @@ extension ProductDetailsViewController{
         productName.text = productDetailsViewModel?.nameOfProduct
         productBrand.text = productDetailsViewModel?.nameProductBrand
         descriptionOfProduct.text = productDetailsViewModel?.descriptionOfProduct
-        itemPrice.text = productDetailsViewModel?.priceOfsingleProduct
-
+//        itemPrice.text = productDetailsViewModel?.priceOfsingleProduct
+        itemPrice.text = ConvertPrice.share.changePrice(price: productDetailsViewModel?.priceOfsingleProduct ?? "")
     }
     
 
@@ -252,3 +271,23 @@ extension ProductDetailsViewController{
 
 
 
+//MARK: - Animation
+extension ProductDetailsViewController{
+    func luanchSavingAnimation(){
+        myView.animation = .named("ConformAddtoCart")
+        myView.loopMode = .loop
+        myView.frame = CGRect(x: 0, y: 0, width: 600, height: 250)
+        myView.center = CGPointMake(myView.frame.maxX/1.25, myView.frame.height/0.16)
+        myView.center = view.center
+        view.addSubview(myView)
+        myView.contentMode = .scaleAspectFill
+        myView.backgroundColor = .clear
+        myView.play()
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(setSavingAnimation), userInfo: nil, repeats: false)
+    }
+    
+    
+    @objc func setSavingAnimation(){
+        myView.removeFromSuperview()
+    }
+}

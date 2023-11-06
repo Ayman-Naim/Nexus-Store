@@ -14,6 +14,8 @@ protocol CustomNibCellProtocol:AnyObject{
 }
 class productDetailsCell: UICollectionViewCell {
     
+    let customerID = K.customerID
+    
     @IBOutlet weak var brandName: UILabel!
     @IBOutlet weak var favoriteIcon: UIButton!
 
@@ -24,7 +26,9 @@ class productDetailsCell: UICollectionViewCell {
     var delegate:CustomNibCellProtocol?
     override func awakeFromNib() {
         super.awakeFromNib()
-       
+        if customerID == -1{
+            favoriteIcon.isHidden = true
+        }
 
        
     }
@@ -33,6 +37,7 @@ class productDetailsCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         self.addingShadowWithEffectToCell()
+        
         
         
     }

@@ -15,12 +15,12 @@ class CategoryViewController: UIViewController {
     private let categoryViewModuleRefactor = CategoryViewModuleRefactor()
     var forMainCategory:Int = K.menID
     var forSubCategory:String = K.all
-   // var checkApperane = 0
+    var checkApperane = 0
     var flagShowFilter = false
     var fromBrand = false
     var vendor:String = ""
     var backButton : UIBarButtonItem?
-    let custmerID = UserDefaults.standard.integer(forKey: K.customerIdKey)
+    lazy var custmerID = K.customerID
    
    
     
@@ -28,10 +28,15 @@ class CategoryViewController: UIViewController {
   
     
     //MARK: - Configure ViewWill Appear
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         startShowProducts()
         self.addLogoToNavigationBarItem(logoImage: K.darkModeLogo)
+         
+        
         categoryViewModuleRefactor.checkCustomerFavoriteProduct(for: custmerID)
+        
+     
+        
         if fromBrand == true {
             tabBarController?.tabBar.isHidden = true
             navigationItem.leftBarButtonItems?[1].isHidden = true
@@ -45,7 +50,7 @@ class CategoryViewController: UIViewController {
     
     
     //MARK: - Configure Will DisAppear
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         if fromBrand == true {
             tabBarController?.tabBar.isHidden = false
             navigationItem.leftBarButtonItems?[1].isHidden = false
@@ -62,18 +67,22 @@ class CategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-     
+        checkApperane = 1
         categoryViewModuleRefactor.brandName = vendor
         categoryViewModuleRefactor.fromBrand = fromBrand
         configureCollectionView()
         registerCollectionViewByCell()
         CategoryCollectionView.collectionViewLayout = createCompositionalLayout()
         bindViewModel()
-        configureFavoritueButton()
+        configureLeftSearchAndBackBarButton()
         loadShadowToButton(listFilterButton)
         loadShadowToButton(alphapiticFilter)
         loadShadowToButton(PriceFilterButton)
         categoryViewModuleRefactor.CheckIsAllProductMainCategoryForAllProduct(for: forMainCategory, with: forSubCategory)
+        print("custmerID \(custmerID)")
+        if custmerID != -1 {
+            configureRightFavAndWishkBarButton()
+        }
         
         if fromBrand == true {
             tabBarController?.tabBar.isHidden = true
@@ -263,6 +272,8 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
     private func bindViewModel() {
         categoryViewModuleRefactor.loadingAnimation = { [weak self] isLoading in
             DispatchQueue.main.async {
+                    self?.CategoryCollectionView.isUserInteractionEnabled = !isLoading
+                
                 self?.isLoadingIndicatorAnimating = isLoading
             }
         }
@@ -272,13 +283,15 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
                 
                 self?.CategoryCollectionView.reloadSections(IndexSet(integer: 2))
 
+
             }
         }
         
         categoryViewModuleRefactor.errorOccurs = { [weak self] error in
             guard let self = self else { return }
             self.isLoadingIndicatorAnimating = false
-            Alert.show(on: self, title: "Error", message: error)
+//            categoryViewModuleRefactor.CheckIsAllProductMainCategoryForAllProduct(for: forMainCategory, with: forSubCategory)
+         //   Alert.show(on: self, title: "Error", message: error)
         }
     }
     
@@ -431,25 +444,36 @@ extension CategoryViewController{
     
     
     
-    // MARK: - Setting Adding Favorite Button to NAvigation bar
-    func configureFavoritueButton(){
+    // MARK: -Search and BackButon
+    func configureLeftSearchAndBackBarButton(){
         
         
-        if let favoriteImage = UIImage(named: K.heartIcon) , let cartImage =  UIImage(named: K.cartIcon) ,let searchImage =  UIImage(named: K.searchIcon)  ,let backButton = UIImage(systemName: K.backButtonIcon){
-            let favorite = UIBarButtonItem(image: favoriteImage, style: .plain, target: self, action:#selector(favoriteButtonPressed))
-            let cart = UIBarButtonItem(image: cartImage, style: .plain, target: self, action: #selector(cartBarButtonPressed))
+        if let searchImage =  UIImage(named: K.searchIcon)  ,let backButton = UIImage(systemName: K.backButtonIcon){
+         
             let search = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(searchBarButtonClicked))
             let backButton = UIBarButtonItem(image: backButton, style: .plain, target: self, action: #selector(backButtonPressed))
-            
-           
-            
-            navigationItem.rightBarButtonItems = [favorite,cart]
+
             navigationItem.leftBarButtonItems = [backButton,search]
-            navigationItem.rightBarButtonItems?.first?.tintColor = UIColor(red: 0.58, green: 0.58, blue: 0.58, alpha: 1)
-            navigationItem.rightBarButtonItems?.last?.tintColor =  UIColor(red: 0.58, green: 0.58, blue: 0.58, alpha: 1)
             navigationItem.leftBarButtonItems?.last?.tintColor = UIColor(red: 0.58, green: 0.58, blue: 0.58, alpha: 1)
         }
         
+        
+    }
+    
+    //MARK: - Right Bar Button In Category
+    func configureRightFavAndWishkBarButton(){
+        if let favoriteImage = UIImage(named: K.heartIcon) , let cartImage =  UIImage(named: K.cartIcon) {
+            
+            
+            let favorite = UIBarButtonItem(image: favoriteImage, style: .plain, target: self, action:#selector(favoriteButtonPressed))
+            let cart = UIBarButtonItem(image: cartImage, style: .plain, target: self, action: #selector(cartBarButtonPressed))
+            
+            navigationItem.rightBarButtonItems = [favorite,cart]
+            navigationItem.rightBarButtonItems?.first?.tintColor = UIColor(red: 0.58, green: 0.58, blue: 0.58, alpha: 1)
+            navigationItem.rightBarButtonItems?.last?.tintColor =  UIColor(red: 0.58, green: 0.58, blue: 0.58, alpha: 1)
+            
+            
+        }
         
     }
     

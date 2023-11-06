@@ -42,11 +42,12 @@ struct K{
     static let favoriteIconSave = "heart.fill"
     
     static let customerIdKey = "customerID"
-    
+
+    static let dicountCopounKey = "Copone"
  
     
     
-    static var customerID: Int { UserDefaults.standard.integer(forKey: "customerID") }
+    static var customerID: Int { UserDefaults.standard.integer(forKey: "customerID") == 0 ? -1 : UserDefaults.standard.integer(forKey: "customerID") }
     
     
     static func customError(title: String? = nil, message: String) -> Error {

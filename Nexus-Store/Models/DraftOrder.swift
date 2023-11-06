@@ -19,6 +19,7 @@ struct DraftOrder: Codable {
     let totalPrice: String
     let customer: Customer
     let note: String?
+    let applied_discount: AppliedDiscount?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -27,5 +28,14 @@ struct DraftOrder: Codable {
         case totalPrice = "total_price"
         case customer
         case note
+        case applied_discount
     }
+}
+
+
+// MARK: - AppliedDiscount
+struct AppliedDiscount: Codable {
+    let value, amount, value_type: String
+
+    
 }

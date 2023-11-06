@@ -12,6 +12,8 @@ import GoogleSignIn
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    let currencyOptions = ["USD", "EGP"]
+    let pickerView = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,19 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         // Do any additional setup after loading the view.
         tableView.register(UINib(nibName: "SettingsTableViewCell", bundle:nil), forCellReuseIdentifier: "settingsCell")
+        pickerView.delegate = self
+        pickerView.dataSource = self
+ //       pickerView.selectRow(0, inComponent: 0, animated: true)
+        navigationItem.backAction  = UIAction(handler: { _ in
+            self.tabBarController?.tabBar.isHidden = false
+            self.navigationController?.popViewController(animated: true)
+        })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+ //       pickerView.selectRow(0, inComponent: 0, animated: true)
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -79,8 +94,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             let contactUsVC = ContactUsViewController()
             self.navigationController?.pushViewController(contactUsVC, animated: true)
         case 2:
-            let currencyVC = SignInViewController()
-            self.navigationController?.pushViewController(currencyVC, animated: true)
+            showCurrencyPicker()
         case 3:
             let addressVC = AdressSettingViewController()
             self.navigationController?.pushViewController(addressVC, animated: true)
@@ -120,4 +134,80 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             print("Logout Error: \(error.localizedDescription)")
         }
     }*/
+}
+
+extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+            return 1
+        }
+
+        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+            return currencyOptions.count
+        }
+
+        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+            return currencyOptions[row]
+        }
+
+        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+            // Handle the selection of a row in the UIPickerView if needed
+            let selectedRow = pickerView.selectedRow(inComponent: 0)
+            // Handle the selected currency here
+            if selectedRow == 0 {
+                print("USD selected")
+                setSelectedCurrency(isUSD: true)
+                
+            } else if selectedRow == 1 {
+                print("EGP selected")
+                setSelectedCurrency(isUSD: false)
+            }
+        }
+    func showCurrencyPicker() {
+        // Retrieve the previously selected currency from UserDefaults
+            if let isUSD = UserDefaults.standard.value(forKey: "USD") as? Bool {
+                let previouslySelectedRow = isUSD ? 0 : 1
+                pickerView.selectRow(previouslySelectedRow, inComponent: 0, animated: false)
+            }
+        
+        let alert = UIAlertController(title: "Change Currency", message: "Choose your currency:", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            let selectedRow = self?.pickerView.selectedRow(inComponent: 0)
+            let selectedCurrency = self?.currencyOptions[selectedRow ?? 0]
+            // Handle the selected currency as needed
+            if let selectedCurrency = selectedCurrency {
+                // Display a message with the selected currency
+                let message = "You chose currency: \(selectedCurrency)"
+                let resultAlert = UIAlertController(title: "Change Currency", message: message, preferredStyle: .alert)
+                resultAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+//                    self?.navigateToRoot()
+                }))
+                self?.present(resultAlert, animated: true, completion: nil)
+            }
+        })
+
+        alert.view.addSubview(pickerView)
+        pickerView.translatesAutoresizingMaskIntoConstraints = false
+        pickerView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor).isActive = true
+        pickerView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 50).isActive = true
+        pickerView.bottomAnchor.constraint(equalTo: alert.view.bottomAnchor, constant: -50).isActive = true
+
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
+    
+    func setSelectedCurrency(isUSD: Bool){
+        UserDefaults.standard.set(isUSD, forKey: "USD")
+    }
+    
+    func navigateToRoot(){
+             let cartVC =  CartViewController()
+         self.navigationController?.pushViewController(cartVC, animated: true)
+         
+    }
+    
 }

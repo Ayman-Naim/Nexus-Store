@@ -12,6 +12,7 @@ protocol ProductLandscapeCell: AnyObject {
     func setProduct(_ product: CartProduct)
     func hideButtons()
     func hideQuantity()
+    func setImage(with imageURLString: String)
 }
 
 protocol ProductLandscapeCellDelegate: AnyObject {
@@ -44,6 +45,7 @@ class ProductLandscapeTVCell: UITableViewCell {
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var minusButton: UIButton!
+    @IBOutlet weak var sizeColorLabel: UILabel!
     
     
     // MARK: - Variables
@@ -99,9 +101,18 @@ extension ProductLandscapeTVCell: ProductLandscapeCell {
     func setProduct(_ product: CartProduct) {
         productImageView.setImage(withURLString: product.image)
         productTitleLabel.text = product.title
-        priceLabel.text = "$\(product.price)"
+//        priceLabel.text = "$\(product.price)"
+        priceLabel.text = ConvertPrice.share.changePrice(price: String(product.price))
         quantityLabel.text = "\(product.quantity)"
         quantity = product.quantity
+        
+        if let sizeColor = product.sizeColor {
+            sizeColorLabel.isHidden = false
+            sizeColorLabel.text = product.sizeColor
+
+        } else {
+            sizeColorLabel.isHidden = true
+        }
     }
     
     func hideButtons() {
@@ -112,5 +123,9 @@ extension ProductLandscapeTVCell: ProductLandscapeCell {
     
     func hideQuantity() {
         minusButton.superview?.isHidden = true
+    }
+    
+    func setImage(with imageURLString: String) {
+        productImageView.setImage(withURLString: imageURLString)
     }
 }

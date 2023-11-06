@@ -52,17 +52,16 @@ class AddAddressViewController: UIViewController {
             Alert.show(on: self, title: "Address", message: "All fileds must be not empty")
             return
         }
+        
+        guard validatePhoneNumber(phone) else {
+            Alert.show(on: self, title: "Phone number", message: "Invalid phone number")
+            return
+        }
+        
         viewModel.addAdress(name: name, city: city, adddress: address, Phone: phone) { result in
             switch result{
             case .success(let data ):
-                
-                
-                guard let address1 = data.singleResult?.address1 ,
-                      let city1 = data.singleResult?.city,
-                      let name1 = data.singleResult?.name
-                else {
-                    return
-                }
+                guard data.singleResult != nil else { return }
                 self.delegate?.didAddNewAddress()
                 self.navigationController?.popViewController(animated: true)
                
@@ -71,6 +70,13 @@ class AddAddressViewController: UIViewController {
                 
                 return
             }
+        }
+        
+        func validatePhoneNumber(_ phoneNumber: String) -> Bool {
+            let phoneRegex = "^[0-9+]{0,1}+[0-9]{5,11}$"
+            let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+            let arrString = Array(phoneNumber)
+            return arrString.count > 2 && phoneNumber.first == "0" && arrString[1] == "1" && phoneTest.evaluate(with: phone)
         }
        
     }

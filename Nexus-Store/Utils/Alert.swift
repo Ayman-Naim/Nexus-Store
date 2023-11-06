@@ -26,4 +26,31 @@ struct Alert {
             vc.present(alert, animated: true)
         }
     }
+    
+    static func loginAlert(on vc: UIViewController) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Sign In", message: "You need to login first.", preferredStyle: .alert)
+            
+            let closeAction = UIAlertAction(title: "Close", style: .destructive)
+            let signInAction = UIAlertAction(title: "Sign In", style: .default) { _ in
+                
+                UserDefaults.standard.removeObject(forKey: "customerID")
+                UserDefaults.standard.removeObject(forKey: "customerEmail")
+                UserDefaults.standard.synchronize()
+
+                
+                if let sceneDelegate = UIApplication.shared.connectedScenes
+                    .first!.delegate as? SceneDelegate {
+                    let nav = UINavigationController(rootViewController: SignInViewController())
+                    sceneDelegate.window!.rootViewController = nav
+                }
+
+               // vc.navigationController?.pushViewController(SignInViewController(), animated: true)
+            }
+            
+            alert.addAction(closeAction)
+            alert.addAction(signInAction)
+            vc.present(alert, animated: true)
+        }
+    }
 }

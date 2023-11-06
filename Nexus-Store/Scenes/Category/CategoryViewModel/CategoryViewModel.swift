@@ -18,7 +18,7 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
     private let apiNetworkManager = ApiManger.SharedApiManger
     private(set) var mainCategory = ["MEN","KIDS","SALE","WOMEN"]
     private(set) var subCategory = ["ALL","SHOES","T-SHIRT","ACCESSORIES"]
-    let custemerId = UserDefaults.standard.integer(forKey: K.customerIdKey)
+    let custemerId = K.customerID
     static var selectedMainCategory = 0
     static var selectedSubCategory = 0
     var fromBrand = false
@@ -28,20 +28,35 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
     private var productForBrand:[Product] = []
     {
         didSet{
-            print("Product Brand Count \(productForBrand.count) || FilterProduct Count \(filterProduct.count)")
-            if fromBrand == true  && allProduct.count == filterProduct.count  {
-                filterProduct = productForBrand
-                self.reload?()
-                
-            }
+           
         }
     }
     private var filterProduct :[Product] = [] {
         didSet{
-            print("All Product Count\(allProduct.count) || FilterProduct Count \(filterProduct.count)")
-            if allProduct.count == filterProduct.count && fromBrand == false {
-                self.reload?()
+           
+            if (fromBrand == false){
+                print("All Product Count\(allProduct.count) || FilterProduct Count \(filterProduct.count)")
+                if ((allProduct.count == filterProduct.count) ) {
+                    self.reload?()
+                }
+                
+                
             }
+            
+            else {
+                print("Product Brand Count \(productForBrand.count) || FilterProduct Count \(filterProduct.count)")
+                if ((allProduct.count == filterProduct.count))  {
+                    if self.fromBrand == true {
+                        self.filteraccodingToBrand(brandName: self.brandName)
+                    }
+                    filterProduct = productForBrand
+                    productForBrand.removeAll()
+                    self.reload?()
+                    
+                    
+                }
+            }
+           
            
            
         }
@@ -94,7 +109,8 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
             }
         }
         cell.productName.text = filterProduct[indexPath.row].title
-        cell.productPrice.text = "$\(filterProduct[indexPath.row].variants?.first?.price ?? "300")"
+//        cell.productPrice.text = "$\(filterProduct[indexPath.row].variants?.first?.price ?? "300")"
+        cell.productPrice.text = ConvertPrice.share.changePrice(price: filterProduct[indexPath.row].variants?.first?.price ?? "")
         cell.productId = filterProduct[indexPath.row].id
         cell.brandName.text = filterProduct[indexPath.row].vendor
         cell.setNotFavorites()
@@ -125,7 +141,7 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
                 self.favoriteProducts.removeAll()
                // self.allProduct.removeAll()
 
-                for product in AllProducts.products {
+                for product in self.allProduct {
                     self.priceOfEveryProduct(for: product)
                 }
                 self.loadingAnimation?(false)
@@ -153,7 +169,7 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
                 self.filterProduct.removeAll()
                 self.favoriteProducts.removeAll()
                // self.allProduct.removeAll()
-                for product in AllProducts.products {
+                for product in self.allProduct {
                     self.priceOfEveryProduct(for: product)
                 }
                 self.loadingAnimation?(false)
@@ -173,7 +189,7 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
             switch result{
             case .success(let product):
                 self.filterProduct.append(product.product)
-                self.filteraccodingToBrand(brandName: self.brandName)
+               
             //    self.reload?()
             case .failure(let error):
                 self.errorOccurs?(String(describing: error.localizedDescription))
@@ -282,8 +298,10 @@ class CategoryViewModuleRefactor:CustomNibCellProtocol{
     
     //MARK: - Filter according To Brand
     func filteraccodingToBrand(brandName:String){
+      
         productForBrand =  filterProduct.filter({ $0.vendor == brandName
         })
+        
       
         
     }

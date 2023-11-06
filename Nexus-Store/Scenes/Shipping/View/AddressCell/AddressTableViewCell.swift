@@ -33,7 +33,7 @@ class AddressTableViewCell: UITableViewCell {
 extension AddressTableViewCell: AddressCell {
     func setAddress(_ address: Address) {
         nameLabel.text = address.name
-        addressLabel.text = "\(address.city ?? ""), \(address.address1 ?? ""), \(address.address2 ?? "")"
+        addressLabel.text = "\(address.city ?? ""), \(address.address1 ?? ""), \(address.phone ?? "")"
     }
     
     func selecteAddress(_ isSelected: Bool) {

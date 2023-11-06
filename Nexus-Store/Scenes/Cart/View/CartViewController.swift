@@ -26,6 +26,16 @@ class CartViewController: UIViewController {
         setupTableView()
         bindViewModel()
         viewModel.fetchCartProducts()
+      
+        navigationItem.backAction  = UIAction(handler: { _ in
+            self.tabBarController?.tabBar.isHidden = false
+            self.navigationController?.popViewController(animated: true)
+        })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     
@@ -33,6 +43,8 @@ class CartViewController: UIViewController {
     @IBAction func checkoutButtonPressed(_ sender: UIButton) {
         self.navigationController?.pushViewController(ShippingViewController(), animated: true)
     }
+    
+    
     
     
     

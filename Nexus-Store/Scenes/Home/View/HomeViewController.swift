@@ -41,12 +41,22 @@ class HomeViewController: UIViewController {
     
     //MARK: CartButtonClicked
     @IBAction func CartButtonClicked(_ sender: Any) {
-        self.tabBarController?.tabBar.isHidden = true
-        self.navigationController?.pushViewController(CartViewController(), animated: true)
+        if K.customerID == -1 {
+            Alert.loginAlert(on: self)
+        }
+        else{
+            self.tabBarController?.tabBar.isHidden = true
+            self.navigationController?.pushViewController(CartViewController(), animated: true)
+        }
     }
     //MARK: favouriteButtonClicked
     @IBAction func favouriteButtonClicked(_ sender: Any) {
-        self.navigationController?.pushViewController(WishListViewController(), animated: true)
+        if K.customerID == -1 {
+            Alert.loginAlert(on: self)
+        }
+        else{
+            self.navigationController?.pushViewController(WishListViewController(), animated: true)
+        }
     }
     
     
@@ -161,30 +171,35 @@ extension HomeViewController :UICollectionViewDelegate,UICollectionViewDataSourc
             var copones = priceRole.randomElement()
             UIPasteboard.general.string = copones?.code
             // resd to clipboard
-            guard let promo = UIPasteboard.general.string else{return}
+            guard let promo = UIPasteboard.general.string else{
+                Alert.show(on: self, title: "The offers is not active ", message: "The offers is not active it will be activated in one hour ", actions: [(UIAlertAction(title: "ok", style: .default))])
+                print("copone not saved to user default ")
+                return
+                
+            }
             //Alett for promo copied
             //save copone to user default
-            if let CoponeDataSave = try? JSONEncoder().encode(copones) {
+            
+            if let CoponeDataSave = try? JSONEncoder().encode(copones),copones != nil{
                 UserDefaults.standard.set(CoponeDataSave, forKey: "Copone")
                 print("copone saved to user default ")
+                Alert.show(on: self, title: "Offer Code", message: "Congratulation you got the offer\(ViewModel.PriceRole[indexPath.row].title ?? "" ) \n the offer promo code is copied \(promo)", actions: [(UIAlertAction(title: "ok", style: .default))])
             }else{
+                Alert.show(on: self, title: "The offers is not active ", message: "The offers is not active it will be activated in one hour ", actions: [(UIAlertAction(title: "ok", style: .default))])
                 print("copone not saved to user default ")
+                
+                
             }
             
-           /* //read copone to user default
-            if let CoponeDataRead = UserDefaults.standard.object(forKey: "Copone") as? Data,
-               let content = try? JSONDecoder().decode(CoupounsCodes.self, from: CoponeDataRead) {
-                print(content)
-                
-                
-            }else{
-                print("no copone data  in user default ")
-            }*/
-            
-            
-            
-            Alert.show(on: self, title: "Offer Code", message: "Congratulation you got the offer\(ViewModel.PriceRole[indexPath.row].title ?? "" ) \n the offer promo code is copied \(promo)", actions: [(UIAlertAction(title: "ok", style: .default))])
-            
+            /* //read copone to user default
+             if let CoponeDataRead = UserDefaults.standard.object(forKey: "Copone") as? Data,
+             let content = try? JSONDecoder().decode(CoupounsCodes.self, from: CoponeDataRead) {
+             print(content)
+             
+             
+             }else{
+             print("no copone data  in user default ")
+             }*/
             
             
         case 1 :
@@ -321,7 +336,7 @@ extension HomeViewController{
         case.success(let userEmail):
             UserName.text = userEmail
         case.failure(let error ):
-            UserName.text = error.localizedDescription
+            UserName.text = "User Guest"
             
         }
         

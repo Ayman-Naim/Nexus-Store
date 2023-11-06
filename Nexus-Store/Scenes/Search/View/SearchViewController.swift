@@ -212,14 +212,15 @@ extension SearchViewController:UITextFieldDelegate  {
       //  let arr = ( Allproduct as NSArray).filtered(using: predicate)
         
         let arr = Allproduct.filter{$0.title?.range(of: search ,options:[.caseInsensitive]) != nil  }
-    
+      
+        
         if arr.count > 0 {
             FilterdProduct?.removeAll()
             FilterdProduct = arr as [Product]
                 
             }
             else{
-            FilterdProduct = Allproduct
+                FilterdProduct?.removeAll()
         }
   
         //print(search)

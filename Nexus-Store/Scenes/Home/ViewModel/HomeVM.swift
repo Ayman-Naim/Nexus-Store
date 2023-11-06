@@ -120,12 +120,15 @@ class HomeVM{
 }
 
 enum UserDfaultError : Error{
-case emptyUser
+    case emptyUser
+    case dicountFail
+    
     
     
     var errorDescription :String{
         switch self{
         case.emptyUser : return "No User LogedIN"
+        case.dicountFail : return "There is no Copuns Found"
         }
     }
 }
