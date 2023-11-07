@@ -23,8 +23,15 @@ class ColorCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        choosenColor.text = ""
+
     }
     
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        choosenColor.text = ""
+    }
     
     override var isSelected: Bool {
         didSet{
