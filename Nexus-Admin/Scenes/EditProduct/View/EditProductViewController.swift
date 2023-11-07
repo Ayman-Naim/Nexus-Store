@@ -34,7 +34,7 @@ class EditProductViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var sizeTextField: UITextField!
-    @IBOutlet weak var colorTextField: UITextField!
+    @IBOutlet weak var colorsButton: UIButton!
     
     
     
@@ -43,6 +43,8 @@ class EditProductViewController: UIViewController {
         super.viewDidLoad()
         setupTapGesture()
         setupView()
+        setupColorsButton()
+        
         
         viewModel?.saved = { [weak self] isSaved in
             guard let self = self else { return }
@@ -77,11 +79,11 @@ class EditProductViewController: UIViewController {
             } else {
                 viewModel?.editProduct(type: editType, value: textView.text!)
             }
-        } else if !sizeTextField.isHidden && !colorTextField.isHidden {
-            if sizeTextField.text!.isEmpty || colorTextField.text!.isEmpty {
-                Alert.show(on: self, title: "Size & Color", message: "The size or color can't be empty!")
+        } else if !sizeTextField.isHidden && !colorsButton.isHidden {
+            if sizeTextField.text!.isEmpty {
+                Alert.show(on: self, title: "Size", message: "The size can't be empty!")
             } else {
-                viewModel?.editProduct(type: editType, value: sizeTextField.text!, colorTextField.text!)
+                viewModel?.editProduct(type: editType, value: sizeTextField.text!, colorsButton.titleLabel?.text ?? "red")
             }
         } else {
             // Handle Cases: .productType
@@ -89,6 +91,17 @@ class EditProductViewController: UIViewController {
             viewModel?.editProduct(type: editType, value: selectedProductType)
         }
     }
+    
+    @objc private func didTapOnView() {
+        view.endEditing(true)
+    }
+    
+    private func selectedColor(_ color: String) {
+        print(color)
+        colorsButton.titleLabel?.text = color
+    }
+    
+    
     
     
     // MARK: - Functions
@@ -103,7 +116,7 @@ class EditProductViewController: UIViewController {
             segmentControl.isHidden = true
             imageView.isHidden = true
             sizeTextField.isHidden = true
-            colorTextField.isHidden = true
+            colorsButton.isHidden = true
             
         case .description(let description):
             title = "Product Description"
@@ -111,14 +124,14 @@ class EditProductViewController: UIViewController {
             segmentControl.isHidden = true
             imageView.isHidden = true
             sizeTextField.isHidden = true
-            colorTextField.isHidden = true
+            colorsButton.isHidden = true
             
         case .productType(let productType):
             title = "Product Type"
             textView.isHidden = true
             imageView.isHidden = true
             sizeTextField.isHidden = true
-            colorTextField.isHidden = true
+            colorsButton.isHidden = true
             segmentControl.removeAllSegments()
             for index in ProductType.allCases.indices {
                 segmentControl.insertSegment(withTitle: ProductType.allCases[index].rawValue, at: index, animated: true)
@@ -129,7 +142,7 @@ class EditProductViewController: UIViewController {
             title = "Add New Image"
             segmentControl.isHidden = true
             sizeTextField.isHidden = true
-            colorTextField.isHidden = true
+            colorsButton.isHidden = true
             textView.delegate = self
             textView.text = "Add image URL here..."
             
@@ -146,8 +159,20 @@ class EditProductViewController: UIViewController {
         self.view.addGestureRecognizer(tapG)
     }
     
-    @objc private func didTapOnView() {
-        view.endEditing(true)
+    
+    private func setupColorsButton() {
+        let colors: [String] = ["red", "green", "blue", "orange", "yellow", "pink", "purple", "gray", "white", "black"]
+        
+        let colorsActions = colors.map({ UIAction(title: $0) { action in
+            self.selectedColor(action.title)
+        } })
+        
+        let colorMenuItems = UIMenu(title: "", options: .displayInline, children: colorsActions)
+        
+        colorsButton.menu = colorMenuItems
+        colorsButton.titleLabel?.text = colors.first
+        colorsButton.showsMenuAsPrimaryAction = true
+        colorsButton.changesSelectionAsPrimaryAction = true
     }
 }
 
