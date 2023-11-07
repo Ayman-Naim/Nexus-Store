@@ -26,6 +26,11 @@ class ColorCell: UICollectionViewCell {
     }
     
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        choosenColor.text = ""
+    }
+    
     override var isSelected: Bool {
         didSet{
             if isSelected {
