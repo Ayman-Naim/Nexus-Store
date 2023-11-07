@@ -108,6 +108,7 @@ class ProductDetailsViewController: UIViewController {
         
         productDetailsViewModel?.isLoadingAnimation = { [weak self] loading in
             DispatchQueue.main.async {
+                self?.view.isUserInteractionEnabled = !loading
                 self?.isLoadingIndicatorAnimating = loading
             }
         }
