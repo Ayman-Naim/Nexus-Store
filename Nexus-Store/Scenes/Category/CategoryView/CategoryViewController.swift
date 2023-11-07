@@ -272,8 +272,7 @@ extension CategoryViewController : UICollectionViewDelegate,UICollectionViewData
     private func bindViewModel() {
         categoryViewModuleRefactor.loadingAnimation = { [weak self] isLoading in
             DispatchQueue.main.async {
-                    self?.CategoryCollectionView.isUserInteractionEnabled = !isLoading
-                
+                self?.view.isUserInteractionEnabled = !isLoading
                 self?.isLoadingIndicatorAnimating = isLoading
             }
         }
