@@ -22,6 +22,15 @@ class SizeColorCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        backGroundView.configureDesignOfCellNotSelected(label: sizeColorLabel)
+
+    }
+    
+    override func prepareForReuse() {
+        
+        super.prepareForReuse()
+        backGroundView.configureDesignOfCellNotSelected(label: sizeColorLabel)
+
     }
     
     override var isSelected: Bool {
