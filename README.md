@@ -25,11 +25,12 @@ It is an E-Commerce Application that presents products from different vendors an
 ## Demo Video
 ### Nexus Store (User Demo)
 
-<img src="https://github.com/Ayman-Naim/Nexus-Store/blob/dev/Mockups/NexusStoreDemo.gif">
+<img src="https://github.com/Ayman-Naim/Nexus-Store/blob/dev/Mockups/NexusStoreDemo.gif" alt="Demo" width="30%" height="30%">
+
 
 ### Nexus Admin (Admin Demo)
+<img src="https://github.com/Ayman-Naim/Nexus-Store/blob/dev/Mockups/NexusAdminDemo.gif" alt="Demo" width="30%" height="30%">
 
-<img src="https://github.com/Ayman-Naim/Nexus-Store/blob/dev/Mockups/NexusAdminDemo.gif">
 <!-- ____________________________________________________________________________ -->
 ## Table of Contents
  - [Features](#features)
