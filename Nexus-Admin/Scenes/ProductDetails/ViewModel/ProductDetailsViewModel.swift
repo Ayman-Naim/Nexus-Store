@@ -146,11 +146,16 @@ class ProductDetailsViewModel {
         if let sizes = product.options.first(where: { $0.name == "Size" })?.values {
             self.sizes = sizes
         }
-
+        
         if let colors = product.options.first(where: { $0.name == "Color" })?.values {
             self.colors = colors
         }
-        updateCurrentVariant()
+        
+        
+        selectedSize = 0
+        selectedColor = 0
+        currentVariant = product.variants.first
+        // updateCurrentVariant()
     }
     
     
@@ -210,9 +215,18 @@ class ProductDetailsViewModel {
             switch response.result {
             case .success(let data):
                 print(String(data: data!, encoding: .utf8) ?? "")
-                self.saved?(data != nil)
-                self.fetchProduct()
+               
                 
+                DispatchQueue.main.async {
+                    self.loading?(true)
+                }
+                Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { _ in
+                    DispatchQueue.main.async {
+                        self.loading?(false)
+                    }
+                    self.saved?(data != nil)
+                    self.fetchProduct()
+                }
             case .failure(let error):
                 self.error?(error.localizedDescription)
             }
