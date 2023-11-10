@@ -21,8 +21,15 @@
 <!-- Project bref -->
 It is an E-Commerce Application that presents products from different vendors and enables the authenticated users to add/remove products to/from their shopping carts and complete the whole shopping cycle online through the app.
 
+<!-- ____________________________________________________________________________ -->
+## Demo Video
+### Nexus Store (User Demo)
 
+<img src="https://github.com/Ayman-Naim/Nexus-Store/blob/dev/Mockups/NexusStoreDemo.gif">
 
+### Nexus Admin (Admin Demo)
+
+<img src="https://github.com/Ayman-Naim/Nexus-Store/blob/dev/Mockups/NexusAdminDemo.gif">
 <!-- ____________________________________________________________________________ -->
 ## Table of Contents
  - [Features](#features)
@@ -124,28 +131,6 @@ It is an E-Commerce Application that presents products from different vendors an
 - [Firebase](https://firebase.com/)
 - [Google Sign in (SPM)](https://github.com/google/GoogleSignIn-iOS)
 
-<!-- ____________________________________________________________________________ -->
-## Demo Video
-
-> Click on the image to show the demo video
-
-<!-- Video Link -->
-<a href="https://www.youtube.com/watch?v=btNdq8hYc9o">
-    <!-- Video Image -->
-    <img 
-        src="https://img.youtube.com/vi/btNdq8hYc9o/0.jpg" 
-        alt="Demo Video" 
-        height="400"
-    />
-</a>
 
 
 
-<!-- ____________________________________________________________________________ -->
-## Screenshot
-
-First Page | Second Page | Third Page
----------- | ----------- | ----------
-![]() | ![]() | ![]()
-![]() | ![]() | ![]()
-![]() | ![]() | ![]()
