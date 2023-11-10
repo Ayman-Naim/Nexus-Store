@@ -29,6 +29,8 @@ It is an E-Commerce Application that presents products from different vendors an
 
 
 ### Nexus Admin (Admin Demo)
+
+
 <img src="https://github.com/Ayman-Naim/Nexus-Store/blob/dev/Mockups/NexusAdminDemo.gif" alt="Demo" width="30%" height="30%">
 
 <!-- ____________________________________________________________________________ -->
