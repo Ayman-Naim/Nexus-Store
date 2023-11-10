@@ -34,10 +34,75 @@ It is an E-Commerce Application that presents products from different vendors an
 
 
 <!-- ____________________________________________________________________________ -->
-## Features
-- a
-- b
-- c
+## Features 
+### Nexus Store (User App)
+- GuestMode
+- CreateanaccountemailandpasswordorGoogleaccount
+- Sign In with email and password or Google account
+- Home
+  - Userinformation(email) 2. ShowAllBrands
+  - ShowCoupons
+  - Search
+- Category
+  - Classifymaincategory(Men,Women,Kids,Sales)
+  - Classify subcategory (All, T-Shirt, Shoes, Accessories)
+  - Showproductdependingonmaincategoryandsubcategory
+  - Filteringwithpriceandalphabetic
+  - Search
+- Profile
+  - ShowUserinformation
+  - Display Orders
+  - DiplayWishlist
+- Settings
+  - AboutUS
+  - ContactUS
+  - ChangeCurrency
+  - Display Address (delete and add new one)
+  - SignOut
+- ProductDetails
+  - Diplays images for product
+  - Showinformation(productname,brandtype,descrption)
+  - Display Available quantity and color
+  - Selectquantityaccordingtoavailability
+  - AddtoCart
+  - AddtoWishlist
+  - ShowReviews
+- Wishlist
+  - Display wishlist products
+  - Deleteproductfromwishlist
+  - NavigatetoProductDetails
+- Payment
+  - Cart
+    - Showallproductsthatuseradded
+    - Display total price
+    - Update product quantity according to availability
+    - Deleteproductfromcart
+  - ShippingAddress
+    - Display User addresses
+    - Addnewaddress
+    - Select address for shipping
+  - PromoCode
+    - Check availability of the precence of discount code
+    - Apply promo code on the order
+    - Show orders to confirm payment
+    - Gotopayprocess
+  - Pay
+    - Check the availability of the total amount in pocket
+    - Choose payment methods (Cash on delivery, Apple Pay, PayPal)
+    - Pay and Sending order information mail
+      
+### Nexus Admin 
+- Home
+  - Can display brands
+  - Display Brand products
+  - Display, Add, delete or edit products
+  - Edit product Details include for example: size, color, quantity, name, images, details
+  - Display, Add, delete or edit inventory items
+  - Add products to specific Brand
+- PromoCode
+  - Display, Add, delete Promo code
+
+
 
 
 <!-- ____________________________________________________________________________ -->
